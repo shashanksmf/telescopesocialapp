@@ -1,0 +1,857 @@
+/* line 2, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_spinner.scss */
+.spinner {
+  height: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+  /* line 6, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_spinner.scss */
+  .spinner div {
+    width: 10px;
+    height: 10px;
+    background-color: rgba(0, 0, 0, 0.35);
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    margin-right: 5px; }
+    /* line 16, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_spinner.scss */
+    .spinner div:last-child {
+      margin-right: 0; }
+  /* line 20, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_spinner.scss */
+  .spinner.white div {
+    background-color: rgba(255, 255, 255, 0.55); }
+  /* line 23, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_spinner.scss */
+  .spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s; }
+  /* line 28, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_spinner.scss */
+  .spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s; }
+
+@-webkit-keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1); } }
+
+@keyframes sk-bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1); } }
+
+/* line 1, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_global.scss */
+body {
+  font-family: "Source Sans Pro", "Helvetica Neue", "Helvetica", sans-serif; }
+
+/* line 5, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_global.scss */
+.main, .footer, .header {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 10px;
+  max-width: 1200px; }
+
+/* line 12, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_global.scss */
+.main {
+  margin-bottom: 15px; }
+
+/* line 16, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_global.scss */
+a {
+  cursor: pointer; }
+
+/* line 20, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_global.scss */
+.page-title {
+  margin-bottom: 30px; }
+
+/* line 3, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_accounts.scss */
+.accounts-ui .buttons a {
+  display: block;
+  text-align: center;
+  margin-bottom: 15px; }
+
+/* line 9, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_accounts.scss */
+.accounts-ui .password-or-service {
+  text-align: center;
+  margin-bottom: 15px; }
+
+/* line 13, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_accounts.scss */
+.accounts-ui .social-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+  /* line 16, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_accounts.scss */
+  .accounts-ui .social-buttons button {
+    margin-right: 10px;
+    width: 100%; }
+    /* line 19, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_accounts.scss */
+    .accounts-ui .social-buttons button.btn-twitter {
+      background: #55acee;
+      border-color: #55acee; }
+    /* line 23, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_accounts.scss */
+    .accounts-ui .social-buttons button.btn-facebook {
+      background: #3b5998;
+      border-color: #3b5998; }
+    /* line 27, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_accounts.scss */
+    .accounts-ui .social-buttons button:last-child {
+      margin-right: 0; }
+
+/* line 34, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_accounts.scss */
+.password-reset-form {
+  text-align: center; }
+
+/* line 1, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_categories.scss */
+.category-menu-item {
+  position: relative; }
+  /* line 3, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_categories.scss */
+  .category-menu-item .categories-delete-link, .category-menu-item .edit-category-link {
+    position: absolute;
+    top: 4px;
+    right: 5px; }
+
+/* line 2, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_cheatsheet.scss */
+.cheatsheet h1 {
+  margin-bottom: 20px; }
+
+/* line 5, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_cheatsheet.scss */
+.cheatsheet-wrapper {
+  display: flex; }
+
+/* line 8, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_cheatsheet.scss */
+.cheatsheet-block {
+  flex: 1;
+  margin-right: 20px; }
+
+/* line 12, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_cheatsheet.scss */
+.cheatsheet-block:last-of-type {
+  margin-right: 0; }
+
+/* line 16, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_cheatsheet.scss */
+.cheatsheet ul {
+  list-style-type: none;
+  margin-bottom: 20px;
+  padding-left: 0px; }
+
+/* line 21, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_cheatsheet.scss */
+.cheatsheet ul li {
+  margin-bottom: 10px; }
+
+/* line 24, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_cheatsheet.scss */
+.cheatsheet h2 {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd; }
+
+/* line 29, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_cheatsheet.scss */
+.cheatsheet h3 {
+  margin-bottom: 10px;
+  font-weight: bold; }
+
+/* line 33, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_cheatsheet.scss */
+.cheatsheet code {
+  font-size: 13px; }
+
+/* line 1, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+.posts-comments-thread {
+  border-top: 1px solid #ddd;
+  margin-top: 15px;
+  padding-top: 15px; }
+
+/* line 7, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+.posts-comments-thread-title {
+  margin-bottom: 15px; }
+
+/* line 11, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+.comments-list {
+  margin-bottom: 15px; }
+
+/* line 15, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+.comments-node .comments-node, .comments-item-reply {
+  border-left: 10px #f3f3f3 solid;
+  padding-left: 10px; }
+
+/* line 20, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+.comments-item {
+  margin-bottom: 15px; }
+
+/* line 24, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+.comments-item-body {
+  border-radius: .25rem;
+  border: 1px solid #ddd;
+  padding: 10px 15px; }
+
+/* line 31, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+.comments-item-meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px; }
+  /* line 34, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+  .comments-item-meta .users-avatar {
+    margin-right: 5px; }
+  /* line 37, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+  .comments-item-meta .users-name {
+    margin-right: 10px; }
+  /* line 40, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+  .comments-item-meta .comments-item-date {
+    margin-right: 10px;
+    color: #888;
+    font-size: 0.9rem; }
+  /* line 45, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+  .comments-item-meta .comment-edit, .comments-item-meta .comment-delete {
+    font-size: 0.9rem; }
+  /* line 48, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+  .comments-item-meta .comment-delete {
+    margin-left: 8px; }
+
+/* line 57, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+.comments-edit-form .input-body, .comments-new-form .input-body {
+  margin-bottom: 10px; }
+
+/* line 60, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+.comments-edit-form .form-cancel, .comments-new-form .form-cancel {
+  display: inline-block;
+  margin-left: 10px; }
+
+/* line 66, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+.comments-item-reply {
+  margin-top: 15px; }
+
+/* line 70, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+.comment-actions {
+  display: flex;
+  align-items: center; }
+  /* line 72, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+  .comment-actions button {
+    margin-right: 10px; }
+  /* line 75, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_comments.scss */
+  .comment-actions a {
+    display: block; }
+
+/* line 1, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_header.scss */
+.header-wrapper {
+  background: #DAEDFF;
+  margin-bottom: 15px; }
+
+/* line 6, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_header.scss */
+.header {
+  padding-top: 15px;
+  padding-bottom: 15px; }
+  @media screen and (min-width: 600px) {
+    /* line 6, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_header.scss */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; } }
+
+@media screen and (max-width: 600px) {
+  /* line 15, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_header.scss */
+  .logo {
+    text-align: center; } }
+
+@media screen and (min-width: 600px) {
+  /* line 15, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_header.scss */
+  .logo {
+    display: flex;
+    align-items: baseline; }
+    /* line 22, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_header.scss */
+    .logo .logo-text {
+      margin-right: 10px; }
+    /* line 25, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_header.scss */
+    .logo .logo-image {
+      margin-right: 10px; } }
+
+/* line 29, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_header.scss */
+.logo .tagline {
+  font-size: 1.35rem; }
+
+/* line 34, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_header.scss */
+.nav {
+  display: flex;
+  align-items: center; }
+  @media screen and (max-width: 600px) {
+    /* line 34, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_header.scss */
+    .nav {
+      border-top: 1px solid #bbb;
+      margin-top: 15px;
+      padding-top: 15px;
+      justify-content: space-between; } }
+  @media screen and (min-width: 600px) {
+    /* line 43, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_header.scss */
+    .nav .nav-user {
+      margin-right: 10px; } }
+
+/* line 55, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_header.scss */
+.users-account-menu .dropdown-toggle, .users-menu .dropdown-toggle {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background: none; }
+  /* line 59, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_header.scss */
+  .users-account-menu .dropdown-toggle img, .users-menu .dropdown-toggle img {
+    margin-right: 5px; }
+
+/* line 65, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_header.scss */
+.accounts-ui {
+  padding: 15px;
+  min-width: 240px; }
+  /* line 69, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_header.scss */
+  .accounts-ui .buttons .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 15px; }
+    /* line 74, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_header.scss */
+    .accounts-ui .buttons .btn:last-child {
+      margin-bottom: 0; }
+
+/* line 1, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_newsletter.scss */
+.newsletter {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  position: relative;
+  padding: 15px 10px;
+  margin-bottom: 15px; }
+  @media screen and (min-width: 600px) {
+    /* line 1, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_newsletter.scss */
+    .newsletter {
+      display: flex;
+      align-items: center;
+      justify-content: center; } }
+  /* line 12, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_newsletter.scss */
+  .newsletter .newsletter-tagline {
+    font-size: 1.35rem; }
+    @media screen and (max-width: 600px) {
+      /* line 12, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_newsletter.scss */
+      .newsletter .newsletter-tagline {
+        text-align: center;
+        margin-bottom: 15px; } }
+    @media screen and (min-width: 600px) {
+      /* line 12, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_newsletter.scss */
+      .newsletter .newsletter-tagline {
+        margin: 0 10px 0 0; } }
+  /* line 25, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_newsletter.scss */
+  .newsletter .newsletter-form {
+    display: flex;
+    align-items: center; }
+    /* line 27, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_newsletter.scss */
+    .newsletter .newsletter-form .form-control {
+      margin: 0 5px 0 0; }
+  /* line 31, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_newsletter.scss */
+  .newsletter .newsletter-close {
+    position: absolute;
+    top: 5px;
+    right: 5px; }
+
+/* line 1, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_other.scss */
+.footer {
+  text-align: center;
+  margin-bottom: 15px; }
+
+/* line 7, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_other.scss */
+.search-form .form-group {
+  margin-bottom: 0; }
+
+/* line 12, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_other.scss */
+.modal-form-title {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  line-height: 1; }
+
+/* line 20, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_other.scss */
+.input-categories .col-sm-9 {
+  display: flex;
+  flex-wrap: wrap; }
+  /* line 23, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_other.scss */
+  .input-categories .col-sm-9 .checkbox {
+    width: 50%; }
+
+/* line 29, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_other.scss */
+.private {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  color: #E04E4B; }
+
+/* line 36, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_other.scss */
+.dropdown-item.active a {
+  color: #fff; }
+
+/* line 1, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_forms.scss */
+select.form-control {
+  height: 38px; }
+
+/* Example Styles for React Tags*/
+/* line 7, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_forms.scss */
+div.ReactTags__tags {
+  position: relative; }
+
+/* Styles for the input */
+/* line 12, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_forms.scss */
+div.ReactTags__tagInput {
+  width: 200px;
+  border-radius: 2px;
+  display: inline-block; }
+
+/* line 18, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_forms.scss */
+div.ReactTags__tagInput input,
+div.ReactTags__tagInput input:focus {
+  display: block;
+  width: 100%;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #55595c;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: .25rem; }
+
+/* Styles for selected tags */
+/* line 38, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_forms.scss */
+div.ReactTags__selected {
+  float: left;
+  display: flex;
+  align-items: center;
+  margin-left: -5px; }
+
+/* line 44, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_forms.scss */
+div.ReactTags__selected span.ReactTags__tag {
+  border: 1px solid #ddd;
+  background: #eee;
+  font-size: 12px;
+  display: inline-block;
+  padding: 5px;
+  margin: 0 5px;
+  border-radius: 2px; }
+
+/* line 54, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_forms.scss */
+div.ReactTags__selected a.ReactTags__remove {
+  color: #aaa;
+  margin-left: 5px;
+  cursor: pointer; }
+
+/* Styles for suggestions */
+/* line 61, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_forms.scss */
+div.ReactTags__suggestions {
+  position: absolute;
+  z-index: 10; }
+
+/* line 65, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_forms.scss */
+div.ReactTags__suggestions ul {
+  list-style-type: none;
+  box-shadow: 0.05em 0.01em 0.5em rgba(0, 0, 0, 0.2);
+  background: white;
+  width: 200px;
+  padding: 0; }
+
+/* line 72, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_forms.scss */
+div.ReactTags__suggestions li {
+  border-bottom: 1px solid #ddd;
+  padding: 5px 10px;
+  margin: 0; }
+
+/* line 77, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_forms.scss */
+div.ReactTags__suggestions li mark {
+  text-decoration: underline;
+  background: none;
+  font-weight: 600; }
+
+/* line 82, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_forms.scss */
+div.ReactTags__suggestions ul li.active {
+  background: #b7cfe0;
+  cursor: pointer; }
+
+/* line 87, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_forms.scss */
+div.ReactTags__suggestions mark {
+  padding: 0; }
+
+/* line 92, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_forms.scss */
+.form-section .form-section-heading {
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  font-weight: bold; }
+
+/* line 101, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_forms.scss */
+.control-label strong {
+  font-weight: normal; }
+
+/* line 6, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-list-header {
+  margin-bottom: 15px; }
+  @media screen and (min-width: 600px) {
+    /* line 6, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+    .posts-list-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between; } }
+
+@media screen and (max-width: 600px) {
+  /* line 14, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .posts-list-header-categories {
+    margin: 0 auto;
+    margin-bottom: 15px;
+    text-align: center; }
+    /* line 19, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+    .posts-list-header-categories .btn-group {
+      margin-right: 0;
+      width: 100%; }
+    /* line 23, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+    .posts-list-header-categories .dropdown-toggle {
+      width: 100%; } }
+
+@media screen and (max-width: 600px) {
+  /* line 29, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .posts-views {
+    margin-bottom: 15px; }
+    /* line 32, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+    .posts-views .btn-group {
+      margin-right: 0;
+      width: 100%; }
+    /* line 36, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+    .posts-views .dropdown-toggle {
+      width: 100%; } }
+
+/* line 40, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-views a.btn {
+  border: 1px solid #ddd; }
+  /* line 13, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_variables.scss */
+  .posts-views a.btn.posts-view-inactive:hover {
+    background: #0275d8;
+    color: #fff;
+    border-color: #0275d8;
+    text-decoration: none; }
+  /* line 48, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .posts-views a.btn.posts-view-active {
+    background: #DAEDFF; }
+
+/* line 52, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-views .btn-group {
+  margin-right: 10px; }
+
+/* line 57, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-list-content {
+  border-top: 1px solid #ddd;
+  margin-bottom: 15px; }
+
+/* line 64, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-load-more, .comments-load-more {
+  display: block;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: .25rem;
+  font-size: 1.25rem;
+  padding: 10px 20px;
+  width: 100%;
+  background: #fff;
+  color: #0275d8; }
+  /* line 13, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_variables.scss */
+  .posts-load-more:hover, .comments-load-more:hover {
+    background: #0275d8;
+    color: #fff;
+    border-color: #0275d8;
+    text-decoration: none; }
+
+/* line 77, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-load-more-loading {
+  padding: 21px 0; }
+
+/* line 85, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-item {
+  border-bottom: 1px solid #ddd;
+  padding: 15px 5px; }
+  @media screen and (min-width: 600px) {
+    /* line 85, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+    .posts-item {
+      display: flex;
+      align-items: center; } }
+  /* line 92, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .posts-item.posts-sticky {
+    background: #FFFBDB; }
+
+@media screen and (max-width: 600px) {
+  /* line 98, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .posts-item-vote {
+    float: right; } }
+
+@media screen and (min-width: 600px) {
+  /* line 98, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .posts-item-vote {
+    margin-right: 10px; } }
+
+/* line 107, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.upvote-button {
+  border: 1px solid #ddd;
+  border-radius: .25rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  padding: 3px 5px; }
+  /* line 114, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .upvote-button .icon {
+    text-align: center;
+    display: block; }
+  /* line 118, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .upvote-button .vote-count {
+    text-align: center;
+    display: block; }
+  /* line 122, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .voted .upvote-button {
+    color: #bbb; }
+  /* line 13, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_variables.scss */
+  .upvote-button:hover {
+    background: #0275d8;
+    color: #fff;
+    border-color: #0275d8;
+    text-decoration: none; }
+  /* line 126, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .upvote-button, .upvote-button:active, .upvote-button:hover {
+    text-decoration: none; }
+
+/* line 131, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-item-content {
+  flex-grow: 1; }
+
+@media screen and (max-width: 600px) {
+  /* line 135, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .posts-item-title {
+    margin-right: 40px;
+    font-size: 1.25rem;
+    margin-bottom: 7.5px; } }
+
+@media screen and (min-width: 600px) {
+  /* line 135, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .posts-item-title {
+    display: flex;
+    align-items: center;
+    font-size: 1.35rem;
+    margin-bottom: 5px; } }
+
+/* line 146, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-item-title .posts-item-title-link {
+  color: #333; }
+  @media screen and (max-width: 600px) {
+    /* line 146, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+    .posts-item-title .posts-item-title-link {
+      display: block;
+      margin-bottom: 7.5px; } }
+  /* line 152, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .posts-item-title .posts-item-title-link, .posts-item-title .posts-item-title-link:active, .posts-item-title .posts-item-title-link:hover {
+    text-decoration: none; }
+
+/* line 158, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-categories {
+  flex-wrap: wrap;
+  display: flex;
+  align-items: center; }
+  @media screen and (min-width: 600px) {
+    /* line 158, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+    .posts-categories {
+      margin-left: 5px; } }
+  /* line 164, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .posts-categories a {
+    display: block;
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+    border-radius: .25rem;
+    margin-right: 5px;
+    padding: 2px 6px; }
+    /* line 13, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_variables.scss */
+    .posts-categories a:hover {
+      background: #0275d8;
+      color: #fff;
+      border-color: #0275d8;
+      text-decoration: none; }
+
+/* line 175, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-item-meta {
+  font-size: 0.9rem; }
+  @media screen and (min-width: 600px) {
+    /* line 175, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+    .posts-item-meta {
+      display: flex;
+      align-items: center; } }
+  /* line 180, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .posts-item-meta .users-avatar {
+    margin-right: 5px; }
+  /* line 183, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .posts-item-meta .users-name, .posts-item-meta .posts-item-date, .posts-item-meta .posts-item-comments, .posts-item-meta .posts-stats, .posts-item-meta .post-actions {
+    margin-right: 10px; }
+
+/* line 188, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-item-user {
+  display: flex;
+  align-items: center; }
+  @media screen and (max-width: 600px) {
+    /* line 188, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+    .posts-item-user {
+      margin-bottom: 7.5px; } }
+
+/* line 195, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-item-date, .posts-item-comments {
+  color: #888; }
+  @media screen and (max-width: 600px) {
+    /* line 195, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+    .posts-item-date, .posts-item-comments {
+      margin-bottom: 7.5px; } }
+
+/* line 202, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-stats {
+  border: 1px solid #ddd;
+  border-radius: .25rem;
+  font-size: 0.8rem; }
+  @media screen and (max-width: 600px) {
+    /* line 202, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+    .posts-stats {
+      margin-bottom: 7.5px;
+      display: inline-block; } }
+  /* line 210, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .posts-stats .posts-stats-item {
+    border-right: 1px solid #ddd;
+    padding: 2px 5px;
+    display: inline-block; }
+    /* line 214, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+    .posts-stats .posts-stats-item:last-child {
+      border: none; }
+
+/* line 220, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.post-actions {
+  display: flex;
+  align-items: center; }
+
+/* line 224, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-commenters {
+  display: flex;
+  align-items: center; }
+  @media screen and (max-width: 600px) {
+    /* line 224, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+    .posts-commenters {
+      display: none; } }
+
+/* line 231, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-commenters-avatars {
+  display: flex; }
+  /* line 233, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .posts-commenters-avatars .users-avatar {
+    margin-right: 10px; }
+
+/* line 238, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-thumbnail {
+  display: block;
+  margin-right: 10px; }
+  @media screen and (max-width: 600px) {
+    /* line 238, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+    .posts-thumbnail {
+      float: left; } }
+  /* line 244, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .posts-thumbnail img {
+    display: block;
+    height: 50px;
+    width: auto; }
+
+/* line 256, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-page .posts-item {
+  border-radius: .25rem;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 15px; }
+
+/* line 264, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-page-body {
+  font-size: 1.25rem;
+  margin-bottom: 10px; }
+
+/* line 273, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-day {
+  margin-bottom: 30px; }
+  /* line 275, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .posts-day .posts-load-more {
+    border: none;
+    padding: 0; }
+    /* line 278, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+    .posts-day .posts-load-more:hover {
+      background: inherit;
+      color: inherit;
+      border: inherit; }
+  /* line 284, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+  .posts-day .posts-no-results {
+    margin-top: 15px; }
+
+/* line 289, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-edit-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; }
+
+/* line 294, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
+.posts-edit-form-admin {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 30px; }
+
+/* line 2, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_users.scss */
+.accounts-ui .field {
+  margin-bottom: 7.5px; }
+
+/* line 7, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_users.scss */
+.avatar-initials {
+  background: #ddd;
+  color: #888;
+  text-align: center;
+  border-radius: 100%;
+  text-decoration: none;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  /* line 17, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_users.scss */
+  .avatar-initials span {
+    display: block;
+    line-height: 1; }
+
+/* line 23, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_users.scss */
+.users-newsletter-settings {
+  display: flex;
+  align-items: center;
+  margin-top: 15px; }
+
+/* line 29, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_users.scss */
+.log-in-message h3 {
+  text-align: center; }
+
+/* line 20, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/main.scss */
+.new-post-button {
+  margin-bottom: 15px; }
+
+/* line 24, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/main.scss */
+code {
+  font-family: monospace;
+  background: #fafafa;
+  border: 1px solid #ddd;
+  padding: 3px 6px; }
+
+/* line 31, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/main.scss */
+.avatar {
+  height: 24px;
+  width: 24px;
+  display: inline-block; }
+
+/* line 37, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/main.scss */
+.sr-only {
+  display: none; }
+
+/* line 41, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/main.scss */
+.upvoted .upvote {
+  opacity: 0.3; }
+
+/* line 45, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/main.scss */
+.posts-day h2 {
+  font-weight: bold; }
+
+/*# sourceMappingURL=main.css.map */

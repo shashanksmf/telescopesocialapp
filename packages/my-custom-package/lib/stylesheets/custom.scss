@@ -1,0 +1,145 @@
+.post-red{
+  background-color: #FFD3D2;
+}
+.post-blue{
+  background-color: #D2F5FF;
+}
+.post-yellow{
+  background-color: #FBFFD2;
+}
+.post-green{
+  background-color: #D2FFD2;
+}
+
+.makerHunter{
+      margin-top:10px;
+    .row{
+		border-top: 1px solid #f2f2f2;
+	    border-bottom: 1px solid #f2f2f2;
+		display: flex;
+		
+        .hunter{
+				flex: 0.1;
+				padding-top:10px;
+				padding-bottom:10px;	        
+			    font-weight: 600;
+				font-size: 12px;
+				color: #999;
+			    border-right: 1px solid #f2f2f2;	
+				padding-right: 10px;
+					
+				.noHunterText{
+					font-weight: 300;
+					font-size: 10px;
+				}
+        }
+        .maker{
+				flex:1;
+				padding-top:10px;
+				padding-bottom:10px;
+			.hunterHarcodeText{
+				font-weight: 600;
+				font-size: 12px;
+				color: #999;
+			}
+		    padding-left: 0;
+			margin-left: 20px;
+          
+		    .makerHarcodeText{
+				font-weight: 600;
+				font-size: 12px;
+				color: #999;
+				padding-left: 10px;	
+		  }
+		   .makerUserName{
+				font-size: 14px;
+				color: #000; 
+				font-weight: 700;	
+				font-family: proxima-nova,Proxima Nova,helvetica,arial,sans-serif;	
+			
+				.makerProfileLink{
+					color:black;	
+				}
+		  }
+		  .makerPic{
+			width: 50px;
+			margin-right:20px;
+			border-radius: 40px;
+		  }
+            
+        }
+    }
+}
+.CustomPostListWrapper{
+	width:70%;
+	.posts-list{
+		flex:1;
+	}
+}
+.CustomCategoriesContainer{
+	display: inline-block;
+    float: right;
+    width: 30%;
+    padding-left: 5%;
+	
+	.customCategoriesWrapper{
+		flex:0 20%;
+		display:flex;
+		justify-content: center;
+		align-items: baseline;
+		
+		.posts-categories a{
+			margin-top:10px;
+			}
+		.category-menu-item.dropdown-item{
+				white-space:normal;
+				&:hover{
+					background-color:white;
+				}
+		.CategoriesLinkWrapper{
+			&.active{
+				li{
+					a{
+						background-color:#0275D8;
+						text-decoration:none;
+						color:white;
+						i{
+							display:none;
+						}
+					}
+				}
+			}
+			display:inline-block;
+			li{
+				list-style:none;
+				display:inline-block;
+				margin-bottom: 10px;
+				margin-right: 10px;
+				
+				border-radius: 10px;
+					
+				a{
+				    background: #F6F2EF;
+					color: #AF9D95;
+					border: none;
+					display: inline-block;
+					border-radius: 10px;
+					margin-right: 5px;
+					padding: 2px 6px;
+					border: 1px solid #D9C8C1;
+					margin: 0;
+					
+					transition: color ease-out 300ms;
+					
+					&:hover{
+						background-color:#0275D8;
+						text-decoration:none;
+						color:white;
+					}
+				}
+			}
+		}	
+		
+		}
+	}
+}

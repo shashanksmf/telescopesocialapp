@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "customPostPage.css",
+  "sources": [
+    "customPostPage.scss"
+  ],
+  "sourcesContent": [],
+  "mappings": ";AAEI,YAAY,CAAC,IAAI,CAAb;EACA,OAAO,EAAE,IAAK,GADb;;EAED,YAAY,CAAC,IAAI,CAAC,OAAO,CAAlB;IACH,IAAI,EAAE,CAAE,GADJ;;EAGR,YAAY,CAAC,IAAI,CAAC,MAAM,CAAlB;IACF,IAAI,EAAC,CAAE;IACP,OAAO,EAAE,IAAK;IACd,WAAW,EAAE,MAAO,GAHjB",
+  "names": []
+}

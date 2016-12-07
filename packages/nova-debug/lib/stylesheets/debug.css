@@ -1,0 +1,11 @@
+/* line 1, G:/meteor/nova/Telescope-master/packages/nova-debug/lib/stylesheets/debug.scss */
+.test-email {
+  position: relative; }
+  /* line 3, G:/meteor/nova/Telescope-master/packages/nova-debug/lib/stylesheets/debug.scss */
+  .test-email .spinner {
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    height: 100%; }
+
+/*# sourceMappingURL=debug.css.map */

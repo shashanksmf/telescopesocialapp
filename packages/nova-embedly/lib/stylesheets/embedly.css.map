@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "embedly.css",
+  "sources": [
+    "embedly.scss"
+  ],
+  "sourcesContent": [],
+  "mappings": ";AAAA,kBAAkB,CAAA;EAChB,OAAO,EAAE,KAAM;EACf,aAAa,EAAE,GAAI;EACnB,MAAM,EAAE,cAAe,GAHN",
+  "names": []
+}

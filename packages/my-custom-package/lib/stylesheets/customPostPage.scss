@@ -1,0 +1,16 @@
+.makerHunter{
+    
+    .row{
+        display: flex;
+        .hunter{
+            flex: 0;
+        }
+        .maker{
+            flex:1;
+            display: flex;
+            align-items: center;
+            
+            
+        }
+    }
+}

@@ -1,0 +1,71 @@
+/* line 1, G:/meteor/nova/Telescope-master/packages/my-custom-package/lib/stylesheets/custom.scss */
+.post-red {
+  background-color: #FFD3D2; }
+
+/* line 4, G:/meteor/nova/Telescope-master/packages/my-custom-package/lib/stylesheets/custom.scss */
+.post-blue {
+  background-color: #D2F5FF; }
+
+/* line 7, G:/meteor/nova/Telescope-master/packages/my-custom-package/lib/stylesheets/custom.scss */
+.post-yellow {
+  background-color: #FBFFD2; }
+
+/* line 10, G:/meteor/nova/Telescope-master/packages/my-custom-package/lib/stylesheets/custom.scss */
+.post-green {
+  background-color: #D2FFD2; }
+
+/* line 14, G:/meteor/nova/Telescope-master/packages/my-custom-package/lib/stylesheets/custom.scss */
+.makerHunter {
+  margin-top: 10px; }
+  /* line 16, G:/meteor/nova/Telescope-master/packages/my-custom-package/lib/stylesheets/custom.scss */
+  .makerHunter .row {
+    border-top: 1px solid #f2f2f2;
+    border-bottom: 1px solid #f2f2f2;
+    display: flex; }
+    /* line 21, G:/meteor/nova/Telescope-master/packages/my-custom-package/lib/stylesheets/custom.scss */
+    .makerHunter .row .hunter {
+      flex: 0.1;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-weight: 600;
+      font-size: 12px;
+      color: #999;
+      border-right: 1px solid #f2f2f2;
+      padding-right: 10px; }
+      /* line 31, G:/meteor/nova/Telescope-master/packages/my-custom-package/lib/stylesheets/custom.scss */
+      .makerHunter .row .hunter .noHunterText {
+        font-weight: 300;
+        font-size: 10px; }
+    /* line 36, G:/meteor/nova/Telescope-master/packages/my-custom-package/lib/stylesheets/custom.scss */
+    .makerHunter .row .maker {
+      flex: 1;
+      padding-top: 10px;
+      padding-bottom: 10px;
+      padding-left: 0;
+      margin-left: 20px; }
+      /* line 40, G:/meteor/nova/Telescope-master/packages/my-custom-package/lib/stylesheets/custom.scss */
+      .makerHunter .row .maker .hunterHarcodeText {
+        font-weight: 600;
+        font-size: 12px;
+        color: #999; }
+      /* line 48, G:/meteor/nova/Telescope-master/packages/my-custom-package/lib/stylesheets/custom.scss */
+      .makerHunter .row .maker .makerHarcodeText {
+        font-weight: 600;
+        font-size: 12px;
+        color: #999; }
+      /* line 53, G:/meteor/nova/Telescope-master/packages/my-custom-package/lib/stylesheets/custom.scss */
+      .makerHunter .row .maker .makerUserName {
+        font-size: 14px;
+        color: #000;
+        font-weight: 700;
+        font-family: proxima-nova,Proxima Nova,helvetica,arial,sans-serif; }
+        /* line 59, G:/meteor/nova/Telescope-master/packages/my-custom-package/lib/stylesheets/custom.scss */
+        .makerHunter .row .maker .makerUserName .makerProfileLink {
+          color: black; }
+      /* line 63, G:/meteor/nova/Telescope-master/packages/my-custom-package/lib/stylesheets/custom.scss */
+      .makerHunter .row .maker .makerPic {
+        width: 50px;
+        margin-right: 20px;
+        border-radius: 40px; }
+
+/*# sourceMappingURL=custom.css.map */

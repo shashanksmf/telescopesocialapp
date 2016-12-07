@@ -1,0 +1,13 @@
+/* line 3, G:/meteor/nova/Telescope-master/packages/my-custom-package/lib/stylesheets/customPostPage.scss */
+.makerHunter .row {
+  display: flex; }
+  /* line 5, G:/meteor/nova/Telescope-master/packages/my-custom-package/lib/stylesheets/customPostPage.scss */
+  .makerHunter .row .hunter {
+    flex: 0; }
+  /* line 8, G:/meteor/nova/Telescope-master/packages/my-custom-package/lib/stylesheets/customPostPage.scss */
+  .makerHunter .row .maker {
+    flex: 1;
+    display: flex;
+    align-items: center; }
+
+/*# sourceMappingURL=customPostPage.css.map */

@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "debug.css",
+  "sources": [
+    "debug.scss"
+  ],
+  "sourcesContent": [],
+  "mappings": ";AAAA,WAAW,CAAA;EACT,QAAQ,EAAE,QAAS,GADT;;EAEV,WAAW,CAAC,QAAQ,CAAZ;IACN,QAAQ,EAAE,QAAS;IACnB,GAAG,EAAE,GAAI;IACT,KAAK,EAAE,IAAK;IACZ,MAAM,EAAE,IAAK,GAJN",
+  "names": []
+}
