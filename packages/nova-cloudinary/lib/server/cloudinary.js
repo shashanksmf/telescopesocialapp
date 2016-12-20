@@ -13,6 +13,7 @@ Cloudinary.config({
   secure: true,
 });
 
+console.log("Cloudinary",Cloudinary.config);
 const CloudinaryUtils = {
   
   // send an image URL to Cloudinary and get a cloudinary result object in return

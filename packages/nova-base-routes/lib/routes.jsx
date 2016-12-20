@@ -35,7 +35,7 @@ Telescope.routes.indexRoute = { name: "posts.daily", component: Telescope.compon
     indexRoute: Telescope.routes.indexRoute,
     childRoutes: Telescope.routes.routes
   }
-console.log("app routes",AppRoutes)
+//console.log("app routes",AppRoutes)
   let history;
 
   const clientOptions = {

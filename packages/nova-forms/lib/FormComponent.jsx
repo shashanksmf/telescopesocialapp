@@ -5,6 +5,8 @@ import FRC from 'formsy-react-components';
 import DateTime from './DateTime.jsx';
 
 import Utils from './utils.js';
+//my custom array import
+import CustomArray from "./customArray.jsx";
 
 const Checkbox = FRC.Checkbox;
 // const CheckboxGroup = FRC.CheckboxGroup;
@@ -28,7 +30,7 @@ class FormComponent extends Component {
   }
 
   renderComponent() {
-
+    console.log("control props",this.props);
     // see https://facebook.github.io/react/warnings/unknown-prop.html
     const { control, group, updateCurrentValue, document, ...rest } = this.props;
 
@@ -42,6 +44,7 @@ class FormComponent extends Component {
 
     // if control is a React component, use it
     if (typeof this.props.control === "function") {
+
 
       return <this.props.control {...properties} document={document} />
 
@@ -61,8 +64,10 @@ class FormComponent extends Component {
           return <RadioGroup    {...properties} />;
         case "select":
           return <Select        {...properties} />;
+        case "customArray":
+          return  <CustomArray   {...properties} />;
         case "datetime":
-          return <DateTime      {...properties} />;
+          return <DateTime      {...properties} myCustomProp={this.props} />;
         default: 
           return <Input         {...properties} type="text" />;
       }

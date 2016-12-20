@@ -6,7 +6,7 @@ import CustomPostsCategories from './CustomPostsCategories.jsx';
 
 const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount, loadMore, showHeader = true}) => {
 	
-	console.log("custom post list",this.props)
+	//console.log("custom post list",post)
 	var categoriesArr=[];
 	results.forEach(function(post){
 		if(post.categoriesArray !==undefined){

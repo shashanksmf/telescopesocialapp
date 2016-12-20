@@ -9,7 +9,7 @@ const canInsert = user => Users.canDo(user, "posts.new");
 const canEdit = Users.canEdit;
 
 Posts.addField(
-  {
+   {
     fieldName: 'categories',
     fieldSchema: {
       type: [String],
@@ -17,6 +17,7 @@ Posts.addField(
       optional: true,
       insertableIf: canInsert,
       editableIf: canEdit,
+	  
       form: {
         noselect: true,
         type: "bootstrap-category",
@@ -37,7 +38,8 @@ Posts.addField(
         collection: () => Categories
       }
     }
-  }
+  } 
+  
 );
 
 PublicationUtils.addToFields(Posts.publishedFields.list, ["categories"]);

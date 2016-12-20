@@ -12,7 +12,9 @@ Package.onUse( function(api) {
     'nova:core',
     'nova:base-components',
     'nova:posts',
-    'nova:users'
+    'nova:users',
+	'nova:forms-tags',
+  'nova:custom-autoform'
   ]);
 
   api.addFiles([

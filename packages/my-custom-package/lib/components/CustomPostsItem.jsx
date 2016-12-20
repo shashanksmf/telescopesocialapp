@@ -19,7 +19,7 @@ renderCategories() {
   render() {
 
     const post = this.props.post;
-	//console.log("post",post);
+	console.log("post :ss",post);
     let postClass = "posts-item"; 
     if (post.sticky) postClass += " posts-sticky";
 
@@ -32,12 +32,7 @@ renderCategories() {
 
     return (
       <div className={postClass}>
-        
-        <div className="posts-item-vote">
-          <Telescope.components.Vote post={post} />
-        </div>
-       
-        {post.thumbnailUrl ? <Telescope.components.PostsThumbnail post={post}/> : null}
+        {(post.thumbnailUrl || post.image) ? <Telescope.components.PostsThumbnail post={post}/> : null}
 
         <div className="posts-item-content">
           
@@ -57,11 +52,16 @@ renderCategories() {
                 <FormattedMessage id="comments.count" values={{count: post.commentCount}}/>
               </Link>
             </div>
+			<div className="posts-item-vote customVote">
+				<Telescope.components.Vote post={post} />
+			</div>
+			
+			
             {this.context.currentUser && this.context.currentUser.isAdmin ? <Telescope.components.PostsStats post={post} /> : null}
             {this.renderActions()}
           </div>
-
-        </div>
+				
+		</div>
 
         {this.renderCommenters()}
         

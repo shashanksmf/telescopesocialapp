@@ -7,7 +7,7 @@ Telescope.getVotePower = function (user) {
 };
 
 Telescope.operateOnItem = function (collection, itemId, user, operation) {
-
+	
   user = typeof user === "undefined" ? Meteor.user() : user;
 
   var item = collection.findOne(itemId);

@@ -9,6 +9,7 @@ class ThumbnailURL extends Component {
 
   constructor(props) {
     super(props);
+	//console.log("thumbnail url props",props)
     this.clearThumbnail = this.clearThumbnail.bind(this);
     this.showInput = this.showInput.bind(this);
     this.state = {

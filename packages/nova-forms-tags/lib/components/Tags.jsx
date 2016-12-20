@@ -12,7 +12,7 @@ class Tags extends Component {
     super(props);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAddition = this.handleAddition.bind(this);
-
+  //  console.log("tags props",props);
     const tags = props.value ? props.value.map(optionId => {
       return {
         id: optionId,

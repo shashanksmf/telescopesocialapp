@@ -5,6 +5,7 @@ import classNames from "classnames";
 //import { Messages, ModalTrigger } from 'meteor/nova:core';
 import { withRouter } from 'react-router'
 import Users from 'meteor/nova:users';
+import { Link } from 'react-router';
 import { LinkContainer } from 'react-router-bootstrap';
 
 class CustomPostsCategories extends Component {
@@ -45,11 +46,12 @@ class CustomPostsCategories extends Component {
 	})
     return (
       <div className="category-menu-item dropdown-item">
-	  {newArr.map(function(category){
+       <div className="clearLinkContainer"><Link to="/" className="btn btn-info">Clear Filter</Link></div>
+	  {newArr.map(function(category,arrid){
 		   const newQuery = _.clone(router.location.query);
 			newQuery.cat = category.slug;
 		  
-		  return (<div className={currentCategorySlug === category.slug ? "CategoriesLinkWrapper active": "CategoriesLinkWrapper"}>
+		  return (<div key={"arrId_"+arrid} className={currentCategorySlug === category.slug ? "CategoriesLinkWrapper active": "CategoriesLinkWrapper"}>
 		        <LinkContainer to={{pathname:"/list", query: newQuery}}>
 				   <MenuItem 
 					eventKey={index+1} 

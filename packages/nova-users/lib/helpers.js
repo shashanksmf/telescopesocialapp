@@ -192,6 +192,14 @@ Users.hasCompletedProfileById = function (userId) {return Users.hasCompletedProf
 Users.hasUpvoted = function (user, document) {
   return user && _.include(document.upvoters, user._id);
 };
+
+Users.isFavourite = function (user, document) {
+  return user && _.include(document.isFavourite, user._id);
+}; 
+
+
+Users.helpers({isFavourite: function (document) {return Users.isFavourite(this, document);}});
+
 Users.helpers({hasUpvoted: function (document) {return Users.hasUpvoted(this, document);}});
 
 /**

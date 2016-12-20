@@ -20,6 +20,8 @@ Telescope.registerComponent("Loading",              require('./common/Loading.js
 Telescope.registerComponent("Vote",                 require('./common/Vote.jsx'));
 Telescope.registerComponent("SettingsEditForm",     require('./common/SettingsEditForm.jsx'));
 
+//Telescope.registerComponent("Upload",   require('./../../../nova-forms-upload/lib/components/Upload.jsx'));
+
 // posts
 
 Telescope.registerComponent("PostsHome",            require('./posts/PostsHome.jsx'));

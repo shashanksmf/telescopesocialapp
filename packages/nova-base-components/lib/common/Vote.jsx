@@ -45,9 +45,9 @@ class Vote extends Component {
     );
 
     return (
-      <div className={actionsClass}>
-        <a className="upvote-button" onClick={this.upvote}>
-          <Telescope.components.Icon name="upvote" />
+      <div className={actionsClass} >
+        <a className={"upvote-button"} onClick={this.upvote}>
+		 <Telescope.components.Icon name="upvote" />
           <div className="sr-only">Upvote</div>
           <div className="vote-count">{post.baseScore || 0}</div>
         </a>
@@ -70,3 +70,4 @@ Vote.contextTypes = {
 
 module.exports = Vote;
 export default Vote;
+  /*  <Telescope.components.Icon name="upvote" /> */

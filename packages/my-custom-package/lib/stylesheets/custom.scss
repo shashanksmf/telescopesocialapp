@@ -74,6 +74,19 @@
 	width:70%;
 	.posts-list{
 		flex:1;
+		.posts-item{
+			padding-left:15px;
+			
+			.posts-item-content{
+				.posts-item-title{
+					.posts-categories{
+						flex: 1;
+						display: flex;
+						justify-content: flex-end;
+					}
+				}
+			}
+		}
 	}
 }
 .CustomCategoriesContainer{
@@ -88,6 +101,13 @@
 		justify-content: center;
 		align-items: baseline;
 		
+		.clearLinkContainer{
+			text-align:center;
+			margin-bottom:20px;
+			a{
+				background-color: #0275D8;
+			}
+		}
 		.posts-categories a{
 			margin-top:10px;
 			}
@@ -143,3 +163,33 @@
 		}
 	}
 }
+.customVote{
+	flex:1;
+	display:flex;
+	justify-content:flex-end;
+	
+	.upvote-button{
+		border:none;
+		flex-direction:row;
+		&:hover{
+			background:none;
+		}
+	}
+	.icon.fa.fa-fw.fa-heart{
+		color: red;
+	}
+}
+ 
+  .countryRelDateParentContainer{
+     
+
+	 .countryRelDateContainer{
+			 display: flex;
+		     justify-content: flex-end;
+	 	     margin: 10px 0;
+	 }   
+ }
+ .AdditionalInfoContainer{
+	text-align:center;
+	margin:15px 0;
+ }

@@ -35,11 +35,19 @@ class SearchForm extends Component{
 
     const router = this.props.router;
     const query = data.searchQuery === '' ? {} : {query: data.searchQuery};
+ // if(router.location.pathname == "/" || router.location.pathname == ""){
+    
+ //      delay(() => {
+ //      router.push({pathname: "/daily", query: query});
+ //    }, 700 );
 
+ //    }
+ //    else{
     delay(() => {
-      router.push({pathname: "/", query: query});
+      router.push({pathname: "/list", query: query});
     }, 700 );
-
+    
+//}
   }
 
   render() {

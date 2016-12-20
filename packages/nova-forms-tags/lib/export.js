@@ -1,3 +1,3 @@
-import Tags from "./components/Tags.jsx";
+import NovaTags from "./components/Tags.jsx";
 
-export default Tags;
+export default NovaTags;

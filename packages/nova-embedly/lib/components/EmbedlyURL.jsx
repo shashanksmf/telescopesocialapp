@@ -19,7 +19,7 @@ class EmbedlyURL extends Component {
     this.setState({loading: true});
 
     const url = this.input.getValue();
-
+//consol.log("url ::",url)
     if (url.length) {
 
       // the URL has changed, get a new thumbnail
