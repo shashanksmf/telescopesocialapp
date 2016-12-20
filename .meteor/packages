@@ -19,6 +19,10 @@ nova:embedly
 nova:api
 nova:email
 nova:rss
+
+xavcz:nova-forms-upload
+
+#nova:favourite
 # nova:subscribe
 # nova:cloudinary
 
@@ -41,4 +45,7 @@ nova:debug
 
 ############ Your Packages ############
 
- my-custom-package
+my-custom-package
+
+nova:forms-tags
+nova:custom-autoform
