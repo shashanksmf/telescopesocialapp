@@ -8,7 +8,7 @@ class CustomArray extends Component {
   // when the datetime picker mounts, NovaForm will catch the date value (no formsy mixin in this component)
   componentWillMount() {
     
-  console.log("custom array ", this.props)
+  //console.log("custom array ", this.props)
   var propsArr = [];
   if(this.props.value.constructor === Array){
       
@@ -28,14 +28,14 @@ class CustomArray extends Component {
 
   changeInputValue(event,inputIndex){
    
-      console.log("inputIndex  :  ",event,inputIndex);
+  //    console.log("inputIndex  :  ",event,inputIndex);
       this.state.inputvalue[inputIndex].country = event.target.value;
       this.setState({inputvalue:this.state.inputvalue});
       this.context.addToAutofilledValues({[this.state.name]: this.state.inputvalue});
       // this.setValue(this.state.inputvalue);
   }
    changePriceValue(inputIndex,event){
-    console.log("inputIndex : ",event,inputIndex)
+  //  console.log("inputIndex : ",event,inputIndex)
     this.state.inputvalue[inputIndex].price = event.target.value;
     this.context.addToAutofilledValues({[this.state.name]: this.state.inputvalue});
     this.setState({inputvalue:this.state.inputvalue});
@@ -44,7 +44,7 @@ class CustomArray extends Component {
   }
 
 onChangeDate(inputIndex,event){
-     console.log("inputIndex",event,inputIndex)
+   //  console.log("inputIndex",event,inputIndex)
     this.state.inputvalue[inputIndex].reldate = event._d;
     this.context.addToAutofilledValues({[this.state.name]: this.state.inputvalue});
     this.setState({inputvalue:this.state.inputvalue});

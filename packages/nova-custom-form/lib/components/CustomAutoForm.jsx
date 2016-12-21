@@ -10,7 +10,7 @@ class CustomAutoForm extends Component {
 
   constructor(props) {
     super(props);
-  console.log("post auto form",Posts,props);
+ // console.log("post auto form",Posts,props);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAddition = this.handleAddition.bind(this);
     this.state={inputText:props.value.length==0?'noval':props.value};
@@ -57,7 +57,7 @@ class CustomAutoForm extends Component {
 
   }
   onChageForm(event){
-    console.log("event",event)
+  //  console.log("event",event)
     this.state.inputText = event.target.value;
     this.setState({inputText:this.state.inputText})
 

@@ -20,18 +20,15 @@ const RelDateCountry = new Mongo.Collection("RelDateCountry");
  RelDateCountry.schema = new SimpleSchema({
   country:{
   type: String,
-    optional: true,
-    publish: true
+   optional: true
   },
    price:{
   type: String,
-    optional: true,
-    publish: true
+  optional: true
   },
    reldate:{
   type: Date,
-    optional: true,
-    publish: true
+  optional: true
   }
 });
 RelDateCountry.attachSchema(RelDateCountry.schema);
@@ -141,13 +138,6 @@ Posts.addField(
       editableIf: canEdit,
       publish:true,
        defaultValue: false,
-       form:{
-        options:function(){
-
-        }
-       }
-       
-     
     }
   }
   

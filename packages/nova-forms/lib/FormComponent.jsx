@@ -30,7 +30,7 @@ class FormComponent extends Component {
   }
 
   renderComponent() {
-    console.log("control props",this.props);
+  //  console.log("control props",this.props);
     // see https://facebook.github.io/react/warnings/unknown-prop.html
     const { control, group, updateCurrentValue, document, ...rest } = this.props;
 

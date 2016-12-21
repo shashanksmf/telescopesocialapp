@@ -25,7 +25,7 @@ class NovaForm extends Component{
 
   constructor(props) {
     super(props);
-    console.log("constructor",props);
+//    console.log("constructor",props);
     this.submitForm = this.submitForm.bind(this);
     this.updateState = this.updateState.bind(this);
     this.methodCallback = this.methodCallback.bind(this);
@@ -323,7 +323,7 @@ class NovaForm extends Component{
 
   // submit form handler
   submitForm(data) {
-    console.log("data submit",data)
+ //   console.log("data submit",data)
     this.setState({disabled: true});
 
     // complete the data with values from custom components which are not being catched by Formsy mixin
