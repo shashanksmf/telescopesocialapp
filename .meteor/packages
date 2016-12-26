@@ -13,6 +13,8 @@ nova:search
 nova:notifications
 nova:getting-started
 nova:categories
+nova:countries
+
 nova:voting
 nova:forms
 nova:embedly
