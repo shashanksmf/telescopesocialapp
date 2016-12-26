@@ -30,6 +30,13 @@ class CustomArray extends Component {
    
   //    console.log("inputIndex  :  ",event,inputIndex);
       this.state.inputvalue[inputIndex].country = event.target.value;
+      if(this.state.inputvalue[inputIndex].price == undefined){
+        this.state.inputvalue[inputIndex].price = '';
+      }
+      if(this.state.inputvalue[inputIndex].reldate == undefined){
+        this.state.inputvalue[inputIndex].reldate = '';
+      }
+
       this.setState({inputvalue:this.state.inputvalue});
       this.context.addToAutofilledValues({[this.state.name]: this.state.inputvalue});
       // this.setValue(this.state.inputvalue);
@@ -37,6 +44,13 @@ class CustomArray extends Component {
    changePriceValue(inputIndex,event){
   //  console.log("inputIndex : ",event,inputIndex)
     this.state.inputvalue[inputIndex].price = event.target.value;
+     if(this.state.inputvalue[inputIndex].country == undefined){
+        this.state.inputvalue[inputIndex].country = '';
+      }
+      if(this.state.inputvalue[inputIndex].reldate == undefined){
+        this.state.inputvalue[inputIndex].reldate = '';
+      }
+
     this.context.addToAutofilledValues({[this.state.name]: this.state.inputvalue});
     this.setState({inputvalue:this.state.inputvalue});
   
@@ -48,8 +62,6 @@ onChangeDate(inputIndex,event){
     this.state.inputvalue[inputIndex].reldate = event._d;
     this.context.addToAutofilledValues({[this.state.name]: this.state.inputvalue});
     this.setState({inputvalue:this.state.inputvalue});
-    
-   
 }
 
 

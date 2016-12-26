@@ -4,7 +4,7 @@ import { ListContainer } from "meteor/utilities:react-list-container";
 import CustomPostsCategories from './CustomPostsCategories.jsx';
 //console.log("CustomPostsCategories",CustomPostsCategories)
 
-const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount, loadMore, showHeader = true}) => {
+const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount, loadMore, showHeader = true,userCountry}) => {
 	
 	//console.log("custom post list",post)
 	var categoriesArr=[];
@@ -42,7 +42,7 @@ const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount
       <div className="posts-list">
         {showHeader ? <Telescope.components.PostsListHeader /> : null}
         <div className="posts-list-content">
-          {results.map(post => <Telescope.components.PostsItem post={post} key={post._id}/>)}
+          {results.map(post => <Telescope.components.PostsItem userCountry={userCountry} post={post} key={post._id}/>)}
         </div>
         {hasMore ? (ready ? <Telescope.components.PostsLoadMore loadMore={loadMore} count={count} totalCount={totalCount} /> : <Telescope.components.PostsLoading/>) : <Telescope.components.PostsNoMore/>}
 		

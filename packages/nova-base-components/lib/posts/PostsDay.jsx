@@ -7,7 +7,7 @@ import Posts from "meteor/nova:posts";
 class PostsDay extends Component {
 
   render() {
-
+  //  console.log("posts day called",this.props);
     const {date, number} = this.props;
 
     const terms = {
@@ -34,7 +34,7 @@ class PostsDay extends Component {
           terms={terms} 
           joins={Posts.getJoins()}
           component={Telescope.components.PostsList}
-          componentProps={{showHeader: false}}
+          componentProps={{showHeader: false,userCountry:this.props.userCountry}}
           listId={terms.listId}
           limit={postsPerPage}
         />

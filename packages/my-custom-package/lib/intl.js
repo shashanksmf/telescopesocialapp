@@ -6,6 +6,7 @@ import Telescope from 'meteor/nova:lib';
 
 Telescope.strings.en = {
   ...Telescope.strings.en, // get all the string translated
-  "posts.color": "Color"
+  "posts.color": "Color",
+  "posts.image": "Image"
   // add a new one (collection.field: "Label")
 };

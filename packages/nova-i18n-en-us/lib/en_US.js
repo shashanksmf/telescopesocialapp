@@ -147,6 +147,23 @@ Telescope.strings.en = {
   "newsletter.email": "Your email",
   "newsletter.success_message": "Thanks for subscribing!",
 
+  "countries": "Countries",
+  "countries.all": "All Countries",
+  "countries.edit": "Edit Country",
+  "countries.new": "New Country",
+  "countries.delete": "Delete Country",
+  "countries.name": "Name",
+  "countries.description": "Description",
+  "countries.order": "Order",
+  "countries.slug": "Slug",
+  "countries.image": "Image",
+  "countries.parentId": "Parent ID",
+  "countries.subscribe": "Subscribe to this country's posts",
+  "countries.unsubscribe": "Unsubscribe to this country's posts",
+  "countries.subscribed": "You have subscribed to “{name}” posts.",
+  "countries.unsubscribed": "You have unsubscribed from “{name}” posts.",
+  "countries.subscribed_categories" : "Countries subscribed to",
+
   "admin": "Admin",
   "notifications": "Notifications",
 };

@@ -53,55 +53,55 @@ Posts.addField(
  
 
 ,
-  {
-    fieldName: 'color',
-    fieldSchema: {
-      type: String,
-      control: "select", // use a select form control
-      optional: true, // this field is not required
-      insertableIf: canInsert,
-      editableIf: canEdit,
-      form: {
-        options: function () { // options for the select form control
-		//console.log("selected");
-	      return [
-            {value: "white", label: "White"},
-            {value: "yellow", label: "Yellow"},
-            {value: "blue", label: "Blue"},
-            {value: "red", label: "Red"},
-            {value: "green", label: "Green"}
-          ];
-        }
-      },
-      publish: true // make that field public and send it to the client
-    }
-  },
-     {
-	fieldName:"product",
-    fieldSchema: {
-      type: Boolean,
-      control: "checkbox", // use a select form control
-      optional: true, // this field is not required
-      insertableIf: canInsert,
-      editableIf: canEdit,
-    defaultValue: false,
-      publish: true	  // make that field public and send it to the client
+  // {
+  //   fieldName: 'color',
+  //   fieldSchema: {
+  //     type: String,
+  //     control: "select", // use a select form control
+  //     optional: true, // this field is not required
+  //     insertableIf: canInsert,
+  //     editableIf: canEdit,
+  //     form: {
+  //       options: function () { // options for the select form control
+		// //console.log("selected");
+	 //      return [
+  //           {value: "white", label: "White"},
+  //           {value: "yellow", label: "Yellow"},
+  //           {value: "blue", label: "Blue"},
+  //           {value: "red", label: "Red"},
+  //           {value: "green", label: "Green"}
+  //         ];
+  //       }
+  //     },
+  //     publish: true // make that field public and send it to the client
+  //   }
+  // },
+ //     {
+	// fieldName:"product",
+ //    fieldSchema: {
+ //      type: Boolean,
+ //      control: "checkbox", // use a select form control
+ //      optional: true, // this field is not required
+ //      insertableIf: canInsert,
+ //      editableIf: canEdit,
+ //    defaultValue: false,
+ //      publish: true	  // make that field public and send it to the client
 	
-	} 
-  },
-  {
-	fieldName:"release_Date",
-    fieldSchema: {
-      type: Date,
-      control: "datetime", // use a select form control
-      optional: true, // this field is not required
-      insertableIf: canInsert,
-      editableIf: canEdit,
-	  defaultValue: false,
-      publish: true, // make that field public and send it to the client
+	// } 
+ //  },
+ //  {
+	// fieldName:"release_Date",
+ //    fieldSchema: {
+ //      type: Date,
+ //      control: "datetime", // use a select form control
+ //      optional: true, // this field is not required
+ //      insertableIf: canInsert,
+ //      editableIf: canEdit,
+	//   defaultValue: false,
+ //      publish: true, // make that field public and send it to the client
 
-	} 
-  },
+	// } 
+  //},
     {
     fieldName: 'categories',
     fieldSchema: {

@@ -2,7 +2,23 @@ import Telescope from 'meteor/nova:lib';
 import React, { PropTypes, Component } from 'react';
 import { FlashContainer } from "meteor/nova:core";
 import CustomPostsCategories from './CustomPostsCategories.jsx';
-class CustomLayout extends Telescope.components.Layout {
+//import CustomCountryList from './CustomCountryList.jsx';
+
+class CustomLayout extends Component {
+//   constructor(){
+//       super();
+//       this.state = {countrySelected:''};
+//   }
+
+    
+//   handleCountry(country){
+//     console.log("country sle",country,this);
+//     this.state.countrySelected = country;
+//     this.setState({countrySelected:this.state.countrySelected});
+//   }
+//   componentDidMount() {
+//      this.setState({countrySelected:this.state.countrySelected});
+// }
 
   render() {
 
@@ -20,13 +36,14 @@ class CustomLayout extends Telescope.components.Layout {
           <FlashContainer component={Telescope.components.FlashMessages}/>
 			
           <Telescope.components.Newsletter {...this.props}/>
-			
 		<div className="CustomCategoriesContainer">
 			<div className="customCategoriesWrapper">
 					<CustomPostsCategories/>
 			</div>
         </div>
-		{this.props.children}
+         {this.props.children}
+
+	
         </div>
       
         <Telescope.components.Footer {...this.props}/>
@@ -40,7 +57,13 @@ class CustomLayout extends Telescope.components.Layout {
 
 
 export default CustomLayout;
-/* 
+/* <!-- {this.props.children} -->
 <div className="customLayoutCategoriesBlock">
 				<Telescope.components.Categories  />
-			</div>	 */
+
+			</div>	
+               {React.cloneElement(this.props.children, { userCountry: this.state.countrySelected })}
+ 
+ <CustomCountryList selectCountry={this.handleCountry.bind(this)}/>
+    
+      */

@@ -9,17 +9,66 @@ import Posts from "meteor/nova:posts";
 import Categories from "meteor/nova:categories";
 //console.log("Telescope",Telescope);
 class CustomPostsItem extends Telescope.components.PostsItem {
-renderCategories() {
+  componentWillReceiveProps(props){
+  }
+  
+  renderCategories() {
     return this.props.post.categoriesArray ? <Telescope.components.PostsCategories post={this.props.post} /> : "";
   }
 
   renderCommenters() {
     return this.props.post.commentersArray ? <Telescope.components.PostsCommenters post={this.props.post}/> : "";
   }
+  
   render() {
+    var itemPriceCountry = {};
+    if (typeof window === 'object') {
+      var countryName = (this.props.userCountry != undefined && this.props.userCountry.length >0) ? this.props.userCountry : (window == undefined ? '':window.localStorage.getItem("userCountry"));    
+    } 
 
+    else {
+           var countryName = (this.props.userCountry != undefined && this.props.userCountry.length >0) ? this.props.userCountry : '';    
+     }
+    
     const post = this.props.post;
-	console.log("post :ss",post);
+  	console.log("post :ss",this.props,"countryName : ",countryName);
+    if(this.props.post.hasOwnProperty("customArray11")){
+      if(this.props.post.customArray11.constructor === Array){
+        this.props.post.customArray11.forEach(function(items){
+          if(items){
+            if(items.hasOwnProperty("country")){
+
+              if(items.country.trim().toLowerCase() == countryName.trim().toLowerCase()){
+                itemPriceCountry.countryName = countryName; 
+              
+                if(items.hasOwnProperty("price")){
+                  itemPriceCountry.price =  items.price;  
+                }
+
+                if(items.hasOwnProperty("relDate")){
+                  itemPriceCountry.relDate = items.relDate == undefined ? '' : items.relDate; 
+                }
+              }
+              else{
+
+                //  itemPriceCountry.countryName = 'USA'; 
+              
+                // if(items.hasOwnProperty("price")){
+                //   itemPriceCountry.price =  items.price;  
+                // }
+
+                // if(items.hasOwnProperty("relDate")){
+                //   itemPriceCountry.relDate = items.relDate == undefined ? '' : items.relDate; 
+                // } 
+                 
+              }
+            }
+
+          }
+
+        })
+      }
+    }
     let postClass = "posts-item"; 
     if (post.sticky) postClass += " posts-sticky";
 
@@ -53,7 +102,8 @@ renderCategories() {
               </Link>
             </div>
 			<div className="posts-item-vote customVote">
-				<Telescope.components.Vote post={post} />
+      {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.countryName + ' ' + itemPriceCountry.price +' '+ itemPriceCountry.relDate==undefined ?'' : itemsPriceCountry.relDate):''}
+				<Telescope.components.Vote  post={post} />
 			</div>
 			
 			

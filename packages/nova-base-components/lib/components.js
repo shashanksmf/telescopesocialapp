@@ -79,3 +79,14 @@ Telescope.registerComponent("UsersMenu",            require('./users/UsersMenu.j
 Telescope.registerComponent("UsersAccountMenu",     require('./users/UsersAccountMenu.jsx'));
 Telescope.registerComponent("UsersAccountForm",     require('./users/UsersAccountForm.jsx'));
 Telescope.registerComponent("UsersResetPassword",   require('./users/UsersResetPassword.jsx'));
+
+
+//countries
+
+// country
+
+Telescope.registerComponent("CountriesList",       require('./countries/CountriesList.jsx'));
+Telescope.registerComponent("Country",             require('./countries/Country.jsx'));
+Telescope.registerComponent("CountriesEditForm",   require('./countries/CountriesEditForm.jsx'));
+Telescope.registerComponent("CountriesNewForm",    require('./countries/CountriesNewForm.jsx'));
+
