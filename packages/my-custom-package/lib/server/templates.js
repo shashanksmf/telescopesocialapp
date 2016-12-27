@@ -2,6 +2,8 @@
 Register email templates.
 */
 
+import './emails/config.js';
+
 import NovaEmail from 'meteor/nova:email';
 
 NovaEmail.addTemplates({
