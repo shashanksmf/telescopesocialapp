@@ -22,12 +22,13 @@ class CustomPostsItem extends Telescope.components.PostsItem {
   
   render() {
     var itemPriceCountry = {};
+    var countryName='';
     if (typeof window === 'object') {
-      var countryName = (this.props.userCountry != undefined && this.props.userCountry.length >0) ? this.props.userCountry : (window == undefined ? '':window.localStorage.getItem("userCountry"));    
+       countryName = (this.props.userCountry != undefined && this.props.userCountry.length >0) ? this.props.userCountry : (window == undefined ? '':window.localStorage.getItem("userCountry"));    
     } 
 
     else {
-           var countryName = (this.props.userCountry != undefined && this.props.userCountry.length >0) ? this.props.userCountry : '';    
+           countryName = (this.props.userCountry != undefined && this.props.userCountry.length >0) ? this.props.userCountry : '';    
      }
     
     const post = this.props.post;
@@ -47,6 +48,9 @@ class CustomPostsItem extends Telescope.components.PostsItem {
 
                 if(items.hasOwnProperty("relDate")){
                   itemPriceCountry.relDate = items.relDate == undefined ? '' : items.relDate; 
+                }
+                else{
+                 itemPriceCountry.relDate=''; 
                 }
               }
               else{
@@ -102,7 +106,7 @@ class CustomPostsItem extends Telescope.components.PostsItem {
               </Link>
             </div>
 			<div className="posts-item-vote customVote">
-      {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.countryName + ' ' + itemPriceCountry.price +' '+ itemPriceCountry.relDate==undefined ?'' : itemsPriceCountry.relDate):''}
+      {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.countryName + ' ' + itemPriceCountry.price +' '+ (itemPriceCountry.relDate==undefined ?'' : itemPriceCountry.relDate)):''}
 				<Telescope.components.Vote  post={post} />
 			</div>
 			

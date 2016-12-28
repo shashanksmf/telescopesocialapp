@@ -35,12 +35,12 @@ const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount
 	})
 	//console.log("categoriesArr",filterCategoriesArr)
 	
-//console.log("custom post list")
+//console.log("custom post list",props)
   if (!!results.length) {
     return (
 	<div className="CustomPostListWrapper">
       <div className="posts-list">
-        {showHeader ? <Telescope.components.PostsListHeader /> : null}
+        {showHeader ? <Telescope.components.PostsListHeader /> : <Telescope.components.PostsListHeader />}
         <div className="posts-list-content">
           {results.map(post => <Telescope.components.PostsItem userCountry={userCountry} post={post} key={post._id}/>)}
         </div>
