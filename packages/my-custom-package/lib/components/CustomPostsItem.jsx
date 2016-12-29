@@ -37,7 +37,7 @@ class CustomPostsItem extends Telescope.components.PostsItem {
       if(this.props.post.customArray11.constructor === Array){
         this.props.post.customArray11.forEach(function(items){
           if(items){
-            if(items.hasOwnProperty("country")){
+            if(items.hasOwnProperty("country") && items.country.length > 1){
 
               if(items.country.trim().toLowerCase() == countryName.trim().toLowerCase()){
                 itemPriceCountry.countryName = countryName; 
