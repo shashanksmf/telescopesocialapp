@@ -84,6 +84,14 @@
 						display: flex;
 						justify-content: flex-end;
 					}
+					
+
+				}
+				
+				.posts-item-meta{
+					.posts-stats{
+						display:none;
+					}
 				}
 			}
 		}
@@ -169,12 +177,13 @@
 	justify-content:flex-end;
 	align-items: center;
 
+
 	.countryName{
 		text-transform: capitalize;
 		
 	}
 
-	.price,.countryName,.currencyIcon{
+	.price,.countryName{
 		padding-right:5px;
 	}
 

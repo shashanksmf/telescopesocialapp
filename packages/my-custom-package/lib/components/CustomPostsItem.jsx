@@ -51,7 +51,7 @@ class CustomPostsItem extends Telescope.components.PostsItem {
                 }
 
                 if(items.hasOwnProperty("reldate")){
-                  itemPriceCountry.relDate = items.reldate == undefined ? '' : items.reldate; 
+                  itemPriceCountry.relDate = items.reldate == undefined ? '' : (items.reldate.getDate()+'/'+(items.reldate.getMonth() + 1)+'/'+ items.reldate.getYear()); 
                 }
 
                
@@ -121,6 +121,9 @@ class CustomPostsItem extends Telescope.components.PostsItem {
 
           <span className="price">
                 {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.price) :'' } 
+          </span>  
+           <span className="reldate">
+                {(itemPriceCountry.relDate)} 
           </span>  
 
     		<Telescope.components.Vote  post={post} />

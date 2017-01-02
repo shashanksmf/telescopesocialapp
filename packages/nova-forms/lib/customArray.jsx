@@ -29,8 +29,8 @@ class CustomArray extends Component {
 
   }
   // this.context.addToAutofilledValues({[this.props.name]: this.props.value});
-   this.state = {inputvalue: propsArr,name:this.props.name,updateCurrentValue:this.props.updateCurrentValue,currencySelected:'',isExpanded:false};
-   this.setState({inputvalue:this.state.inputvalue,name:this.state.name,currencyIcons:this.state.currencyIcons,isExpanded:this.state.isExpanded})
+   this.state = {inputvalue: propsArr,name:this.props.name,updateCurrentValue:this.props.updateCurrentValue,currencySelected:'',currencyListDropDown:[]};
+   this.setState({inputvalue:this.state.inputvalue,name:this.state.name,currencyIcons:this.state.currencyIcons,currencyListDropDown:this.state.currencyListDropDown})
    //this.context.addToAutofilledValues({[this.state.name]: this.state.inputvalue});
 
 
@@ -150,13 +150,13 @@ onChangeDate(inputIndex,event){
 
           <div className="col-xs-2 priceContainer">
 
-           <div className={that.state.isExpanded ? "dropdown open currencyDropDown" : "dropdown currencyDropDown"}>
-                  <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" onClick={()=>{ that.setState({isExpanded:!that.state.isExpanded})  }}><i className={items.currencyIcon}></i>
+           <div className={items.isExpanded ? "dropdown open currencyDropDown" : "dropdown currencyDropDown"}>
+                  <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" onClick={()=>{ items.isExpanded= !items.isExpanded; that.setState({inputvalue:that.state.inputvalue})  }}><i className={items.currencyIcon}></i>
                   <span className="caret"></span></button>
                  
                   <ul className="dropdown-menu">
-                        {currencyIcons.map(function(icons){
-                           return <li onClick={(e,icons)=>{  that.setState({currencySelected:e.target.className,isExpanded:!that.state.isExpanded}); that.setCurrency(inputIndex,e.target.className); }   }  className={icons} value={icons}></li>
+                        {currencyIcons.map(function(icons,iconsIndex){
+                           return <li onClick={(e,icons)=>{ items.isExpanded=!items.isExpanded;  that.setState({currencySelected:e.target.className,inputvalue:that.state.inputvalue});  that.setCurrency(inputIndex,e.target.className); }   }  className={icons} value={icons}></li>
                          })}
                   </ul>  
             </div>
