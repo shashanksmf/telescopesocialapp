@@ -51,3 +51,4 @@ my-custom-package
 
 nova:forms-tags
 nova:custom-autoform
+essentials:semantic-ui
