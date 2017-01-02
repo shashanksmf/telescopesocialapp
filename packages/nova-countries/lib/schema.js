@@ -21,7 +21,15 @@ Countries.schema = new SimpleSchema({
     insertableIf: canInsert,
     editableIf: canEdit,
     publish: true
+  },
+  icon: {
+    type: String,
+    optional: true,
+    insertableIf: canInsert,
+    editableIf: canEdit,
+    publish: true
   }
+
 });
 
 // Meteor.startup(function(){

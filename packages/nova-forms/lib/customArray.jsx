@@ -2,13 +2,20 @@ import React, { PropTypes, Component } from 'react';
 import DateTimePicker from 'react-datetime';
 import {debounce} from 'throttle-debounce';
 import moment from 'moment';
+import countries from 'meteor/nova:countries';
 
+//import currency from "./meteor/nova:countries/i18n/currency.json";
+//console.log("currency: ",currency);
 class CustomArray extends Component {
   
   // when the datetime picker mounts, NovaForm will catch the date value (no formsy mixin in this component)
   componentWillMount() {
     
   //console.log("custom array ", this.props)
+
+ 
+
+  
   var propsArr = [];
   if(this.props.value.constructor === Array){
       
@@ -19,11 +26,15 @@ class CustomArray extends Component {
       })
       this.props.value = [];
       this.props.value = propsArr;
+
   }
   // this.context.addToAutofilledValues({[this.props.name]: this.props.value});
-   this.state = {inputvalue: propsArr,name:this.props.name,updateCurrentValue:this.props.updateCurrentValue};
-   this.setState({inputvalue:this.state.inputvalue,name:this.state.name})
+   this.state = {inputvalue: propsArr,name:this.props.name,updateCurrentValue:this.props.updateCurrentValue,currencySelected:'',isExpanded:false};
+   this.setState({inputvalue:this.state.inputvalue,name:this.state.name,currencyIcons:this.state.currencyIcons,isExpanded:this.state.isExpanded})
    //this.context.addToAutofilledValues({[this.state.name]: this.state.inputvalue});
+
+
+  
   }
 
   changeInputValue(event,inputIndex){
@@ -35,6 +46,9 @@ class CustomArray extends Component {
       }
       if(this.state.inputvalue[inputIndex].reldate == undefined){
         this.state.inputvalue[inputIndex].reldate = '';
+      }
+      if(this.state.inputvalue[inputIndex].currencyIcon == undefined){
+        this.state.inputvalue[inputIndex].currencyIcon = '';
       }
 
       this.setState({inputvalue:this.state.inputvalue});
@@ -50,6 +64,9 @@ class CustomArray extends Component {
       if(this.state.inputvalue[inputIndex].reldate == undefined){
         this.state.inputvalue[inputIndex].reldate = '';
       }
+      if(this.state.inputvalue[inputIndex].currencyIcon == undefined){
+        this.state.inputvalue[inputIndex].currencyIcon = '';
+      }
 
     this.context.addToAutofilledValues({[this.state.name]: this.state.inputvalue});
     this.setState({inputvalue:this.state.inputvalue});
@@ -64,6 +81,13 @@ onChangeDate(inputIndex,event){
     this.setState({inputvalue:this.state.inputvalue});
 }
 
+  setCurrency(inputIndex,Icon){
+  //   console.log("this.state.inputvalue ",this.state.inputvalue,inputIndex,Icon)
+    this.state.inputvalue[inputIndex].currencyIcon = Icon;
+    this.context.addToAutofilledValues({[this.state.name]: this.state.inputvalue});
+    this.setState({inputvalue:this.state.inputvalue});
+   
+  }
 
   deleteCountry(inputIndex,event){
         this.state.inputvalue.splice(inputIndex, 1);
@@ -86,6 +110,13 @@ onChangeDate(inputIndex,event){
     this.setState({inputvalue:this.state.inputvalue});
   }
   render() {
+
+   var currencyIcons = [];
+  countries.find().fetch().forEach(function(countryItems){
+      if(countryItems && countryItems.hasOwnProperty("icon")){
+        currencyIcons.push(countryItems.icon)  
+      }
+  })
     var that =  this;
       if(that.state.inputvalue.length ==0){
         return <div className="AdditionalInfoContainer"> <button type="button" className="btn btn-info AdditionalInfoBtn" name="newinput" onClick={that.addMore.bind(that)}>Aditional Information</button></div>
@@ -111,9 +142,25 @@ onChangeDate(inputIndex,event){
                 onChange={e=> that.changeInputValue(e.persist()||e,inputIndex)}
                   
               />
-           </div>
 
-          <div className="col-xs-2">
+           
+              
+             
+           </div> 
+
+          <div className="col-xs-2 priceContainer">
+
+           <div className={that.state.isExpanded ? "dropdown open currencyDropDown" : "dropdown currencyDropDown"}>
+                  <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" onClick={()=>{ that.setState({isExpanded:!that.state.isExpanded})  }}><i className={items.currencyIcon}></i>
+                  <span className="caret"></span></button>
+                 
+                  <ul className="dropdown-menu">
+                        {currencyIcons.map(function(icons){
+                           return <li onClick={(e,icons)=>{  that.setState({currencySelected:e.target.className,isExpanded:!that.state.isExpanded}); that.setCurrency(inputIndex,e.target.className); }   }  className={icons} value={icons}></li>
+                         })}
+                  </ul>  
+            </div>
+            
             <input
           className="form-control"
               key={"CustomArray_Price_"+inputIndex}
@@ -125,6 +172,9 @@ onChangeDate(inputIndex,event){
             onChange={that.changePriceValue.bind(that,inputIndex)}
               
           />
+
+             
+
           </div>
           <div className="col-xs-4">
             <DateTimePicker
@@ -183,4 +233,10 @@ export default CustomArray;
 //             onChange={that.changePriceValue.bind(that,inputIndex)}
               
 //           />
+ // <select onChange={ (e)=>{ console.log("state : ",that.state.currencySelected,e.target.value); that.setState({currencySelected:e.target.value}) }   }  value={that.state.currencySelected} className={that.state.currencySelected}>
+ //                    {currencyIcons.map(function(icons){
+ //                      return <option  className={icons} value={icons}><i className={icons}/></option>
+ //                    })}
+                   
+ //                </select>
 

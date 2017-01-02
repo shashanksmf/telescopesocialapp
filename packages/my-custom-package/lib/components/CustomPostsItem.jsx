@@ -46,12 +46,15 @@ class CustomPostsItem extends Telescope.components.PostsItem {
                   itemPriceCountry.price =  items.price;  
                 }
 
-                if(items.hasOwnProperty("relDate")){
-                  itemPriceCountry.relDate = items.relDate == undefined ? '' : items.relDate; 
+                if(items.hasOwnProperty("currencyIcon")){
+                  itemPriceCountry.currencyIcon =  items.currencyIcon;  
                 }
-                else{
-                 itemPriceCountry.relDate=''; 
+
+                if(items.hasOwnProperty("reldate")){
+                  itemPriceCountry.relDate = items.reldate == undefined ? '' : items.reldate; 
                 }
+
+               
               }
               else{
 
@@ -73,6 +76,8 @@ class CustomPostsItem extends Telescope.components.PostsItem {
         })
       }
     }
+
+    console.log("itemPriceCountry : ",itemPriceCountry);
     let postClass = "posts-item"; 
     if (post.sticky) postClass += " posts-sticky";
 
@@ -106,8 +111,19 @@ class CustomPostsItem extends Telescope.components.PostsItem {
               </Link>
             </div>
 			<div className="posts-item-vote customVote">
-      {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.countryName + ' ' + itemPriceCountry.price +' '+ (itemPriceCountry.relDate==undefined ?'' : itemPriceCountry.relDate)):''}
-				<Telescope.components.Vote  post={post} />
+          <span className="countryName">
+                {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.countryName):''} 
+          </span>
+
+          <span className="currencyIcon">
+                <i className={itemPriceCountry.currencyIcon} ></i>
+          </span>  
+
+          <span className="price">
+                {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.price) :'' } 
+          </span>  
+
+    		<Telescope.components.Vote  post={post} />
 			</div>
 			
 			
@@ -134,3 +150,7 @@ CustomPostsItem.contextTypes = {
 };
 
 export default CustomPostsItem;
+
+// <span className="relDate">
+//                  {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.relDate==undefined ?'' : itemPriceCountry.relDate) :'' }
+//           </span>

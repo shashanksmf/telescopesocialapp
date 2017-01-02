@@ -75,7 +75,7 @@ class Tags extends Component {
       <div className="form-group row">
         <label className="control-label col-sm-3">{label}</label>
         <div className="col-sm-9">
-          <div className="tags-field">
+          <div className="tags-field ui right labeled left icon input">
             <ReactTags 
               tags={this.state.tags}
               suggestions={this.state.suggestions}
@@ -91,6 +91,7 @@ class Tags extends Component {
                 // suggestions: 'suggestionsClass'
               }}
             />
+            <a className="ui tag label">Add Tag</a>
             <Input name={name} type="hidden" readOnly value={this.state.value} />
           </div>
         </div>

@@ -8,5 +8,5 @@ Countries.publishedFields = {};
  * @array Countries.publishedFields.list
  */
 Countries.publishedFields.list = PublicationsUtils.arrayToFields([
-  "name","slug"
+  "name","slug","icon"
 ]);

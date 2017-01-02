@@ -167,7 +167,18 @@
 	flex:1;
 	display:flex;
 	justify-content:flex-end;
-	
+	align-items: center;
+
+	.countryName{
+		text-transform: capitalize;
+		
+	}
+
+	.price,.countryName,.currencyIcon{
+		padding-right:5px;
+	}
+
+
 	.upvote-button{
 		border:none;
 		flex-direction:row;
@@ -187,6 +198,35 @@
 			 display: flex;
 		     justify-content: flex-end;
 	 	     margin: 10px 0;
+
+	 	     .currencyDropDown{
+
+	 	     	.dropdown-menu{
+	 	     			border:0;
+	 	     		    width: 20px;
+					    max-width: 50px;
+					    min-width: 50px !important;
+					    background-color: #808080;
+					    color: white;
+					    text-align: center;
+
+	 	     			li{
+	 	     				display:block;
+	 	     				padding: 5px 0;
+    						cursor: pointer;
+
+    						&:hover{
+    						    background-color: #ddd;
+    							color: black;
+    						}
+	 	     			}
+
+	 	     	}	
+	 	     }
+
+	 	     .priceContainer{
+	 	     	display:flex;	
+	 	     }
 	 }   
  }
  .AdditionalInfoContainer{

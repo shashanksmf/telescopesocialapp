@@ -19,16 +19,20 @@ const canEdit = Users.canEdit;
 const RelDateCountry = new Mongo.Collection("RelDateCountry");
  RelDateCountry.schema = new SimpleSchema({
   country:{
-  type: String,
-   optional: true
+    type: String,
+    optional: true
   },
    price:{
-  type: String,
-  optional: true
+    type: String,
+    optional: true
   },
    reldate:{
-  type: Date,
-  optional: true
+    type: Date,
+    optional: true,
+  },
+  currencyIcon:{
+    type: String,
+    optional: true,
   }
 });
 RelDateCountry.attachSchema(RelDateCountry.schema);
