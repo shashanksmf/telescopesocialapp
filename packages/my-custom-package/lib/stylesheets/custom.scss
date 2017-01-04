@@ -80,7 +80,7 @@
 			.posts-item-content{
 				.posts-item-title{
 					.posts-categories{
-						flex: 1;
+						flex: 0;
 						display: flex;
 						justify-content: flex-end;
 					}
@@ -171,13 +171,15 @@
 		}
 	}
 }
-.customVote{
-	flex:1;
-	display:flex;
-	justify-content:flex-end;
-	align-items: center;
 
 
+.customDatePriceCountry{
+	flex: 1;
+	display: flex;
+	justify-content: flex-end;
+	font-size: 14px;
+    font-weight: 100;
+	
 	.countryName{
 		text-transform: capitalize;
 		
@@ -187,6 +189,15 @@
 		padding-right:5px;
 	}
 
+}
+.customVote{
+	flex:1;
+	display:flex;
+	justify-content:flex-end;
+	align-items: center;
+
+
+	
 
 	.upvote-button{
 		border:none;

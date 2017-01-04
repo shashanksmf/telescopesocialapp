@@ -94,10 +94,27 @@ class CustomPostsItem extends Telescope.components.PostsItem {
 
         <div className="posts-item-content">
           
-          <h3 className="posts-item-title">
+          <h3 className="posts-item-title ">
             <Link to={Posts.getLink(post)} className="posts-item-title-link" target={Posts.getLinkTarget(post)}>
               {post.title}
             </Link>
+            <div className="customDatePriceCountry">
+              <span className="countryName">
+                    {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.countryName):''} 
+              </span>
+
+              <span className="currencyIcon">
+                    <i className={itemPriceCountry.currencyIcon} ></i>
+              </span>  
+
+              <span className="price">
+                    {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.price) :'' } 
+              </span>  
+               <span className="reldate">
+                    {(itemPriceCountry.relDate)} 
+              </span>  
+          </div>
+
             {this.renderCategories()}
           </h3>
 		  
@@ -111,20 +128,7 @@ class CustomPostsItem extends Telescope.components.PostsItem {
               </Link>
             </div>
 			<div className="posts-item-vote customVote">
-          <span className="countryName">
-                {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.countryName):''} 
-          </span>
-
-          <span className="currencyIcon">
-                <i className={itemPriceCountry.currencyIcon} ></i>
-          </span>  
-
-          <span className="price">
-                {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.price) :'' } 
-          </span>  
-           <span className="reldate">
-                {(itemPriceCountry.relDate)} 
-          </span>  
+          
 
     		<Telescope.components.Vote  post={post} />
 			</div>
