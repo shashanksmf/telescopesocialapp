@@ -51,7 +51,7 @@ class CustomPostsItem extends Telescope.components.PostsItem {
                 }
 
                 if(items.hasOwnProperty("reldate")){
-                  itemPriceCountry.relDate = items.reldate == undefined ? '' : (items.reldate.getDate()+'/'+(items.reldate.getMonth() + 1)+'/'+ items.reldate.getYear()); 
+                  itemPriceCountry.relDate = items.reldate == undefined ? '' : (items.reldate); 
                 }
 
                
@@ -98,24 +98,17 @@ class CustomPostsItem extends Telescope.components.PostsItem {
             <Link to={Posts.getLink(post)} className="posts-item-title-link" target={Posts.getLinkTarget(post)}>
               {post.title}
             </Link>
-            <div className="customDatePriceCountry">
-              <span className="countryName">
-                    {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.countryName):''} 
-              </span>
-
-              <span className="currencyIcon">
-                    <i className={itemPriceCountry.currencyIcon} ></i>
-              </span>  
+           <div className="priceWrapper">
+                <span className="currencyIcon">
+                      <i className={itemPriceCountry.currencyIcon} ></i>
+                </span>  
 
               <span className="price">
                     {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.price) :'' } 
               </span>  
-               <span className="reldate">
-                    {(itemPriceCountry.relDate)} 
-              </span>  
-          </div>
+           </div>
 
-            {this.renderCategories()}
+           
           </h3>
 		  
           
@@ -127,22 +120,42 @@ class CustomPostsItem extends Telescope.components.PostsItem {
                 <FormattedMessage id="comments.count" values={{count: post.commentCount}}/>
               </Link>
             </div>
-			<div className="posts-item-vote customVote">
-          
-
-    		<Telescope.components.Vote  post={post} />
-			</div>
+			
 			
 			
             {this.context.currentUser && this.context.currentUser.isAdmin ? <Telescope.components.PostsStats post={post} /> : null}
             {this.renderActions()}
           </div>
-				
+
+          
+				 {this.renderCategories()}
 		</div>
 
         {this.renderCommenters()}
         
-      
+       <div className="customDatePriceCountry">
+             
+            <div className="dateContainer">
+            
+               <span className="month">
+                    {moment(itemPriceCountry.relDate).format('MMM')} 
+              </span>
+              <span className="day">
+                    {moment(itemPriceCountry.relDate).format('DD')} 
+              </span>
+              <span className="year">
+                    {moment(itemPriceCountry.relDate).format('gggg')} 
+              </span>
+             </div>  
+              <div className="posts-item-vote customVote">
+                  
+
+                <Telescope.components.Vote  post={post} />
+              </div>
+
+          </div>
+
+
       </div>
     )
   }
@@ -161,3 +174,8 @@ export default CustomPostsItem;
 // <span className="relDate">
 //                  {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.relDate==undefined ?'' : itemPriceCountry.relDate) :'' }
 //           </span>
+ // <span className="countryName">
+ //                    {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.countryName):''} 
+ // //              </span>
+ // //  {(itemPriceCountry.relDate)}
+ // items.reldate.getDate()+'/'+(items.reldate.getMonth() + 1)+'/'+ items.reldate.getYear()
