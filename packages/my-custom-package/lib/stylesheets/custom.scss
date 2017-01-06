@@ -330,15 +330,24 @@
 	flex-wrap: wrap;
 	padding-right: 0;
 }
-.posts-categories{
-	flex: 1;
-    min-width: 100%;
-    justify-content: flex-end;
-    padding-right: 20px;
-   
 
-    a{
-        color: #7e8bb3;
-    	background-color: #d9deea;
-    }
+
+.commnetorsCategoriesContainer{
+	display: flex;
+    justify-content: flex-end;
+	.posts-categories{
+		flex: 0;
+	    justify-content: flex-end;
+	    padding-right: 20px;
+	   
+
+	    a{
+	        color: #7e8bb3;
+	    	background-color: #d9deea;
+	    }
+	}
+
+	.posts-commenters{
+		margin-right:10px;
+	}
 }

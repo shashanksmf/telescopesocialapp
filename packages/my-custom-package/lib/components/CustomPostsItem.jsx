@@ -126,12 +126,14 @@ class CustomPostsItem extends Telescope.components.PostsItem {
             {this.context.currentUser && this.context.currentUser.isAdmin ? <Telescope.components.PostsStats post={post} /> : null}
             {this.renderActions()}
           </div>
-
+          <div className="commnetorsCategoriesContainer">
           
-				 {this.renderCategories()}
+            {this.renderCommenters()}
+    				{this.renderCategories()}
+         </div>
 		</div>
 
-        {this.renderCommenters()}
+       
         
        <div className="customDatePriceCountry">
              
