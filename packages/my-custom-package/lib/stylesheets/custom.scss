@@ -351,3 +351,45 @@
 		margin-right:10px;
 	}
 }
+
+.header-wrapper{
+	background-color:#9013FE;
+}
+
+.nav-new-post button,.nav-new-post button:hover,.nav-new-post button:focus{
+	border: 3px solid white;
+    border-radius: 5px;
+    background-color: #9013FE;	
+}
+.logo-text a{
+	color:white;
+
+	&:hover{
+		color:white;
+	}
+}
+#user-dropdown{
+	div{
+		color:white;
+	}
+}
+
+@font-face {
+    font-family: "My Custom Font";
+    src: url("/packages/my_custom_package/lib/stylesheets/UbuntuTitlingBold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "My Custom Font";
+    src: url("/packages/my-custom-package/lib/stylesheets/UbuntuTitlingBold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "My Custom Font";
+    src: url("/packages/my_custom_package/UbuntuTitlingBold.ttf") format("truetype");
+}
+@font-face {
+    font-family: "My Custom Font";
+    src: url("../../app/packages/my-custom-package/lib/stylesheets/UbuntuTitlingBold.ttf") format("truetype");
+}
+body{
+	 font-family: "My Custom Font", Verdana, Tahoma;
+}

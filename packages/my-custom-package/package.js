@@ -35,4 +35,8 @@ Package.onUse( function(api) {
     'lib/server/emails/customEmail.handlebars'
   ], ['server']);
 
+      api.addAssets([
+      'lib/stylesheets/UbuntuTitlingBold.ttf'
+    ], ['client']);
+
 });
