@@ -185,7 +185,7 @@
 	
 	.dateContainer{
 	    padding: 0px 15px;
-	    background-color: #DADEEA;
+	    background-color: #D9DEEA;
 	    color: #7C8BAC;
 	    display: flex;
 	    flex-direction: column;
@@ -199,19 +199,19 @@
 	    	    font-family: "Helvetica Neue";
 			    font-size: 20px;
 			    font-weight: normal;
-			    fill: rgb(126, 139, 172);
+			   	color: #7E8BAC;
 	    }
 	    .day{
 	            font-family: "Helvetica Neue";
 			    font-size: 36px;
 			    font-weight: normal;
-			    fill: rgb(126, 140, 172);
+			     color: #7E8BAC;
 	    }
 	    .year{
 	    	    font-family: "Helvetica Neue";
 			    font-size: 14px;
 			    font-weight: normal;
-			    fill: rgb(126, 139, 172);
+			    color: #7E8BAC
 	    }	
 	}
 	
@@ -234,7 +234,7 @@
     height: 0;
     border-style: solid;
     border-width: 0 50px 50px 0;
-    border-color: transparent #D92A2F transparent transparent;
+    border-color: transparent #D9DEEA transparent transparent;
     position: relative;
     top: -5px;
     margin-right: 0;
@@ -257,7 +257,7 @@
 		}
 	}
 	.icon.fa.fa-fw.fa-heart{
-		color: red;
+		color: #D0021B;
 	}
 }
  
@@ -308,7 +308,7 @@
     display: flex;
     justify-content: flex-end;
     margin-right: 20px;
-    color: #9BA4BA;
+    color: #7E8BAC;
     font-family: "Helvetica Neue";
     font-size: 20px;
     font-weight: normal;
@@ -342,7 +342,7 @@
 	   
 
 	    a{
-	        color: #7e8bb3;
+	        color: #7E8BAC;
 	    	background-color: #d9deea;
 	    }
 	}
@@ -356,7 +356,7 @@
 	background-color:#9013FE;
 }
 
-.nav-new-post button,.nav-new-post button:hover,.nav-new-post button:focus{
+.nav-new-post button,.nav-new-post button:hover,.nav-new-post button.focus,,.nav-new-post button.active{
 	border: 3px solid white;
     border-radius: 5px;
     background-color: #9013FE;	
@@ -376,20 +376,29 @@
 
 @font-face {
     font-family: "My Custom Font";
-    src: url("/packages/my_custom_package/lib/stylesheets/UbuntuTitlingBold.ttf") format("truetype");
+    src: url("{}/packages/my_custom_package/lib/stylesheets/UbuntuTitlingBold.ttf") format("truetype");
 }
 @font-face {
     font-family: "My Custom Font";
-    src: url("/packages/my-custom-package/lib/stylesheets/UbuntuTitlingBold.ttf") format("truetype");
+    src: url("{}/packages/my-custom-package/lib/stylesheets/UbuntuTitlingBold.ttf") format("truetype");
 }
 @font-face {
     font-family: "My Custom Font";
-    src: url("/packages/my_custom_package/UbuntuTitlingBold.ttf") format("truetype");
+    src: url("{}/packages/my_custom_package/UbuntuTitlingBold.ttf") format("truetype");
 }
 @font-face {
     font-family: "My Custom Font";
-    src: url("../../app/packages/my-custom-package/lib/stylesheets/UbuntuTitlingBold.ttf") format("truetype");
+    src: url("{}/app/my-custom-package/lib/stylesheets/UbuntuTitlingBold.ttf") format("truetype");
 }
 body{
 	 font-family: "My Custom Font", Verdana, Tahoma;
+}
+
+
+.btn,btn:hover{
+	    background-color: #9013FE;
+	    color:white;
+	    span{
+	    	color:white;
+	    }
 }
