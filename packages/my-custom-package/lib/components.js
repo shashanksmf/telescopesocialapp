@@ -3,7 +3,6 @@ This file centralizes all our custom component overrides.
 */
 
 import Telescope from 'meteor/nova:lib';
-
 import CustomLogo from "./components/CustomLogo.jsx";
 import CustomNewsletter from "./components/CustomNewsletter.jsx";
 import CustomPostsItem from "./components/CustomPostsItem.jsx";
@@ -14,6 +13,8 @@ import CustomPostsView from "./components/CustomPostsView.jsx";
 import CustomVote from "./components/CustomVote.jsx";
 import CustomPostsThumbnail from "./components/CustomPostsThumbnail.jsx";
 import CustomAutoForm from "./components/CustomAutoForm.jsx";
+import CustomCommentsItem from "./components/CustomCommentsItem.jsx";
+
 //import CustomSearchForm from "./components/CustomSearchForm.jsx";
 
 //console.log("CustomLayout",Telescope.components.Layout)
@@ -26,4 +27,5 @@ Telescope.components.PostsList = CustomPostList;
 Telescope.components.PostsViews = CustomPostsView;
 Telescope.components.Vote = CustomVote;
 Telescope.components.PostsThumbnail = CustomPostsThumbnail;
+Telescope.components.CommentsItem = CustomCommentsItem;
 //Telescope.components.SearchForm = CustomSearchForm;

@@ -376,20 +376,9 @@
 
 @font-face {
     font-family: "My Custom Font";
-    src: url("{}/packages/my_custom_package/lib/stylesheets/UbuntuTitlingBold.ttf") format("truetype");
+    src: url(http://res.cloudinary.com/dvrif5vdu/raw/upload/v1484229873/UbuntuTitlingBold_meqmlf.ttf) format("truetype");
 }
-@font-face {
-    font-family: "My Custom Font";
-    src: url("{}/packages/my-custom-package/lib/stylesheets/UbuntuTitlingBold.ttf") format("truetype");
-}
-@font-face {
-    font-family: "My Custom Font";
-    src: url("{}/packages/my_custom_package/UbuntuTitlingBold.ttf") format("truetype");
-}
-@font-face {
-    font-family: "My Custom Font";
-    src: url("{}/app/my-custom-package/lib/stylesheets/UbuntuTitlingBold.ttf") format("truetype");
-}
+
 body{
 	 font-family: "My Custom Font", Verdana, Tahoma;
 }
@@ -401,4 +390,84 @@ body{
 	    span{
 	    	color:white;
 	    }
+}
+.posts-pages{
+	.posts-stats{
+		display:none;
+
+	}
+	.posts-item{
+		    border-bottom: none !important;
+	}
+
+	.comments-item-body{
+		.comments-item-meta > a{
+	
+				width:40px !important;
+				height:40px !important;
+
+				
+			}
+			.comments-item-meta{
+			a{
+					&.users-name{
+					text-decoration: none;
+	    			color: black;
+	    			font-weight: bold;
+				}
+				
+				img{
+					width:40px !important;
+					height:40px !important;
+					border-radius:0px !important;
+				}	
+			}
+		}
+	}
+}
+
+.customPostDetails{
+	margin-top:20px;
+	margin-bottom:20px;
+	
+	.customPostDetailsPreorder,.customPostDetailsSource,.customPostDetailsFavbtn{
+	    height: 35px;
+	    width: 150px;
+	    color: white;
+	    border-radius: 8px;
+	    border: none;
+	    outline: none;
+	    font-weight: bold;
+	    margin-right: 15px;
+	    background-color: #9013FE;
+	}
+	.customPostDetailsFavbtn	{
+		background-color:#D9DEEA;
+	}
+
+	.socialShare{
+		display:inline-block;
+		float:right;
+		img{
+			width:30px;
+			margin-right:10px;
+		}
+	}
+
+
+
+}
+
+
+	.customComments-item-meta-block{
+		display: flex;
+	    flex-wrap: wrap;
+	    margin-left: 10px;
+
+	    .comments-item-text,.comments-edit-form{
+	    	width:100%;
+	    }
+	}
+.customPostPageContainer{
+	    border: 2px solid #E3E7EF;
 }
