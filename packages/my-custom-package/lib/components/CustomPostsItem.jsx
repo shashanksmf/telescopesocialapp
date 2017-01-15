@@ -32,7 +32,7 @@ class CustomPostsItem extends Telescope.components.PostsItem {
      }
     
     const post = this.props.post;
-  	console.log("post :ss",this.props,"countryName : ",countryName);
+  	//console.log("post :ss",this.props,"countryName : ",countryName);
     if(this.props.post.hasOwnProperty("customArray11")){
       if(this.props.post.customArray11.constructor === Array){
         this.props.post.customArray11.forEach(function(items){

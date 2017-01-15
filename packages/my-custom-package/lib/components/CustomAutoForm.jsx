@@ -10,7 +10,7 @@ class CustomAutoForm extends Component {
 
   constructor(props) {
     super(props);
-	console.log("post auto form",Posts,props);
+	//console.log("post auto form",Posts,props);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAddition = this.handleAddition.bind(this);
 
