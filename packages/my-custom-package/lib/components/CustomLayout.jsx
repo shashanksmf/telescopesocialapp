@@ -36,13 +36,16 @@ class CustomLayout extends Component {
           <FlashContainer component={Telescope.components.FlashMessages}/>
 			
           <Telescope.components.Newsletter {...this.props}/>
-      		<div className="CustomCategoriesContainer">
-        			<div className="customCategoriesWrapper">
-        					<CustomPostsCategories/>
-        			</div>
+      		
+          <div className="childrenWrapper">
+              {this.props.children}
+             <div className="CustomCategoriesContainer">
+                  <div className="customCategoriesWrapper">
+                      <CustomPostsCategories/>
+                  </div>
+              </div>
           </div>
-         {this.props.children}
-
+       
 	
         </div>
       

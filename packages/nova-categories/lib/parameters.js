@@ -5,12 +5,11 @@ import Categories from "./collection.js";
 // Add a "categories" property to terms which can be used to filter *all* existing Posts views. 
 function addCategoryParameter (parameters, terms) {
 
-  console.log(terms);
   var cat = terms.cat || terms["cat[]"];
 
   // filter by category if category slugs are provided
   if (cat) {
-
+  //    console.log("car",cat)
     var categoriesIds = [];
     var selector = {};
 
@@ -31,7 +30,6 @@ function addCategoryParameter (parameters, terms) {
 
     parameters.selector.categories = {$in: categoriesIds};
   }
-  console.log('parameters',parameters);
   return parameters;
 }
 Telescope.callbacks.add("posts.parameters", addCategoryParameter);

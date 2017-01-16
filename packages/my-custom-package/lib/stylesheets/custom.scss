@@ -75,6 +75,7 @@
 	.posts-list{
 		flex:1;
 		.posts-item{
+
 			padding-left:15px;
 			
 			.posts-thumbnail img {
@@ -335,6 +336,17 @@
 	padding: 5px 5px;
 	flex-wrap: wrap;
 	padding-right: 0;
+	flex-wrap: nowrap;
+	.posts-item-content{
+	    white-space: nowrap;
+	    overflow: hidden;
+	    text-overflow: ellipsis;
+
+	    a{
+	    	    overflow: hidden;
+    			text-overflow: ellipsis;
+	    }
+	}
 }
 
 
@@ -484,5 +496,21 @@ body{
 .posts-day:not(:first-child){
 	.posts-list-header{
 		display:none;
+	}
+}
+.childrenWrapper{
+	display:flex;
+	.posts-daily{
+		flex:1;
+		.CustomPostListWrapper{
+			width:100%;
+		}
+	}
+
+	.posts-pages + .CustomCategoriesContainer{
+		display:none;
+	}
+	.posts-pages{
+		flex:1;
 	}
 }

@@ -6,7 +6,7 @@ import React from 'react';
 
 const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount, loadMore, showHeader = true,userCountry}) => {
 	
-	console.log("custom post list",results)
+	//console.log("custom post list",results)
 	var categoriesArr=[];
 	results.forEach(function(post){
 		if(post.categoriesArray !==undefined){
