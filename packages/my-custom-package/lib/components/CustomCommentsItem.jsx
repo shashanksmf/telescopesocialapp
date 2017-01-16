@@ -15,6 +15,26 @@ class CustomCommentsItem extends Telescope.components.CommentsItem {
     };
   }
 
+  componentWillMount(){
+     if (typeof window === 'object') {
+      setTimeout(function(){
+        console.log(document.getElementsByClassName("CustomCategoriesContainer")[0])
+        document.getElementsByClassName("CustomCategoriesContainer")[0].style.display = 'none';
+      },0)
+    }
+  }
+    componentWillUnmount(){
+      if (typeof window === 'object') {
+      setTimeout(function(){
+        console.log(document.getElementsByClassName("CustomCategoriesContainer")[0])
+        document.getElementsByClassName("CustomCategoriesContainer")[0].style.display = 'block';
+      },0)
+    }
+
+    
+
+  }
+
   showReply(event) {
     event.preventDefault();
     this.setState({showReply: true});

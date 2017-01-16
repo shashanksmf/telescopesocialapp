@@ -37,7 +37,7 @@ Package.onUse( function(api) {
 
       api.addAssets([
       'lib/stylesheets/UbuntuTitlingBold.ttf',
-      'lib/components/public/releasarylogo.png'
+       'lib/components/public/releasarylogo.png'
     ], ['client']);
 
 });

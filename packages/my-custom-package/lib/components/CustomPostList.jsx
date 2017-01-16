@@ -1,7 +1,7 @@
 import Telescope from 'meteor/nova:lib';
 import React from 'react';
-import { ListContainer } from "meteor/utilities:react-list-container";
-import CustomPostsCategories from './CustomPostsCategories.jsx';
+//import { ListContainer } from "meteor/utilities:react-list-container";
+//import CustomPostsCategories from './CustomPostsCategories.jsx';
 //console.log("CustomPostsCategories",CustomPostsCategories)
 
 const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount, loadMore, showHeader = true,userCountry}) => {
@@ -39,8 +39,9 @@ const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount
   if (!!results.length) {
     return (
 	<div className="CustomPostListWrapper">
+	<Telescope.components.PostsListHeader /> 
       <div className="posts-list">
-        {showHeader ? <Telescope.components.PostsListHeader /> : null}
+      
         <div className="posts-list-content">
           {results.map(post => <Telescope.components.PostsItem userCountry={userCountry} post={post} key={post._id}/>)}
         </div>
@@ -88,4 +89,5 @@ export default CustomPostList;
             component={Telescope.components.CustomPostsCategories}
             listId="categories"
           />
+            {showHeader ? <Telescope.components.PostsListHeader /> : null}
 	*/

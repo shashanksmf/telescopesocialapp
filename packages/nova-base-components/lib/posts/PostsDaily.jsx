@@ -8,7 +8,7 @@ import { FormattedMessage } from "react-intl";
 class PostsDaily extends Component{
 
   constructor(props) {
-	  console.log("post daily called",props);
+	//  console.log("post daily called",props);
     super(props);
     this.loadMoreDays = this.loadMoreDays.bind(this);
     this.state = {days: props.days};

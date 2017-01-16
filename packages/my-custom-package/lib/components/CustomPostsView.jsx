@@ -33,6 +33,13 @@ const PostsViews = (props, context) => {
             </MenuItem>
           </LinkContainer>
         )} 
+
+         <LinkContainer key="userUpvotedPosts" to={{pathname: "/list", query: {...query, view: "userUpvotedPosts"}}} /*to={}*/ className="dropdown-item">
+            <MenuItem>
+              <FormattedMessage id="posts.userUpvotedPosts"/>
+            </MenuItem>
+          </LinkContainer>
+
         <LinkContainer to={"/daily"} /*to={{name: "posts.daily"}}*/ className="dropdown-item">
           <MenuItem className={"bar"}>
             <FormattedMessage id="posts.daily"/>

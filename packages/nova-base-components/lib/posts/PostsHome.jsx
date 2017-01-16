@@ -11,10 +11,10 @@ class PostsHome extends Component {
   }
   
   render() {
-console.log("post home called",this.props)
-    const params = {...this.getDefaultView(), ...this.props.location.query, listId: "posts.list.main"};
+    console.log("post home called",this.props,Posts.find().fetch(),Posts.getJoins())
+    const params = {...this.getDefaultView(), ...this.props.location.query, listId: "posts.list.main",userId: Meteor.userId()};
     const {selector, options} = Posts.parameters.get(params);
-
+    console.log("Posts.parameters.get(params) ",{selector},{options})
     return (
       <ListContainer 
         collection={Posts} 
@@ -25,7 +25,7 @@ console.log("post home called",this.props)
         joins={Posts.getJoins()}
         component={Telescope.components.PostsList}
         cacheSubscription={true}
-         componentProps={{showHeader: false,userCountry:this.props.location.query.country}}
+        componentProps={{showHeader: false,userCountry:this.props.location.query.country}}
          
         listId={params.listId}
         limit={Telescope.settings.get("postsPerPage", 10)}
