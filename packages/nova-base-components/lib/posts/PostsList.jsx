@@ -2,7 +2,6 @@ import Telescope from 'meteor/nova:lib';
 import React from 'react';
 
 const PostsList = ({results, currentUser, hasMore, ready, count, totalCount, loadMore, showHeader = true}) => {
-
   if (!!results.length) {
     return (
       <div className="posts-list">
