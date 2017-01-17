@@ -16,9 +16,9 @@ import ReactDOM from 'react-dom';
 
 
 Meteor.startup(() => {
-	
+  
   Telescope.routes.add([
-	{name:"posts.list",    path:"/list",                 component:Telescope.components.PostsHome},
+  {name:"posts.list",    path:"/list",                 component:Telescope.components.PostsHome},
     {name:"posts.daily",    path:"daily",                 component:Telescope.components.PostsDaily},
     {name:"posts.single",   path:"posts/:_id(/:slug)",    component:Telescope.components.PostsSingle},
     {name:"users.single",   path:"users/:slug",           component:Telescope.components.UsersSingle},

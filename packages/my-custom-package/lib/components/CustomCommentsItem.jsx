@@ -13,27 +13,10 @@ class CustomCommentsItem extends Telescope.components.CommentsItem {
       showReply: false,
       showEdit: false
     };
+        
   }
 
-  componentWillMount(){
-     if (typeof window === 'object') {
-      setTimeout(function(){
-        console.log(document.getElementsByClassName("CustomCategoriesContainer")[0])
-        document.getElementsByClassName("CustomCategoriesContainer")[0].style.display = 'none';
-      },0)
-    }
-  }
-    componentWillUnmount(){
-      if (typeof window === 'object') {
-      setTimeout(function(){
-        console.log(document.getElementsByClassName("CustomCategoriesContainer")[0])
-        document.getElementsByClassName("CustomCategoriesContainer")[0].style.display = 'block';
-      },0)
-    }
 
-    
-
-  }
 
   showReply(event) {
     event.preventDefault();
@@ -121,8 +104,11 @@ class CustomCommentsItem extends Telescope.components.CommentsItem {
   }
 
   render() {
+
+
+
     const comment = this.props.comment;
-    console.log("custom post items")
+   // console.log("custom post items")
     return (
    
       <div className="comments-item" id={comment._id}>
@@ -165,3 +151,36 @@ CustomCommentsItem.contextTypes = {
 };
 
 module.exports = CustomCommentsItem;
+  //   componentWillMount(){
+  //     console.log("component will mount")
+  //    if (typeof window === 'object') {
+  //     setTimeout(function(){
+  //       console.log(document.getElementsByClassName("CustomCategoriesContainer")[0])
+  //       document.getElementsByClassName("CustomCategoriesContainer")[0].style.display = 'none';
+  //     },300)
+  //   }
+  // }
+
+  //   componentDidMount(){
+  //     console.log("component did mount")
+  //   }
+  //   componentWillUpdate(){
+  //      console.log("component will update")
+  //   }
+
+  //   shouldComponentUpdate(){
+  //       console.log("should component update") 
+  //   }
+
+  //   componentWillUnmount(){
+  //     if (typeof window === 'object') {
+  //     console.log("component will unmount")
+  //     setTimeout(function(){
+  //       console.log(document.getElementsByClassName("CustomCategoriesContainer")[0])
+  //       document.getElementsByClassName("CustomCategoriesContainer")[0].style.display = 'block';
+  //     },0)
+  //   }
+
+    
+
+  // }

@@ -7,7 +7,7 @@ import Posts from "meteor/nova:posts";
 class PostsDay extends Component {
 
   render() {
-    console.log("posts day called",this.props);
+  //  console.log("posts day called",this.props);
     const {date, number} = this.props;
 
     const terms = {
@@ -22,8 +22,8 @@ class PostsDay extends Component {
     };
 
     ({selector, options} = Posts.parameters.get(terms));
-    console.log('options',options);
-    console.log('selector',selector);
+   // console.log('options',options);
+  //  console.log('selector',selector);
     const postsPerPage = Telescope.settings.get("postsPerPage", 10);
 
     return (

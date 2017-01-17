@@ -14,9 +14,8 @@ class CustomPostsCategories extends Component {
 	//	console.log("constructor props ",this.props)
 		
 	}
-	componentWillReceiveProps(props){
-		//console.log("propscustom",this.props)
-	}
+	   
+  
   renderEdit() {
     return (
       <Telescope.components.CanDo action="categories.edit.all">
