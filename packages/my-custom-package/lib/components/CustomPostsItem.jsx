@@ -136,19 +136,21 @@ class CustomPostsItem extends Telescope.components.PostsItem {
        
         
        <div className="customDatePriceCountry">
-             
-            <div className="dateContainer">
-            
-               <span className="month">
-                    {moment(itemPriceCountry.relDate).format('MMM')} 
-              </span>
-              <span className="day">
-                    {moment(itemPriceCountry.relDate).format('DD')} 
-              </span>
-              <span className="year">
-                    {moment(itemPriceCountry.relDate).format('gggg')} 
-              </span>
-             </div>  
+              {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? 
+                  <div className="dateContainer">
+                  
+                     <span className="month">
+                          {moment(itemPriceCountry.relDate).format('MMM')} 
+                    </span>
+                    <span className="day">
+                          {moment(itemPriceCountry.relDate).format('DD')} 
+                    </span>
+                    <span className="year">
+                          {moment(itemPriceCountry.relDate).format('gggg')} 
+                    </span>
+                   </div>  
+                :''}
+
               <div className="posts-item-vote customVote">
                   
 

@@ -39,7 +39,7 @@ class CustomArray extends Component {
 
   changeInputValue(event,inputIndex){
    
-  //    console.log("inputIndex  :  ",event,inputIndex);
+     console.log("inputIndex  :  ",event,inputIndex);
       this.state.inputvalue[inputIndex].country = event.target.value;
       if(this.state.inputvalue[inputIndex].price == undefined){
         this.state.inputvalue[inputIndex].price = '';
@@ -132,34 +132,20 @@ onChangeDate(inputIndex,event){
             
             return(<div className="countryRelDateContainer">
               <div className="col-xs-2">
-                  <input className="form-control"
-                  key={"CustomArray_"+inputIndex}
-               type="text"  
-                placeholder="Country"
-                value={items.country}
-                name={that.state.name}
-                // newDate argument is a Moment object given by re|act-datetime
-                onChange={e=> that.changeInputValue(e.persist()||e,inputIndex)}
-                  
-              />
-
-           
+                 
+               <select name="dropdown" className="ui dropdown " value={that.country}   onChange={e=> that.changeInputValue(e.persist()||e,inputIndex)} >
+                {countries.find().fetch().map(function(country){
+                  return <option value={country.name}>{country.name}</option>
+                })}
+               
+              </select>
               
              
            </div> 
 
           <div className="col-xs-2 priceContainer">
 
-           <div className={items.isExpanded ? "dropdown open currencyDropDown" : "dropdown currencyDropDown"}>
-                  <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" onClick={()=>{ items.isExpanded= !items.isExpanded; that.setState({inputvalue:that.state.inputvalue})  }}><i className={items.currencyIcon}></i>
-                  <span className="caret"></span></button>
-                 
-                  <ul className="dropdown-menu">
-                        {currencyIcons.map(function(icons,iconsIndex){
-                           return <li onClick={(e,icons)=>{ items.isExpanded=!items.isExpanded;  that.setState({currencySelected:e.target.className,inputvalue:that.state.inputvalue});  that.setCurrency(inputIndex,e.target.className); }   }  className={icons} value={icons}></li>
-                         })}
-                  </ul>  
-            </div>
+           
             
             <input
           className="form-control"
@@ -240,3 +226,24 @@ export default CustomArray;
                    
  //                </select>
 
+ // <input className="form-control"
+ //                  key={"CustomArray_"+inputIndex}
+ //               type="text"  
+ //                placeholder="Country"
+ //                value={items.country}
+ //                name={that.state.name}
+ //                // newDate argument is a Moment object given by re|act-datetime
+ //                onChange={e=> that.changeInputValue(e.persist()||e,inputIndex)}
+                  
+ //              />
+
+// <div className={items.isExpanded ? "dropdown open currencyDropDown" : "dropdown currencyDropDown"}>
+//                   <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" onClick={()=>{ items.isExpanded= !items.isExpanded; that.setState({inputvalue:that.state.inputvalue})  }}><i className={items.currencyIcon}></i>
+//                   <span className="caret"></span></button>
+                 
+//                   <ul className="dropdown-menu">
+//                         {currencyIcons.map(function(icons,iconsIndex){
+//                            return <li onClick={(e,icons)=>{ items.isExpanded=!items.isExpanded;  that.setState({currencySelected:e.target.className,inputvalue:that.state.inputvalue});  that.setCurrency(inputIndex,e.target.className); }   }  className={icons} value={icons}></li>
+//                          })}
+//                   </ul>  
+//             </div>
