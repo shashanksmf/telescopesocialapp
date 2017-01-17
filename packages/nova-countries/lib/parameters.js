@@ -28,7 +28,8 @@ function addCountryParameter (parameters, terms) {
       countriesIds = countriesIds.concat(_.pluck(Countries.getChildren(country), "_id"));
     });
 
-    parameters.selector.countries = {$in: countriesIds};
+    //parameters.selector.countries = {$in: countriesIds};
+    parameters.selector.customArray11 = {'$elemMatch':{ 'country' : country }};
   }
   return parameters;
 }
