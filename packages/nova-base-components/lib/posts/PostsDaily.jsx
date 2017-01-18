@@ -24,6 +24,18 @@ class PostsDaily extends Component{
     }       
   }
 
+
+  componentWillReceiveProps(props){
+     const query = _.clone(props.router.location.query);
+      if (typeof window === 'object') {
+      if(query.hasOwnProperty("country")){
+        if(query.country.length > 0){
+          window.localStorage.setItem("userCountry",query.country);
+        }  
+      }
+    } 
+  }
+
   // for a number of days "n" return dates object for the past n days
   getLastNDates(n) {
     return _.range(n).map(
