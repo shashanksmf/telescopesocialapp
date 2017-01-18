@@ -37,10 +37,17 @@ class CustomArray extends Component {
   
   }
 
-  changeInputValue(event,inputIndex){
-   
-     console.log("inputIndex  :  ",event,inputIndex);
-      this.state.inputvalue[inputIndex].country = event.target.value;
+  changeInputValue(country,inputIndex,event){
+    // var currencyIcon='';
+    //  countries.find().fetch().map(function(country){
+    //     if(country.name == event.target.value){
+    //       //console.log(country);
+    //       currencyIcon = country.icon;
+    //     }
+    //  })
+    // console.log("inputIndex  :  ",event,country,inputIndex);
+      this.state.inputvalue[inputIndex].country = country.name;
+      this.state.inputvalue[inputIndex].currencyIcon = country.icon;
       if(this.state.inputvalue[inputIndex].price == undefined){
         this.state.inputvalue[inputIndex].price = '';
       }
@@ -136,18 +143,25 @@ onChangeDate(inputIndex,event){
         <div className="col-sm-12 ">
         
           {that.state.inputvalue.map(function(items,inputIndex){
-            console.log(items);
+          //  console.log(items);
+            items.dropdownToggle =  items.isExpanded  ? {
+                display: 'block'
+              } : {display: 'none'};
             return(<div className="countryRelDateContainer">
-              <div className="col-xs-2">
-                 
-               <select name="dropdown" className="ui dropdown " value={that.country}   onChange={e=> that.changeInputValue(e.persist()||e,inputIndex)} >
-                {countries.find().fetch().map(function(country){
-                  return <option value={country.name}>{country.name}</option>
-                })}
-               
-              </select>
-              
+              <div className="col-xs-3">
              
+               <div className={items.isExpanded ? "ui selection dropdown active visible" : "ui selection dropdown"} onClick={()=>{ items.isExpanded= !items.isExpanded; that.setState({inputvalue:that.state.inputvalue})  }}>
+                    <input type="hidden" name={items.country}/>
+                    <i className="dropdown icon"></i>
+                    <div className="default text">{items.country}</div>
+                    <div className="menu" style={items.dropdownToggle}>
+                    {countries.find().fetch().map(function(country,countryIndex){
+                      return <div key={"dropdown_country_" +countryIndex} className="item" data-value="1" onClick={that.changeInputValue.bind(that,country,inputIndex)}>{country.name}</div>
+                    })}
+                    
+                    </div>
+              </div>
+                               
            </div> 
 
           <div className="col-xs-2 priceContainer">
@@ -255,3 +269,13 @@ export default CustomArray;
 //                          })}
 //                   </ul>  
 //             </div>
+
+     
+              //  <select name="dropdown" className="ui dropdown " value={that.country}   onChange={e=> that.changeInputValue(e.persist()||e,inputIndex)} >
+              //   {countries.find().fetch().map(function(country){
+              //     return <option value={country.name}>{country.name}</option>
+              //   })}
+
+
+               
+              // </select>
