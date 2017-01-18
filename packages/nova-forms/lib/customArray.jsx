@@ -47,6 +47,9 @@ class CustomArray extends Component {
       if(this.state.inputvalue[inputIndex].reldate == undefined){
         this.state.inputvalue[inputIndex].reldate = '';
       }
+      if(this.state.inputvalue[inputIndex].reldate_local == undefined){
+        this.state.inputvalue[inputIndex].reldate_local = '';
+      }
       if(this.state.inputvalue[inputIndex].currencyIcon == undefined){
         this.state.inputvalue[inputIndex].currencyIcon = '';
       }
@@ -64,6 +67,9 @@ class CustomArray extends Component {
       if(this.state.inputvalue[inputIndex].reldate == undefined){
         this.state.inputvalue[inputIndex].reldate = '';
       }
+      if(this.state.inputvalue[inputIndex].reldate_local == undefined){
+        this.state.inputvalue[inputIndex].reldate_local = '';
+      }
       if(this.state.inputvalue[inputIndex].currencyIcon == undefined){
         this.state.inputvalue[inputIndex].currencyIcon = '';
       }
@@ -75,8 +81,9 @@ class CustomArray extends Component {
   }
 
 onChangeDate(inputIndex,event){
-   //  console.log("inputIndex",event,inputIndex)
-    this.state.inputvalue[inputIndex].reldate = event._d;
+     this.state.inputvalue[inputIndex].reldate = event._d;
+     this.state.inputvalue[inputIndex].reldate_local =  event._d.toISOString().slice(0, 10);
+   //  console.log("inputIndex",event,inputIndex,event._d,(event._d.getMonth() + 1));
     this.context.addToAutofilledValues({[this.state.name]: this.state.inputvalue});
     this.setState({inputvalue:this.state.inputvalue});
 }
@@ -129,7 +136,7 @@ onChangeDate(inputIndex,event){
         <div className="col-sm-12 ">
         
           {that.state.inputvalue.map(function(items,inputIndex){
-            
+            console.log(items);
             return(<div className="countryRelDateContainer">
               <div className="col-xs-2">
                  
@@ -163,13 +170,14 @@ onChangeDate(inputIndex,event){
 
           </div>
           <div className="col-xs-4">
+         
             <DateTimePicker
               name={that.state.name} 
               key={"CustomArray_relDate_"+inputIndex}
-              value={items.reldate || new Date()}
+              value={items.reldate_local || new Date().toISOString().slice(0, 10)}
               // newDate argument is a Moment object given by react-datetime
               onChange={that.onChangeDate.bind(that,inputIndex)}
-              format={"x"} 
+              format="dd/mm/yyyy"
             />
   
           </div>

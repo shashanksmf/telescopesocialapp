@@ -30,6 +30,10 @@ const RelDateCountry = new Mongo.Collection("RelDateCountry");
     type: Date,
     optional: true,
   },
+  reldate_local:{
+    type: String,
+    optional: true,
+  },
   currencyIcon:{
     type: String,
     optional: true,
