@@ -87,7 +87,8 @@ class CountriesList extends Component {
     const context = this.context;
     const currentQuery = _.clone(this.props.router.location.query);
     currentQuery.country = 'all';
-    console.log(countries);
+   // console.log(countries);
+    //delete currentQuery.country;
     return (
       <div>
         <DropdownButton 
