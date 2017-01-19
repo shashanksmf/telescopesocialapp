@@ -36,7 +36,6 @@ class CountriesList extends Component {
   }
 
   renderCountryEditModal(country, index) {
-    
     return (
       <Modal key={index} show={this.state.openModal === index+1} onHide={this.closeModal}>
         <Modal.Header closeButton>
@@ -84,10 +83,11 @@ class CountriesList extends Component {
   render() {
     
     const countries = this.props.countries;
+    const router    = this.props.router;
     const context = this.context;
     const currentQuery = _.clone(this.props.router.location.query);
-    delete currentQuery.country;
-    
+    currentQuery.country = 'all';
+    console.log(countries);
     return (
       <div>
         <DropdownButton 
@@ -97,7 +97,7 @@ class CountriesList extends Component {
           id="countries-dropdown"
         >
           <div className="country-menu-item dropdown-item">
-            <LinkContainer to={{pathname:"/", query: currentQuery}}>
+            <LinkContainer to={{pathname:router.location.pathname, query: currentQuery}}>
               <MenuItem eventKey={0}>
                 <FormattedMessage id="countries.all"/>
               </MenuItem>

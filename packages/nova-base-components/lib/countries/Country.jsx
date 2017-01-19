@@ -28,12 +28,15 @@ class Country extends Component {
 
     const currentQuery = router.location.query;
     const currentCountrySlug = router.location.query.country;
+    if(!currentCountrySlug){
+      router.replace({query:{ country : "uk"}});
+    }
     const newQuery = _.clone(router.location.query);
     newQuery.country = country.slug;
 
     return (
       <div className="country-menu-item dropdown-item">
-        <LinkContainer to={{pathname:"/", query: newQuery}}>
+        <LinkContainer to={{pathname:router.location.pathname, query: newQuery}}>
           <MenuItem 
             eventKey={index+1} 
             key={country._id} 

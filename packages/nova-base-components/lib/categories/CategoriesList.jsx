@@ -85,6 +85,7 @@ class CategoriesList extends Component {
     
     const categories = this.props.categories;
     const context = this.context;
+    const router    = this.props.router;
     const currentQuery = _.clone(this.props.router.location.query);
     delete currentQuery.cat;
     
@@ -97,7 +98,7 @@ class CategoriesList extends Component {
           id="categories-dropdown"
         >
           <div className="category-menu-item dropdown-item">
-            <LinkContainer to={{pathname:"/", query: currentQuery}}>
+            <LinkContainer to={{pathname:router.location.pathname, query: currentQuery}}>
               <MenuItem eventKey={0}>
                 <FormattedMessage id="categories.all"/>
               </MenuItem>

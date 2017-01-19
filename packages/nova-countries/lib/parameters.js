@@ -8,7 +8,9 @@ function addCountryParameter (parameters, terms) {
   var country = terms.country || terms["country[]"];
 
   // filter by country if country slugs are provided
-  if (country) {
+  if(country == 'all'){
+    // do nothing
+  } else if (country) {
 
     var countriesIds = [];
     var selector = {};
@@ -30,6 +32,8 @@ function addCountryParameter (parameters, terms) {
 
     //parameters.selector.countries = {$in: countriesIds};
     parameters.selector.customArray11 = {'$elemMatch':{ 'country' : country }};
+  } else {
+    //parameters.selector.customArray11 = {'$elemMatch':{ 'country' : 'uk' }};
   }
   return parameters;
 }

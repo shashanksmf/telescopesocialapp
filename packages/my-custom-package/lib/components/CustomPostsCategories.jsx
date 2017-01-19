@@ -51,7 +51,7 @@ class CustomPostsCategories extends Component {
 			newQuery.cat = category.slug;
 		  
 		  return (<div key={"arrId_"+arrid} className={currentCategorySlug === category.slug ? "CategoriesLinkWrapper active": "CategoriesLinkWrapper"}>
-		        <LinkContainer to={{pathname:"/", query: newQuery}}>
+		        <LinkContainer to={{pathname:router.location.pathname, query: newQuery}}>
 				   <MenuItem 
 					eventKey={index+1} 
 					key={category._id} 
