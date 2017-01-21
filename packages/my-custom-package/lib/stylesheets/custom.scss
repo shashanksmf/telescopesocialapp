@@ -17,17 +17,17 @@
 		border-top: 1px solid #f2f2f2;
 	    border-bottom: 1px solid #f2f2f2;
 		display: flex;
-		
+
         .hunter{
 				flex: 0.1;
 				padding-top:10px;
-				padding-bottom:10px;	        
+				padding-bottom:10px;
 			    font-weight: 600;
 				font-size: 12px;
 				color: #999;
-			    border-right: 1px solid #f2f2f2;	
+			    border-right: 1px solid #f2f2f2;
 				padding-right: 10px;
-					
+
 				.noHunterText{
 					font-weight: 300;
 					font-size: 10px;
@@ -44,21 +44,21 @@
 			}
 		    padding-left: 0;
 			margin-left: 20px;
-          
+
 		    .makerHarcodeText{
 				font-weight: 600;
 				font-size: 12px;
 				color: #999;
-				padding-left: 10px;	
+				padding-left: 10px;
 		  }
 		   .makerUserName{
 				font-size: 14px;
-				color: #000; 
-				font-weight: 700;	
-				font-family: proxima-nova,Proxima Nova,helvetica,arial,sans-serif;	
-			
+				color: #000;
+				font-weight: 700;
+				font-family: proxima-nova,Proxima Nova,helvetica,arial,sans-serif;
+
 				.makerProfileLink{
-					color:black;	
+					color:black;
 				}
 		  }
 		  .makerPic{
@@ -66,7 +66,7 @@
 			margin-right:20px;
 			border-radius: 40px;
 		  }
-            
+
         }
     }
 }
@@ -77,7 +77,7 @@
 		.posts-item{
 
 			padding-left:15px;
-			
+
 			.posts-thumbnail img {
 			    height: 80px;
 				}
@@ -91,10 +91,10 @@
 
 
 					}
-					
+
 
 				}
-				
+
 				.posts-item-meta{
 					.posts-stats{
 						display:none;
@@ -109,13 +109,13 @@
     float: right;
     width: 30%;
     padding-left: 5%;
-	
+
 	.customCategoriesWrapper{
 		flex:0 20%;
 		display:flex;
 		justify-content: center;
 		align-items: baseline;
-		
+
 		.clearLinkContainer{
 			text-align:center;
 			margin-bottom:20px;
@@ -151,9 +151,9 @@
 				display:inline-block;
 				margin-bottom: 10px;
 				margin-right: 10px;
-				
+
 				border-radius: 10px;
-					
+
 				a{
 				    background: #F6F2EF;
 					color: #AF9D95;
@@ -164,9 +164,9 @@
 					padding: 2px 6px;
 					border: 1px solid #D9C8C1;
 					margin: 0;
-					
+
 					transition: color ease-out 300ms;
-					
+
 					&:hover{
 					//	background-color: #9013FE;
 	    				color:white;
@@ -175,8 +175,8 @@
 					}
 				}
 			}
-		}	
-		
+		}
+
 		}
 	}
 }
@@ -189,7 +189,7 @@
 	font-size: 14px;
     font-weight: 100;
    	height:80px;
-	
+
 	.dateContainer{
 	    padding: 0px 15px;
 	    background-color: #D9DEEA;
@@ -219,12 +219,12 @@
 			    font-size: 14px;
 			    font-weight: normal;
 			    color: #7E8BAC
-	    }	
+	    }
 	}
-	
+
 	.countryName{
 		text-transform: capitalize;
-		
+
 	}
 
 	.price,.countryName{
@@ -245,7 +245,7 @@
     position: relative;
     top: -5px;
     margin-right: 0;
-    
+
 	.vote{
 		position: absolute;
 	    left: 20px;
@@ -267,9 +267,9 @@
 		color: #D0021B;
 	}
 }
- 
+
   .countryRelDateParentContainer{
-     
+
 
 	 .countryRelDateContainer{
 			 display: flex;
@@ -298,13 +298,13 @@
     						}
 	 	     			}
 
-	 	     	}	
+	 	     	}
 	 	     }
 
 	 	     .priceContainer{
-	 	     	display:flex;	
+	 	     	display:flex;
 	 	     }
-	 }   
+	 }
  }
  .AdditionalInfoContainer{
 	text-align:center;
@@ -317,22 +317,22 @@
     margin-right: 20px;
     color: #7E8BAC;
     font-family: "Helvetica Neue";
-    font-size: 20px;
+    font-size: 25px;
     font-weight: normal;
     fill: rgb(126, 139, 172);
 
     .currencyIcon{
     	i{
-    		font-size:16px;
+    		font-size:25px;
     	}
 
     }
 	.price,.countryName{
 		padding-right:5px;
-	}	
+	}
 }
 .posts-item {
-	
+
 	padding: 5px 5px;
 	flex-wrap: wrap;
 	padding-right: 0;
@@ -357,7 +357,7 @@
 		flex: 0;
 	    justify-content: flex-end;
 	    padding-right: 20px;
-	   
+
 
 	    a{
 	        color: #7E8BAC;
@@ -371,13 +371,13 @@
 }
 
 .header-wrapper{
-	background-color:#9013FE;
+	background-color:#6051a9;
 }
 
 .nav-new-post button,.nav-new-post button:hover,.nav-new-post button.focus,,.nav-new-post button.active{
 	border: 3px solid white !important;
     border-radius: 5px;
-    background-color: #9013FE;	
+    background-color: #6051a9;
 }
 .logo-text a{
 	color:white;
@@ -423,11 +423,11 @@ body{
 
 	.comments-item-body{
 		.comments-item-meta > a{
-	
+
 				width:40px !important;
 				height:40px !important;
 
-				
+
 			}
 			.comments-item-meta{
 			a{
@@ -436,12 +436,12 @@ body{
 	    			color: black;
 	    			font-weight: bold;
 				}
-				
+
 				img{
 					width:40px !important;
 					height:40px !important;
 					border-radius:0px !important;
-				}	
+				}
 			}
 		}
 	}
@@ -450,7 +450,7 @@ body{
 .customPostDetails{
 	margin-top:20px;
 	margin-bottom:20px;
-	
+
 	.customPostDetailsPreorder,.customPostDetailsSource,.customPostDetailsFavbtn{
 	    height: 35px;
 	    width: 150px;
