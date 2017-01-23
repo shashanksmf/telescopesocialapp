@@ -15,8 +15,8 @@ class CustomPostDetails extends React.Component{
 				<button  className="customPostDetailsSource" type="button">Source</button>
 				<button  className="customPostDetailsFavbtn" type="button"><i className="fa icon plus" aria-hidden="true"></i>Favourites</button>
 				<div className="socialShare">
-					<img src="http://res.cloudinary.com/dvrif5vdu/raw/upload/v1484234583/facebookshare_je9cm2.png"/>
-					<img src="http://res.cloudinary.com/dvrif5vdu/raw/upload/v1484234584/twittershare_uc94yn.png"/>
+					<i className="facebook icon"></i>
+					<i className="twitter icon"></i>
 				</div>	
 			</div>
 		</div>
@@ -25,3 +25,6 @@ class CustomPostDetails extends React.Component{
 }
 
 export default CustomPostDetails;
+
+// <img src="http://res.cloudinary.com/dvrif5vdu/raw/upload/v1484234583/facebookshare_je9cm2.png"/>
+// 					<img src="http://res.cloudinary.com/dvrif5vdu/raw/upload/v1484234584/twittershare_uc94yn.png"/>

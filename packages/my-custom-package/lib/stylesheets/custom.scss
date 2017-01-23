@@ -136,9 +136,10 @@
 			&.active{
 				li{
 					a{
-						background-color:#0275D8;
+						background-color:#6051a9;
 						text-decoration:none;
-						color:white;
+            border: 1px solid #6051a9;
+						color: white;
 						i{
 							display:none;
 						}
@@ -155,23 +156,26 @@
 				border-radius: 10px;
 
 				a{
-				    background: #F6F2EF;
-					color: #AF9D95;
+
+          // Side Tags
+				    background: #d9deea;
+					color: #7E8BAC;
 					border: none;
 					display: inline-block;
-					border-radius: 10px;
+					border-radius: 5px;
 					margin-right: 5px;
 					padding: 2px 6px;
-					border: 1px solid #D9C8C1;
+					border: 1px solid #d9deea;
 					margin: 0;
 
-					transition: color ease-out 300ms;
+
 
 					&:hover{
 					//	background-color: #9013FE;
-	    				color:white;
+          border: 1px solid #6051a9;
+          color: #6051a9;
 						text-decoration:none;
-						color:white;
+
 					}
 				}
 			}
@@ -243,7 +247,7 @@
     border-width: 0 50px 50px 0;
     border-color: transparent #D9DEEA transparent transparent;
     position: relative;
-    top: -5px;
+    top: -15px;
     margin-right: 0;
 
 	.vote{
@@ -264,7 +268,7 @@
 		}
 	}
 	.icon.fa.fa-fw.fa-heart{
-		color: #D0021B;
+		color: #6051a9;
 	}
 }
 
@@ -315,7 +319,7 @@
     display: flex;
     justify-content: flex-end;
     margin-right: 20px;
-    color: #7E8BAC;
+    color: #6051a9;
     font-family: "Helvetica Neue";
     font-size: 25px;
     font-weight: normal;
@@ -333,7 +337,7 @@
 }
 .posts-item {
 
-	padding: 5px 5px;
+	padding: 15px 15px;
 	flex-wrap: wrap;
 	padding-right: 0;
 	flex-wrap: nowrap;
@@ -469,6 +473,10 @@ body{
 	.socialShare{
 		display:inline-block;
 		float:right;
+		i{
+			font-size: 34px;
+			margin-right:10px;
+		}
 		img{
 			width:30px;
 			margin-right:10px;
@@ -507,7 +515,7 @@ body{
 		}
 	}
 
-	.posts-pages + .CustomCategoriesContainer{
+	.posts-pages + .CustomCategoriesContainer,.page.users-edit-form + .CustomCategoriesContainer,page.users-profile + .CustomCategoriesContainer {
 		display:none;
 	}
 	.posts-pages{

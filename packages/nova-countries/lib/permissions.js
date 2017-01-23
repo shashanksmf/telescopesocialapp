@@ -1,18 +1,13 @@
 import Users from 'meteor/nova:users';
 
 const anonymousActions = [
-  "countries.view.all",
-"countries.new",
-  "countries.edit.all",
-  "countries.remove.all"
+  "countries.view.all"
 ];
 Users.groups.anonymous.can(anonymousActions);
 
 const defaultActions = [
-  "countries.view.all",
-"countries.new",
-  "countries.edit.all",
-  "countries.remove.all"
+  "countries.view.all"
+
 ];
 Users.groups.default.can(defaultActions);
 

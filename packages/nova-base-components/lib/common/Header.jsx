@@ -5,7 +5,7 @@ import React from 'react';
 const Header = (props, {currentUser}) => {
   
   const logoUrl = Telescope.settings.get("logoUrl");
-  const siteTitle = Telescope.settings.get("title", "Releasery");
+  const siteTitle = Telescope.settings.get("title", "Nova");
   const tagline = Telescope.settings.get("tagline");
 
   return (
@@ -17,9 +17,9 @@ const Header = (props, {currentUser}) => {
           <Telescope.components.Logo logoUrl={logoUrl} siteTitle={siteTitle} />
           {tagline ? <h2 className="tagline">{tagline}</h2> : "" }
         </div>
-
+        
         <div className="nav">
-
+          
           <div className="nav-user">
             {currentUser ? <Telescope.components.UsersMenu/> : <Telescope.components.UsersAccountMenu/>}
           </div>

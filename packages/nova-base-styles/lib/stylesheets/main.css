@@ -548,12 +548,12 @@ div.ReactTags__suggestions mark {
   padding: 10px 20px;
   width: 100%;
   background: #fff;
-  color: #0275d8; }
+  color: #6051a9; }
   /* line 13, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_variables.scss */
   .posts-load-more:hover, .comments-load-more:hover {
-    background: #0275d8;
+    background: #6051a9;
     color: #fff;
-    border-color: #0275d8;
+    border-color: #6051a9;
     text-decoration: none; }
 
 /* line 77, G:/meteor/nova/Telescope-master/packages/nova-base-styles/lib/stylesheets/_posts.scss */
