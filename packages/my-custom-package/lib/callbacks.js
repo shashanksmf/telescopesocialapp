@@ -7,8 +7,9 @@ import Telescope from 'meteor/nova:lib';
 
 function PostsNewAddRandomEmoji (post, user) {
 
-  post.title = post.title + " " +_.sample(["🎉", "💎", "☠", "⏱", "🎈", "⛱"])
+  post.title = post.title;
 
   return post;
 }
 Telescope.callbacks.add("posts.new.sync", PostsNewAddRandomEmoji);
+ //post.title = post.title + " " +_.sample(["🎉", "💎", "☠", "⏱", "🎈", "⛱"])
