@@ -87,6 +87,14 @@ class CategoriesList extends Component {
     const context = this.context;
     const router    = this.props.router;
     const currentQuery = _.clone(this.props.router.location.query);
+    var selectedCategory;
+    if(currentQuery.cat && categories){
+      for(var i=0;i<categories.length;i++){
+        if(categories[i].slug == currentQuery.cat){
+          selectedCategory = categories[i].name;
+        } 
+      }
+    }
     delete currentQuery.cat;
     
     return (
@@ -94,7 +102,7 @@ class CategoriesList extends Component {
         <DropdownButton 
           bsStyle="default" 
           className="categories-list btn-secondary" 
-          title={<FormattedMessage id="categories"/>} 
+          title={selectedCategory || <FormattedMessage id="Categories" />}
           id="categories-dropdown"
         >
           <div className="category-menu-item dropdown-item">

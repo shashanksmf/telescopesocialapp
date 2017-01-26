@@ -15,13 +15,22 @@ const PostsViews = (props, context) => {
   }
 
   const query = _.clone(props.router.location.query);
-
+  var currentView;
+  if(query.view){
+    if(query.view == "userUpvotedPosts"){
+      currentView = "favourite";
+    }
+    else{
+      currentView = query.view;  
+    }
+    
+  }
   return (
     <div className="posts-views">
       <DropdownButton 
         bsStyle="default" 
         className="views btn-secondary" 
-        title={context.intl.formatMessage({id: "posts.view"})} 
+        title={currentView || context.intl.formatMessage({id: "posts.view"})} 
         id="views-dropdown"
       >
 	  

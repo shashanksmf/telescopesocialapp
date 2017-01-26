@@ -20,7 +20,7 @@ const CustomPostPage = ({document, currentUser}) =>  {
       <div className="customPostPageContainer">
         <Telescope.components.PostsItem post={post}/>
   		  {post.product ? <HunterMaker  post={post}/> : null}	
-        <CustomPostDetails/>
+        <CustomPostDetails post={post} />
         {post.htmlBody ? <div className="posts-page-body" dangerouslySetInnerHTML={htmlBody}></div> : null}
 		  </div>
       {/*<SocialShare url={ Posts.getLink(post) } title={ post.title }/>*/}

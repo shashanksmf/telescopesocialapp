@@ -86,7 +86,19 @@ class CountriesList extends Component {
     const router    = this.props.router;
     const context = this.context;
     const currentQuery = _.clone(this.props.router.location.query);
-    currentQuery.country = 'all';
+   // currentQuery.country = 'all';
+   if(!currentQuery && !currentQuery.country){
+      currentQuery.country = "uk";
+   }
+    var selectedCountry; 
+     if(currentQuery.country && countries){
+      for(var i=0;i<countries.length;i++){
+        if(countries[i].name.toLowerCase() == currentQuery.country.toLowerCase()){
+          selectedCountry = countries[i].name;
+        } 
+      }
+    }
+
    // console.log(countries);
     //delete currentQuery.country;
     return (
@@ -94,7 +106,7 @@ class CountriesList extends Component {
         <DropdownButton 
           bsStyle="default" 
           className="countries-list btn-secondary" 
-          title={<FormattedMessage id="countries"/>} 
+          title={selectedCountry || <FormattedMessage id="countries"/>} 
           id="countries-dropdown"
         >
           <div className="country-menu-item dropdown-item">

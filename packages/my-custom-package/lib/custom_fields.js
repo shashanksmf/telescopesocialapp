@@ -37,7 +37,15 @@ const RelDateCountry = new Mongo.Collection("RelDateCountry");
   currencyIcon:{
     type: String,
     optional: true,
-  }
+  },
+  vendorName: {
+    type: String,
+    optional: true,
+  },
+  sourceUrl: {
+    type: String,
+    optional: true,
+  },
 });
 RelDateCountry.attachSchema(RelDateCountry.schema);
 Posts.addField(

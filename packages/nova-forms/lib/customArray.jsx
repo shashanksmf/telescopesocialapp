@@ -87,13 +87,27 @@ class CustomArray extends Component {
     // this.setValue(this.state.inputvalue);
   }
 
-onChangeDate(inputIndex,event){
-     this.state.inputvalue[inputIndex].reldate = event._d;
-     this.state.inputvalue[inputIndex].reldate_local =  event._d.toISOString().slice(0, 10);
-   //  console.log("inputIndex",event,inputIndex,event._d,(event._d.getMonth() + 1));
+  onChangeDate(inputIndex,event){
+       this.state.inputvalue[inputIndex].reldate = event._d;
+       this.state.inputvalue[inputIndex].reldate_local =  event._d.toISOString().slice(0, 10);
+     //  console.log("inputIndex",event,inputIndex,event._d,(event._d.getMonth() + 1));
+      this.context.addToAutofilledValues({[this.state.name]: this.state.inputvalue});
+      this.setState({inputvalue:this.state.inputvalue});
+  }
+
+  onChangeSourceName(inputIndex,event){
+    console.log("inputIndex,event",inputIndex,event)
+     this.state.inputvalue[inputIndex].sourceUrl = event.target.value;
+     this.context.addToAutofilledValues({[this.state.name]: this.state.inputvalue});
+      this.setState({inputvalue:this.state.inputvalue});
+  }
+
+  onChangeVendorName(inputIndex,event){
+    this.state.inputvalue[inputIndex].vendorName= event.target.value;
     this.context.addToAutofilledValues({[this.state.name]: this.state.inputvalue});
     this.setState({inputvalue:this.state.inputvalue});
-}
+  }
+
 
   setCurrency(inputIndex,Icon){
   //   console.log("this.state.inputvalue ",this.state.inputvalue,inputIndex,Icon)
@@ -140,17 +154,30 @@ onChangeDate(inputIndex,event){
       <div className="form-group row countryRelDateParentContainer">
         <label className="control-label col-sm-3"></label>
         <button type="button" name="newinput" className="btn btn-primary" onClick={that.addMore.bind(that)}>Add Release</button>
-        <div className="col-sm-12 ">
+        <div className=" ">
         
           {that.state.inputvalue.map(function(items,inputIndex){
-          //  console.log(items);
+            console.log(items);
             items.dropdownToggle =  items.isExpanded  ? {
                 display: 'block'
               } : {display: 'none'};
+
             return(<div className="countryRelDateContainer">
-              <div className="col-xs-3">
+
+              <div className="ui labeled input productSourceUrl">
+                <div className="ui label">
+                  http://
+                </div>
+                <input type="text" placeholder="mysite.com" onChange={that.onChangeSourceName.bind(that,inputIndex)} value={items.sourceUrl}/>
+                <i class="plus icon"></i>
+              </div>
+
+              <div className="ui input ">
+                <input type="text" placeholder="Source Name..."  onChange={that.onChangeVendorName.bind(that,inputIndex)} value={items.vendorName}/>
+              </div>
+              <div className="">
              
-               <div className={items.isExpanded ? "ui selection dropdown active visible" : "ui selection dropdown"} onClick={()=>{ items.isExpanded= !items.isExpanded; that.setState({inputvalue:that.state.inputvalue})  }}>
+               <div className={items.isExpanded ? "ui selection dropdown active visible countryContainer" : "ui selection dropdown countryContainer"} onClick={()=>{ items.isExpanded= !items.isExpanded; that.setState({inputvalue:that.state.inputvalue})  }}>
                     <input type="hidden" name={items.country}/>
                     <i className="dropdown icon"></i>
                     <div className="default text">{items.country}</div>
@@ -164,26 +191,20 @@ onChangeDate(inputIndex,event){
                                
            </div> 
 
-          <div className="col-xs-2 priceContainer">
-
-           
-            
-            <input
-          className="form-control"
-              key={"CustomArray_Price_"+inputIndex}
-           type="text"  
-             placeholder="Price"
-            value={items.price}
-            name={that.state.name}
-            // newDate argument is a Moment object given by react-datetime
-            onChange={that.changePriceValue.bind(that,inputIndex)}
-              
-          />
-
-             
-
+          <div className=" ui input priceContainer">            
+                <input
+              className="form-control"
+                  key={"CustomArray_Price_"+inputIndex}
+               type="text"  
+                 placeholder="Price"
+                value={items.price}
+                name={that.state.name}
+                // newDate argument is a Moment object given by react-datetime
+                onChange={that.changePriceValue.bind(that,inputIndex)}
+              />
           </div>
-          <div className="col-xs-4">
+
+          <div className="ui input relDateContainer">
          
             <DateTimePicker
               name={that.state.name} 
@@ -195,7 +216,7 @@ onChangeDate(inputIndex,event){
             />
   
           </div>
-          <button type="button" className="btn btn-danger" onClick={that.deleteCountry.bind(that,inputIndex)}> Delete</button>
+          <button type="button" className="btn btn-danger fa fa-times" onClick={that.deleteCountry.bind(that,inputIndex)}></button>
 
 
             </div>)
