@@ -1,5 +1,5 @@
 import Telescope from 'meteor/nova:lib';
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, Component, intlShape } from 'react';
 import { FormattedMessage, FormattedRelative } from 'react-intl';
 import { Button } from 'react-bootstrap';
 import moment from 'moment';
@@ -7,6 +7,9 @@ import { ModalTrigger } from "meteor/nova:core";
 import { Link } from 'react-router';
 import Posts from "meteor/nova:posts";
 import Categories from "meteor/nova:categories";
+import HunterMaker from './partials/HunterMaker.jsx';
+import CustomPostDetails from './partials/CustomPostDetails.jsx';
+import { IndexLink } from 'react-router';
 //console.log("Telescope",Telescope);
 class CustomPostsItem extends Telescope.components.PostsItem {
   componentWillReceiveProps(props){
@@ -20,6 +23,32 @@ class CustomPostsItem extends Telescope.components.PostsItem {
     return this.props.post.commentersArray ? <Telescope.components.PostsCommenters post={this.props.post}/> : "";
   }
   
+  renderPost() {
+    const post = this.props.post;
+    console.log(post);
+    const htmlBody = {__html: post.htmlBody};
+    console.log(htmlBody);
+    return (
+      <div className="post-actions">
+          <ModalTrigger title="View Post" component={
+            <a className="posts-action-edit">
+                  {post.title}
+            </a>}>
+            <div>
+            <div className="customPostPageContainer">
+              <Telescope.components.PostsItem post={post}/>
+              {post.product ? <HunterMaker  post={post}/> : null} 
+              <CustomPostDetails/>
+              {post.htmlBody ? <div className="posts-page-body" dangerouslySetInnerHTML={htmlBody}></div> : null}
+            </div>
+           
+            <Telescope.components.PostsCommentsThread document={post} />
+            </div>
+          </ModalTrigger>
+      </div>
+    )
+  }
+
   render() {
     var itemPriceCountry = {};
     var countryName='';
@@ -95,9 +124,7 @@ class CustomPostsItem extends Telescope.components.PostsItem {
         <div className="posts-item-content">
           
           <h3 className="posts-item-title ">
-            <Link to={Posts.getLink(post)} className="posts-item-title-link" target={Posts.getLinkTarget(post)}>
-              {post.title}
-            </Link>
+           {this.renderPost()}  
            <div className="priceWrapper">
                 <span className="currencyIcon">
                       <i className={itemPriceCountry.currencyIcon} ></i>

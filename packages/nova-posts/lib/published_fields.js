@@ -24,6 +24,7 @@ Posts.publishedFields.list = PublicationsUtils.arrayToFields([
   "sticky",
   "author",
   "userId",
+  "htmlBody",
   "isFuture"
 ]);
 

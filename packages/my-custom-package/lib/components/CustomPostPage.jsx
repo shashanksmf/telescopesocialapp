@@ -29,8 +29,6 @@ const CustomPostPage = ({document, currentUser}) =>  {
 		
     </div>
 	);
-  
-
 }
 
 export default CustomPostPage;
