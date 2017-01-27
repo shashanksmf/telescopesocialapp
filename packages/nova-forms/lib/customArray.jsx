@@ -146,18 +146,16 @@ class CustomArray extends Component {
       }
   })
     var that =  this;
-      if(that.state.inputvalue.length ==0){
-        return <div className="AdditionalInfoContainer"> <button type="button" className="btn btn-info AdditionalInfoBtn" name="newinput" onClick={that.addMore.bind(that)}>Aditional Information</button></div>
-      }
+      
       
     return (
       <div className="form-group row countryRelDateParentContainer">
         <label className="control-label col-sm-3"></label>
-        <button type="button" name="newinput" className="btn btn-primary" onClick={that.addMore.bind(that)}>Add Release</button>
+        <button type="button" name="newinput" className="btn btn-primary" onClick={that.addMore.bind(that)}><i className="fa fa-plus"></i>Additional Information</button>
         <div className=" ">
         
           {that.state.inputvalue.map(function(items,inputIndex){
-            console.log(items);
+          //  console.log(items);
             items.dropdownToggle =  items.isExpanded  ? {
                 display: 'block'
               } : {display: 'none'};
@@ -175,7 +173,7 @@ class CustomArray extends Component {
               <div className="ui input ">
                 <input type="text" placeholder="Source Name..."  onChange={that.onChangeVendorName.bind(that,inputIndex)} value={items.vendorName}/>
               </div>
-              <div className="">
+              <div className=" ">
              
                <div className={items.isExpanded ? "ui selection dropdown active visible countryContainer" : "ui selection dropdown countryContainer"} onClick={()=>{ items.isExpanded= !items.isExpanded; that.setState({inputvalue:that.state.inputvalue})  }}>
                     <input type="hidden" name={items.country}/>
@@ -300,3 +298,8 @@ export default CustomArray;
 
                
               // </select>
+
+
+      //         if(that.state.inputvalue.length ==0){
+      //   return <div className="AdditionalInfoContainer"> <button type="button" className="btn btn-info AdditionalInfoBtn" name="newinput" onClick={that.addMore.bind(that)}>Aditional Information</button></div>
+      // }

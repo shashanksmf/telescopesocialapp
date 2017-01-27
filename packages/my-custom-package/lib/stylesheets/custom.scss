@@ -475,15 +475,20 @@ body{
 	margin-bottom:20px;
 
 	.priceDropDown{
-		padding: 0 10px;
+		display:inline-flex !important;
+		margin-right:10px !important;
+		color:white;
+		.ui.simple.dropdown.item{
+			color:white;
+		}
 		height: 35px;
 	    color: white;
-	    border-radius: 8px;
+	    border-radius: 8px !important;
 	    border: none;
 	    outline: none;
 	    font-weight: bold;
 	    margin-right: 15px;
-	    background-color: #9013FE;
+	    background-color: #9013FE !important;
 	    display:inline-flex;
 	    align-items:center;
 	    justify-content:center;
@@ -537,6 +542,9 @@ body{
 	}
 .customPostPageContainer{
 	    border: 2px solid #E3E7EF;
+	    .priceWrapper,.posts-stats{
+	    	display:none;
+	    }
 }
 
 .posts-day:not(:first-child){

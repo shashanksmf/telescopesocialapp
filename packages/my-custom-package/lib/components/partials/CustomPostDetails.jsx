@@ -33,13 +33,13 @@ class CustomPostDetails extends React.Component{
 		if(countryArr.length>0) {
 			return ( 
 
-				<div className="ui compact menu priceDropDown">
+				<div className="ui menu priceDropDown">
 					  <div className="ui simple dropdown item">
 					    Price : <i className={post.customArray11[0].currencyIcon}></i> {post.customArray11[0].price}
 					    <i className="dropdown icon"></i>
-					    <div className="menu">
+					    <div className="menu prices">
 						    {countryArr.map(function(country){
-						    	return  <div className="item">{country.vendorName} : {country.price}</div>
+						    	return  <div className="item"><a target="_blank" href={country.sourceUrl}>{country.vendorName} : <i className={country.currencyIcon}></i>{country.price}</a></div>
 						    })}
 					    </div>
 					  </div>
