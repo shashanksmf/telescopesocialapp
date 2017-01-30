@@ -478,9 +478,18 @@ body{
 		display:inline-flex !important;
 		margin-right:10px !important;
 		color:white;
-		.ui.simple.dropdown.item{
+		.ui.button{
 			color:white;
+			background-color: #9013FE;
+	    
 		}
+
+		.ui.floating.dropdown.icon.button{
+			background-color: #791fc7;
+		}
+		
+
+
 		height: 35px;
 	    color: white;
 	    border-radius: 8px !important;
@@ -488,7 +497,7 @@ body{
 	    outline: none;
 	    font-weight: bold;
 	    margin-right: 15px;
-	    background-color: #9013FE !important;
+	    background-color: #9013FE ;
 	    display:inline-flex;
 	    align-items:center;
 	    justify-content:center;
@@ -516,9 +525,46 @@ body{
 	.socialShare{
 		display:inline-block;
 		float:right;
-		i{
-			font-size: 34px;
+		margin-right:20px;
+		position:relative;
+
+		.socialSharingBtns{
+			position: absolute;
+		    top: -36px;
+		    font-size: 26px;
+		    left: 10px;
+		    background-color: #D9DEEA;
+    		padding-top: 5px;
+
+    		i{
+    			cursor:pointer;
+    		}
+		 	
+		 	&:after{
+				    content: '';
+				    width: 0;
+				    height: 0;
+				    position: absolute;
+				    left: 40%;
+				    bottom: -4px;
+				    /* top: 50px; */
+				    width: 0;
+				    height: 0;
+				    border-left: 5px solid transparent;
+				    border-right: 5px solid transparent;
+				    border-top: 5px solid #D9DEEA;
+				    clear: both;
+				}   
+		}
+		.shareIcon{
+		 	padding:5px 10px;
+		 	display:inline-flex;
+		 	align-items:center;
+		 	i{
+			font-size: 24px;
 			margin-right:10px;
+		}
+
 		}
 		img{
 			width:30px;
