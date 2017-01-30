@@ -56,7 +56,7 @@ class CustomPostDetails extends React.Component{
 				})
 			}
 		}
-		console.log("custompost details post props",countryArr,currentQuery,selectedCoutry);
+		console.log("custompost details post props",this.props.post);
 		
 		if(countryArr.length>0) {
 			return ( 
