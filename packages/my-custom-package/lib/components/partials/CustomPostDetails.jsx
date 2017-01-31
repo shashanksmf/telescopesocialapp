@@ -59,16 +59,20 @@ class CustomPostDetails extends React.Component{
 		console.log("custompost details post props",this.props.post);
 		
 		if(countryArr.length>0) {
+
+			  countryArr.sort(function(a, b) {
+		        return parseInt(a.price) - parseInt(b.price);
+		      });
 			return ( 
 
 
 				<div className="ui buttons priceDropDown" onClick={()=>{ this.setState({ priceBtnExpand : !this.state.priceBtnExpand }) }}>
-				  <div className="ui button" >Price : <i className={post.customArray11[0].currencyIcon}></i> {post.customArray11[0].price} </div>
+				  <div className="ui button" >Price : <i className={countryArr[0].currencyIcon}></i> {countryArr[0].price} </div>
 				  <div className="ui floating dropdown icon button">
 				    <i className="dropdown icon"></i>
 				    <div className={this.state.priceBtnExpand ? "menu prices transition visible" : "menu prices"}>
 				      {countryArr.map(function(country){
-						    	return  <div className="item"><a target="_blank" href={country.sourceUrl}>{country.vendorName} : <i className={country.currencyIcon}></i>{country.price}</a></div>
+						    	return  <div className="item"><a target="_blank" href={country.sourceUrl}>{country.vendorName} {country.vendorName ? ": ": ""}<i className={country.currencyIcon}></i>{country.price}</a></div>
 						})}
 				    </div>
 				  </div>
@@ -84,10 +88,15 @@ class CustomPostDetails extends React.Component{
 
 		return(
 		<div className="container customPostDetails">
+		<div id="fb-root"></div>	
 			<div className="row">
 				
 				{this.renderPrices(this.props.post)}
-				<div id="fb-root"></div>
+				<div className="posts-item-vote customVote ">
+
+                	<Telescope.components.Vote  post={this.props.post} />
+              	</div>
+				
 				<div className="socialShare">
 				<div className="socialSharingBtns" style={externalShareStyle}>
 					<i className="facebook icon" onClick={(e)=>{  

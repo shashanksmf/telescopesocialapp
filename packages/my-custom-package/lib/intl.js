@@ -8,6 +8,7 @@ Telescope.strings.en = {
   ...Telescope.strings.en, // get all the string translated
   "posts.color": "Color",
   "posts.image": "Image",
-  "posts.userUpvotedPosts":"Favourite"
+  "posts.userUpvotedPosts":"Favourite",
+  "posts.body":"Description"
   // add a new one (collection.field: "Label")
 };

@@ -268,7 +268,7 @@
 		}
 	}
 	.icon.fa.fa-fw.fa-heart{
-		color: #6051a9;
+		color: #ed5565;
 	}
 }
 
@@ -344,6 +344,45 @@
     font-weight: normal;
     fill: rgb(126, 139, 172);
 
+    .priceDropDown{
+		display:inline-flex !important;
+		margin-right:10px !important;
+		color:white;
+		.ui.button{
+			color:white;
+			background-color: #9013FE;
+			padding-top: 10px;
+    		padding-bottom: 10px;
+
+	    
+		}
+
+		.ui.floating.dropdown.icon.button{
+			background-color: #791fc7;
+			padding-top: 10px;
+    		padding-bottom: 10px;
+		}
+		
+
+
+		height: 33px;
+	    color: white;
+	    border-radius: 8px !important;
+	    border: none;
+	    outline: none;
+	    font-weight: bold;
+	    margin-right: 15px;
+	    background-color: #9013FE ;
+	    display:inline-flex;
+	    align-items:center;
+	    justify-content:center;
+
+	  	.prices{
+	  		top:25px !important;
+	  	}
+
+	}
+
     .currencyIcon{
     	i{
     		font-size:25px;
@@ -362,7 +401,6 @@
 	flex-wrap: nowrap;
 	.posts-item-content{
 	    white-space: nowrap;
-	    overflow: hidden;
 	    text-overflow: ellipsis;
 
 	    a{
@@ -474,6 +512,23 @@ body{
 	margin-top:20px;
 	margin-bottom:20px;
 
+	.customVote{
+		    position: relative;
+		    display: inline-flex;
+		    background-color: #E8E8E8;
+		    height: 34px;
+		    width: 50px;
+		    vertical-align: bottom;
+		    border-width: inherit;
+		    top:0;
+		    margin-right:10px;
+	.vote{
+			position: absolute;
+			left: 25%;
+			top: 18%;
+		}
+
+	}
 	.priceDropDown{
 		display:inline-flex !important;
 		margin-right:10px !important;
@@ -481,16 +536,21 @@ body{
 		.ui.button{
 			color:white;
 			background-color: #9013FE;
+			padding-top: 10px;
+    		padding-bottom: 10px;
+
 	    
 		}
 
 		.ui.floating.dropdown.icon.button{
 			background-color: #791fc7;
+			padding-top: 10px;
+    		padding-bottom: 10px;
 		}
 		
 
 
-		height: 35px;
+		height: 33px;
 	    color: white;
 	    border-radius: 8px !important;
 	    border: none;
@@ -524,9 +584,10 @@ body{
 
 	.socialShare{
 		display:inline-block;
-		float:right;
 		margin-right:20px;
 		position:relative;
+		vertical-align: bottom;
+		cursor:pointer;
 
 		.socialSharingBtns{
 			position: absolute;
@@ -586,10 +647,17 @@ body{
 	    	width:100%;
 	    }
 	}
-.customPostPageContainer{
-	    border: 2px solid #E3E7EF;
+	.customPostPageContainer{
+	    border:none;
 	    .priceWrapper,.posts-stats{
 	    	display:none;
+	    }
+	   	.posts-item{
+	   		 border-bottom:none;
+	   	}
+
+	    .posts-page-body{
+	    	font-size: 1.20rem;
 	    }
 }
 

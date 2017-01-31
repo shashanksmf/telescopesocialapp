@@ -10,8 +10,16 @@ import Categories from "meteor/nova:categories";
 import HunterMaker from './partials/HunterMaker.jsx';
 import CustomPostDetails from './partials/CustomPostDetails.jsx';
 import { IndexLink } from 'react-router';
+import { withRouter } from 'react-router'
 //console.log("Telescope",Telescope);
 class CustomPostsItem extends Telescope.components.PostsItem {
+  constructor(props){
+    super(props);
+    this.state = { priceBtnExpand : false ,externaShareExpand :false };
+
+  }
+
+
   componentWillReceiveProps(props){
   }
   
@@ -22,10 +30,58 @@ class CustomPostsItem extends Telescope.components.PostsItem {
   renderCommenters() {
     return this.props.post.commentersArray ? <Telescope.components.PostsCommenters post={this.props.post}/> : "";
   }
+
+
+  renderPrices(post){
+    const currentQuery = _.clone(this.props.router.location.query);
+    var selectedCoutry;
+
+    var countryArr = [];
+    
+    if(currentQuery && currentQuery.country){
+      selectedCoutry = currentQuery.country;
+    }
+    else if(Meteor.isClient && localStorage.getItem("userCountry")){ 
+      selectedCoutry = localStorage.getItem("userCountry"); 
+    }
+
+    if(selectedCoutry){
+      if(post.hasOwnProperty("customArray11")) {
+        countryArr = post.customArray11.filter(function(item){
+          return item.country.toLowerCase() == selectedCoutry.toLowerCase();
+        })
+      }
+    }
+    console.log("custompost details post props",this.props.post);
+    
+    if(countryArr.length>0) {
+
+      countryArr.sort(function(a, b) {
+        return parseInt(a.price) - parseInt(b.price);
+      });
+
+      return ( 
+
+
+        <div className="ui buttons priceDropDown" onClick={()=>{ this.setState({ priceBtnExpand : !this.state.priceBtnExpand }) }}>
+          <div className="ui button" >Price : <i className={countryArr[0].currencyIcon}></i> {countryArr[0].price} </div>
+          <div className="ui floating dropdown icon button">
+            <i className="dropdown icon"></i>
+            <div className={this.state.priceBtnExpand ? "menu prices transition visible" : "menu prices"}>
+              {countryArr.map(function(country){
+                  return  <div className="item"><a target="_blank" href={country.sourceUrl}>{country.vendorName}  {country.vendorName ? ": ": ""}<i className={country.currencyIcon}></i>{country.price}</a></div>
+            })}
+            </div>
+          </div>
+        </div>
+        
+        )
+    }
+  }
   
   renderPost() {
     const post = this.props.post;
-    console.log(post);
+ //   console.log(post);
     const htmlBody = {__html: post.htmlBody};
     console.log(htmlBody);
     return (
@@ -106,7 +162,7 @@ class CustomPostsItem extends Telescope.components.PostsItem {
       }
     }
 
-    console.log("itemPriceCountry : ",itemPriceCountry);
+  //  console.log("itemPriceCountry : ",itemPriceCountry);
     let postClass = "posts-item"; 
     if (post.sticky) postClass += " posts-sticky";
 
@@ -126,13 +182,9 @@ class CustomPostsItem extends Telescope.components.PostsItem {
           <h3 className="posts-item-title ">
            {this.renderPost()}  
            <div className="priceWrapper">
-                <span className="currencyIcon">
-                      <i className={itemPriceCountry.currencyIcon} ></i>
-                </span>  
+                
+              {this.renderPrices(this.props.post)}
 
-              <span className="price">
-                    {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.price) :'' } 
-              </span>  
            </div>
 
            
@@ -200,7 +252,7 @@ CustomPostsItem.contextTypes = {
   currentUser: React.PropTypes.object
 };
 
-export default CustomPostsItem;
+export default withRouter(CustomPostsItem);
 
 // <span className="relDate">
 //                  {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.relDate==undefined ?'' : itemPriceCountry.relDate) :'' }
@@ -210,3 +262,11 @@ export default CustomPostsItem;
  // //              </span>
  // //  {(itemPriceCountry.relDate)}
  // items.reldate.getDate()+'/'+(items.reldate.getMonth() + 1)+'/'+ items.reldate.getYear()
+
+ // <span className="currencyIcon">
+ //                      <i className={itemPriceCountry.currencyIcon} ></i>
+ //                </span>  
+
+ //              <span className="price">
+ //                    {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? (itemPriceCountry.price) :'' } 
+ //              </span>  
