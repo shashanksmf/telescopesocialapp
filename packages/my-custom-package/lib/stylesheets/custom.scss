@@ -652,6 +652,14 @@ body{
 	    .priceWrapper,.posts-stats{
 	    	display:none;
 	    }
+
+	    .posts-item{
+	    	.customDatePriceCountry{
+	    		.customVote{
+	    			visibility:hidden;
+	    		}
+	    	}
+	    }
 	   	.posts-item{
 	   		 border-bottom:none;
 	   	}
