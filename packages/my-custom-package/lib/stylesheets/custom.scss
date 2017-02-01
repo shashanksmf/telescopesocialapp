@@ -395,6 +395,14 @@
 }
 .posts-item {
 
+	.posts-item-content{
+		width: 90%;
+
+		.posts-item-title {
+			overflow: hidden;
+		}
+	}
+
 	padding: 15px 15px;
 	flex-wrap: wrap;
 	padding-right: 0;
