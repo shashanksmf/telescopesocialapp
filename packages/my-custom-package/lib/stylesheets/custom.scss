@@ -414,6 +414,70 @@
 .commnetorsCategoriesContainer{
 	display: flex;
     justify-content: flex-end;
+
+    .priceWrapper{
+	flex: 1;
+    display: flex;
+  	align-items:center;
+  	justify-content: flex-start;
+    margin-right: 20px;
+    color: #6051a9;
+    font-family: "Helvetica Neue";
+    font-size: 25px;
+    font-weight: normal;
+    fill: rgb(126, 139, 172);
+
+    .priceDropDown{
+		display:inline-flex !important;
+		margin-right:10px !important;
+		color:white;
+		.ui.button{
+			color:white;
+			background-color: #9013FE;
+			padding-top: 5px;
+    		padding-bottom: 5px;
+    		padding-left: 10px;
+    		padding-right: 10px;
+		}
+
+		.ui.floating.dropdown.icon.button{
+			background-color: #791fc7;
+			padding-top: 5px;
+    		padding-bottom: 5px;
+		}
+		
+
+
+		height: 24px;
+	    color: white;
+	    border-radius: 8px !important;
+	    border: none;
+	    outline: none;
+	    font-weight: bold;
+	    margin-right: 15px;
+	    background-color: #9013FE ;
+	    display:inline-flex;
+	    align-items:center;
+	    justify-content:center;
+
+	  	.prices{
+	  		top:25px !important;
+	  	}
+
+	}
+
+	    .currencyIcon{
+	    	i{
+	    		font-size:25px;
+	    	}
+
+	    }
+		.price,.countryName{
+			padding-right:5px;
+		}
+	}
+
+
 	.posts-categories{
 		flex: 0;
 	    justify-content: flex-end;

@@ -181,11 +181,7 @@ class CustomPostsItem extends Telescope.components.PostsItem {
           
           <h3 className="posts-item-title ">
            {this.renderPost()}  
-           <div className="priceWrapper">
-                
-              {this.renderPrices(this.props.post)}
-
-           </div>
+          
 
            
           </h3>
@@ -206,7 +202,11 @@ class CustomPostsItem extends Telescope.components.PostsItem {
             {this.renderActions()}
           </div>
           <div className="commnetorsCategoriesContainer">
-          
+           <div className="priceWrapper">
+                
+              {this.renderPrices(this.props.post)}
+
+           </div>
             {this.renderCommenters()}
     				{this.renderCategories()}
          </div>
