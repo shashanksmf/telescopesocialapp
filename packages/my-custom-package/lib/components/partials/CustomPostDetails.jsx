@@ -29,7 +29,8 @@ class CustomPostDetails extends React.Component{
 	}
 
 	twitterShare(post,event){
-		 window.open("https://twitter.com/share?url="+escape(window.location.href)+"&text="+post.body);
+	//	console.log("post,event",post,event)
+		 window.open("https://twitter.com/share?&text="+post.title);
 
 	}
 	showSocialshareBtns(event){	
@@ -52,11 +53,13 @@ class CustomPostDetails extends React.Component{
 		if(selectedCoutry){
 			if(post.hasOwnProperty("customArray11")) {
 				countryArr = post.customArray11.filter(function(item){
-					return item.country.toLowerCase() == selectedCoutry.toLowerCase();
+					if(item && item.country) {
+						return item.country.toLowerCase() == selectedCoutry.toLowerCase();
+					}
 				})
 			}
 		}
-		console.log("custompost details post props",this.props.post);
+	//	console.log("custompost details post props",this.props.post);
 		
 		if(countryArr.length>0) {
 
@@ -107,7 +110,7 @@ class CustomPostDetails extends React.Component{
 						method: 'feed',
 						name: this.props.post.title,
 						link: (window.location.href),
-						description: this.props.post.body,
+						description: this.props.post.body ? this.props.post.body :"" ,
 						message: ""
 						});
 					 }}></i>
