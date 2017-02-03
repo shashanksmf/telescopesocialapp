@@ -49,7 +49,7 @@ class CustomPostsItem extends Telescope.components.PostsItem {
       if(post.hasOwnProperty("customArray11")) {
         countryArr = post.customArray11.filter(function(item){
           //console.log("item",item,selectedCoutry);
-          if(item){
+          if(item && item.country){
             return item.country.toLowerCase() == selectedCoutry.toLowerCase();
           }
           
