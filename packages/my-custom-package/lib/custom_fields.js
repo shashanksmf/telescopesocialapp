@@ -152,8 +152,7 @@ Posts.addField(
       optional: true,
       insertableIf: canInsert,
       editableIf: canEdit,
-      publish:true,
-       defaultValue: false,
+      publish:true
     }
   }
   
