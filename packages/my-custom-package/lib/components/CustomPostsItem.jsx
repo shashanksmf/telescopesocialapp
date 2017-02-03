@@ -48,11 +48,15 @@ class CustomPostsItem extends Telescope.components.PostsItem {
     if(selectedCoutry){
       if(post.hasOwnProperty("customArray11")) {
         countryArr = post.customArray11.filter(function(item){
-          return item.country.toLowerCase() == selectedCoutry.toLowerCase();
+          //console.log("item",item,selectedCoutry);
+          if(item){
+            return item.country.toLowerCase() == selectedCoutry.toLowerCase();
+          }
+          
         })
       }
     }
-    console.log("custompost details post props",this.props.post);
+    //console.log("custompost details post props",this.props.post);
     
     if(countryArr.length>0) {
 
@@ -123,7 +127,7 @@ class CustomPostsItem extends Telescope.components.PostsItem {
         this.props.post.customArray11.forEach(function(items){
           if(items){
             if(items.hasOwnProperty("country") && countryName != null && countryName.length > 1 ){
-
+            // console.log("items",items,"countryName",countryName)
               if(items.country.trim().toLowerCase() == countryName.trim().toLowerCase()){
                 itemPriceCountry.countryName = countryName; 
               
