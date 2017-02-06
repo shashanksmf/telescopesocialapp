@@ -83,6 +83,17 @@
 				}
 
 			.posts-item-content{
+
+				.post-actions{
+					overflow: hidden;
+
+					.modal-trigger{
+						overflow: hidden;
+    					text-overflow: ellipsis;
+					}
+
+				}
+
 				.posts-item-title{
 					.posts-categories{
 						flex: 0;
