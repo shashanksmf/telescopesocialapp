@@ -411,6 +411,18 @@
 
 		.posts-item-title {
 			overflow: hidden;
+
+				.post-actions{
+					overflow: hidden;
+
+					.modal-trigger{
+						overflow: hidden;
+    					text-overflow: ellipsis;
+					}
+
+				}
+
+
 		}
 	}
 
