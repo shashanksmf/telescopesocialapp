@@ -6,6 +6,7 @@ import classNames from "classnames";
 import { LinkContainer } from 'react-router-bootstrap';
 import { withRouter } from 'react-router'
 import Users from 'meteor/nova:users';
+import { Meteor } from 'meteor/meteor';
 
 class Category extends Component {
 
@@ -22,6 +23,13 @@ class Category extends Component {
     // )
   }
 
+  closeCategoryList(event){
+    if(Meteor.isClient){
+      document.getElementsByClassName("posts-list-header-categories")[0].children[0].children[0].className = document.getElementsByClassName("posts-list-header-categories")[0].children[0].children[0].className.replace
+      ( /(?:^|\s)open(?!\S)/g , '' );
+    }
+  }
+
   render() {
 
     const {category, index, router} = this.props;
@@ -33,7 +41,7 @@ class Category extends Component {
 
     return (
       <div className="category-menu-item dropdown-item">
-        <LinkContainer to={{pathname:router.location.pathname, query: newQuery}}>
+        <LinkContainer to={{pathname:router.location.pathname, query: newQuery}} onClick={this.closeCategoryList.bind(this)}>
           <MenuItem 
             eventKey={index+1} 
             key={category._id} 

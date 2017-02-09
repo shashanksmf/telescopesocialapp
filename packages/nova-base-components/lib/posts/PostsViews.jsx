@@ -27,13 +27,32 @@ const PostsViews = (props, context) => {
 	  
 	  
 		{views.map(view => 
-          <LinkContainer key={view} to={{pathname: "/", query: {...query, view: view}}} /*to={}*/ className="dropdown-item">
+          <LinkContainer key={view} onClick={ 
+            ()=>{
+
+                if(Meteor.isClient){
+                  document.getElementsByClassName("posts-list-header-categories")[0].children[0].children[0].className = document.getElementsByClassName("posts-list-header-categories")[0].children[0].children[0].className.replace
+                  ( /(?:^|\s)open(?!\S)/g , '' );
+                }
+
+            }
+          } to={{pathname: "/", query: {...query, view: view}}} /*to={}*/ className="dropdown-item" >
             <MenuItem>
               <FormattedMessage id={"posts."+view}/>
             </MenuItem>
           </LinkContainer>
         )} 
-        <LinkContainer to={"/daily"} /*to={{name: "posts.daily"}}*/ className="dropdown-item">
+        <LinkContainer  onClick={ 
+            ()=>{
+
+                if(Meteor.isClient){
+                  document.getElementsByClassName("posts-list-header-categories")[0].children[0].children[0].className = document.getElementsByClassName("posts-list-header-categories")[0].children[0].children[0].className.replace
+                  ( /(?:^|\s)open(?!\S)/g , '' );
+                }
+
+            }
+          }
+         to={"/daily"} /*to={{name: "posts.daily"}}*/ className="dropdown-item">
           <MenuItem className={"bar"}>
             <FormattedMessage id="posts.daily"/>
           </MenuItem>

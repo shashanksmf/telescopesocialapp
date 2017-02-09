@@ -22,6 +22,13 @@ class Country extends Component {
     // )
   }
 
+  closeCountryList(event){
+    if(Meteor.isClient){
+      document.getElementsByClassName("posts-list-header-country")[0].children[0].children[0].className = document.getElementsByClassName("posts-list-header-country")[0].children[0].children[0].className.replace
+      ( /(?:^|\s)open(?!\S)/g , '' );
+    }
+  }
+
   render() {
 
     const {country, index, router} = this.props;
@@ -36,7 +43,7 @@ class Country extends Component {
 
     return (
       <div className="country-menu-item dropdown-item">
-        <LinkContainer to={{pathname:router.location.pathname, query: newQuery}}>
+        <LinkContainer to={{pathname:router.location.pathname, query: newQuery}} onClick={this.closeCountryList.bind(this)}>
           <MenuItem 
             eventKey={index+1} 
             key={country._id} 
