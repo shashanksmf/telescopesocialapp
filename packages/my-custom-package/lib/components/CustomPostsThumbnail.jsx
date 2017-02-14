@@ -13,7 +13,7 @@ const CustomPostsThumbnail = ({post}) => {
 		if(post.image.length >1){
 			return (
 				<a className="posts-thumbnail" href={Posts.getLink(post)} target={Posts.getLinkTarget(post)}>
-				  <span><img src={post.image} /></span>
+				  <span><img src={post.image[0].url} /></span>
 				</a>
 			  )	
 			

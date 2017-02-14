@@ -246,7 +246,7 @@ function PostsNewUpvoteOwnPost (post) {
     Telescope.operateOnItem(Posts, post._id, postAuthor, "upvote");
   }
 }
-Telescope.callbacks.add("posts.new.async", PostsNewUpvoteOwnPost);
+//Telescope.callbacks.add("posts.new.async", PostsNewUpvoteOwnPost);
 
 /**
  * @summary Add new post notification callback on post submit

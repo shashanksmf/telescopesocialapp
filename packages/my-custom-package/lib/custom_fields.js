@@ -48,12 +48,29 @@ const RelDateCountry = new Mongo.Collection("RelDateCountry");
   },
 });
 RelDateCountry.attachSchema(RelDateCountry.schema);
+
+const ImageSlider = new Mongo.Collection("ImageSlider");
+ ImageSlider.schema = new SimpleSchema({
+
+  type:{
+    type: String,
+    optional: true
+  },
+   url:{
+    type: String,
+    optional: true
+  },
+
+  
+});
+ImageSlider.attachSchema(ImageSlider.schema);
+
 Posts.addField(
   [
   {
   fieldName: 'image',
   fieldSchema: {
-    type: String,
+    type: [ImageSlider.schema],
     optional: true,
     publish: true,
     control: Upload,

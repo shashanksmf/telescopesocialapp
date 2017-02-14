@@ -789,3 +789,23 @@ body{
 		flex:1;
 	}
 }
+
+.customSliderContainer {
+	.item{
+		display:block;
+		.mediaContainer {
+
+			background-size: contain;
+		    height: 150px;
+		    background-repeat: no-repeat;
+		    background-position: center;
+		    background-color: black;
+    		text-align: center;
+		}
+
+		&:not(".active") {
+			display:none;
+		}
+	}
+
+}

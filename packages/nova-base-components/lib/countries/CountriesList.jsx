@@ -108,6 +108,7 @@ class CountriesList extends Component {
           className="countries-list btn-secondary" 
           title={selectedCountry || <FormattedMessage id="countries"/>} 
           id="countries-dropdown"
+          onSelect={function() {}}
         >
           <div className="country-menu-item dropdown-item">
             <LinkContainer to={{pathname:router.location.pathname, query: currentQuery}}>

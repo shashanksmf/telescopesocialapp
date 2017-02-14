@@ -10,7 +10,8 @@ import Categories from "meteor/nova:categories";
 import HunterMaker from './partials/HunterMaker.jsx';
 import CustomPostDetails from './partials/CustomPostDetails.jsx';
 import { IndexLink } from 'react-router';
-import { withRouter } from 'react-router'
+import { withRouter } from 'react-router';
+import CustomSlider from "./partials/CustomSlider";
 //console.log("Telescope",Telescope);
 class CustomPostsItem extends Telescope.components.PostsItem {
   constructor(props){
@@ -94,7 +95,11 @@ class CustomPostsItem extends Telescope.components.PostsItem {
             <a className="posts-action-edit">
                   {post.title}
             </a>}>
+
             <div>
+
+            <CustomSlider post={post}/>
+
             <div className="customPostPageContainer">
               <Telescope.components.PostsItem post={post}/>
               {post.product ? <HunterMaker  post={post}/> : null} 
