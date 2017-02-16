@@ -10,13 +10,16 @@ const CustomPostsThumbnail = ({post}) => {
 			  )			
 	}
 	else if(post.hasOwnProperty("image")){
-		if(post.image.length >1){
+		if(post.image.length >0){
 			return (
 				<a className="posts-thumbnail" href={Posts.getLink(post)} target={Posts.getLinkTarget(post)}>
 				  <span><img src={post.image[0].url} /></span>
 				</a>
 			  )	
 			
+		}
+		else{
+			return null;
 		}
 	}
   

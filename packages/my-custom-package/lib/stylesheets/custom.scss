@@ -790,9 +790,17 @@ body{
 	}
 }
 
+
+
+.customSliderWrapper{
+	
+
+
 .customSliderContainer {
+
+
 	.item{
-		display:block;
+		display:none;
 		.mediaContainer {
 
 			background-size: contain;
@@ -806,6 +814,16 @@ body{
 		&:not(".active") {
 			display:none;
 		}
+
+		&.active{
+			display:block;
+		}
+
+
+		
+
 	}
+
+}
 
 }

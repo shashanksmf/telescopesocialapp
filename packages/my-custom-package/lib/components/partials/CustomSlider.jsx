@@ -8,7 +8,7 @@ class customSlider extends React.Component{
 	constructor(props){
 		super(props);
 		this.state = {activeIndex:0,direction:null};
-		this.handleSelect = this.handleSelect.bind(this)    
+		this.handleSelect = this.handleSelect.bind(this);    
 
 
 	}
@@ -44,9 +44,8 @@ class customSlider extends React.Component{
 		var that = this;
 
 		return(
-		    <Carousel activeIndex={that.state.activeIndex+1}  className="customSliderContainer" direction={that.state.direction} onSelect={that.handleSelect}>
-		    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/>
-		  
+			<div className="customSliderWrapper">
+		    <Carousel activeIndex={that.state.activeIndex}  className="customSliderContainer" direction={that.state.direction} onSelect={that.handleSelect}>
 		    	{that.props.post.image.map(function(media,sliderIndex){
 		    		return (
 		    				<Carousel.Item className={" " +(sliderIndex == that.state.activeIndex ? " " : " " )}>
@@ -69,7 +68,7 @@ class customSlider extends React.Component{
 
    
     </Carousel>
-
+    </div>
 		)
 	}
 }
