@@ -27,7 +27,7 @@ class customSlider extends React.Component{
 				}
 			}
 			else {
-				if(that.state.activeIndex < that.props.post.image.length)
+				if(that.state.activeIndex < that.props.post.image.length-1)
 				{
 					that.setState({activeIndex:that.state.activeIndex+1});
 				}
@@ -45,10 +45,11 @@ class customSlider extends React.Component{
 
 		return(
 			<div className="customSliderWrapper">
-		    <Carousel activeIndex={that.state.activeIndex}  className="customSliderContainer" direction={that.state.direction} onSelect={that.handleSelect}>
+		    <Carousel   className="customSliderContainer" direction={that.state.direction} onSelect={that.handleSelect}>
 		    	{that.props.post.image.map(function(media,sliderIndex){
+		    		 if(sliderIndex == that.state.activeIndex){
 		    		return (
-		    				<Carousel.Item className={" " +(sliderIndex == that.state.activeIndex ? " " : " " )}>
+		    				<Carousel.Item className={" " +(sliderIndex == that.state.activeIndex ? "   " : "  " )}>
 		    					{media.type == "image" ? 
 		    						<div className="mediaContainer" style={{"background-image":"url("+media.url+")","background-size": "contain","height":"500px" }}></div>
 		    						
@@ -61,6 +62,10 @@ class customSlider extends React.Component{
 		    					}						        
 					      	</Carousel.Item>
 		    			)
+		    		}
+		    		else{
+		    			return null
+		    		}
 
 		    	})}
 

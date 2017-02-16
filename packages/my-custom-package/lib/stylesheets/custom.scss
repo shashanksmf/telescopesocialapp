@@ -792,38 +792,4 @@ body{
 
 
 
-.customSliderWrapper{
-	
 
-
-.customSliderContainer {
-
-
-	.item{
-		display:none;
-		.mediaContainer {
-
-			background-size: contain;
-		    height: 150px;
-		    background-repeat: no-repeat;
-		    background-position: center;
-		    background-color: black;
-    		text-align: center;
-		}
-
-		&:not(".active") {
-			display:none;
-		}
-
-		&.active{
-			display:block;
-		}
-
-
-		
-
-	}
-
-}
-
-}

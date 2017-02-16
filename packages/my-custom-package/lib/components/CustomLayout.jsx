@@ -24,8 +24,7 @@ class CustomLayout extends Component {
 
     return (
       <div className="wrapper" id="wrapper">
-          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/>
-      
+         
         <Telescope.components.HeadTags />
 
         <Telescope.components.UsersProfileCheck {...this.props} />
@@ -69,6 +68,7 @@ export default CustomLayout;
                {React.cloneElement(this.props.children, { userCountry: this.state.countrySelected })}
  
  <CustomCountryList selectCountry={this.handleCountry.bind(this)}/>
-    
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/>
+      
         
       */
