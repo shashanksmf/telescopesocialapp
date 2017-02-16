@@ -65,6 +65,20 @@ const ImageSlider = new Mongo.Collection("ImageSlider");
 });
 ImageSlider.attachSchema(ImageSlider.schema);
 
+const VideoSlider  = new Mongo.Collection("VideoSlider");
+VideoSlider.schema = new SimpleSchema({
+
+  type:{
+    type: String,
+    optional: true
+  },
+   url:{
+    type: String,
+    optional: true
+  }
+});
+VideoSlider.attachSchema(VideoSlider.schema);
+
 Posts.addField(
   [
   {
@@ -81,6 +95,19 @@ Posts.addField(
 		//  preset: Telescope.settings.get('cloudinaryPresets').posts
       },
     }
+  }
+}, 
+
+  {
+  fieldName: 'video',
+  fieldSchema: {
+    type: String,
+    optional: true,
+    publish: true,
+    control:"video",
+    insertableIf: canInsert,
+    editableIf: canEdit,
+    
   }
 } 
  
@@ -186,7 +213,7 @@ so we also add our new field to that object:
 
 import PublicationUtils from 'meteor/utilities:smart-publications';
 
-PublicationUtils.addToFields(Posts.publishedFields.list, ["color","product","image","customArray11"]);
+PublicationUtils.addToFields(Posts.publishedFields.list, ["color","product","image","customArray11","video"]);
 
 
 

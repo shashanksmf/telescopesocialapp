@@ -88,16 +88,8 @@ class Upload extends Component {
   uploadVideo(e){
     if(this.state.videoUrl.length>0){
     var that = this;
-    for(var i=0;i< that.state.value.length ;i++){ 
-       if(that.state.value[i].type=="video"){
-         that.state.value[i] = ({type:'video',url:that.state.videoUrl})
-         that.context.addToAutofilledValues({[that.props.name]: that.state.value });
-         that.setState({value:that.state.value});
-         return;
-      }
-    }
-    that.context.addToAutofilledValues({[that.props.name]: that.state.value.push({type:'video',url:that.state.videoUrl})});
-    that.setState({value:that.state.value});
+    that.setState({videoUrl: that.state.videoUrl})
+    that.context.addToAutofilledValues({["video"]: that.state.videoUrl});
   }
   }
 
@@ -147,13 +139,7 @@ class Upload extends Component {
           </div>
         </div>
 
-        <div className="videoUrlUploadContainer">
-          <label className="control-label col-sm-3 "> Upload Video : </label>
-          <div className="col-md-5">
-            <input type="text" className="form-control" value={this.state.videoUrl} onChange={ (e)=> {  this.setState({ videoUrl : e.target.value }) }}/>
-          </div>
-            <button className="col-md-2 btn btn-primary" type="button" onClick={this.uploadVideo.bind(this)}>Upload Video Url</button>
-        </div>
+    
 
       </div>
     );
@@ -176,3 +162,10 @@ export default Upload;
 //                     return  <img key={"cloudImgUpload_"+imgIndex } style={{height: 30}} src={imgSrc} />
 //                   }
 //                 })}
+    // <div className="videoUrlUploadContainer">
+    //       <label className="control-label col-sm-3 "> Upload Video : </label>
+    //       <div className="col-md-5">
+    //         <input type="text" className="form-control" value={this.state.videoUrl} onChange={ (e)=> {  this.setState({ videoUrl : e.target.value }) }}/>
+    //       </div>
+    //         <button className="col-md-2 btn btn-primary" type="button" onClick={this.uploadVideo.bind(this)}>Upload Video Url</button>
+    //     </div>

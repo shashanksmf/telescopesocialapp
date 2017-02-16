@@ -10,10 +10,27 @@ class customSlider extends React.Component{
 		this.state = {activeIndex:0,direction:null};
 		this.handleSelect = this.handleSelect.bind(this);    
 
+		if(props.post.hasOwnProperty("video")){
+			if(props.post.hasOwnProperty("image")){
+				var videoId = "//www.youtube.com/embed/" + this.getYoutubeId(props.post.video);
+				props.post.image.push({"type":"video","url":videoId});
+			}
+
+		}	
+
 
 	}
 
-	
+	getYoutubeId(url) {
+	    var regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+	    var match = url.match(regExp);
+
+	    if (match && match[2].length == 11) {
+	        return match[2];
+	    } else {
+	        return 'error';
+	    }
+	}
 	
 
 	
@@ -43,6 +60,8 @@ class customSlider extends React.Component{
 		console.log("post page customSlider",post);
 		var that = this;
 
+	
+
 		return(
 			<div className="customSliderWrapper">
 		    <Carousel   className="customSliderContainer" direction={that.state.direction} onSelect={that.handleSelect}>
@@ -52,19 +71,19 @@ class customSlider extends React.Component{
 		    				<Carousel.Item className={" " +(sliderIndex == that.state.activeIndex ? "   " : "  " )}>
 		    					{media.type == "image" ? 
 		    						<div className="mediaContainer" style={{"background-image":"url("+media.url+")","background-size": "contain","height":"500px" }}></div>
-		    						
 		    						:''
 		    					}
 		    					{media.type == "video" ? 
-		    						<div className="mediaContainer" style={{"height":"auto"}} dangerouslySetInnerHTML={{ __html: media.url }}></div>
-		    						
+		    						<div className="videoContainer">
+		    							<iframe width="560" height="315" src={media.url} frameborder="0" allowfullscreen></iframe>
+		    						</div>	
 		    						:''
 		    					}						        
 					      	</Carousel.Item>
 		    			)
 		    		}
 		    		else{
-		    			return null
+		    			return null;
 		    		}
 
 		    	})}
