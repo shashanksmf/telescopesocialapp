@@ -8,5 +8,5 @@ Notification.publishedFields = {};
  * @array Notification.publishedFields.list
  */
 Notification.publishedFields.list = PublicationsUtils.arrayToFields([
-  "name","slug","icon"
+  'to','postId','read','message','date'
 ]);

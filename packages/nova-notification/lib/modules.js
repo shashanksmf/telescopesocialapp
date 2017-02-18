@@ -1,4 +1,4 @@
-import Notification from './collection.js';
+import Notifications from './collection.js';
 
 import './schema.js';
 import './helpers.js';
@@ -10,4 +10,4 @@ import './methods.js';
 import './permissions.js';
 import './published_fields.js';
 
-export default Notification;
+export default Notifications;
