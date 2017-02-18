@@ -15,7 +15,8 @@ Package.onUse( function(api) {
     'nova:users',
 	'nova:forms-tags',
   'nova:custom-autoform',
-  'nova:countries'
+  'nova:countries',
+  'nova:notification'
   ]);
 
   api.addFiles([

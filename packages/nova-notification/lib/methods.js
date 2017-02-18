@@ -9,8 +9,8 @@ Meteor.methods({
 
 // assign smart methods on startup so the method code generated takes care of countries' custom fields (extended schema) -> prevent bug on create/edit countries with custom fields
 Meteor.startup(() => {
-  Countries.smartMethods({
-    createName: "countries.new",
-    editName: "countries.edit"
+  Notification.smartMethods({
+    createName: "notifications.new",
+    editName: "notifications.edit"
   });
 });

@@ -1,3 +1,3 @@
-import Countries from './modules.js';
+import Notifications from './modules.js';
 
-export default Countries;
+export default Notifications;

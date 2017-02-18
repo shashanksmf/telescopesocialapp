@@ -1,17 +1,20 @@
 import Telescope from 'meteor/nova:lib';
-import Countries from "./collection.js";
+import Notifications from "./collection.js";
 import Users from 'meteor/nova:users';
 
 const canInsert = user => Users.canDo(user, "countries.new");
 const canEdit = user => Users.canDo(user, "countries.edit.all");
 
 // country schema
-Countries.schema = new SimpleSchema({
+Notifications.schema = new SimpleSchema({
   to: {
     type: String,
     publish: true
   },
-
+  postId: {
+    type: String,
+    publish: true
+  },
   read: {
     type: Boolean,
     publish: true
@@ -19,47 +22,11 @@ Countries.schema = new SimpleSchema({
   message: {
     type: String,
     publish: true
-  }
+  },
   date: {
-    type: Date,
-    default: Data.now
+    type: Date
   }
 });
 
-// Meteor.startup(function(){
-//   Countries.internationalize();
-// });
+Notifications.attachSchema(Notifications.schema);
 
-Countries.attachSchema(Countries.schema);
-
-
-Telescope.settings.collection.addField([
-  {
-    fieldName: 'countriesBehavior',
-    fieldSchema: {
-      type: String,
-      optional: true,
-      form: {
-        group: 'countries',
-        instructions: 'Let users filter by one or multiple countries at a time.', 
-        options: function () {
-          return [
-            {value: "single", label: "countries_behavior_one_at_a_time"},
-            {value: "multiple", label: "countries_behavior_multiple"}
-          ];
-        }
-      }
-    }
-  },
-  {
-    fieldName: 'hideEmptyCountries',
-    fieldSchema: {
-      type: Boolean,
-      optional: true,
-      form: {
-        group: 'countries',
-        instructions: 'Hide empty countries in navigation'
-      }
-    }
-  }
-]);

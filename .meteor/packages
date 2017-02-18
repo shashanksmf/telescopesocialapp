@@ -14,6 +14,7 @@ nova:notifications
 nova:getting-started
 nova:categories
 nova:countries
+nova:notification
 
 nova:voting
 nova:forms

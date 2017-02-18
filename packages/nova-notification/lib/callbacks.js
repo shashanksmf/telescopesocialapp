@@ -1,90 +1,90 @@
 import Telescope from 'meteor/nova:lib';
 import Posts from "meteor/nova:posts";
-import Countries from "./collection.js";
+import Notifications from "./collection.js";
 
 // generate slug on insert
-Countries.before.insert(function (userId, doc) {
+Notifications.before.insert(function (userId, doc) {
   // if no slug has been provided, generate one
   var slug = !!doc.slug ? doc.slug : Telescope.utils.slugify(doc.name);
-  doc.slug = Telescope.utils.getUnusedSlug(Countries, slug);
+  doc.slug = Telescope.utils.getUnusedSlug(Notifications, slug);
 });
 
 // generate slug on edit, if it has changed
-Countries.before.update(function (userId, doc, fieldNames, modifier) {
+Notifications.before.update(function (userId, doc, fieldNames, modifier) {
   if (modifier.$set && modifier.$set.slug && modifier.$set.slug !== doc.slug) {
-    modifier.$set.slug = Telescope.utils.getUnusedSlug(Countries, modifier.$set.slug);
+    modifier.$set.slug = Telescope.utils.getUnusedSlug(Notifications, modifier.$set.slug);
   }
 });
 
-// add callback that adds countries CSS classes
-function addCountryClass (postClass, post) {
-  var classArray = _.map(Posts.getCountries(post), function (country){return "country-"+country.slug;});
+// add callback that adds notifications CSS classes
+function addNotificationClass (postClass, post) {
+  var classArray = _.map(Posts.getNotifications(post), function (notification){return "notification-"+notification.slug;});
   return postClass + " " + classArray.join(' ');
 }
-Telescope.callbacks.add("postClass", addCountryClass);
+Telescope.callbacks.add("postClass", addNotificationClass);
 
-// ------- Countries Check -------- //
+// ------- Notifications Check -------- //
 
-// make sure all countries in the post.countries array exist in the db
-var checkCountries = function (post) {
+// make sure all notifications in the post.notifications array exist in the db
+var checkNotifications = function (post) {
 
-  // if there are no countries, stop here
-  if (!post.countries || post.countries.length === 0) {
+  // if there are no notifications, stop here
+  if (!post.notifications || post.notifications.length === 0) {
     return;
   }
 
-  // check how many of the countries given also exist in the db
-  var countryCount = Countries.find({_id: {$in: post.countries}}).count();
+  // check how many of the notifications given also exist in the db
+  var notificationCount = Notifications.find({_id: {$in: post.notifications}}).count();
 
-  if (post.countries.length !== countryCount) {
-    throw new Meteor.Error('invalid_country', 'invalid_country');
+  if (post.notifications.length !== notificationCount) {
+    throw new Meteor.Error('invalid_notification', 'invalid_notification');
   }
 };
 
-function postsNewCheckCountries (post) {
-  checkCountries(post);
+function postsNewCheckNotifications (post) {
+  checkNotifications(post);
   return post;
 }
-Telescope.callbacks.add("posts.new.sync", postsNewCheckCountries);
+Telescope.callbacks.add("posts.new.sync", postsNewCheckNotifications);
 
-function postEditCheckCountries (post) {
-  checkCountries(post);
+function postEditCheckNotifications (post) {
+  checkNotifications(post);
   return post;
 }
-Telescope.callbacks.add("posts.edit.sync", postEditCheckCountries);
+Telescope.callbacks.add("posts.edit.sync", postEditCheckNotifications);
 
 // TODO: debug this
 
-// function addParentCountriesOnSubmit (post) {
-//   var countries = post.countries;
-//   var newCountries = [];
-//   if (countries) {
-//     countries.forEach(function (countryId) {
-//       var country = Countries.findOne(countryId);
-//       newCountries = newCountries.concat(_.pluck(country.getParents().reverse(), "_id"));
-//       newCountries.push(country._id);
+// function addParentNotificationsOnSubmit (post) {
+//   var notifications = post.notifications;
+//   var newNotifications = [];
+//   if (notifications) {
+//     notifications.forEach(function (notificationId) {
+//       var notification = Notifications.findOne(notificationId);
+//       newNotifications = newNotifications.concat(_.pluck(notification.getParents().reverse(), "_id"));
+//       newNotifications.push(notification._id);
 //     });
 //   }
-//   post.countries = _.unique(newCountries);
+//   post.notifications = _.unique(newNotifications);
 //   return post;
 // }
-// Telescope.callbacks.add("posts.new.sync", addParentCountriesOnSubmit);
+// Telescope.callbacks.add("posts.new.sync", addParentNotificationsOnSubmit);
 
-// function addParentCountriesOnEdit (modifier, post) {
-//   if (modifier.$unset && modifier.$unset.countries !== undefined) {
+// function addParentNotificationsOnEdit (modifier, post) {
+//   if (modifier.$unset && modifier.$unset.notifications !== undefined) {
 //     return modifier;
 //   }
 
-//   var countries = modifier.$set.countries;
-//   var newCountries = [];
-//   if (countries) {
-//     countries.forEach(function (countryId) {
-//       var country = Countries.findOne(countryId);
-//       newCountries = newCountries.concat(_.pluck(country.getParents().reverse(), "_id"));
-//       newCountries.push(country._id);
+//   var notifications = modifier.$set.notifications;
+//   var newNotifications = [];
+//   if (notifications) {
+//     notifications.forEach(function (notificationId) {
+//       var notification = Notifications.findOne(notificationId);
+//       newNotifications = newNotifications.concat(_.pluck(notification.getParents().reverse(), "_id"));
+//       newNotifications.push(notification._id);
 //     });
 //   }
-//   modifier.$set.countries = _.unique(newCountries);
+//   modifier.$set.notifications = _.unique(newNotifications);
 //   return modifier;
 // }
-// Telescope.callbacks.add("posts.edit.sync", addParentCountriesOnEdit);
+// Telescope.callbacks.add("posts.edit.sync", addParentNotificationsOnEdit);

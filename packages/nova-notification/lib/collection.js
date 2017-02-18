@@ -1,3 +1,3 @@
-const Notification = new Mongo.Collection("notification");
+const Notifications = new Mongo.Collection("notification");
 
-export default Notification;
+export default Notifications;
