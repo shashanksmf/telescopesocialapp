@@ -88,7 +88,7 @@ class CustomPostsItem extends Telescope.components.PostsItem {
     const post = this.props.post;
  //   console.log(post);
     const htmlBody = {__html: post.htmlBody};
-    console.log(htmlBody);
+   // console.log(htmlBody);
     return (
       <div className="post-actions">
           <ModalTrigger title="View Post" component={

@@ -14,7 +14,7 @@ import CustomVote from "./components/CustomVote.jsx";
 import CustomPostsThumbnail from "./components/CustomPostsThumbnail.jsx";
 import CustomAutoForm from "./components/CustomAutoForm.jsx";
 import CustomCommentsItem from "./components/CustomCommentsItem.jsx";
-
+//import CustomHeader from "./components/CustomHeader.jsx";
 //import CustomSearchForm from "./components/CustomSearchForm.jsx";
 
 //console.log("CustomLayout",Telescope.components.Layout)
@@ -28,4 +28,5 @@ Telescope.components.PostsViews = CustomPostsView;
 Telescope.components.Vote = CustomVote;
 Telescope.components.PostsThumbnail = CustomPostsThumbnail;
 Telescope.components.CommentsItem = CustomCommentsItem;
+//Telescope.components.Cus = CustomHeader;
 //Telescope.components.SearchForm = CustomSearchForm;

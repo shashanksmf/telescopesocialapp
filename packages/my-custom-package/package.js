@@ -16,15 +16,18 @@ Package.onUse( function(api) {
 	'nova:forms-tags',
   'nova:custom-autoform',
   'nova:countries',
-  'nova:notification'
-  ]);
+  'nova:notification',
+  'nova:notifications'
+    ]);
 
   api.addFiles([
     'lib/modules.js'
   ], ['client', 'server']);
 
   api.addFiles([
-    'lib/stylesheets/custom.scss','lib/stylesheets/customPostPage.scss'
+    'lib/stylesheets/custom.scss',
+    'lib/stylesheets/customPostPage.scss',
+    'lib/stylesheets/CustomNotification.scss'
   ], ['client']);
 
   api.addFiles([

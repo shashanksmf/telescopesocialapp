@@ -5,7 +5,7 @@ import Notifications from "meteor/nova:notification";
 import NovaForm from "meteor/nova:forms";
 
 const CountriesNewForm = (props, context) => {
-  console.log(Notifications);
+  console.log(Notifications.find().fetch());
   return (
     <div className="countries-new-form">
       <NovaForm 

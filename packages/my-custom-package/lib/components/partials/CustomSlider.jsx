@@ -65,7 +65,7 @@ class customSlider extends React.Component{
 		return(
 			<div className="customSliderWrapper">
 		    <Carousel   className="customSliderContainer" direction={that.state.direction} onSelect={that.handleSelect}>
-		    	{that.props.post.image.map(function(media,sliderIndex){
+		    	{that.props.post.image ? that.props.post.image.map(function(media,sliderIndex){
 		    		 if(sliderIndex == that.state.activeIndex){
 		    		return (
 		    				<Carousel.Item className={" " +(sliderIndex == that.state.activeIndex ? "   " : "  " )}>
@@ -86,7 +86,7 @@ class customSlider extends React.Component{
 		    			return null;
 		    		}
 
-		    	})}
+		    	}) : ''}
 
 		 
 
