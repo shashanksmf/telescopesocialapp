@@ -1,12 +1,12 @@
 import Telescope from 'meteor/nova:lib';
-import Notifications from "./collection.js";
+import Notification from "./collection.js";
 import Users from 'meteor/nova:users';
 
-const canInsert = user => Users.canDo(user, "countries.new");
-const canEdit = user => Users.canDo(user, "countries.edit.all");
+const canInsert = user => Users.canDo(user, "notification.new");
+const canEdit = user => Users.canDo(user, "notification.edit.all");
 
 // country schema
-Notifications.schema = new SimpleSchema({
+Notification.schema = new SimpleSchema({
   to: {
     type: String,
     publish: true
@@ -28,5 +28,5 @@ Notifications.schema = new SimpleSchema({
   }
 });
 
-Notifications.attachSchema(Notifications.schema);
+Notification.attachSchema(Notification.schema);
 

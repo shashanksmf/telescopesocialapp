@@ -1,18 +1,18 @@
 import Telescope from 'meteor/nova:lib';
 import Posts from "meteor/nova:posts";
-import Notifications from "./collection.js";
+import notification from "./collection.js";
 
 // generate slug on insert
-Notifications.before.insert(function (userId, doc) {
+notification.before.insert(function (userId, doc) {
   // if no slug has been provided, generate one
   var slug = !!doc.slug ? doc.slug : Telescope.utils.slugify(doc.name);
-  doc.slug = Telescope.utils.getUnusedSlug(Notifications, slug);
+  doc.slug = Telescope.utils.getUnusedSlug(notification, slug);
 });
 
 // generate slug on edit, if it has changed
-Notifications.before.update(function (userId, doc, fieldNames, modifier) {
+notification.before.update(function (userId, doc, fieldNames, modifier) {
   if (modifier.$set && modifier.$set.slug && modifier.$set.slug !== doc.slug) {
-    modifier.$set.slug = Telescope.utils.getUnusedSlug(Notifications, modifier.$set.slug);
+    modifier.$set.slug = Telescope.utils.getUnusedSlug(notification, modifier.$set.slug);
   }
 });
 
@@ -29,14 +29,14 @@ Telescope.callbacks.add("postClass", addNotificationClass);
 var checkNotifications = function (post) {
 
   // if there are no notifications, stop here
-  if (!post.notifications || post.notifications.length === 0) {
+  if (!post.notification || post.notification.length === 0) {
     return;
   }
 
   // check how many of the notifications given also exist in the db
-  var notificationCount = Notifications.find({_id: {$in: post.notifications}}).count();
+  var notificationCount = notification.find({_id: {$in: post.notification}}).count();
 
-  if (post.notifications.length !== notificationCount) {
+  if (post.notification.length !== notificationCount) {
     throw new Meteor.Error('invalid_notification', 'invalid_notification');
   }
 };

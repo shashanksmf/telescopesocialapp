@@ -37,7 +37,7 @@ class customSlider extends React.Component{
 	handleSelect(index,event){
 		
 	var that = this;
-	console.log("state : ",that.state)	
+	//console.log("state : ",that.state)	
 	if(event.direction=="prev"){
 			if(that.state.activeIndex > 0){
 				that.setState({activeIndex:that.state.activeIndex-1});

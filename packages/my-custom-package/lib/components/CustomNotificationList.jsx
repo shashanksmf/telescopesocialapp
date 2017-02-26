@@ -12,7 +12,16 @@ import Notifications from "meteor/nova:notification";
 
 class CustomNotificationList extends Component {
 	constructor(props){
-		super(props);		
+		super(props);	
+		this.state = {showList : false}	
+		
+	}
+
+	componentDidMount() {
+		document.addEventListener('click', function(){
+			document.getElementsByClassName("CustomNotificationListContainer")[0].children[1].className = document.getElementsByClassName("CustomNotificationListContainer")[0].children[1].className
+      			( /(?:^|\s)active(?!\S)/g , '' );
+		});
 	}
 	   
   	render() {
@@ -32,16 +41,22 @@ class CustomNotificationList extends Component {
     
     var mySet = Array.from(new Set(notifn));
 
-    uniqueNotificationArr = notifn.map(item => item._id)
- 	 .filter(function(value, index, self) { console.log(self); 
-	return self.indexOf(value) === index})	
+ //    uniqueNotificationArr = notifn.map(item => item._id)
+ // 	 .filter(function(value, index, self) { console.log(self); 
+	// return self.indexOf(value) === index})	
 
 
-		console.log("Notification : ",uniqueNotificationArr);
+	//	console.log("Notification : ",uniqueNotificationArr);
  	
     return (
-      <div className="CustomNotificationListContainer">
-		    <ul className="list-group">
+      <div className="CustomNotificationListContainer" >
+		    <div onClick={()=>  {
+		    	this.setState({ showList:!this.state.showList })	
+
+
+		    } }><a href="#"> <span class="badge">Notifications 5</span></a></div>
+
+		    <ul className={this.state.showList ? "list-group active" : " list-group " } >
 
 		    {notifn.map(function(item,itemIndex){
 		    	if(itemIndex <5){

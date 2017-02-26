@@ -1,9 +1,9 @@
 import Telescope from 'meteor/nova:lib';
-import Notifications from "./collection.js";
+import notification from "./collection.js";
 
 // notification Posts Parameters
 // Add a "notifications" property to terms which can be used to filter *all* existing Posts views. 
 function addnotificationParameter (parameters, terms) {
   return parameters;
 }
-Telescope.callbacks.add("notifications.parameters", addnotificationParameter);
+Telescope.callbacks.add("notification.parameters", addnotificationParameter);

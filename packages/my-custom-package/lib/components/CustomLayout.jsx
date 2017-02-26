@@ -2,7 +2,7 @@ import Telescope from 'meteor/nova:lib';
 import React, { PropTypes, Component } from 'react';
 import { FlashContainer } from "meteor/nova:core";
 import CustomPostsCategories from './CustomPostsCategories.jsx';
-import CustomNotificationList from './CustomNotificationList.jsx';
+
 //import CustomCountryList from './CustomCountryList.jsx';
 
 class CustomLayout extends Component {
@@ -30,7 +30,7 @@ class CustomLayout extends Component {
 
         <Telescope.components.UsersProfileCheck {...this.props} />
 
-        <CustomNotificationList/>
+    
         
         <Telescope.components.Header {...this.props}/>
       

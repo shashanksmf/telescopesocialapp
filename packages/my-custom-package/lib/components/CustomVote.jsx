@@ -2,6 +2,7 @@ import Telescope from 'meteor/nova:lib';
 import React, { PropTypes, Component } from 'react';
 import classNames from 'classnames';
 import Users from 'meteor/nova:users';
+import Notification from "meteor/nova:notification";
 
 class CustomVote extends Component {
 
@@ -24,8 +25,37 @@ class CustomVote extends Component {
       });        
     } else {
       this.context.actions.call('posts.upvote', post._id, () => {
-        this.context.events.track("post upvoted", {'_id': post._id});
+          this.context.events.track("post upvoted", {'_id': post._id});
       });
+
+      // 1st check if already the posts exists in database
+        if(post.customArray11 && post.customArray11[0].reldate) {
+
+            var checkIfPostExist = Notification.find({to:user._id,postId:post._id}).fetch();
+            if(checkIfPostExist.length == 0) {
+              // insert into the database
+            Notification.insert({
+                to: user._id,
+                postId: post._id,
+                read: false,
+                message: post.title,
+                date: new Date()   
+              },function(error){
+                console.log(error)
+              })
+            
+            
+            }
+
+            else{
+              // remove the existing notification by id
+            }
+
+            
+
+        }
+
+
     }
 
   }

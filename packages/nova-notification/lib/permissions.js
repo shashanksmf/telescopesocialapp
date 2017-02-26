@@ -1,20 +1,20 @@
 import Users from 'meteor/nova:users';
 
 const anonymousActions = [
-  "motifications.view.all"
+  "notification.view.all"
 ];
 Users.groups.anonymous.can(anonymousActions);
 
 const defaultActions = [
-  "notifications.view.all"
+  "notification.view.all"
 
 ];
 Users.groups.default.can(defaultActions);
 
 const adminActions = [
-  "notifications.view.all",
-  "notifications.new",
-  "notifications.edit.all",
-  "notifications.remove.all"
+  "notification.view.all",
+  "notification.new",
+  "notification.edit.all",
+  "notification.remove.all"
 ];
 Users.groups.admins.can(adminActions);
