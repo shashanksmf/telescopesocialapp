@@ -4,7 +4,7 @@ import Users from 'meteor/nova:users';
 import Notification from "./collection.js";
 
 // check if user can create a new post
-const canInsert = user => Users.canDo(user, "posts.new");
+const canInsert = user => Users.canDo(user, "notification.new");
 // check if user can edit a post
 const canEdit = Users.canEdit;
 

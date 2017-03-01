@@ -11,7 +11,7 @@ cron.SyncedCron.add({
   job: function() {
 
     var date = new Date();
-    date.setDate(date.getDate()-2);
+    date.setDate(date.getDate()+2);
   	var posts = Posts.find({ 'customArray11.reldate' : { $lte : date } }).fetch();
   	posts.forEach(function(post, index, posts){
      // console.log('Post Find', post.title);
@@ -26,7 +26,9 @@ cron.SyncedCron.add({
                   to: upvoter,
                   postId: post._id,
                   read: false,
-                  message: post.title + ' Will Relase ' + dataDate.toDateString()+ ' in ' + data.country,
+                //  message: post.title + ' Will Relase ' + dataDate.toDateString()+ ' in ' + data.country,
+                    message: post.title + ' Will Relase on' + dataDate.toDateString(),
+                  
                   date: new Date()
                 }
                 console.log("insertData",insertData);

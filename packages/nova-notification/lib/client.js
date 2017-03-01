@@ -1,3 +1,3 @@
-import Notifications from './modules.js';
+import notification from './modules.js';
 
-export default Notifications;
+export default notification;

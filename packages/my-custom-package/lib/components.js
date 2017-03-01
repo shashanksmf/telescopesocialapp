@@ -30,3 +30,7 @@ Telescope.components.PostsThumbnail = CustomPostsThumbnail;
 Telescope.components.CommentsItem = CustomCommentsItem;
 //Telescope.components.Cus = CustomHeader;
 //Telescope.components.SearchForm = CustomSearchForm;
+//import CustomSlider from "./components/partials/CustomSlider";
+Telescope.registerComponent("CustomSlider",require('./components/partials/CustomSlider.jsx'));
+Telescope.registerComponent("CustomPostDetails",require('./components/partials/CustomPostDetails.jsx'));
+

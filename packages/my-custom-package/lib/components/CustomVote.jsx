@@ -11,6 +11,8 @@ class CustomVote extends Component {
     this.upvote = this.upvote.bind(this);
   }
 
+  
+
   upvote(e) {
     e.preventDefault();
 
@@ -29,20 +31,32 @@ class CustomVote extends Component {
       });
 
       // 1st check if already the posts exists in database
+      var nowDate = new Date();
+      nowDate.setDate(nowDate.getDate());
+       var dataDate = new Date(post.customArray11[0].reldate);
+        var dayDiff = dateDiffInDays(nowDate,dataDate);
+        if(dayDiff < 3 ){
         if(post.customArray11 && post.customArray11[0].reldate) {
 
             var checkIfPostExist = Notification.find({to:user._id,postId:post._id}).fetch();
             if(checkIfPostExist.length == 0) {
               // insert into the database
-            Notification.insert({
+             var insertObj = {
                 to: user._id,
                 postId: post._id,
                 read: false,
-                message: post.title,
+                message: post.title + ' Will Relase on' + post.customArray11[0].reldate.toDateString(),
                 date: new Date()   
-              },function(error){
-                console.log(error)
+              };
+              Meteor.call("notification.insert",insertObj,function(error,result){
+                if(error){
+                  console.log("errro in insert nottification");
+                }
+                console.log("result",result);
               })
+           // Notification.insert(insertObj,function(error){
+             //   console.log(error)
+              //})
             
             
             }
@@ -55,7 +69,22 @@ class CustomVote extends Component {
 
         }
 
+      }
 
+
+    }
+
+
+   
+
+    // a and b are javascript Date objects
+    function dateDiffInDays(a, b) {
+      var _MS_PER_DAY = 1000 * 60 * 60 * 24;
+      // Discard the time and time-zone information.
+      var utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());
+      var utc2 = Date.UTC(b.getFullYear(), b.getMonth(), b.getDate());
+
+      return Math.floor((utc2 - utc1) / _MS_PER_DAY);
     }
 
   }
