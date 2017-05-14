@@ -14,7 +14,6 @@ nova:notifications
 nova:getting-started
 nova:categories
 nova:countries
-nova:notification
 
 nova:voting
 nova:forms
@@ -53,3 +52,4 @@ my-custom-package
 nova:forms-tags
 nova:custom-autoform
 essentials:semantic-ui
+momentjs:moment
