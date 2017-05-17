@@ -27,7 +27,7 @@ Package.onUse( function(api) {
   api.addFiles([
     'lib/stylesheets/custom.scss',
     'lib/stylesheets/customPostPage.scss',
-    'lib/stylesheets/CustomNotification.scss'
+   // 'lib/stylesheets/CustomNotification.scss'
   ], ['client']);
 
   api.addFiles([
