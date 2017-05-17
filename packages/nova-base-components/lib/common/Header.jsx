@@ -1,6 +1,6 @@
 import Telescope from 'meteor/nova:lib';
 import React from 'react';
-import CustomNotificationList from './CustomNotificationList.jsx';
+//import CustomNotificationList from './CustomNotificationList.jsx';
 //import { Messages } from "meteor/nova:core";
 
 const Header = (props, {currentUser}) => {
@@ -18,7 +18,6 @@ const Header = (props, {currentUser}) => {
           <Telescope.components.Logo logoUrl={logoUrl} siteTitle={siteTitle} />
           {tagline ? <h2 className="tagline">{tagline}</h2> : "" }
         </div>
-           <CustomNotificationList/>
         <div className="nav">
           
           <div className="nav-user">
