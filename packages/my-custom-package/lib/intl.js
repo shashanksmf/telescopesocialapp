@@ -9,6 +9,7 @@ Telescope.strings.en = {
   "posts.color": "Color",
   "posts.image": "Image",
   "posts.userUpvotedPosts":"Favourite",
-  "posts.body":"Description"
+  "posts.body":"Description",
+  "posts.Categories":"Categories"
   // add a new one (collection.field: "Label")
 };
