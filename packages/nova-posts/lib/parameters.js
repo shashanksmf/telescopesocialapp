@@ -90,10 +90,16 @@ function addTimeParameter (parameters, terms) {
     */
 
     if (Meteor.isClient) {
+      try {
+        setTimeout(function(){
       clientTimezoneOffset = -1 * new Date().getTimezoneOffset();
-      serverTimezoneOffset = -1 * Injected.obj('serverTimezoneOffset').offset;
+      serverTimezoneOffset = -1 * Injected.obj('serverTimezoneOffset').offset || 0;
       timeDifference = clientTimezoneOffset - serverTimezoneOffset;
-    
+    },1000);
+    }
+    catch(ex){
+      console.log(ex);
+    }
       // console.log("client time:"+clientTimezoneOffset);
       // console.log("server time:"+serverTimezoneOffset);
       // console.log("difference: "+timeDifference);

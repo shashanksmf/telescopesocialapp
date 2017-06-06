@@ -17,7 +17,8 @@ Package.onUse( function(api) {
   'nova:custom-autoform',
   'nova:countries',
   'nova:notification',
-  'nova:notifications'
+  'nova:notifications',
+  'raix:push'
     ]);
 
   api.addFiles([
@@ -27,11 +28,14 @@ Package.onUse( function(api) {
   api.addFiles([
     'lib/stylesheets/custom.scss',
     'lib/stylesheets/customPostPage.scss',
-   // 'lib/stylesheets/CustomNotification.scss'
+    // 'lib/stylesheets/CustomNotification.scss',
+    'lib/client/cordova.js'
   ], ['client']);
 
   api.addFiles([
-    'lib/server/templates.js'
+    'lib/server/templates.js',
+    'lib/server/methods.js',
+    'lib/server/cordova.js'
   ], ['server']);
 
   api.addAssets([
