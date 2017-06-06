@@ -6,15 +6,15 @@ if (Meteor.isCordova) {
     Meteor.call('onNotificationClick', (error, result) => {
       // on notification click method
     });
-    var host = Meteor.absoluteUrl().replace(/\/$/, '');
-    if (Servers.serverExists(host) !== true) {
-      return;
-    }
-    return Servers.startServer(host, '/', function(err, url) {
-      if (err != null) {
-        return console.log(err);
-      }
-    });
+    // var host = Meteor.absoluteUrl().replace(/\/$/, '');
+    // if (Servers.serverExists(host) !== true) {
+    //   return;
+    // }
+    // return Servers.startServer(host, '/', function(err, url) {
+    //   if (err != null) {
+    //     return console.log(err);
+    //   }
+    // });
   });
   Meteor.startup(function() {
    

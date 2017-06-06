@@ -16,5 +16,5 @@ App.info({
 App.accessRule('*');
 
 App.configurePlugin('phonegap-plugin-push', {
-  SENDER_ID: '438508748888' // Google console project #
+  SENDER_ID: "438508748888" // Google console project #
 });

@@ -23,9 +23,9 @@ class CustomLayout extends Component {
       var push_message = 'Test message';
       Meteor.call("sendPushNotification", push_username, push_message, (error, result) => {
         if(error) {
-          console.log(error);
+          console.log("serror :",error);
         } else {
-          console.log(result);
+          console.log("result : ",result);
         }
       });
     }

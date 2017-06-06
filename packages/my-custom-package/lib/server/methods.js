@@ -4,7 +4,7 @@ Meteor.methods({
  'sendPushNotification':function(push_username, push_message) {
     console.log("Test");
     // Array of UserIDs where we want to send the message.
-    var userIdsToPushNotify = ['ARPar7AE7PuznYxTh'];
+    var userIdsToPushNotify = ['Gx9avcjkYQ5ooZFFz'];
 
      Push.send({
       from: 'push',
