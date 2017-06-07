@@ -12,7 +12,7 @@ function configurePush() {
 	let apn, gcm;
 
 	gcm = {
-		apiKey: 'AIzaSyD29x0vQPhzzUmLrFKHPDSwDs2ZhDZgqCc', // Google Server key
+		apiKey: 'AIzaSyAlSmG40MwRae3ibvQlKhCjgzJ6kPEbNm4', // Google Server key
 		projectNumber: '438508748888' // Google console project #
 	};
 
