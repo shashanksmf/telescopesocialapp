@@ -1,3 +1,5 @@
 {
-	"magicPizzaService": "Our1234API5678Key"
+	"public" : {
+		"magicPizzaService": "Our1234API5678Key"
+	}
 }
