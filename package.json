@@ -5,6 +5,7 @@
     "npm": "^3.0"
   },
   "scripts": {
+     "start": "meteor --settings settings.json",
     "lint": "eslint --cache packages"
   },
   "dependencies": {
