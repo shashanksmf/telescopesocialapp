@@ -10,11 +10,11 @@ App.info({
 
 // Set PhoneGap/Cordova preferences.
 // App.setPreference('BackgroundColor', '0xff0000ff');
-// App.setPreference('HideKeyboardFormAccessoryBar', true);
-// App.setPreference('Orientation', 'default');
-// App.setPreference('Orientation', 'all', 'ios');
+App.setPreference('HideKeyboardFormAccessoryBar', true);
+App.setPreference('Orientation', 'default');
+App.setPreference('Orientation', 'all', 'ios');
 App.accessRule('*');
 
 App.configurePlugin('phonegap-plugin-push', {
-  SENDER_ID: "438508748888" // Google console project #
+  SENDER_ID: 438508748888 // Google console project #
 });

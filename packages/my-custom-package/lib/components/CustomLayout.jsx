@@ -6,19 +6,11 @@ import CustomPostsCategories from './CustomPostsCategories.jsx';
 //import CustomCountryList from './CustomCountryList.jsx';
 
 class CustomLayout extends Component {
-//   constructor(){
-//       super();
-//       this.state = {countrySelected:''};
-//   }
 
-
-//   handleCountry(country){
-//     console.log("country sle",country,this);
-//     this.state.countrySelected = country;
-//     this.setState({countrySelected:this.state.countrySelected});
-//   }
-    componentWillMount() {
+  componentWillMount() {
       //this.setState({countrySelected:this.state.countrySelected});
+      if (Meteor.isCordova) {
+
       var push_username = '@Test';
       var push_message = 'Test message';
       Meteor.call("sendPushNotification", push_username, push_message, (error, result) => {
@@ -30,41 +22,80 @@ class CustomLayout extends Component {
       });
     }
 
+  }
+
   render() {
 
-    return (
-      <div className="wrapper" id="wrapper">
+      if(Meteor.isClient && (window.innerWidth > Meteor.settings.public.view.mobile)) {
 
-        <Telescope.components.HeadTags />
+        return (
+          <div className="wrapper" id="wrapper">
 
-        <Telescope.components.UsersProfileCheck {...this.props} />
+            <Telescope.components.HeadTags />
 
+            <Telescope.components.UsersProfileCheck {...this.props} />
 
+            <Telescope.components.Header {...this.props}/>
 
-        <Telescope.components.Header {...this.props}/>
+            <div className="main">
 
-        <div className="main">
+              <FlashContainer component={Telescope.components.FlashMessages}/>
 
-          <FlashContainer component={Telescope.components.FlashMessages}/>
+              <Telescope.components.Newsletter {...this.props}/>
 
-          <Telescope.components.Newsletter {...this.props}/>
-
-          <div className="childrenWrapper">
-              {this.props.children}
-             <div className="CustomCategoriesContainer">
-                  <div className="customCategoriesWrapper">
-                      <CustomPostsCategories/>
+              <div className="childrenWrapper">
+                  {this.props.children}
+                 <div className="CustomCategoriesContainer">
+                      <div className="customCategoriesWrapper">
+                          <CustomPostsCategories/>
+                      </div>
                   </div>
               </div>
+
+
+            </div>
+
+            <Telescope.components.Footer {...this.props}/>
+
+          </div>
+        )
+
+    } else {
+      
+      return (
+       <div className="wrapper" id="wrapper">
+
+          <Telescope.components.HeadTags />
+
+          <Telescope.components.UsersProfileCheck {...this.props} />
+
+
+
+          <Telescope.components.Header {...this.props}/>
+          Mobile Layout
+          <div className="main">
+
+            <FlashContainer component={Telescope.components.FlashMessages}/>
+
+            <Telescope.components.Newsletter {...this.props}/>
+
+            <div className="childrenWrapper">
+                {this.props.children}
+               <div className="CustomCategoriesContainer">
+                    <div className="customCategoriesWrapper">
+                        <CustomPostsCategories/>
+                    </div>
+                </div>
+            </div>
+
+
           </div>
 
+          <Telescope.components.Footer {...this.props}/>
 
         </div>
-
-        <Telescope.components.Footer {...this.props}/>
-
-      </div>
-    )
+      )
+    }
 
   }
 }

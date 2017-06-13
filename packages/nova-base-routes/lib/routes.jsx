@@ -28,7 +28,12 @@ Meteor.startup(() => {
     {name:"app.notfound",   path:"*",                     component:Telescope.components.Error404},
   ]);
 
-Telescope.routes.indexRoute = { name: "posts.daily", component: Telescope.components.PostsDaily };
+if(Meteor.isClient && (window.innerWidth < Meteor.settings.public.view.mobile)) { 
+  Telescope.routes.indexRoute = { name: "posts.list", component: Telescope.components.PostsHome };
+}else {
+  Telescope.routes.indexRoute = { name: "posts.daily", component: Telescope.components.PostsDaily };  
+}
+
   const AppRoutes = {
     path: '/',
     component: Telescope.components.App,

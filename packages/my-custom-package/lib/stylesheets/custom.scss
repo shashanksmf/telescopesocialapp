@@ -71,6 +71,7 @@
     }
 }
 .CustomPostListWrapper{
+
 	width:70%;
 	.posts-list{
 		flex:1;
@@ -115,12 +116,22 @@
 		}
 	}
 }
+
+
+
 .CustomCategoriesContainer{
+
+	
+
 	display: inline-block;
     float: right;
     width: 30%;
     padding-left: 5%;
 
+/*    @media screen and (max-width: 600px) { 
+		display: none;
+	}
+*/
 	.customCategoriesWrapper{
 		flex:0 20%;
 		display:flex;

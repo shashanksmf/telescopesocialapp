@@ -1,0 +1,15 @@
+@media only screen and (max-width: 600px) {
+  /* line 4, G:/meteor/nova/svntelescope/trunk/packages/my-custom-package/lib/stylesheets/mobileStyle.scss */
+  .CustomCategoriesContainer {
+    display: none; }
+  /* line 8, G:/meteor/nova/svntelescope/trunk/packages/my-custom-package/lib/stylesheets/mobileStyle.scss */
+  .CustomPostListWrapper {
+    width: 100%; }
+  /* line 14, G:/meteor/nova/svntelescope/trunk/packages/my-custom-package/lib/stylesheets/mobileStyle.scss */
+  .posts-item .posts-item-content {
+    width: 100%; }
+    /* line 17, G:/meteor/nova/svntelescope/trunk/packages/my-custom-package/lib/stylesheets/mobileStyle.scss */
+    .posts-item .posts-item-content .posts-item-meta {
+      display: flex; } }
+
+/*# sourceMappingURL=mobileStyle.css.map */

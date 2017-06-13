@@ -1,0 +1,22 @@
+$information-phone: "only screen and (max-width : 600px)";
+
+@media #{$information-phone} {
+  .CustomCategoriesContainer {
+  	display:none;
+  }
+
+  .CustomPostListWrapper {
+  	width:100%
+  }
+
+  .posts-item {
+
+	.posts-item-content{
+		width: 100%;
+
+		.posts-item-meta {
+			    display: flex
+			}
+		}
+	}
+}

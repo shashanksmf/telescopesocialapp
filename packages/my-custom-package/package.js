@@ -28,6 +28,8 @@ Package.onUse( function(api) {
   api.addFiles([
     'lib/stylesheets/custom.scss',
     'lib/stylesheets/customPostPage.scss',
+    'lib/stylesheets/mobileStyle.scss',
+    
     // 'lib/stylesheets/CustomNotification.scss',
     'lib/client/cordova.js'
   ], ['client']);

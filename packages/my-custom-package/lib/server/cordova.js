@@ -12,8 +12,12 @@ function configurePush() {
 	let apn, gcm;
 
 	gcm = {
-		apiKey: 'AIzaSyAlSmG40MwRae3ibvQlKhCjgzJ6kPEbNm4', // Google Server key
-		projectNumber: '438508748888' // Google console project #
+	//	apiKey: 'AIzaSyAlSmG40MwRae3ibvQlKhCjgzJ6kPEbNm4', // Google Server key
+	//	projectNumber: '438508748888' // Google console project #
+		apiKey: Meteor.settings.private.gcm.apikey, // Google Server key
+		projectNumber: Meteor.settings.private.gcm.senderId // Google console project #
+
+
 	};
 
 	apn = {

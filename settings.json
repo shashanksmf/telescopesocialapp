@@ -1,5 +1,17 @@
 {
 	"public" : {
-		"magicPizzaService": "Our1234API5678Key"
+		"magicPizzaService": "Our1234API5678Key",
+		"view":{
+			"mobile":600
+		},
+		"gcm":{
+			"senderId":"438508748888"
+		}
+	},
+	"private":{
+		"gcm":{
+			"senderId":"438508748888",
+			"apikey":"AIzaSyAlSmG40MwRae3ibvQlKhCjgzJ6kPEbNm4"
+		}
 	}
 }

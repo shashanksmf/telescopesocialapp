@@ -2,10 +2,18 @@ if (Meteor.isCordova) {
   Push.addListener('token', function(token) {
     // alert(JSON.stringify(token));
   });
+
+  
+
   Push.addListener('startup', function(notification) {
+    console.log("notification startup",notification);
     Meteor.call('onNotificationClick', (error, result) => {
+      console.log("notification clicked",error,result);
       // on notification click method
     });
+
+
+  
     // var host = Meteor.absoluteUrl().replace(/\/$/, '');
     // if (Servers.serverExists(host) !== true) {
     //   return;
@@ -22,7 +30,7 @@ if (Meteor.isCordova) {
 
       return Push.Configure({
         android: {
-          senderID: "438508748888", // Google console project #
+          senderID:  Meteor.settings.public.gcm.senderId, // Google console project #
           alert: true,
           badge: true,
           sound: true,
