@@ -55,3 +55,4 @@ essentials:semantic-ui
 momentjs:moment
 crosswalk
 raix:push@3.0.3-rc.7
+mystor:device-detection

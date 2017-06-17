@@ -1,8 +1,16 @@
 /*
 This file centralizes all our custom component overrides. 
 */
-
 import Telescope from 'meteor/nova:lib';
+
+Telescope.registerComponent("CustomSlider",require('./components/partials/CustomSlider.jsx'));
+Telescope.registerComponent("CustomPostDetails",require('./components/partials/CustomPostDetails.jsx'));
+
+Telescope.registerComponent("MobilePostsList",require('./components/mobile/MobilePostsList.jsx'));
+Telescope.registerComponent("MobilePostsItem",require('./components/mobile/MobilePostsItem.jsx'));
+Telescope.registerComponent("MobileHome",require('./components/MobileHome.jsx'));
+
+
 import CustomLogo from "./components/CustomLogo.jsx";
 import CustomNewsletter from "./components/CustomNewsletter.jsx";
 import CustomPostsItem from "./components/CustomPostsItem.jsx";
@@ -14,6 +22,9 @@ import CustomVote from "./components/CustomVote.jsx";
 import CustomPostsThumbnail from "./components/CustomPostsThumbnail.jsx";
 import CustomAutoForm from "./components/CustomAutoForm.jsx";
 import CustomCommentsItem from "./components/CustomCommentsItem.jsx";
+import MobilePostsItem from "./components/mobile/MobilePostsItem.jsx"
+import MobilePostsList from "./components/mobile/MobilePostsList.jsx";
+import MobileHome from "./components/MobileHome.jsx";
 //import CustomHeader from "./components/CustomHeader.jsx";
 //import CustomSearchForm from "./components/CustomSearchForm.jsx";
 
@@ -28,9 +39,10 @@ Telescope.components.PostsViews = CustomPostsView;
 Telescope.components.Vote = CustomVote;
 Telescope.components.PostsThumbnail = CustomPostsThumbnail;
 Telescope.components.CommentsItem = CustomCommentsItem;
+Telescope.components.MobilePostsItem = MobilePostsItem;
+Telescope.components.MobilePostsList = MobilePostsList;
+Telescope.components.MobileHome = MobileHome;
+
 //Telescope.components.Cus = CustomHeader;
 //Telescope.components.SearchForm = CustomSearchForm;
 //import CustomSlider from "./components/partials/CustomSlider";
-Telescope.registerComponent("CustomSlider",require('./components/partials/CustomSlider.jsx'));
-Telescope.registerComponent("CustomPostDetails",require('./components/partials/CustomPostDetails.jsx'));
-

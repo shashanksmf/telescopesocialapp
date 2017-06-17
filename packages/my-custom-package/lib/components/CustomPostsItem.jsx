@@ -150,19 +150,7 @@ class CustomPostsItem extends Telescope.components.PostsItem {
 
                
               }
-              else{
-
-                //  itemPriceCountry.countryName = 'USA'; 
               
-                // if(items.hasOwnProperty("price")){
-                //   itemPriceCountry.price =  items.price;  
-                // }
-
-                // if(items.hasOwnProperty("relDate")){
-                //   itemPriceCountry.relDate = items.relDate == undefined ? '' : items.relDate; 
-                // } 
-                 
-              }
             }
 
           }

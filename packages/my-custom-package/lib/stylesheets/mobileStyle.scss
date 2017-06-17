@@ -14,6 +14,10 @@ $information-phone: "only screen and (max-width : 600px)";
 	.posts-item-content{
 		width: 100%;
 
+		.commnetorsCategoriesContainer {
+			display:none;
+		}
+		
 		.posts-item-meta {
 			    display: flex
 			}

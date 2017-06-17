@@ -81,11 +81,6 @@ class CustomLayout extends Component {
 
             <div className="childrenWrapper">
                 {this.props.children}
-               <div className="CustomCategoriesContainer">
-                    <div className="customCategoriesWrapper">
-                        <CustomPostsCategories/>
-                    </div>
-                </div>
             </div>
 
 
