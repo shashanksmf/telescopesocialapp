@@ -26,7 +26,7 @@ class CustomLayout extends Component {
 
   render() {
 
-      if(Meteor.isClient && (window.innerWidth > Meteor.settings.public.view.mobile)) {
+      if(Meteor.isCordova) {
 
         return (
           <div className="wrapper" id="wrapper">
@@ -69,15 +69,8 @@ class CustomLayout extends Component {
 
           <Telescope.components.UsersProfileCheck {...this.props} />
 
-
-
           <Telescope.components.Header {...this.props}/>
-          Mobile Layout
           <div className="main">
-
-            <FlashContainer component={Telescope.components.FlashMessages}/>
-
-            <Telescope.components.Newsletter {...this.props}/>
 
             <div className="childrenWrapper">
                 {this.props.children}

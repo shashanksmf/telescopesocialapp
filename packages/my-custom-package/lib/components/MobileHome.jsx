@@ -23,7 +23,7 @@ class MobileHome extends Component {
         options={options}
         terms={params} 
         joins={Posts.getJoins()}
-        component={Telescope.components.CustomPostList}
+        component={Telescope.components.CustomPostsList}
         cacheSubscription={true}
         componentProps={{showHeader: false,userCountry:this.props.location.query.country}}
          

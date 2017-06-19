@@ -9,18 +9,116 @@ $information-phone: "only screen and (max-width : 600px)";
   	width:100%
   }
 
-  .posts-item {
+ 
+}
 
-	.posts-item-content{
-		width: 100%;
+.mobileContainer {
+	.posts-list { 
 
-		.commnetorsCategoriesContainer {
-			display:none;
-		}
+		.posts-list-content{
+			background-color:#F3F5F8;
+			border-top: 0px solid #ddd;
 		
-		.posts-item-meta {
-			    display: flex
+		.posts-item {
+			background-color:white;
+		    border-top: 1px solid #ddd;
+		    margin-bottom: 5px;
+			padding:0;
+			display:flex;
+
+			.posts-thumbnail{
+			    
+			        flex: 0 30%;
+    				height: 130px;
+
+				img{
+				    max-width: 100%;
+    				height: 100%;
+				}
+			}
+
+		}
+
+		.posts-item .posts-item-content  {
+
+			flex:1;
+		    padding: 5px;
+			h3{
+				display:block;
+			    overflow: hidden;
+			    display: block;
+			    text-overflow: ellipsis;
+			}
+
+			.posts-item-title{
+			    margin-top: 5px;
+			}
+
+			.posts-item-meta {
+				.posts-page-body {
+					*{
+						display:none;
+					}
+					*:nth-child(1) {
+						display:block;
+						max-width: 100%;
+					    white-space: normal;
+					    height: 40px;
+					    max-height: 40px;
+					    text-overflow: ellipsis;
+					    display: -webkit-box;
+					    -webkit-line-clamp: 2;
+					    -webkit-box-orient: vertical;
+					    overflow: hidden;
+					    font-weight: 100;
+					    font-size: 14px;
+					    color: gray;
+					}
+					
+				}
 			}
 		}
+
+		.posts-item .posts-item-content .commnetorsCategoriesContainer {
+			margin-top:5px;
+			justify-content: flex-start;
+
+			.posts-categories {
+				flex:1;
+				.posts-category {
+				    height: 100%;
+				    border-radius: 10px;
+				    display: flex;
+				    align-items: center;
+				    padding: 5px 10px;
+				    background-color: white;
+				    border: 1px solid #6051a9;
+				    font-weight: bold;
+				    color:#6051a9;
+			    }
+			}
+		}
+
+		.posts-item .posts-item-content .commnetorsCategoriesContainer .mobileDateLikeBtn {
+			    border-radius: 10px;
+		    	padding: 5px 15px;
+
+			a {
+				display: flex;
+		    	flex-direction: row;
+		    	align-items:center;
+			}
+
+			&.upvote {
+				background: #6051a9;
+		    	color: #fff;
+			}
+
+			}
+		}			
 	}
+	
 }
+
+
+

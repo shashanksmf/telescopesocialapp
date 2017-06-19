@@ -34,87 +34,6 @@ class MobilePostsItem extends Component {
   }
 
 
-  renderPrices(post){
-    const currentQuery = _.clone(this.props.router.location.query);
-    var selectedCoutry;
-
-    var countryArr = [];
-    
-    if(currentQuery && currentQuery.country){
-      selectedCoutry = currentQuery.country;
-    }
-    else if(Meteor.isClient && localStorage.getItem("userCountry")){ 
-      selectedCoutry = localStorage.getItem("userCountry"); 
-    }
-
-    if(selectedCoutry){
-      if(post.hasOwnProperty("customArray11")) {
-        countryArr = post.customArray11.filter(function(item){
-          //console.log("item",item,selectedCoutry);
-          if(item && item.country){
-            return item.country.toLowerCase() == selectedCoutry.toLowerCase();
-          }
-          
-        })
-      }
-    }
-    //console.log("custompost details post props",this.props.post);
-    
-    if(countryArr.length>0) {
-
-      countryArr.sort(function(a, b) {
-        return parseInt(a.price) - parseInt(b.price);
-      });
-
-      return ( 
-
-
-        <div className="ui buttons priceDropDown" onClick={()=>{ this.setState({ priceBtnExpand : !this.state.priceBtnExpand }) }}>
-          <div className="ui button" >Price : <i className={countryArr[0].currencyIcon}></i> {countryArr[0].price} </div>
-          <div className="ui floating dropdown icon button">
-            <i className="dropdown icon"></i>
-            <div className={this.state.priceBtnExpand ? "menu prices transition visible" : "menu prices"}>
-              {countryArr.map(function(country){
-                  return  <div className="item"><a target="_blank" href={country.sourceUrl}>{country.vendorName}  {country.vendorName ? ": ": ""}<i className={country.currencyIcon}></i>{country.price}</a></div>
-            })}
-            </div>
-          </div>
-        </div>
-        
-        )
-    }
-  }
-  
-  renderPost() {
-    const post = this.props.post;
- //   console.log(post);
-    const htmlBody = {__html: post.htmlBody};
-   // console.log(htmlBody);
-    return (
-      <div className="post-actions">
-          <ModalTrigger title="View Post" component={
-            <a className="posts-action-edit">
-                  {post.title}
-            </a>}>
-
-            <div>
-
-            <CustomSlider post={post}/>
-
-            <div className="customPostPageContainer">
-              <Telescope.components.PostsItem post={post}/>
-              {post.product ? <HunterMaker  post={post}/> : null} 
-               <CustomPostDetails post={post} />
-              {post.htmlBody ? <div className="posts-page-body" dangerouslySetInnerHTML={htmlBody}></div> : null}
-            </div>
-           
-            <Telescope.components.PostsCommentsThread document={post} />
-            </div>
-          </ModalTrigger>
-      </div>
-    )
-  }
-
   render() {
     var itemPriceCountry = {};
     var countryName='';
@@ -168,7 +87,8 @@ class MobilePostsItem extends Component {
     if (post.color) {
       postClass += " post-"+post.color;
     }
-	
+  	 const htmlBody = {__html: post.htmlBody};
+
     // ⭐ custom code ends here ⭐
 
     return (
@@ -176,68 +96,24 @@ class MobilePostsItem extends Component {
         {(post.thumbnailUrl || post.image) ? <Telescope.components.PostsThumbnail post={post}/> : null}
 
         <div className="posts-item-content">
-          Mobile post items
-          <h3 className="posts-item-title ">
-           {this.renderPost()}  
-          
-
-           
-          </h3>
-		  
-          
+          <h3 className="posts-item-title "> {post.title}</h3>
+	
           <div className="posts-item-meta">
-            {post.user? <div className="posts-item-user"><Telescope.components.UsersAvatar user={post.user} size="small"/><Telescope.components.UsersName user={post.user}/></div> : null}
-            <div className="posts-item-date"><FormattedRelative value={post.postedAt}/></div>
-            <div className="posts-item-comments">
-              <Link to={Posts.getPageUrl(post)}>
-                <FormattedMessage id="comments.count" values={{count: post.commentCount}}/>
-              </Link>
-            </div>
-			
-			
-			
-            {this.context.currentUser && this.context.currentUser.isAdmin ? <Telescope.components.PostsStats post={post} /> : null}
+           {post.htmlBody ? <div className="posts-page-body" dangerouslySetInnerHTML={htmlBody}></div> : null}
             
           </div>
           <div className="commnetorsCategoriesContainer">
-           <div className="priceWrapper">
-                
-              {this.renderPrices(this.props.post)}
 
-           </div>
+          {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? 
+             <Telescope.components.MobileDateLikeBtn  post={post} date={moment(itemPriceCountry.relDate).format('MM')+'/'+moment(itemPriceCountry.relDate).format('DD')+'/'+moment(itemPriceCountry.relDate).format('gg')} />:''
+           }
+
             {this.renderCommenters()}
     				{this.renderCategories()}
          </div>
 		</div>
 
-       
-        
-       <div className="customDatePriceCountry">
-              {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? 
-                  <div className="dateContainer">
-                  
-                     <span className="month">
-                          {moment(itemPriceCountry.relDate).format('MMM')} 
-                    </span>
-                    <span className="day">
-                          {moment(itemPriceCountry.relDate).format('DD')} 
-                    </span>
-                    <span className="year">
-                          {moment(itemPriceCountry.relDate).format('gggg')} 
-                    </span>
-                   </div>  
-                :''}
-
-              <div className="posts-item-vote customVote">
-                  
-
-                <Telescope.components.Vote  post={post} />
-              </div>
-
-          </div>
-
-
-      </div>
+    </div>
     )
   }
 };

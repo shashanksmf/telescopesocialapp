@@ -5,13 +5,14 @@
 			"mobile":600
 		},
 		"gcm":{
-			"senderId":"438508748888"
+			"senderId":""
 		}
 	},
 	"private":{
 		"gcm":{
-			"senderId":"438508748888",
-			"apikey":"AIzaSyAlSmG40MwRae3ibvQlKhCjgzJ6kPEbNm4"
-		}
+			"senderId":"",
+			"apikey":""
+		},
+		"cordova-condition-mobile":["routes.jsx","mobilePostsItem.jsx"]
 	}
 }
