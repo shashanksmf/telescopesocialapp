@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "telescopenova",
+  "private_key_id": "578b01339c802f279095b9c1e89325c1aac556ef",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCdxopB3r1C+llV\nO0C39f2kXVH7ORBTr7JyWZqxQ29mwIXkscjSFGn4G3SAmSSSMI4sWH8eQqYTarCy\n/yEdcY/9Vf/wgqdMQX2fit8bHkW9jGNuX/449T+BP9q6kJePnnbhqKLsmgbGv045\ndHIEixJKsYaUbvj3Bk8Nx8i915NP6XKRsfmzYAFdNi9JyGrHA3cesx8zpjseQbZT\nE6j2lmHRffT2dw+f/f0jv0T0BX+gSq7WkekrI0M/qs0j0QlHZWUpfZqFNC+fxaTu\nh1rmgksgvy6bTKl8CDlwVt/TLvgdEq2kVb7h+M8icBQbPhyoMUt6bgz0JXAUGkUf\nkSteqg75AgMBAAECggEARvK1UFqXtAs86bFb8H17QhK+32AxQdijv30grW68JTIU\n45q4yhNo9atu77ct9VlFTZa8DwD8ioWzEMLegs2C6PJnxaETFxzqHzjFC/5IcSy0\nt7kN6lIKbRYoRzXnGauyHNaG8StwOaZkSDzfWsCpCJKdCJmAdiDNos5ArHHI6ilE\nrlirYVTA2iLxbPmBz0WJbdtGP4iTP0qUUp5F1fQIipVia1gnxJIhHqSEYpmaHb1A\nI8ys1R5gTFl3hg4HF5BRWEc3ZxRSPuo4Jo+WOR4lRHOvgkWV/8ABJH8Au0hR8RRd\nng8QYZ/tY6K12tq1Js7sXq+IGyfUt9Ji5j+pxhSb6wKBgQDSWNXsypPHZ/BgZjhP\ndKtiLKzZKhux5xx3Ki9oTaOC8BU8Yhe1Sefft4d3vrtig8+EMPu+bRFjwXJhORDg\nQJrMOTxHVU/0b7MknZzfWQ/AmTTJExvOroVnweIW0LexUyIx880Y+9VSl2SxyH89\njI79mdqqx/htF7xcEekRYA44GwKBgQDABMM+ZJO6EMJQO+BY4sl9GWvKC7A0Bs0q\n23iSvzJFLGtAzleaeOLRj1CxZZZgVZRjq3/c4sKrOTc1+zusrAVgXsQoS03+Isyj\nZQp1x0nkl4HQhYKbVc333jSY+E+PJ2NCGQUFC+1eV+wy9olGWl9pPUAIUyu2z6xQ\nbXy80cTuewKBgQDFZKJUVQJ7JXn5LNP5FFZkieIm5RIaT/Rxi3/zlLA2BxEWmkL/\nWHylf7g70hxM5b8OoV0NJZMlFvs8a23/1ACwV6HOmyuuCkiFuvbkzdIvflZ/v1Pg\nD/yXEuYVXQaU/JvhXpYAtQtKN1JCWBG387iYGhKPI5to3NZhXFloeci+MwKBgB67\nZGhC/qXD8uWWf7SaL3dXLzo6Hqxk/kdCswyBj1Ek59GKdNjjSiISFu8dfDDU4ZgG\nJcO7gz6WPLDmEcn0CjQ/VpPAYa4v8aKhFEh/aeMtIHi4NYwY8oseRDrLWyhlPGyi\nxnvlSctUtRf+/z+ETUrxo6LxdMigekqxC0rJJASrAoGAF2or2hAjEtGvS47+vJhU\n/qCOZnLulAsFun0PzGZuX6LLcN561PbnrMt/tehGYN/KGygiARgTkjJYyzvftXce\nv5GeieYM37bmGaX0KJ0of6rkVFHvNR+ItttJH+zKtjpwXgmTr06UoA5MfyoAhVNl\nBPN8M541LzXe7AjzI53xO6Y=\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-4rsfv@telescopenova.iam.gserviceaccount.com",
+  "client_id": "107182522992242112817",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-4rsfv%40telescopenova.iam.gserviceaccount.com"
+}

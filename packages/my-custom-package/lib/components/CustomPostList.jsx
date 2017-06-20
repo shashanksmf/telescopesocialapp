@@ -40,7 +40,6 @@ const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount
   if (!!results.length && !Meteor.isCordova) {
     return (
 	<div className="CustomPostListWrapper mobileContainer">
-	<Telescope.components.PostsListHeader /> 
       <div className="posts-list">
         <div className="posts-list-content">
           {results.map(post => <Telescope.components.MobilePostsItem userCountry={userCountry} post={post} key={post._id}/>)}

@@ -6,7 +6,7 @@ import Telescope from 'meteor/nova:lib';
 Telescope.registerComponent("CustomSlider",require('./components/partials/CustomSlider.jsx'));
 Telescope.registerComponent("CustomPostDetails",require('./components/partials/CustomPostDetails.jsx'));
 
-Telescope.registerComponent("MobilePostsList",require('./components/mobile/MobilePostsList.jsx'));
+//Telescope.registerComponent("MobilePostsList",require('./components/mobile/MobilePostsList.jsx'));
 Telescope.registerComponent("MobilePostsItem",require('./components/mobile/MobilePostsItem.jsx'));
 Telescope.registerComponent("MobileHome",require('./components/MobileHome.jsx'));
 Telescope.registerComponent("MobileDateLikeBtn",require('./components/mobile/MobileDateLikeBtn.jsx'));

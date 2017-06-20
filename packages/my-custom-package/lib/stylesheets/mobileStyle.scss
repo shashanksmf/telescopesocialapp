@@ -13,6 +13,7 @@ $information-phone: "only screen and (max-width : 600px)";
 }
 
 .mobileContainer {
+	width:100%;
 	.posts-list { 
 
 		.posts-list-content{
@@ -25,11 +26,11 @@ $information-phone: "only screen and (max-width : 600px)";
 		    margin-bottom: 5px;
 			padding:0;
 			display:flex;
+			height: 130px;
 
 			.posts-thumbnail{
-			    
-			        flex: 0 30%;
-    				height: 130px;
+			    flex: 0 30%;
+			    height: 100%;
 
 				img{
 				    max-width: 100%;
@@ -56,6 +57,7 @@ $information-phone: "only screen and (max-width : 600px)";
 
 			.posts-item-meta {
 				.posts-page-body {
+					margin-bottom:5px;
 					*{
 						display:none;
 					}
@@ -73,6 +75,7 @@ $information-phone: "only screen and (max-width : 600px)";
 					    font-weight: 100;
 					    font-size: 14px;
 					    color: gray;
+					    margin-bottom:5px;
 					}
 					
 				}

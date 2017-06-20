@@ -108,7 +108,6 @@ class MobilePostsItem extends Component {
              <Telescope.components.MobileDateLikeBtn  post={post} date={moment(itemPriceCountry.relDate).format('MM')+'/'+moment(itemPriceCountry.relDate).format('DD')+'/'+moment(itemPriceCountry.relDate).format('gg')} />:''
            }
 
-            {this.renderCommenters()}
     				{this.renderCategories()}
          </div>
 		</div>

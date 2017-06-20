@@ -35,7 +35,7 @@ const MobilePostsList  = ({results, currentUser, hasMore, ready, count, totalCou
   })
   //console.log("categoriesArr",filterCategoriesArr)
   
-//console.log("custom post list",props)
+console.log("Mobile post list",props)
   if (!!results.length) {
     return (
   <div className="CustomPostListWrapper">
