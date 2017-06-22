@@ -18,10 +18,10 @@ class CustomNotificationList extends Component {
 	}
 
 	componentDidMount() {
-		document.addEventListener('click', function(){
-			document.getElementsByClassName("CustomNotificationListContainer")[0].children[1].className = document.getElementsByClassName("CustomNotificationListContainer")[0].children[1].className
-      			( /(?:^|\s)active(?!\S)/g , '' );
-		});
+		//document.addEventListener('click', function(){
+	//		document.getElementsByClassName("CustomNotificationListContainer")[0].children[1].className = document.getElementsByClassName("CustomNotificationListContainer")[0].children[1].className
+      		//	( /(?:^|\s)active(?!\S)/g , '' );
+		//});
 	}
 	   
   	render() {

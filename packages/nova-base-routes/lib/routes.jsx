@@ -26,6 +26,7 @@ Meteor.startup(() => {
     {name:"resetPassword",  path:"reset-password/:token", component:Telescope.components.UsersResetPassword},
     {name:"users.edit",     path:"users/:slug/edit",      component:Telescope.components.UsersAccount},
     {name:"app.notfound",   path:"*",                     component:Telescope.components.Error404},
+   
   ]);
 
 if(!Meteor.isCordova) { 

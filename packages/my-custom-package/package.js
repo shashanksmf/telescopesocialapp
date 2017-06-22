@@ -29,6 +29,7 @@ Package.onUse( function(api) {
     'lib/stylesheets/custom.scss',
     'lib/stylesheets/customPostPage.scss',
     'lib/stylesheets/mobileStyle.scss',
+    'lib/stylesheets/categoriesMenu.scss',
     
     // 'lib/stylesheets/CustomNotification.scss',
     'lib/client/cordova.js'

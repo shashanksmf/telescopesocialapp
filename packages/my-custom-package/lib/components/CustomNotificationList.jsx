@@ -22,7 +22,7 @@ class CustomNotificationList extends Component {
 		document.addEventListener('click', function(){
 			try{
 
-			document.getElementsByClassName("CustomNotificationListContainer")[0].children[1].className = document.getElementsByClassName("CustomNotificationListContainer")[0].children[1].className
+		//	document.getElementsByClassName("CustomNotificationListContainer")[0].children[1].className = document.getElementsByClassName("CustomNotificationListContainer")[0].children[1].className
       			( /(?:^|\s)active(?!\S)/g , '' );
 		
       			}

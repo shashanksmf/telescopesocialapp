@@ -42,7 +42,7 @@ class MobilePostsItem extends Component {
     } 
 
     else {
-           countryName = (this.props.userCountry != undefined && this.props.userCountry.length >0) ? this.props.userCountry : '';    
+           countryName = (this.props.userCountry != undefined && this.props.userCountry.length >0) ? this.props.userCountry : 'uk';    
      }
     
     const post = this.props.post;
@@ -96,7 +96,7 @@ class MobilePostsItem extends Component {
         {(post.thumbnailUrl || post.image) ? <Telescope.components.PostsThumbnail post={post}/> : null}
 
         <div className="posts-item-content">
-          <h3 className="posts-item-title "> {post.title}</h3>
+          <a href={Posts.getLink(post)}><h3 className="posts-item-title "> {post.title}</h3></a>
 	
           <div className="posts-item-meta">
            {post.htmlBody ? <div className="posts-page-body" dangerouslySetInnerHTML={htmlBody}></div> : null}

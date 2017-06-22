@@ -1,0 +1,23 @@
+.categoriesMenuWrapper {
+    background-color: #F2F6F9;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+
+    .categoryBlock{
+	    width: 48%;
+	    background-color: white;
+	    padding: 1%;
+	    height: 150px;
+	    text-align: center;
+	    padding-top: 3%;
+	    border: 1px solid #c4cbd0;
+	    margin-right: 2%;
+	    border-radius: 10px;
+	    margin-bottom: 2%;
+
+	    span{
+    	    font-weight: bold;
+	    }
+    }
+}
