@@ -1,13 +1,16 @@
 import Telescope from 'meteor/nova:lib';
 import React from 'react';
-//import CustomNotificationList from './CustomNotificationList.jsx';
+import CustomNotificationList from './CustomNotificationList.jsx';
 //import { Messages } from "meteor/nova:core";
 
 const Header = (props, {currentUser}) => {
-  
+
   const logoUrl = Telescope.settings.get("logoUrl");
   const siteTitle = Telescope.settings.get("title", "Nova");
   const tagline = Telescope.settings.get("tagline");
+  if (Meteor && Meteor.Device) {
+    var isPhone = Meteor.Device.isPhone();
+  }
 
   return (
     <div className="header-wrapper">
@@ -18,15 +21,19 @@ const Header = (props, {currentUser}) => {
           <Telescope.components.Logo logoUrl={logoUrl} siteTitle={siteTitle} />
           {tagline ? <h2 className="tagline">{tagline}</h2> : "" }
         </div>
-        <div className="nav">
-          
+        <CustomNotificationList/>
+        <div className="nav nav-head">
+
           <div className="nav-user">
             {currentUser ? <Telescope.components.UsersMenu/> : <Telescope.components.UsersAccountMenu/>}
           </div>
 
+          {isPhone ? <div className="header-bar">
+            <i className="fa fa-bars"></i>
+          </div> :
           <div className="nav-new-post">
             <Telescope.components.PostsNewButton/>
-          </div>
+          </div> }
 
         </div>
 
