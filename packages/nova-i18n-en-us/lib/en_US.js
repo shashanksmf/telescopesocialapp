@@ -75,6 +75,8 @@ Telescope.strings.en = {
   "users.telescope.notifications_users": "New Users Notifications",
   "users.telescope.notifications_posts": "New Posts Notifications",
   "users.telescope.newsletter_subscribeToNewsletter": "Subscribe to newsletter",
+  "users.telescope.fullName": "Fullname",
+  "users.telescope.city": "City",
   "users.admin": "Admin",
   "users.isAdmin": "Admin",
   "users.posts": "Posts",

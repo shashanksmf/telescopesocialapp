@@ -28,7 +28,7 @@ Telescope.schemas.votes = new SimpleSchema({
     optional: true
   },
   votedAt: {
-    type: Date, 
+    type: Date,
     optional: true
   }
 });
@@ -44,9 +44,9 @@ Telescope.schemas.userData = new SimpleSchema({
   bio: {
     type: String,
     optional: true,
-    control: "textarea",
-    insertableIf: canInsert,
-    editableIf: canEdit,
+    // control: "textarea",
+    // insertableIf: canInsert,
+    // editableIf: canEdit,
     // form: {
     //   rows: 5
     // }
@@ -166,9 +166,9 @@ Telescope.schemas.userData = new SimpleSchema({
     optional: true,
     publish: true,
     profile: true,
-    control: "text",
-    insertableIf: canInsert,
-    editableIf: canEdit,
+    // control: "text",
+    // insertableIf: canInsert,
+    // editableIf: canEdit,
     template: "user_profile_twitter"
   },
   /**
@@ -196,9 +196,9 @@ Telescope.schemas.userData = new SimpleSchema({
     publish: true,
     profile: true,
     optional: true,
-    control: "text",
-    insertableIf: canInsert,
-    editableIf: canEdit
+    // control: "text",
+    // insertableIf: canInsert,
+    // editableIf: canEdit
   },
   /**
     Groups
@@ -216,13 +216,29 @@ Telescope.schemas.userData = new SimpleSchema({
       }
     },
   },
+  fullName: {
+    type: String,
+    publish: true,
+    optional: true,
+    control: "text",
+    insertableIf: canInsert,
+    editableIf: canEdit
+  },
+  city: {
+    type: String,
+    publish: true,
+    optional: true,
+    control: "text",
+    insertableIf: canInsert,
+    editableIf: canEdit
+  },
 });
 
 /**
  * @summary Users schema
  * @type {SimpleSchema}
  */
-Users.schema = new SimpleSchema({ 
+Users.schema = new SimpleSchema({
   _id: {
     type: String,
     publish: true,

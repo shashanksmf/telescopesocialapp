@@ -12,7 +12,7 @@ class CustomPostDetails extends React.Component{
 		}
 
 	componentDidMount(){
-		  /* facebook initialisation script   */     
+		  /* facebook initialisation script   */
         if(Meteor.isClient){
 	        window.fbAsyncInit = function() {
 			FB.init({appId: '1616336391962335', status: true, cookie: true,
@@ -24,7 +24,7 @@ class CustomPostDetails extends React.Component{
 				e.src = document.location.protocol +
 				'//connect.facebook.net/en_US/all.js';
 				document.getElementById('fb-root').appendChild(e);
-				}());     
+				}());
         }
 	}
 
@@ -33,8 +33,20 @@ class CustomPostDetails extends React.Component{
 		 window.open("https://twitter.com/share?&text="+post.title);
 
 	}
-	showSocialshareBtns(event){	
+	showSocialshareBtns(event){
 		this.setState({externaShareExpand:!this.state.externaShareExpand})
+	}
+
+	showSocialshareMobile(post, event) {
+		// console.log(post);
+		if ((window.plugins != null ? window.plugins.socialsharing : undefined) != null) {
+			options = {
+				link: (window.location.href),
+				subject: post.title,
+				message: "",
+			};
+			window.plugins.socialsharing.share(options.message, options.subject, options.file, options.link);
+		}
 	}
 
 	renderPrices(post){
@@ -42,12 +54,12 @@ class CustomPostDetails extends React.Component{
 		var selectedCoutry;
 
 		var countryArr = [];
-		
+
 		if(currentQuery && currentQuery.country){
 			selectedCoutry = currentQuery.country;
 		}
-		else if(Meteor.isClient && localStorage.getItem("userCountry")){ 
-			selectedCoutry = localStorage.getItem("userCountry");	
+		else if(Meteor.isClient && localStorage.getItem("userCountry")){
+			selectedCoutry = localStorage.getItem("userCountry");
 		}
 
 		if(selectedCoutry){
@@ -60,13 +72,13 @@ class CustomPostDetails extends React.Component{
 			}
 		}
 	//	console.log("custompost details post props",this.props.post);
-		
+
 		if(countryArr.length>0) {
 
 			  countryArr.sort(function(a, b) {
 		        return parseInt(a.price) - parseInt(b.price);
 		      });
-			return ( 
+			return (
 
 
 				<div className="ui buttons priceDropDown" onClick={()=>{ this.setState({ priceBtnExpand : !this.state.priceBtnExpand }) }}>
@@ -80,7 +92,7 @@ class CustomPostDetails extends React.Component{
 				    </div>
 				  </div>
 				</div>
-				
+
 				)
 		}
 	}
@@ -91,37 +103,39 @@ class CustomPostDetails extends React.Component{
 
 		return(
 		<div className="container customPostDetails">
-		<div id="fb-root"></div>	
+			<div id="fb-root"></div>
 			<div className="row">
-				
+
 				{this.renderPrices(this.props.post)}
 				<div className="posts-item-vote customVote ">
+        	<Telescope.components.Vote  post={this.props.post} />
+      	</div>
 
-                	<Telescope.components.Vote  post={this.props.post} />
-              	</div>
-				
-				<div className="socialShare">
-				<div className="socialSharingBtns" style={externalShareStyle}>
-					<i className="facebook icon" onClick={(e)=>{  
-
-						e.preventDefault();
-						FB.ui(
-						{
-						method: 'feed',
-						name: this.props.post.title,
-						link: (window.location.href),
-						description: this.props.post.body ? this.props.post.body :"" ,
-						message: ""
-						});
-					 }}></i>
-					<i className="twitter icon" onClick={this.twitterShare.bind(this,this.props.post)}></i>
-				</div>
-				<div className="ui label shareIcon" onClick={this.showSocialshareBtns.bind(this)}>
-				  <i className="external share icon"></i>Share
-				</div>
-					
-					
-				</div>	
+				{ !Meteor.isCordova ?
+					<div className="socialShare">
+						<div className="socialSharingBtns" style={externalShareStyle}>
+							<i className="facebook icon" onClick={(e)=>{
+								e.preventDefault();
+								FB.ui({
+									method: 'feed',
+									name: this.props.post.title,
+									link: (window.location.href),
+									description: this.props.post.body ? this.props.post.body :"" ,
+									message: ""
+								});
+							 }}></i>
+							<i className="twitter icon" onClick={this.twitterShare.bind(this,this.props.post)}></i>
+						</div>
+						<div className="ui label shareIcon" onClick={this.showSocialshareBtns.bind(this)}>
+						  <i className="external share icon"></i>Share
+						</div>
+					</div> :
+					<div className="socialShare mobile-share">
+						<div className="shareIcon" title="Share" onClick={this.showSocialshareMobile.bind(this, this.props.post)}>
+						  <i className="external share icon"></i>
+						</div>
+					</div>
+				}
 			</div>
 		</div>
 		)

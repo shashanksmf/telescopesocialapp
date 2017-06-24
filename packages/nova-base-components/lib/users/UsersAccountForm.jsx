@@ -1,18 +1,58 @@
 import React, { PropTypes, Component } from 'react';
 import { Button, FormControl } from 'react-bootstrap';
-import { Accounts } from 'meteor/std:accounts-ui';
+import { Accounts, STATES } from 'meteor/std:accounts-ui';
 
 const UsersAccountForm = () => {
   return (
     <Accounts.ui.LoginForm />
-  ) 
+  )
 };
 
 module.exports = UsersAccountForm;
 export default UsersAccountForm;
 
 // customize Accounts.ui
+// mt customize start
+class AccountsForm extends Accounts.ui.LoginForm {
+  fields() {
+    const { formState } = this.state;
+    if (formState == STATES.SIGN_UP) {
+      return {
+        fullName: {
+          id: 'fullName',
+          hint: 'Enter Fullname',
+          label: 'Fullname',
+          onChange: this.handleChange.bind(this, 'fullName')
+        },
+        ...super.fields(),
+        city: {
+          id: 'city',
+          hint: 'Enter city',
+          label: 'City',
+          onChange: this.handleChange.bind(this, 'city')
+        }
+      };
+    }
+    return super.fields();
+  }
 
+  signUp(options = {}) {
+    const { fullName = null } = this.state;
+    const { city = null } = this.state;
+    if (fullName !== null) {
+      options.profile = Object.assign(options.profile || {}, {
+        fullName: fullName
+      });
+    }
+    if (city !== null) {
+      options.profile = Object.assign(options.profile || {}, {
+        city: city
+      });
+    }
+    super.signUp(options);
+  }
+}
+// End
 Accounts.ui.config({
   passwordSignupFields: 'USERNAME_AND_EMAIL',
   onSignedInHook: () => {},
@@ -25,7 +65,7 @@ class AccountsButton extends Accounts.ui.Button {
     if (type === 'link') {
       return <a href={ href } className={ className } onClick={ onClick }>{ label }</a>;
     }
-    return <Button 
+    return <Button
         bsStyle="primary"
         className={ className }
         type={ type } 
@@ -44,12 +84,19 @@ class AccountsField extends Accounts.ui.Field {
       onChange({ target: { value: this.input.value } })
     }
   }
-  
+
   render() {
+    if (Meteor && Meteor.Device) {
+      var isPhone = Meteor.Device.isPhone();
+    }
     const { id, hint, label, type = 'text', onChange, className = "field", defaultValue = "" } = this.props;
     const { mount = true } = this.state;
     return mount ? (
       <div className={ className }>
+        { isPhone ?
+          <label className="input-name"><i className={"fa fa-" + id}></i></label>
+          : ''
+        }
         <FormControl id={ id } type={ type } onChange={ onChange } placeholder={ hint } defaultValue={ defaultValue } />
       </div>
     ) : null;
@@ -98,5 +145,6 @@ class AccountsField extends Accounts.ui.Field {
 
 Accounts.ui.Button = AccountsButton;
 Accounts.ui.Field = AccountsField;
+Accounts.ui.LoginForm = AccountsForm;
 // Accounts.ui.SocialButtons = AccountsSocialButtons;
 // Accounts.ui.PasswordOrService = AccountsPasswordOrService;

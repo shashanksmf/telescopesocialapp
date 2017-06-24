@@ -15,8 +15,12 @@ function composer(props, onData) {
   }
 
   if (!subscriptions.length || _.every(subscriptions, handle => handle.ready())) {
-    data.ready = true;
-    onData(null, data);
+    if (Meteor && Meteor.Device) {
+        data.ready = true;
+        onData(null, data);
+    } else {
+        onData(null, {ready: false});
+    }
   } else {
     onData(null, {ready: false});
   }
