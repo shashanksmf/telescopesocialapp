@@ -2,6 +2,7 @@ import Telescope from 'meteor/nova:lib';
 import React, { PropTypes, Component } from 'react';
 import { FlashContainer } from "meteor/nova:core";
 import CustomPostsCategories from './CustomPostsCategories.jsx';
+import { withRouter } from 'react-router';
 
 //import CustomCountryList from './CustomCountryList.jsx';
 
@@ -9,6 +10,8 @@ class CustomLayout extends Component {
 
   componentWillMount() {
       //this.setState({countrySelected:this.state.countrySelected});
+
+   
       if (Meteor.isCordova) {
 
       var push_username = '@Test';
@@ -26,7 +29,16 @@ class CustomLayout extends Component {
 
   render() {
 
-      if(Meteor.isCordova) {
+      var isDevice = false;
+    
+      if (Meteor && Meteor.Device) {
+         isDevice = true;
+         
+       }
+    
+      const searchActive = this.props.router.location.search.length > 0 ? true : false;
+      
+      if(!isDevice) {
 
         return (
           <div className="wrapper" id="wrapper">
@@ -34,7 +46,8 @@ class CustomLayout extends Component {
             <Telescope.components.HeadTags />
 
             <Telescope.components.UsersProfileCheck {...this.props} />
-
+            
+  
             <Telescope.components.Header {...this.props}/>
 
             <div className="main">
@@ -72,7 +85,8 @@ class CustomLayout extends Component {
           <Telescope.components.Header {...this.props}/>
           <div className="main">
 
-            <div className="childrenWrapper">
+            <div className={searchActive ? "childrenWrapper searchActive" : "childrenWrapper" }>
+            {searchActive ? <Telescope.components.SearchForm /> : null } 
                 {this.props.children}
             </div>
 
@@ -90,7 +104,7 @@ class CustomLayout extends Component {
 
 
 
-export default CustomLayout;
+export default withRouter(CustomLayout);
 /* <!-- {this.props.children} -->
 <div className="customLayoutCategoriesBlock">
 				<Telescope.components.Categories  />

@@ -854,6 +854,9 @@ body{
     padding: 0px 15px;
     margin: 0px;
     list-style: none;
+    white-space: nowrap;
+    padding: 0;
+    
     li {
       display: inline-block;
       padding: 6px 12px;
@@ -887,7 +890,7 @@ body{
 }
 @media screen and (max-width: 600px) {
   #wrapper { padding-bottom: 52px; }
-  .childrenWrapper .log-in-message { margin: auto; }
+  .childrenWrapper .log-in-message { margin: auto; width:100%; }
   .childrenWrapper .accounts-ui, .users-account-menu .accounts-ui {
     margin-top: 30px;
     .btn-primary {
@@ -909,9 +912,23 @@ body{
     }
   }
   .users-edit-form {
+    margin: auto;
+    width: 100%;
+    padding: 5px;
     .form-group {
       display: flex;
-      .control-label { margin: auto; min-width: 105px; }
+      .control-label {
+        margin: auto;
+        min-width: 40px;
+        text-align: center;
+        padding-right: 0px;
+        color: #757575;
+        &.fa {
+          // text-indent: -1920px;
+          font-size: 0px;
+          &:before { font-size: 18px; }
+        }
+      }
       .col-sm-9 { width: 100%; }
       .form-control {
         border: none;
@@ -961,9 +978,12 @@ body{
     z-index: 1;
     .posts-item {
       padding: 0px;
+      margin-left: -10px;
+      margin-right: -10px;
       .post-mobile-image {
         background-color: #ffffff;
         margin-top: -80px;
+        min-height: 150px;
         img { width: 100%; }
       }
     }
@@ -982,6 +1002,17 @@ body{
         padding: 4px 10px;
         margin: 10px;
         opacity: 0.5;
+      }
+    }
+    .btn-showtimes {
+      padding: 15px;
+      width: 100%;
+      font-size: 16px;
+      background-color: #36a597;
+      border-color: #36a597;
+      &:hover, &:focus, &:active {
+        background-color: #2e8e82;
+        border-color: #257369;
       }
     }
   }
@@ -1023,7 +1054,7 @@ body{
 
 .text-center { text-align: center; }
 
-.fa-usernameOrEmail:before, .fa-fullName:before, .fa-username:before { content: "\f2c0"; }
+.fa-usernameOrEmail:before, .fa-fullName:before, .fa-username:before, .fa-displayName:before { content: "\f2c0"; }
 .fa-email:before { content: "\f003"; }
 .fa-password:before { content: "\f023"; }
 .fa-city::before { content: "\f041";}
