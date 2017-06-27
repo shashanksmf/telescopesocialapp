@@ -12,6 +12,70 @@ $information-phone: "only screen and (max-width : 600px)";
  
 }
 
+.childrenWrapper{
+
+	&.searchActive {
+	    flex-direction: column;
+
+		.mobileContainer {
+			.mobile-top-menu {
+				display:none;
+			}
+		}
+		
+	}
+
+	&.mobile {
+		.document-edit {
+			.form-section {
+				.input-telescope\.groups{
+					.form-group{
+						display:none;
+					}
+				}
+
+				.input-image {
+					.upload-field{
+						position:relative;
+						
+						label{
+							display:none;
+						}
+						
+						.dropzone-base{
+						    height: 130px;
+						    border:none;
+						    div{
+						    	display:none;
+						    }
+						}
+
+						.upload-state{
+							position:absolute;
+							height:100%;
+							width:100%;
+
+							img {
+							    height: 100% !important;
+							    border-radius: 59px;
+							    clip-path: circle(60px at center);
+							}
+
+							a{
+								display:none;
+							}
+						}
+					}
+				}
+			}
+			.form-section ~ .form-section {
+				display:none;
+			}
+		}
+	}
+
+}
+
 .mobileContainer {
 	width:100%;
 	.posts-list { 

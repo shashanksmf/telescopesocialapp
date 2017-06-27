@@ -79,6 +79,27 @@ VideoSlider.schema = new SimpleSchema({
 });
 VideoSlider.attachSchema(VideoSlider.schema);
 
+Users.addField([{
+ 
+  fieldName: 'image',
+  fieldSchema: {
+    type: [ImageSlider.schema],
+    optional: true,
+    publish: true,
+    control: Upload,
+    insertableIf: canInsert,
+    editableIf: canEdit,
+    order:1,
+    form: {
+      options: {
+    //  preset: Telescope.settings.get('cloudinaryPresets').posts
+      },
+    }
+  }
+
+
+}])
+
 Posts.addField(
   [
   {
@@ -162,6 +183,8 @@ so we also add our new field to that object:
 import PublicationUtils from 'meteor/utilities:smart-publications';
 
 PublicationUtils.addToFields(Posts.publishedFields.list, ["color","product","image","customArray11","video"]);
+
+PublicationUtils.addToFields(Users.publishedFields.list, ["image"]);
 
 
 

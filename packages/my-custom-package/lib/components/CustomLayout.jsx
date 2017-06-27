@@ -30,13 +30,17 @@ class CustomLayout extends Component {
   render() {
 
       var isDevice = false;
-    
+      var searchActive = false;
+
+      var queryUrl = this.props.router.location.query;
       if (Meteor && Meteor.Device) {
          isDevice = true;
          
        }
-    
-      const searchActive = this.props.router.location.search.length > 0 ? true : false;
+
+      if(queryUrl && ((queryUrl.showSearch && queryUrl.showSearch == "true") || (queryUrl.query && queryUrl.query.length > 0)) ) {
+          searchActive = true;
+       }
       
       if(!isDevice) {
 
@@ -85,7 +89,7 @@ class CustomLayout extends Component {
           <Telescope.components.Header {...this.props}/>
           <div className="main">
 
-            <div className={searchActive ? "childrenWrapper searchActive" : "childrenWrapper" }>
+            <div className={searchActive ? "childrenWrapper searchActive mobile" : "childrenWrapper mobile" }>
             {searchActive ? <Telescope.components.SearchForm /> : null } 
                 {this.props.children}
             </div>
