@@ -50,7 +50,7 @@ class FormComponent extends Component {
       return <this.props.control {...properties} document={document} />
 
     } else { // else pick a predefined component
-      console.log(properties);
+     // console.log(properties);
       switch (this.props.control) {
         case "text":
           return <Input         {...properties} type="text" />;

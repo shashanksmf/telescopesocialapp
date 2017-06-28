@@ -31,29 +31,52 @@ $information-phone: "only screen and (max-width : 600px)";
 				.input-telescope\.groups{
 					.form-group{
 						display:none;
+						label{
+							display:none;
+						}
 					}
 				}
 
 				.input-image {
-					.upload-field{
-						position:relative;
-						
+
+					.form-group {
 						label{
 							display:none;
 						}
+					}
+					.upload-field{
+						position:relative;
+						
+						
 						
 						.dropzone-base{
-						    height: 130px;
-						    border:none;
+						    clip-path: circle(20px at center);
+						    border: none;
+						    position: absolute;
+						    top: -8px;
+						    left: 15%;
+						    background-color: #6051a9;
+						    z-index: 1;
+						    
 						    div{
 						    	display:none;
 						    }
+						
+						    &::before {
+					    	    content: '+';
+							    left: 47.5%;
+							    color: white;
+							    position: absolute;
+							    font-size: 28px;
+							    top: 33%;
+						    }
 						}
 
+
 						.upload-state{
-							position:absolute;
-							height:100%;
-							width:100%;
+						    height: 130px;
+    						width: 100%;
+    						flex-basis:100%;
 
 							img {
 							    height: 100% !important;
@@ -196,6 +219,26 @@ $information-phone: "only screen and (max-width : 600px)";
 
 			}
 		}			
+	}
+
+	// css for post details page
+
+	&.mobile {
+		.posts-pages {
+			.mobile-post-page {
+				.customPostPageContainer {
+					#postPageTabs{
+						.tab-content{
+							.customPostDetails {
+								.customVote{
+									display:none;
+								}
+							}
+						}	
+					}
+				}	
+			}
+		}
 	}
 	
 }

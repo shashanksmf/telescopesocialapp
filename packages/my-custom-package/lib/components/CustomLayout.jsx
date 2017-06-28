@@ -42,7 +42,7 @@ class CustomLayout extends Component {
           searchActive = true;
        }
       
-      if(!isDevice) {
+      if(!!isDevice) {
 
         return (
           <div className="wrapper" id="wrapper">
@@ -88,6 +88,7 @@ class CustomLayout extends Component {
 
           <Telescope.components.Header {...this.props}/>
           <div className="main">
+             <FlashContainer component={Telescope.components.FlashMessages}/>
 
             <div className={searchActive ? "childrenWrapper searchActive mobile" : "childrenWrapper mobile" }>
             {searchActive ? <Telescope.components.SearchForm /> : null } 

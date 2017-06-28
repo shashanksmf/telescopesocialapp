@@ -8,6 +8,11 @@ import React from 'react';
 const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount, loadMore, showHeader = true,userCountry}) => {
 	
 	//console.log("custom post list",results)
+	var isPhone;
+	if (Meteor && Meteor.Device) {
+	  isPhone = Meteor.Device.isPhone();
+	}
+	
 	var categoriesArr=[];
 	results.forEach(function(post){
 		if(post.categoriesArray !==undefined){
@@ -37,7 +42,7 @@ const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount
 	//console.log("categoriesArr",filterCategoriesArr)
 	
 //console.log("custom post list",props)
-  if (!!results.length && !Meteor.isCordova) {
+  if (!!results.length && isPhone) {
     return (
 	<div className="CustomPostListWrapper mobileContainer">
 	<Telescope.components.PostsListHeader />

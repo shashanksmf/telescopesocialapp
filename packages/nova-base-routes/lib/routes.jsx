@@ -29,11 +29,13 @@ Meteor.startup(() => {
    
   ]);
 
-if(!Meteor.isCordova) { 
-  Telescope.routes.indexRoute = { name: "posts.list", component: Telescope.components.PostsHome };
+
+if (Meteor && Meteor.Device) {
+    Telescope.routes.indexRoute = { name: "posts.list", component: Telescope.components.PostsHome };
 }else {
-  Telescope.routes.indexRoute = { name: "posts.daily", component: Telescope.components.PostsDaily };  
+  Telescope.routes.indexRoute = { name: "posts.daily", component: Telescope.components.PostsDaily }; 
 }
+
 
   const AppRoutes = {
     path: '/',

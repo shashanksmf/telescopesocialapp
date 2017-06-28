@@ -7,7 +7,7 @@ import Countries from "meteor/nova:countries";
 const PostsListHeader = () => {
   if (Meteor && Meteor.Device) {
     var isPhone = Meteor.Device.isPhone();
-    console.log("is device");
+   // console.log("is device");
   }else {
 
   }
