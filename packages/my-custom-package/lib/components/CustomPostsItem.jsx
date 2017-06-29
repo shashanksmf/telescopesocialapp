@@ -86,7 +86,7 @@ class CustomPostsItem extends Telescope.components.PostsItem {
   
   renderPost() {
     const post = this.props.post;
- //   console.log(post);
+    console.log(post);
     const htmlBody = {__html: post.htmlBody};
    // console.log(htmlBody);
     return (
@@ -97,9 +97,8 @@ class CustomPostsItem extends Telescope.components.PostsItem {
             </a>}>
 
             <div>
-
-            <CustomSlider post={post}/>
-
+            {(post && post.image && post.image.length > 1)  ? <CustomSlider post={post}/> : null}
+          
             <div className="customPostPageContainer">
               <Telescope.components.PostsItem post={post}/>
               {post.product ? <HunterMaker  post={post}/> : null} 

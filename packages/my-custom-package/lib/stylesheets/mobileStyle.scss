@@ -229,18 +229,21 @@ $information-phone: "only screen and (max-width : 600px)";
 				.customPostPageContainer {
 					#postPageTabs{
 						.tab-content{
+							#postPageTabs-pane-1 {
 							.customPostDetails {
 								.customVote{
 									display:none;
 								}
+								.row{
+									display:none;
+								}
 							}
-						}	
+						}	}
 					}
 				}	
 			}
 		}
 	}
-	
 }
 
 

@@ -1,31 +1,27 @@
+
 import Telescope from 'meteor/nova:lib';
 import React, { PropTypes, Component } from 'react';
 import { IndexLink } from 'react-router';
 import { FormattedMessage, intlShape } from 'react-intl';
-import HunterMaker from './partials/HunterMaker.jsx';
-import CustomPostDetails from './partials/CustomPostDetails.jsx';
+import HunterMaker from './../partials/HunterMaker.jsx';
+import CustomPostDetails from './../partials/CustomPostDetails.jsx';
 import { Tabs, Tab } from 'react-bootstrap';
 //console.log(HunterMaker)
 import Posts from "meteor/nova:posts";
 import { Link } from 'react-router';
+import { withRouter } from 'react-router';
 
-const CustomPostPage = ({document, currentUser}) =>  {
-
-    const post = document;
-    const htmlBody = {__html: post.htmlBody};
-
-    if (Meteor && Meteor.Device) {
-      var isPhone = Meteor.Device.isPhone();
-    }
-
-    var handleBack = function () {
-      window.history.back();
-    };
+class MobilePostDetails extends Component {
+	render () {
+	    const post = this.props.location.state.post;
+	    const htmlBody = {__html: post.htmlBody};
+	    console.log(this.props)
 
 //console.log("custom page ",post,currentUser);
     return (
+      
       <div className="posts-pages">
-        {isPhone ? <div className="mobile-post-page">
+         <div className="mobile-post-page">
             <Telescope.components.HeadTags url={Posts.getLink(post)} title={post.title} image={post.thumbnailUrl} />
             <div className="customPostPageContainer mobile-view">
               {/* <Telescope.components.PostsItem post={post}/> */}
@@ -54,22 +50,14 @@ const CustomPostPage = ({document, currentUser}) =>  {
               </Tabs>
 
             </div>
-          </div> :
-          <div class="desktop-post-page">
-            <Telescope.components.HeadTags url={Posts.getLink(post)} title={post.title} image={post.thumbnailUrl} />
-            <div className="customPostPageContainer">
-              <Telescope.components.PostsItem post={post}/>
-              {post.product ? <HunterMaker  post={post}/> : null}
-              <CustomPostDetails post={post} />
-              {post.htmlBody ? <div className="posts-page-body" dangerouslySetInnerHTML={htmlBody}></div> : null}
-            </div>
-            {/*<SocialShare url={ Posts.getLink(post) } title={ post.title }/>*/}
-            <Telescope.components.PostsCommentsThread document={post} />
-          </div>
-        }
+          </div> 
 
     </div>
   );
+    }
 }
 
-export default CustomPostPage;
+
+module.exports = withRouter(MobilePostDetails);
+
+export default withRouter(MobilePostDetails);

@@ -41,8 +41,8 @@ class CustomLayout extends Component {
       if(queryUrl && ((queryUrl.showSearch && queryUrl.showSearch == "true") || (queryUrl.query && queryUrl.query.length > 0)) ) {
           searchActive = true;
        }
-      
-      if(!!isDevice) {
+      console.log(isDevice,!isDevice,!!isDevice)
+      if(!isDevice) {
 
         return (
           <div className="wrapper" id="wrapper">
