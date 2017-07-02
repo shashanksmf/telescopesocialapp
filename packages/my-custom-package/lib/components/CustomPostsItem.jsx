@@ -86,7 +86,7 @@ class CustomPostsItem extends Telescope.components.PostsItem {
   
   renderPost() {
     const post = this.props.post;
-    console.log(post);
+ //   console.log(post);
     const htmlBody = {__html: post.htmlBody};
    // console.log(htmlBody);
     return (

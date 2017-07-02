@@ -23,14 +23,8 @@ const router = props.router;
     <div className="footer">
       {isPhone ? <div className="footer-links clearfix">
         <div className="footer-item"><Link to="/"><i className="fa fa-home"></i><span>Home</span></Link></div>
-        <div className="footer-item" onClick={()=>{
- delay(() => {
-      
-      router.push({ pathname:router.location.pathname, query: {showSearch:!showSearch }  });
-    }, 700 );
-    
-        }}><a><i className="fa fa-search"></i><span>Search</span></a></div>
-        <div className="footer-item"><a href="#"><i className="fa fa-cubes"></i><span>Collections</span></a></div>
+        <div className="footer-item"><Link to="/SearchPage"><i className="fa fa-search"></i><span>Search</span></Link></div>
+        <div className="footer-item"><Link to="/categoriesMenu"><i className="fa fa-cubes"></i><span>Collections</span></Link></div>
         <div className="footer-item"><Link to="/categoriesMenu"><i className="fa fa-list-ul"></i><span>Watchlist</span></Link></div>
         <div className="footer-item"><Link  to={`/account`}><i className="fa fa-user"></i><span>Profile</span></Link></div>
       </div> :
@@ -39,7 +33,18 @@ const router = props.router;
     </div>
   )
 }
-
+//SearchPage
 Footer.displayName = "Footer";
 
 module.exports = withRouter(Footer);
+/*
+ onClick={()=>{
+ delay(() => {
+      
+      router.push({ pathname:router.location.pathname, query: {showSearch:!showSearch }  });
+    }, 700 );
+    
+        }}
+
+
+*/

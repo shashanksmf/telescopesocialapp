@@ -13,6 +13,8 @@ Telescope.registerComponent("MobileDateLikeBtn",require('./components/mobile/Mob
 Telescope.registerComponent("MobileCategoriesMenu",require('./components/mobile/MobileCategoriesMenu.jsx'));
 
 Telescope.registerComponent("MobilePostDetails",require('./components/mobile/MobilePostDetails.jsx'));
+Telescope.registerComponent("MobileSearchComponent",require('./components/mobile/MobileSearchComponent.jsx'));
+
 
 
 import CustomLogo from "./components/CustomLogo.jsx";
@@ -32,7 +34,9 @@ import MobileHome from "./components/MobileHome.jsx";
 import MobileDateLikeBtn from "./components/mobile/MobileDateLikeBtn.jsx";
 import MobileCategoriesMenu from "./components/mobile/MobileCategoriesMenu.jsx";
 import MobilePostDetails from "./components/mobile/MobilePostDetails.jsx";
+import MobileSearchPage from "./components/mobile/MobileSearchPage.jsx";
 
+import MobileSearchComponent from "./components/mobile/MobileSearchComponent.jsx";
 
 
 //import CustomHeader from "./components/CustomHeader.jsx";
@@ -55,6 +59,9 @@ Telescope.components.MobileHome = MobileHome;
 Telescope.components.MobileDateLikeBtn = MobileDateLikeBtn;
 Telescope.components.MobileCategoriesMenu = MobileCategoriesMenu;
 Telescope.components.MobilePostDetails = MobilePostDetails;
+Telescope.components.MobileSearchPage = MobileSearchPage;
+Telescope.components.MobileSearchComponent = MobileSearchComponent;
+
 
 
 //Telescope.components.Cus = CustomHeader;

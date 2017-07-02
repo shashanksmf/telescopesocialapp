@@ -33,6 +33,7 @@ class CustomLayout extends Component {
       var searchActive = false;
 
       var queryUrl = this.props.router.location.query;
+      
       if (Meteor && Meteor.Device) {
          isDevice = true;
          
@@ -41,7 +42,7 @@ class CustomLayout extends Component {
       if(queryUrl && ((queryUrl.showSearch && queryUrl.showSearch == "true") || (queryUrl.query && queryUrl.query.length > 0)) ) {
           searchActive = true;
        }
-      console.log(isDevice,!isDevice,!!isDevice)
+ 
       if(!isDevice) {
 
         return (
@@ -91,7 +92,6 @@ class CustomLayout extends Component {
              <FlashContainer component={Telescope.components.FlashMessages}/>
 
             <div className={searchActive ? "childrenWrapper searchActive mobile" : "childrenWrapper mobile" }>
-            {searchActive ? <Telescope.components.SearchForm /> : null } 
                 {this.props.children}
             </div>
 
@@ -120,5 +120,6 @@ export default withRouter(CustomLayout);
  <CustomCountryList selectCountry={this.handleCountry.bind(this)}/>
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css"/>
 
-
+{searchActive ? <Telescope.components.MobileSearchComponent /> : null } 
+            
       */

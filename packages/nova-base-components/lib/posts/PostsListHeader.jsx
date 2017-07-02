@@ -13,7 +13,7 @@ const PostsListHeader = () => {
   }
 
   return (
-    <div>
+    <div className="postListHeaderWrapper">
       {isPhone ?
         <div className="mt-row mobile-top-menu clearfix">
           <ul className="mobile-nav">
@@ -51,6 +51,7 @@ const PostsListHeader = () => {
 }
 
 PostsListHeader.displayName = "PostsListHeader";
+
 
 module.exports = PostsListHeader;
 export default PostsListHeader;

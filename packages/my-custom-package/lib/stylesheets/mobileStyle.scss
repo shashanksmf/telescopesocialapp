@@ -248,3 +248,16 @@ $information-phone: "only screen and (max-width : 600px)";
 
 
 
+// css for mobileSearchPage
+
+.mobile {
+	.searchPageWrapper {
+		width:100%;
+
+		.postListHeaderWrapper{
+			display:none;
+		}
+	}
+}
+
+
