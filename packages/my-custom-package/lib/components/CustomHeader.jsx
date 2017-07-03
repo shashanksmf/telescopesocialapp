@@ -3,11 +3,15 @@ import React from 'react';
 import CustomNotificationList from './CustomNotificationList.jsx';
 //import { Messages } from "meteor/nova:core";
 
-const Header = (props, {currentUser}) => {
-  
-  const logoUrl = Telescope.settings.get("logoUrl");
-  const siteTitle = Telescope.settings.get("title", "Nova");
+const Header = (props, {currentUser},logoName) => {
+  console.log("custom header props ",props,logoName);
+  var logoUrl = Telescope.settings.get("logoUrl");
+  const siteTitle = Telescope.settings.get("title", props.title);
   const tagline = Telescope.settings.get("tagline");
+
+  if (Meteor && Meteor.Device) {
+        logoUrl = null;      
+   }
 
   return (
     <div className="header-wrapper">

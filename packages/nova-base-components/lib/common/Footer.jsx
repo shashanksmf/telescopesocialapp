@@ -18,6 +18,8 @@ const Footer = props => {
 })();
 
 const router = props.router;
+const query = _.clone(props.router.location.query);
+
 
   return (
     <div className="footer">
@@ -25,7 +27,7 @@ const router = props.router;
         <div className="footer-item"><Link to="/"><i className="fa fa-home"></i><span>Home</span></Link></div>
         <div className="footer-item"><Link to="/SearchPage"><i className="fa fa-search"></i><span>Search</span></Link></div>
         <div className="footer-item"><Link to="/categoriesMenu"><i className="fa fa-cubes"></i><span>Collections</span></Link></div>
-        <div className="footer-item"><Link to="/categoriesMenu"><i className="fa fa-list-ul"></i><span>Watchlist</span></Link></div>
+        <div className="footer-item"><Link to={{pathname:"/" , query:{...query,view:'userUpvotedPosts'}}} ><i className="fa fa-list-ul"></i><span>Watchlist</span></Link></div>
         <div className="footer-item"><Link  to={`/account`}><i className="fa fa-user"></i><span>Profile</span></Link></div>
       </div> :
         <a href="http://telescopeapp.org" target="_blank"><FormattedMessage id="app.powered_by"/></a>
@@ -33,7 +35,7 @@ const router = props.router;
     </div>
   )
 }
-//SearchPage
+//SearchPage{pathname: "/", query: {...query, view: view}
 Footer.displayName = "Footer";
 
 module.exports = withRouter(Footer);

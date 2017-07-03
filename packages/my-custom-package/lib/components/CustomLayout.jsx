@@ -33,7 +33,35 @@ class CustomLayout extends Component {
       var searchActive = false;
 
       var queryUrl = this.props.router.location.query;
-      
+      var logoName = "Releasery"
+      //code for document title
+      var urlLocation = this.props.router.location; 
+      console.log(urlLocation)
+      switch(urlLocation.pathname) {
+        case "/":
+          logoName = "Releasery";
+        break;
+
+        case "/SearchPage":
+          logoName = "Search";
+        break;
+
+        case "/categoriesMenu":
+          logoName = "Collection";
+        break;
+
+        case "/account":
+          logoName = "Profile"
+        break;
+
+
+
+
+      }
+
+
+      //code for document title
+
       if (Meteor && Meteor.Device) {
          isDevice = true;
          
@@ -87,7 +115,7 @@ class CustomLayout extends Component {
 
           <Telescope.components.UsersProfileCheck {...this.props} />
 
-          <Telescope.components.Header {...this.props}/>
+          <Telescope.components.Header {...this.props}  title={logoName}/>
           <div className="main">
              <FlashContainer component={Telescope.components.FlashMessages}/>
 
