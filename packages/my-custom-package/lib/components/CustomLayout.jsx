@@ -29,7 +29,7 @@ class CustomLayout extends Component {
 
   render() {
 
-      var isDevice = false;
+      var isDevice = true;
       var searchActive = false;
 
       var queryUrl = this.props.router.location.query;
@@ -62,8 +62,8 @@ class CustomLayout extends Component {
 
       //code for document title
 
-      if (Meteor && Meteor.Device) {
-         isDevice = true;
+      if (Meteor && Meteor.Device.isDesktop()) {
+         isDevice = false;
          
        }
 

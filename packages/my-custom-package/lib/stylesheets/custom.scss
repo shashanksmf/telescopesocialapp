@@ -1053,7 +1053,7 @@ body{
 
 
 .text-center { text-align: center; }
-
+.mobile {
 .fa-usernameOrEmail:before, .fa-fullName:before, .fa-username:before, .fa-displayName:before { content: "\f2c0"; }
 .fa-email:before { content: "\f003"; }
 .fa-password:before { content: "\f023"; }
@@ -1062,4 +1062,5 @@ body{
 .loading {
   text-align: center;
   .loader-text { font-size: 25px; }
+}
 }

@@ -30,8 +30,9 @@ Meteor.startup(() => {
   ]);
 
 
-if (Meteor && Meteor.Device) {
+if (Meteor && Meteor.Device && Meteor.Device.isPhone()) {
     Telescope.routes.indexRoute = { name: "posts.list", component: Telescope.components.PostsHome };
+    
 }else {
   Telescope.routes.indexRoute = { name: "posts.daily", component: Telescope.components.PostsDaily }; 
 }

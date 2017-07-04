@@ -9,7 +9,7 @@ const Header = (props, {currentUser},logoName) => {
   const siteTitle = Telescope.settings.get("title", props.title);
   const tagline = Telescope.settings.get("tagline");
 
-  if (Meteor && Meteor.Device) {
+  if (Meteor && Meteor.Device.isPhone()) {
         logoUrl = null;      
    }
 
