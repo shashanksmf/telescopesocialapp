@@ -63,7 +63,7 @@ class CustomNotificationList extends Component {
 		    	this.setState({ showList:!this.state.showList })	
 
 
-		    } }><a href="#"> <span class="badge">Notifications 5</span></a></div>
+		    } }><a href="#"> <span className="badge">Notifications 5</span></a></div>
 
 		    <ul className={this.state.showList ? "list-group active" : " list-group " } >
 

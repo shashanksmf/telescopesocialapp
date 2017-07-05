@@ -6,7 +6,7 @@ import React from 'react';
 
 const MobilePostsList  = ({results, currentUser, hasMore, ready, count, totalCount, loadMore, showHeader = true,userCountry}) => {
   
-  //console.log("custom post list",results)
+  console.log("custom mobile post list",results)
   var categoriesArr=[];
   results.forEach(function(post){
     if(post.categoriesArray !==undefined){

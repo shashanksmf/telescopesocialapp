@@ -5,14 +5,22 @@ import React from 'react';
 //import CustomPostsCategories from './CustomPostsCategories.jsx';
 //console.log("CustomPostsCategories",CustomPostsCategories)
 
-const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount, loadMore, showHeader = true,userCountry}) => {
+const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount, loadMore, showHeader = true,userCountry,location}) => {
 	
 	//console.log("custom post list",results)
 	var isPhone;
 	if (Meteor && Meteor.Device) {
 	  isPhone = Meteor.Device.isPhone();
 	}
-	
+
+	var isUserSearching;
+//	console.log(location)
+	var queryUrl = location.query;
+	if(queryUrl)
+	{
+		isUserSearching = (queryUrl && queryUrl.query && queryUrl.query.length > 0) ? true : false;
+	}      
+
 	var categoriesArr=[];
 	results.forEach(function(post){
 		if(post.categoriesArray !==undefined){
@@ -50,7 +58,7 @@ const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount
         <div className="posts-list-content">
           {results.map(post => <Telescope.components.MobilePostsItem userCountry={userCountry} post={post} key={post._id}/>)}
         </div>
-        {hasMore ? (ready ? <Telescope.components.PostsLoadMore loadMore={loadMore} count={count} totalCount={totalCount} /> : <Telescope.components.PostsLoading/>) : <Telescope.components.PostsNoMore/>}
+        {hasMore && !isUserSearching ? (ready ? <Telescope.components.PostsLoadMore loadMore={loadMore} count={count} totalCount={totalCount} /> : <Telescope.components.PostsLoading/>) : <Telescope.components.PostsNoMore/>}
 		
 		  
       </div>

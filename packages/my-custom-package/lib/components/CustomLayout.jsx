@@ -62,7 +62,7 @@ class CustomLayout extends Component {
 
       //code for document title
 
-      if (Meteor && Meteor.Device.isDesktop()) {
+      if (Meteor && Meteor.Device && Meteor.Device.isDesktop()) {
          isDevice = false;
          
        }

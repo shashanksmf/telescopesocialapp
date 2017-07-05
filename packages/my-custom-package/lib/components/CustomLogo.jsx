@@ -8,7 +8,20 @@ import React from 'react';
 import { IndexLink } from 'react-router';
 
 const CustomLogo = ({logoUrl, siteTitle}) => {
-  	  if (logoUrl) {
+  var isPhone;
+
+  if(Meteor && Meteor.Device){
+     isPhone = Meteor.Device.isPhone()
+  }
+
+    if(!isPhone){
+      return(
+       <h1 className="logo-text"><IndexLink to="/">
+          <img src="http://res.cloudinary.com/dvrif5vdu/image/upload/v1484229763/releasarylogo_wyc7m3.png"/>
+          </IndexLink></h1>
+        )
+    }
+  	else if (logoUrl) {
     return (
       <h1 className="logo-image ">
         <IndexLink to={{pathname: "/"}}>
