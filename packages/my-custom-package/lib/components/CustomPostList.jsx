@@ -14,8 +14,8 @@ const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount
 	}
 
 	var isUserSearching;
-//	console.log(location)
-	var queryUrl = location.query;
+	console.log(location)
+	var queryUrl = location ? location.query : null;
 	if(queryUrl)
 	{
 		isUserSearching = (queryUrl && queryUrl.query && queryUrl.query.length > 0) ? true : false;
@@ -75,8 +75,7 @@ const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount
           {results.map(post => <Telescope.components.PostsItem userCountry={userCountry} post={post} key={post._id}/>)}
         </div>
         {hasMore ? (ready ? <Telescope.components.PostsLoadMore loadMore={loadMore} count={count} totalCount={totalCount} /> : <Telescope.components.PostsLoading/>) : <Telescope.components.PostsNoMore/>}
-		
-		  
+				  
       </div>
 	 
 	</div>

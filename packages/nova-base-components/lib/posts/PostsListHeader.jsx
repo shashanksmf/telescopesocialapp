@@ -3,23 +3,27 @@ import React from 'react';
 import { ListContainer } from "meteor/utilities:react-list-container";
 import Categories from "meteor/nova:categories";
 import Countries from "meteor/nova:countries";
+import { withRouter } from 'react-router';
+import { Link } from 'react-router';
 
-const PostsListHeader = () => {
+const PostsListHeader = (props) => {
   if (Meteor && Meteor.Device) {
     var isPhone = Meteor.Device.isPhone();
+ 
    // console.log("is device");
-  }else {
-
   }
+console.log("props post list header",props);
+
+  const query = _.clone(props.router.location.query);
 
   return (
     <div className="postListHeaderWrapper">
       {isPhone ?
         <div className="mt-row mobile-top-menu clearfix">
           <ul className="mobile-nav">
-            <li className="active pointer"><span>New</span></li>
-            <li className=""><span>By Date</span></li>
-            <li className=""><span>Popular</span></li>
+            <li className={ (props.router.location.pathname == "/" && (!props.router.location.query.view)) ? "active"  : "" }><Link to="/"><span>New</span></Link></li>
+            <li className={ props.router.location.pathname == "/daily" ? "active" : "" }><Link to="/daily"><span>By Date</span></Link></li>
+            <li className={ props.router.location.query.view == "userUpvotedPosts" ? "active" : "" }><Link to={{pathname:"/" , query:{...query,view:'userUpvotedPosts'}}} ><span>Popular</span></Link></li>
             <li className=""><span>Random</span></li>
           </ul>
         </div>
@@ -53,5 +57,5 @@ const PostsListHeader = () => {
 PostsListHeader.displayName = "PostsListHeader";
 
 
-module.exports = PostsListHeader;
-export default PostsListHeader;
+module.exports = withRouter(PostsListHeader);
+export default withRouter(PostsListHeader);

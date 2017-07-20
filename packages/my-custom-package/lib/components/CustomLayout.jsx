@@ -109,7 +109,7 @@ class CustomLayout extends Component {
     } else {
       
       return (
-       <div className="wrapper" id="wrapper">
+       <div className="wrapper mobile-wrapper" id="wrapper">
 
           <Telescope.components.HeadTags />
 

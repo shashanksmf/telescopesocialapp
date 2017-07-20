@@ -260,4 +260,42 @@ $information-phone: "only screen and (max-width : 600px)";
 	}
 }
 
+// custom-layout class css 
+
+.mobile-wrapper {
+	.header-wrapper{
+		background-color:#f5f5f7;
+		.header {
+			.logo {
+				.logo-text a {
+					color : #6051a9;
+				}
+			}
+
+			.nav .nav-user .users-menu #user-dropdown div {
+				
+				color:#4183C4;
+				
+			}
+			.nav {
+			justify-content:flex-end;
+				.nav-new-post {
+					display:none;
+				}
+			}
+		}
+	}
+
+	.main {
+		.childrenWrapper.mobile {
+			.CustomPostListWrapper {
+				.mobile-top-menu {
+					background-color:#f5f5f7;			
+				}
+			} 
+
+		}
+	}
+}
+
 
