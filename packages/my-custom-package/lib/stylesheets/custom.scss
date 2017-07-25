@@ -1057,7 +1057,7 @@ body{
 
 
 .text-center { text-align: center; }
-.mobile {
+.mobile,.CustomNotificationListContainer {
 .fa-usernameOrEmail:before, .fa-fullName:before, .fa-username:before, .fa-displayName:before { content: "\f2c0"; }
 .fa-email:before { content: "\f003"; }
 .fa-password:before { content: "\f023"; }
@@ -1067,4 +1067,17 @@ body{
   text-align: center;
   .loader-text { font-size: 25px; }
 }
+}
+
+.CustomNotificationListContainer {
+	.badgeContainer {
+	    border-radius: 10px;
+	    min-width: 62px;
+	    background-color: white;
+	    padding: 5px 8px;
+
+	    span {
+	    	padding-left:5px;
+	    }
+	}
 }

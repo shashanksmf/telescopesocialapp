@@ -45,43 +45,68 @@ class CustomNotificationList extends Component {
    // newQuery.cat = category.slug; 
    //console.log("Notification",Notification.find().fetch());
     var uniqueNotificationArr = [];
-    var notifn = Notifications.find().fetch();
+    //var notifn = Notifications.find({to:Meteor.user()._id ,read :false });
+    // notification.fetchUnread
     var isItemFound = false;
-    
-    var mySet = Array.from(new Set(notifn));
+    var notifn;
+    console.log("Meteor.user()._id",Meteor.user()._id)
+    Meteor.call('notification.fetchunread',Meteor.user()._id,function(error,result) { 
+    	if(error) {
+    		console.log("notification.fetchUnread error",error)
+    	}
+    	console.log("notification.fetchUnread result ",result)
+    	notifn = result;
+ 
+    })
+  //  var mySet = Array.from(new Set(notifn));
 
  //    uniqueNotificationArr = notifn.map(item => item._id)
  // 	 .filter(function(value, index, self) { console.log(self); 
 	// return self.indexOf(value) === index})	
-
-
-	//	console.log("Notification : ",uniqueNotificationArr);
- 	
+	if(notifn) {
     return (
-      <div className="CustomNotificationListContainer" >
+      <div className="CustomNotificationListContainer custom" >
 		    <div onClick={()=>  {
 		    	this.setState({ showList:!this.state.showList })	
 
 
-		    } }><a href="#"> <span className="badge">Notifications 5</span></a></div>
+		    } }><a className="badgeContainer"> <i className="fa fa-email"><span className="badge">{notifn.length}</span></i></a>
+		    </div>
 
-		    <ul className={this.state.showList ? "list-group active" : " list-group " } >
+		 	{this.state.showList ? <ul className={this.state.showList ? "list-group active" : " list-group " } >   
 
 		    {notifn.map(function(item,itemIndex){
 		    	if(itemIndex <5){
-		    	return  <li className="list-group-item">New <span className="badge">{item.message}</span></li>
+		    	return  <li className="list-group-item" 
+onClick={()=>{ 
+		    		console.log("calling Notifications markRead");
+		    		Meteor.call('notification.markRead',item._id,function(error,result) {
+		    			if(error) {
+		    				console.log("error",error);
+		    				return error
+		    			}
+		    			console.log("result",result);
+	    			})}
+		    	} 
+		    	>New <Link 
+
+
+		    	to={{pathname: 'PostDetails', state: { post:Posts.find().fetch({postId:item.postId})[0] }} } className="badge" >{item.message}</Link></li>
 		    	}
 		    })}
 			 
 			</ul>
+		 : null }
 	  </div>
-	  	)
-		  
-	
+	  	) 	  
+	} 
+	else return null;
   }
 }
 
 module.exports = withRouter(CustomNotificationList);
+//()=>{ Notifications.update({_id:item._id},{$set:{read:true}})  }
+
 // export default withRouter(CustomNotificationList);  
 
 //         for(var j=0;j<notifn.length;j++) {
