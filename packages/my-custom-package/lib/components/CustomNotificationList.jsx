@@ -13,7 +13,7 @@ import Notifications from "meteor/nova:notification";
 class CustomNotificationList extends Component {
 	constructor(props){
 		super(props);	
-		this.state = {showList : false}	
+		this.state = {showList : false , updateComp:false}	
 		
 	}
 
@@ -32,6 +32,8 @@ class CustomNotificationList extends Component {
       			}
 		});
 	}
+
+
 	   
   	render() {
     
@@ -41,39 +43,26 @@ class CustomNotificationList extends Component {
     const currentCategorySlug = router.location.query.cat;
     const newQuery = _.clone(router.location.query);
 	
-	//sconsole.log(currentQuery,currentCategorySlug,newQuery)
-   // newQuery.cat = category.slug; 
-   //console.log("Notification",Notification.find().fetch());
-    var uniqueNotificationArr = [];
-    //var notifn = Notifications.find({to:Meteor.user()._id ,read :false });
-    // notification.fetchUnread
-    var isItemFound = false;
-    var notifn;
-    console.log("Meteor.user()._id",Meteor.user()._id)
-    Meteor.call('notification.fetchunread',Meteor.user()._id,function(error,result) { 
-    	if(error) {
-    		console.log("notification.fetchUnread error",error)
-    	}
-    	console.log("notification.fetchUnread result ",result)
-    	notifn = result;
- 
-    })
-  //  var mySet = Array.from(new Set(notifn));
+	var uniqueNotificationArr = [];
+	var isItemFound = false;
+	var notifn;
 
- //    uniqueNotificationArr = notifn.map(item => item._id)
- // 	 .filter(function(value, index, self) { console.log(self); 
-	// return self.indexOf(value) === index})	
-	if(notifn) {
+	if(Meteor && Meteor.user() && Meteor.user()._id) { 
+		notifn = Notifications.find({"to": Meteor.user()._id,read:false}).fetch();
+	}	
+	
+	if(notifn.length > 0) {
+		var that = this;
     return (
       <div className="CustomNotificationListContainer custom" >
 		    <div onClick={()=>  {
-		    	this.setState({ showList:!this.state.showList })	
+		    	that.setState({ showList:!that.state.showList })	
 
 
 		    } }><a className="badgeContainer"> <i className="fa fa-email"><span className="badge">{notifn.length}</span></i></a>
 		    </div>
 
-		 	{this.state.showList ? <ul className={this.state.showList ? "list-group active" : " list-group " } >   
+		 	{that.state.showList ? <ul className={that.state.showList ? "list-group active" : " list-group " } >   
 
 		    {notifn.map(function(item,itemIndex){
 		    	if(itemIndex <5){
@@ -81,10 +70,12 @@ class CustomNotificationList extends Component {
 onClick={()=>{ 
 		    		console.log("calling Notifications markRead");
 		    		Meteor.call('notification.markRead',item._id,function(error,result) {
+						that.setState({updateComp:!that.state.updateComp});
 		    			if(error) {
 		    				console.log("error",error);
 		    				return error
 		    			}
+
 		    			console.log("result",result);
 	    			})}
 		    	} 
