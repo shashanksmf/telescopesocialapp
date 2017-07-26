@@ -79,7 +79,7 @@ onClick={()=>{
 		    			console.log("result",result);
 	    			})}
 		    	} 
-		    	>New <Link 
+		    	>New <Link
 
 
 		    	to={{pathname: 'PostDetails', state: { post:Posts.find().fetch({postId:item.postId})[0] }} } className="badge" >{item.message}</Link></li>
