@@ -981,13 +981,14 @@ body{
     position: relative;
     z-index: 1;
     .posts-item {
+     min-height: 65px;
       padding: 0px;
-      margin-left: -10px;
-      margin-right: -10px;
+    //  margin-left: -10px;
+     // margin-right: -10px;
       .post-mobile-image {
         background-color: #ffffff;
-        margin-top: -80px;
-        min-height: 150px;
+        //margin-top: -80px;
+       
         img { width: 100%; }
       }
     }
@@ -1006,6 +1007,10 @@ body{
         padding: 4px 10px;
         margin: 10px;
         opacity: 0.5;
+      }
+
+      .socialShare {
+      	float:right;
       }
     }
     .btn-showtimes {
@@ -1026,9 +1031,10 @@ body{
     margin: 15px 0px;
   }
   .socialShare {
+  	display:none;
     position: absolute;
     top: 14px;
-    right: 0;
+    right: 15px;
     margin: 0px;
     z-index: 5;
     .socialSharingBtns {

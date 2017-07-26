@@ -10,6 +10,7 @@ import { Tabs, Tab } from 'react-bootstrap';
 import Posts from "meteor/nova:posts";
 import { Link } from 'react-router';
 import { withRouter } from 'react-router';
+import SocialShare from './../partials/SocialShare.jsx';
 
 class MobilePostDetails extends Component {
 	render () {
@@ -34,6 +35,7 @@ class MobilePostDetails extends Component {
                 : null}
                 <div className="post-header">
                   <Link className="btn-back" to={'/'}><i className="fa fa-chevron-left"></i></Link>
+                  <SocialShare post={post} />
                 </div>
               </div>
 
