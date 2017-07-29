@@ -46,8 +46,11 @@ $information-phone: "only screen and (max-width : 600px)";
 					}
 					.upload-field{
 						position:relative;
+						justify-content:center;
 						
-						
+						.default-img {
+							clip-path: circle(60px at center);
+						}
 						
 						.dropzone-base{
 						    clip-path: circle(20px at center);

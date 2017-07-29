@@ -135,7 +135,8 @@ class Upload extends Component {
 
                                
               </div> 
-            : null}
+            : <img style={{height: 120}} className="default-img" src="https://secure.gravatar.com/avatar/89044d6601a348c5cfcd09466681ab08?size=200&default=mm" />
+          }
           </div>
         </div>
 

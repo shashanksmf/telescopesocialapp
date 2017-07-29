@@ -68,7 +68,7 @@ class CustomNotificationList extends Component {
 		    	if(itemIndex <5){
 		    	return  <li className="list-group-item" 
 onClick={()=>{ 
-		    		console.log("calling Notifications markRead");
+		    	//	console.log("calling Notifications markRead");
 		    		Meteor.call('notification.markRead',item._id,function(error,result) {
 						that.setState({updateComp:!that.state.updateComp});
 		    			if(error) {
