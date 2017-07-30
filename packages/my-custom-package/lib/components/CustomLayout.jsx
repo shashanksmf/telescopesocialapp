@@ -8,6 +8,18 @@ import { withRouter } from 'react-router';
 
 class CustomLayout extends Component {
 
+  componentDidMount(){
+    
+    if (Meteor && Meteor.Device && Meteor.Device.isPhone()) {
+        var headerHt = document.getElementsByClassName("header-wrapper")[0].clientHeight;
+        var windowHt = window.innerHeight;
+        var footerHt = document.getElementsByClassName("footer-links")[0].clientHeight;
+        document.getElementsByClassName("main")[0].style.height = windowHt - headerHt - footerHt + 'px';
+        console.log("phone", headerHt,windowHt,footerHt);
+        document.getElementsByTagName("body")[0].style.overflowY = "hidden"
+      }
+  }
+
   componentWillMount() {
       //this.setState({countrySelected:this.state.countrySelected});
 
@@ -23,6 +35,9 @@ class CustomLayout extends Component {
           console.log("result : ",result);
         }
       });
+
+       
+      //console.log("component will mount");
     }
 
   }
@@ -39,7 +54,7 @@ class CustomLayout extends Component {
       console.log(urlLocation)
       switch(urlLocation.pathname) {
         case "/":
-          logoName = "Releasery";
+          logoName = "All Releases";
         break;
 
         case "/SearchPage":
@@ -54,8 +69,9 @@ class CustomLayout extends Component {
           logoName = "Profile"
         break;
 
-
-
+        case "PostDetails":
+          logoName = "Releasery"
+        break;
 
       }
 
@@ -109,7 +125,7 @@ class CustomLayout extends Component {
     } else {
       
       return (
-       <div className="wrapper mobile-wrapper" id="wrapper">
+       <div className={"wrapper mobile-wrapper " + logoName + " " + urlLocation.pathname.replace(/\//g, "") } id="wrapper">
 
           <Telescope.components.HeadTags />
 

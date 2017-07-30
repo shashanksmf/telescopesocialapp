@@ -38,11 +38,11 @@ class MobilePostsItem extends Component {
     var itemPriceCountry = {};
     var countryName='';
     if (typeof window === 'object') {
-       countryName = (this.props.userCountry != undefined && this.props.userCountry.length >0) ? this.props.userCountry : (window == undefined ? '':window.localStorage.getItem("userCountry"));    
+       countryName = (this.props.userCountry != undefined && this.props.userCountry.length >0) ? this.props.userCountry : (window == undefined ? Meteor.settings.public.defaultCountry:window.localStorage.getItem("userCountry"));    
     } 
 
     else {
-           countryName = (this.props.userCountry != undefined && this.props.userCountry.length >0) ? this.props.userCountry : 'uk';    
+           countryName = (this.props.userCountry != undefined && this.props.userCountry.length >0) ? this.props.userCountry : Meteor.settings.public.defaultCountry;    
      }
     
     const post = this.props.post;
@@ -104,7 +104,7 @@ class MobilePostsItem extends Component {
           </div>
           <div className="commnetorsCategoriesContainer">
 
-          {(itemPriceCountry.countryName != undefined && itemPriceCountry.countryName != null) ? 
+          {(itemPriceCountry.relDate != undefined && itemPriceCountry.relDate != null) ? 
              <Telescope.components.MobileDateLikeBtn  post={post} date={moment(itemPriceCountry.relDate).format('MM')+'/'+moment(itemPriceCountry.relDate).format('DD')+'/'+moment(itemPriceCountry.relDate).format('gg')} />:''
            }
 

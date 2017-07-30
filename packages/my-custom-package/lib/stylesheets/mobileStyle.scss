@@ -267,10 +267,18 @@ $information-phone: "only screen and (max-width : 600px)";
 
 .mobile-wrapper {
 	.header-wrapper{
-	margin-bottom:0;
+
+		position: fixed;
+	    top: 0;
+	    left: 0;
+	    right: 0;
+	    height: 88px;
+
+		margin-bottom:0;
 		background-color:#f5f5f7;
 		.header {
 			.logo {
+			    font-size: 1.8rem;
 				.logo-text a {
 					color : #6051a9;
 				}
@@ -282,6 +290,7 @@ $information-phone: "only screen and (max-width : 600px)";
 				
 			}
 			.nav {
+			display:none;
 			justify-content:flex-end;
 				.nav-new-post {
 					display:none;
@@ -291,6 +300,13 @@ $information-phone: "only screen and (max-width : 600px)";
 	}
 
 	.main {
+
+		overflow-y:auto;
+		overflow-x:hidden;
+		padding-bottom:10px;
+	    position: relative;
+		top: 95px;
+	
 		.childrenWrapper.mobile {
 			.CustomPostListWrapper {
 				.mobile-top-menu {
@@ -298,6 +314,16 @@ $information-phone: "only screen and (max-width : 600px)";
 				}
 			} 
 
+		}
+	}
+
+	&.Profile,&.Collection,&.Search,&.PostDetails {
+		.header-wrapper {
+			.header {
+				.mobile-top-menu {
+					display:none;
+				}
+			}
 		}
 	}
 }
@@ -321,4 +347,8 @@ $information-phone: "only screen and (max-width : 600px)";
 	li a {
 	color:black;
 	}
+}
+
+.ml-minus-10px {
+	margin-left:-10px;
 }

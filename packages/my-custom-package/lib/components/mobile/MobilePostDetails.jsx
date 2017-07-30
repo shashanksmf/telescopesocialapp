@@ -43,8 +43,15 @@ class MobilePostDetails extends Component {
                 <Tab eventKey={1} title="Summary">
                     <h3 className="post-title text-center">{post.title}</h3>
                     {post.product ? <HunterMaker  post={post}/> : null}
-                    <CustomPostDetails post={post} />
+                  {/*  
+                    check if user country matches with the  post country
+                      <Telescope.components.MobileDateLikeBtn  post={post} date={moment(itemPriceCountry.relDate).format('MM')+'/'+moment(itemPriceCountry.relDate).format('DD')+'/'+moment(itemPriceCountry.relDate).format('gg')} />
+                    */}
+                    <img src="share.png" />
+                    
                     {post.htmlBody ? <div className="posts-page-body" dangerouslySetInnerHTML={htmlBody}></div> : null}
+                  {/* add show timings */}
+
                   {/*<SocialShare url={ Posts.getLink(post) } title={ post.title }/>*/}
                 </Tab>
                 <Tab eventKey={2} title="Comments"><Telescope.components.PostsCommentsThread document={post} /></Tab>

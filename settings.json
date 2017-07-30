@@ -6,7 +6,8 @@
 		},
 		"gcm":{
 			"senderId":""
-		}
+		},
+		"defaultCountry":"uk"
 	},
 	"private":{
 		"gcm":{

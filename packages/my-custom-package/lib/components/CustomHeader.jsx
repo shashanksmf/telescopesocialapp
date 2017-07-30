@@ -2,9 +2,11 @@ import Telescope from 'meteor/nova:lib';
 import React from 'react';
 import CustomNotificationList from './CustomNotificationList.jsx';
 //import { Messages } from "meteor/nova:core";
+import { withRouter } from 'react-router';
+import { Link } from 'react-router';
 
 const Header = (props, {currentUser},logoName) => {
-  console.log("custom header props ",props,logoName);
+ 
   var logoUrl = Telescope.settings.get("logoUrl");
   const siteTitle = Telescope.settings.get("title", props.title);
   const tagline = Telescope.settings.get("tagline");
@@ -12,6 +14,12 @@ const Header = (props, {currentUser},logoName) => {
   if (Meteor && Meteor.Device.isPhone()) {
         logoUrl = null;      
    }
+
+  if (Meteor && Meteor.Device) {
+    var isPhone = Meteor.Device.isPhone();
+  }
+
+  const query = _.clone(props.router.location.query);
 
   return (
     <div className="header-wrapper">
@@ -35,6 +43,17 @@ const Header = (props, {currentUser},logoName) => {
 
         </div>
 
+          {isPhone ?
+        <div className="mobile-top-menu clearfix">
+          <ul className="mobile-nav">
+            <li className={ (props.router.location.pathname == "/" && (!props.router.location.query.view)) ? "active"  : "" }><Link to="/"><span>New</span></Link></li>
+            <li className={ props.router.location.pathname == "/daily" ? "active" : "" }><Link to="/daily"><span>By Date</span></Link></li>
+            <li className={ props.router.location.query.view == "userUpvotedPosts" ? "active" : "" }><Link to={{pathname:"/" , query:{...query,view:'userUpvotedPosts'}}} ><span>Popular</span></Link></li>
+            <li className=""><span>Random</span></li>
+          </ul>
+        </div>
+        : null }
+
       </header>
     </div>
   )
@@ -46,4 +65,4 @@ Header.contextTypes = {
   currentUser: React.PropTypes.object,
 };
 
-module.exports = Header;
+module.exports = withRouter(Header);

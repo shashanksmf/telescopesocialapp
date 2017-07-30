@@ -7,11 +7,14 @@ class PostsHome extends Component {
 	
   
   getDefaultView() {
+    if (Meteor && Meteor.Device && Meteor.Device.isPhone()) { 
+      return { view : 'new' }
+    }
     return {view: 'top'}
   }
   
   render() {
-    console.log(" post home",this.props);
+ //   console.log(" post home",this.props);
     //console.log("post home called",this.props,Posts.find().fetch(),Posts.getJoins())
     const params = {...this.getDefaultView(), ...this.props.location.query, listId: "posts.list.main",userId: Meteor.userId()};
     const {selector, options} = Posts.parameters.get(params);

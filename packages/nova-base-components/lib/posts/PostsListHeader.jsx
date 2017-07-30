@@ -19,14 +19,7 @@ console.log("props post list header",props);
   return (
     <div className="postListHeaderWrapper">
       {isPhone ?
-        <div className="mt-row mobile-top-menu clearfix">
-          <ul className="mobile-nav">
-            <li className={ (props.router.location.pathname == "/" && (!props.router.location.query.view)) ? "active"  : "" }><Link to="/"><span>New</span></Link></li>
-            <li className={ props.router.location.pathname == "/daily" ? "active" : "" }><Link to="/daily"><span>By Date</span></Link></li>
-            <li className={ props.router.location.query.view == "userUpvotedPosts" ? "active" : "" }><Link to={{pathname:"/" , query:{...query,view:'userUpvotedPosts'}}} ><span>Popular</span></Link></li>
-            <li className=""><span>Random</span></li>
-          </ul>
-        </div>
+       null
         : <div className="posts-list-header">
         <div className="posts-list-header-country">
             <ListContainer
