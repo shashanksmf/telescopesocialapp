@@ -44,7 +44,7 @@ const Header = (props, {currentUser},logoName) => {
         </div>
 
           {isPhone ?
-        <div className="mobile-top-menu clearfix">
+        <div className="mobile-top-menu clearfix ml-minus-10px">
           <ul className="mobile-nav">
             <li className={ (props.router.location.pathname == "/" && (!props.router.location.query.view)) ? "active"  : "" }><Link to="/"><span>New</span></Link></li>
             <li className={ props.router.location.pathname == "/daily" ? "active" : "" }><Link to="/daily"><span>By Date</span></Link></li>
