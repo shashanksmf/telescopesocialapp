@@ -1023,7 +1023,16 @@ body{
 
       .socialShare {
       	float:right;
-  	    margin-right: 10px; 
+  	    width:50px;
+  	    .socialSharingBtns {
+  	    	position:absolute;
+  	    	bottom:-15px;
+  	    	right:1%;
+
+  	    	i {
+  	    		font-size:1.5em;
+  	    	}
+  	    }
 
   	    img{
   	    	height:25px;
