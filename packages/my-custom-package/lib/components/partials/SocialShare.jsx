@@ -55,7 +55,7 @@ class SocialShare extends Component {
 					 }}></i>
 					<i className="twitter icon" onClick={this.twitterShare.bind(this,this.props.post)}></i>
 				</div>
-				<div className="ui label shareIcon" onClick={this.showSocialshareBtns.bind(this)}>
+				<div className="" onClick={this.showSocialshareBtns.bind(this)}>
 				 <img src="/packages/my-custom-package/public/share.png" />
 				</div>
 			</div>
