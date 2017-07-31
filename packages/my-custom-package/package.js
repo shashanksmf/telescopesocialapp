@@ -25,6 +25,10 @@ Package.onUse( function(api) {
     'lib/modules.js'
   ], ['client', 'server']);
 
+ api.addAssets([
+    'public/share.png'
+  ], ['client','server']);
+
   api.addFiles([
     'lib/stylesheets/custom.scss',
     'lib/stylesheets/customPostPage.scss',

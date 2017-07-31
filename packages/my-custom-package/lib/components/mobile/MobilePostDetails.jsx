@@ -47,7 +47,7 @@ class MobilePostDetails extends Component {
                     check if user country matches with the  post country
                       <Telescope.components.MobileDateLikeBtn  post={post} date={moment(itemPriceCountry.relDate).format('MM')+'/'+moment(itemPriceCountry.relDate).format('DD')+'/'+moment(itemPriceCountry.relDate).format('gg')} />
                     */}
-                    <img src="share.png" />
+                    
                     
                     {post.htmlBody ? <div className="posts-page-body" dangerouslySetInnerHTML={htmlBody}></div> : null}
                   {/* add show timings */}
