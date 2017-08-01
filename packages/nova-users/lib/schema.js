@@ -1,5 +1,6 @@
 import Telescope from 'meteor/nova:lib';
 import Users from './collection.js';
+import AutoCompleteLocation from 'meteor/google-maps-autocomplete';
 
 const adminGroup = {
   name: "admin",
@@ -232,6 +233,30 @@ Telescope.schemas.userData = new SimpleSchema({
     insertableIf: canInsert,
     editableIf: canEdit
   },
+    location: {
+    type: [Object],
+    publish: true,
+    optional: true,
+    control: AutoCompleteLocation,
+    insertableIf: canInsert,
+    editableIf: canEdit
+  },
+  "location.$.city" : {
+    type:String,
+    optional:true  
+  },
+  "location.$.state" : {
+    type:String,
+    optional:true  
+  },
+  "location.$.country" : {
+    type:String,
+    optional:true  
+  },
+  "location.$.place" : { //place is  user selected overall string from dropdown
+    type:String,
+    optional:true  
+  }
 });
 
 /**

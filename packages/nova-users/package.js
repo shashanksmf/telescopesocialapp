@@ -11,7 +11,8 @@ Package.onUse(function (api) {
 
   api.use([
     'nova:core@0.27.4-nova',
-    'nova:email@0.27.4-nova'
+    'nova:email@0.27.4-nova',
+    'google-maps-autocomplete'
   ]);
   
   api.mainModule("lib/server.js", "server");

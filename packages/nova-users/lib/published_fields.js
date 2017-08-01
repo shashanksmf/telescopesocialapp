@@ -18,7 +18,8 @@ Users.publishedFields.public = PublicationsUtils.arrayToFields([
   'telescope.upvotedComments',
   'telescope.upvotedPosts',
   'telescope.fullName',
-  'telescope.city'
+  'telescope.city',
+  "telescope.location"
 ]);
 
 /**
