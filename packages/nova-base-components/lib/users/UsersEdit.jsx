@@ -7,6 +7,7 @@ import NovaForm from "meteor/nova:forms";
 import Users from 'meteor/nova:users';
 
 const UsersEdit = (props, context) => {
+  //console.log("context",context);
 
   const user = props.user;
   const currentUser = props.currentUser;
@@ -30,7 +31,7 @@ const UsersEdit = (props, context) => {
           }}
         />
 
-          <button className="btn-primary" onClick={() => Meteor.logout(Accounts.ui._options.onSignedOutHook())}>Logout</button>
+          <a onClick={() => Meteor.logout(Accounts.ui._options.onSignedOutHook())}>Logout</a>
       </div>
     </Telescope.components.CanDo>
   )

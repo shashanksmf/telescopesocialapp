@@ -2,9 +2,9 @@ import React, { PropTypes, Component } from 'react';
 
 class AutoCompleteLocation extends Component {
 
-    	constructor(props){
-        super(props);
-        console.log("props",props,this.context);
+    	constructor(props,context){
+        super(props,context);
+        console.log("props",props,context);
         this.state = { locationArr : (props.value.constructor === Array) ? props.value : [] };	
         this.placeSearch;
         var autocomplete;
@@ -49,32 +49,36 @@ class AutoCompleteLocation extends Component {
         fillInAddress() {
         // Get the place details from the autocomplete object.
         console.log(this.state.locationArr);
+        this.state.locationArr = [];
+        var tempArr = [];
         var place = autocomplete.getPlace();
         for (var i = 0; i < place.address_components.length; i++) {
           var addressType = place.address_components[i].types[0];
           if (this.componentForm[addressType]) {
             var val = place.address_components[i][this.componentForm[addressType]];
-         //   document.getElementById(addressType).value = val;
-            
-             this.state.locationArr[this.placeDetail[addressType]] = val;
-            
-          
+            this.state.locationArr[this.placeDetail[addressType]] = val;
+            tempArr.push(val)
           }
-
         }
-         console.log("props value",this.state.locationArr)
-        
+
+        this.state.locationArr["place"] = tempArr.join(" ,");
+          
+     
+         console.log("props value",this.state.locationArr,this.props,this.context)
+        //  this.context.addToAutofilledValues({[this.props.name]: this.state.locationArr});
         console.log("place2",place);
-      
+      this.setState({locationArr:this.state.locationArr});
       }
 
       render() {
-      		return (	<div id="locationField">
-				      <input id="autocompleteUserLocation" value={this.state.locationArr.place} ref="autoMode" placeholder="Enter your address" type="text">
+        console.log("render",this.state.locationArr)
+      		return (	<div id="locationField" className="form-group row">
+				      <input id="autocompleteUserLocation" value={this.state.locationArr["place"]} onChange={ (e)=>{ this.setState({locationArr:e.target.value}) } } ref="autoMode" placeholder="Enter your address" type="text">
 				      </input>
+              <input  type="text" name={"telescope.location"} datatype={this.props.datatype} value="New city"/>
 				    </div>
 			    )
-      		}
+  		}
 	}
 
 export default AutoCompleteLocation;

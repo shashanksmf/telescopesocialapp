@@ -143,6 +143,7 @@ $information-phone: "only screen and (max-width : 600px)";
 
 			.posts-item-title{
 			    margin-top: 5px;
+			    font-size:1.2em;
 			}
 
 			.posts-item-meta {
@@ -257,6 +258,12 @@ $information-phone: "only screen and (max-width : 600px)";
 	.searchPageWrapper {
 		width:100%;
 
+		.search-form {
+			form {
+				padding:0 10px;
+			}
+		}
+
 		.postListHeaderWrapper{
 			display:none;
 		}
@@ -278,7 +285,9 @@ $information-phone: "only screen and (max-width : 600px)";
 		background-color:#f5f5f7;
 		.header {
 			.logo {
+				.logo-text{
 			    font-size: 1.8rem;
+			    }
 				.logo-text a {
 					color : #6051a9;
 				}
@@ -317,7 +326,7 @@ $information-phone: "only screen and (max-width : 600px)";
 		}
 	}
 
-	&.Profile,&.Collection,&.Search,&.PostDetails {
+	&.Profile,&.Collection,&.Search,&.PostDetails,.Search {
 		.header-wrapper {
 		height: 65px;
 			.header {
@@ -356,4 +365,10 @@ $information-phone: "only screen and (max-width : 600px)";
 
 .ml-minus-10px {
 	margin-left:-10px;
+}
+.mt-10px{
+	margin-top:10px;
+}
+.mb-10-px{
+	margin-bottom:10px;
 }

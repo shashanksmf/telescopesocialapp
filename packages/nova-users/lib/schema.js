@@ -234,28 +234,12 @@ Telescope.schemas.userData = new SimpleSchema({
     editableIf: canEdit
   },
     location: {
-    type: [Object],
+    type: String,
     publish: true,
-    optional: true,
+    optional: false,
     control: AutoCompleteLocation,
     insertableIf: canInsert,
     editableIf: canEdit
-  },
-  "location.$.city" : {
-    type:String,
-    optional:true  
-  },
-  "location.$.state" : {
-    type:String,
-    optional:true  
-  },
-  "location.$.country" : {
-    type:String,
-    optional:true  
-  },
-  "location.$.place" : { //place is  user selected overall string from dropdown
-    type:String,
-    optional:true  
   }
 });
 
