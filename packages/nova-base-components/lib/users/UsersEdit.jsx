@@ -29,6 +29,8 @@ const UsersEdit = (props, context) => {
             context.messages.flash(context.intl.formatMessage({id: "users.edit_success"}, {name: Users.getDisplayName(user)}), 'success')
           }}
         />
+
+          <button className="btn-primary" onClick={() => Meteor.logout(Accounts.ui._options.onSignedOutHook())}>Logout</button>
       </div>
     </Telescope.components.CanDo>
   )

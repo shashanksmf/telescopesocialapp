@@ -51,7 +51,7 @@ class CustomNotificationList extends Component {
 		notifn = Notifications.find({"to": Meteor.user()._id,read:false}).fetch();
 	}	
 	
-	if(notifn.length > 0) {
+	if(notifn && notifn.length > 0) {
 		var that = this;
     return (
       <div className="CustomNotificationListContainer custom" >

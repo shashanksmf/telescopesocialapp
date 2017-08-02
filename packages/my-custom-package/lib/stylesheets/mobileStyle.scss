@@ -319,11 +319,16 @@ $information-phone: "only screen and (max-width : 600px)";
 
 	&.Profile,&.Collection,&.Search,&.PostDetails {
 		.header-wrapper {
+		height: 65px;
 			.header {
 				.mobile-top-menu {
 					display:none;
 				}
 			}
+
+			.main{
+				top:65px;
+			}				
 		}
 	}
 }

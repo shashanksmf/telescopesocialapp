@@ -4,18 +4,22 @@ class AutoCompleteLocation extends Component {
 
     	constructor(props){
         super(props);
-        console.log("props",props,this.context);	
+        console.log("props",props,this.context);
+        this.state = { locationArr : (props.value.constructor === Array) ? props.value : [] };	
         this.placeSearch;
         var autocomplete;
 
         this.componentForm = {
-          street_number: 'short_name',
-          route: 'long_name',
           locality: 'long_name',
           administrative_area_level_1: 'short_name',
-          country: 'long_name',
-          postal_code: 'short_name'
+          country: 'long_name'
         };  
+
+        this.placeDetail = {
+          locality:'city',
+          administrative_area_level_1:'state',
+          country:'country'
+        }
 
 
       }
@@ -44,14 +48,21 @@ class AutoCompleteLocation extends Component {
 
         fillInAddress() {
         // Get the place details from the autocomplete object.
+        console.log(this.state.locationArr);
         var place = autocomplete.getPlace();
         for (var i = 0; i < place.address_components.length; i++) {
           var addressType = place.address_components[i].types[0];
           if (this.componentForm[addressType]) {
             var val = place.address_components[i][this.componentForm[addressType]];
          //   document.getElementById(addressType).value = val;
+            
+             this.state.locationArr[this.placeDetail[addressType]] = val;
+            
+          
           }
+
         }
+         console.log("props value",this.state.locationArr)
         
         console.log("place2",place);
       
@@ -59,7 +70,7 @@ class AutoCompleteLocation extends Component {
 
       render() {
       		return (	<div id="locationField">
-				      <input id="autocompleteUserLocation" ref="autoMode" placeholder="Enter your address" type="text">
+				      <input id="autocompleteUserLocation" value={this.state.locationArr.place} ref="autoMode" placeholder="Enter your address" type="text">
 				      </input>
 				    </div>
 			    )
