@@ -233,14 +233,27 @@ Telescope.schemas.userData = new SimpleSchema({
     insertableIf: canInsert,
     editableIf: canEdit
   },
-    location: {
-    type: String,
+  location: {
+    type: [Object],
     publish: true,
     optional: false,
-    control: AutoCompleteLocation,
+    control: "googleAutoComplete",
     insertableIf: canInsert,
     editableIf: canEdit
+  },
+  "location.$.city":{
+    type:String,
+    optional:true
+  },
+  "location.$.state" :{
+    type:String,
+    optional:true
+  },
+  "location.$.country":{
+    type:String,
+    optional:true
   }
+
 });
 
 /**

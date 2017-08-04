@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 
-class AutoCompleteLocation extends Component {
+class GoogleAutoComplete extends Component {
 
     	constructor(props,context){
         super(props,context);
@@ -67,6 +67,7 @@ class AutoCompleteLocation extends Component {
          console.log("props value",this.state.locationArr,this.props,this.context)
         //  this.context.addToAutofilledValues({[this.props.name]: this.state.locationArr});
         console.log("place2",place);
+        this.props.myCustomProps.updateCurrentValue("telescope.location",this.state.locationArr);
       this.setState({locationArr:this.state.locationArr});
 
       }
@@ -86,7 +87,7 @@ class AutoCompleteLocation extends Component {
   		}
 	}
 
-export default AutoCompleteLocation;
+export default GoogleAutoComplete;
 
    
 

@@ -7,6 +7,7 @@ import DateTime from './DateTime.jsx';
 import Utils from './utils.js';
 //my custom array import
 import CustomArray from "./customArray.jsx";
+import GoogleAutoComplete from "./GoogleAutoComplete.jsx";
 
 const Checkbox = FRC.Checkbox;
 // const CheckboxGroup = FRC.CheckboxGroup;
@@ -69,6 +70,8 @@ class FormComponent extends Component {
           return  <CustomArray   {...properties} />;
         case "datetime":
           return <DateTime      {...properties} myCustomProp={this.props} />;
+        case "googleAutoComplete":
+          return <GoogleAutoComplete {...properties} myCustomProps={this.props}   />; 
         default:
           return <Input         {...properties} type="text" />;
       }

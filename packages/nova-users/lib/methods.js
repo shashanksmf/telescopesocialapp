@@ -43,6 +43,7 @@ Users.methods.edit = (userId, modifier, user) => {
 }
 
 Users.methods.setSetting = (userId, settingName, value) => {
+  console.log(settingName, value)
   // all settings should be in the user.telescope namespace, so add "telescope." if needed
   var field = settingName.slice(0,10) === "telescope." ? settingName : "telescope." + settingName;
 
@@ -62,7 +63,7 @@ Users.methods.removeGroup = (userId, groupName) => {
 
 Meteor.methods({
   'users.edit'(userId, modifier) {
-
+    console.log("modifier",modifier);
     // checking might be redundant because SimpleSchema already enforces the schema, but you never know
     check(modifier, Match.OneOf({$set: Users.simpleSchema()}, {$unset: Object}, {$set: Users.simpleSchema(), $unset: Object}));
     check(userId, String);

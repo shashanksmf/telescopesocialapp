@@ -31,7 +31,9 @@ const UsersEdit = (props, context) => {
           }}
         />
 
+        <div className="text-center mt-10px">  
           <a onClick={() => Meteor.logout(Accounts.ui._options.onSignedOutHook())}>Logout</a>
+        </div>
       </div>
     </Telescope.components.CanDo>
   )

@@ -141,6 +141,10 @@ function setupUser (user, options) {
     user.telescope.city = user.profile.city;
   }
 
+  if (user.profile.location) {
+    user.telescope.location = user.profile.location;
+  }
+
   // create a basic slug from display name and then modify it if this slugs already exists;
   const basicSlug = Telescope.utils.slugify(user.telescope.displayName);
   user.telescope.slug = Telescope.utils.getUnusedSlug(Users, basicSlug);
