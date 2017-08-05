@@ -4,8 +4,10 @@ class GoogleAutoComplete extends Component {
 
     	constructor(props,context){
         super(props,context);
-        console.log("props",props,context);
-        this.state = { locationArr : (props.value.constructor === Array) ? props.value : "Hello" };	
+        console.log("props",props);
+
+        this.state = { locationArr : props.value };	
+
         this.placeSearch;
         var autocomplete;
 
@@ -48,41 +50,64 @@ class GoogleAutoComplete extends Component {
 
         fillInAddress() {
         // Get the place details from the autocomplete object.
-        console.log(this.state.locationArr);
+        //console.log("fill",this.state.locationArr);
         this.state.locationArr = [];
+        this.state.locationArr.push({});
         var tempArr = [];
         var place = autocomplete.getPlace();
         for (var i = 0; i < place.address_components.length; i++) {
           var addressType = place.address_components[i].types[0];
           if (this.componentForm[addressType]) {
             var val = place.address_components[i][this.componentForm[addressType]];
-            this.state.locationArr[this.placeDetail[addressType]] = val;
+            this.state.locationArr[0][this.placeDetail[addressType]] = val;
             tempArr.push(val)
           }
         }
 
-        this.state.locationArr["place"] = tempArr.join(" ,");
+        this.state.locationArr[0]["place"] = tempArr.join(" ,");
           
      
-         console.log("props value",this.state.locationArr,this.props,this.context)
+         console.log("props value",this.state.locationArr)
         //  this.context.addToAutofilledValues({[this.props.name]: this.state.locationArr});
-        console.log("place2",place);
-        this.props.myCustomProps.updateCurrentValue("telescope.location",this.state.locationArr);
-      this.setState({locationArr:this.state.locationArr});
+        //console.log("place2",place);
+        this.setState({locationArr:this.state.locationArr});
+
+        this.props.myCustomProps.updateCurrentValue(this.props.name,this.state.locationArr);
 
       }
 
       render() {
-        console.log("this",this);
-        this.props.value = "New value";
+          var isArr = this.state.locationArr.constructor === Array ? true : false;
+          if(!isArr) {
+            this.state.locationArr = [];
+            this.state.locationArr.push({});
+            this.state.locationArr[0]["place"] = "";
+          } 
+
+          if(isArr && this.state.locationArr.length ==0) {
+            this.state.locationArr.push({});
+            this.state.locationArr[0]["place"] = "";
+          }
         console.log("render",this.state.locationArr)
       		return (	<div id="locationField" className="form-group row">
-				      <input id="autocompleteUserLocation" value={this.state.locationArr["place"]} onChange={ (e)=>{ this.setState({locationArr:e.target.value}) } } ref="autoMode" placeholder="Enter your address" type="text">
-				      </input>
-              <input type="text" name="users.location" datatype={this.props.datatype} value="New city"/>
-              <input type="text" name="location" datatype={this.props.datatype} value="New city1"/>
-               <input type="text" name="telescope.location" datatype={this.props.datatype} value="New city2"/>
-				    </div>
+				        <label className="control-label col-sm-3">{this.props.name}</label>
+                <div className="col-sm-9">
+                  <input id="autocompleteUserLocation" className="form-control"
+
+                  value={
+                    this.state.locationArr[0]["place"] || ""
+                  } 
+
+                  onChange={ (e)=>{ 
+                    this.state.locationArr[0]["place"] = e.target.value;
+                    this.setState({locationArr:this.state.locationArr}) } 
+                  } 
+
+                  ref="autoMode" placeholder="Enter your address" type="text">
+    				      
+                  </input>
+                </div>
+              </div>
 			    )
   		}
 	}

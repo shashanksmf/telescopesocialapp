@@ -78,9 +78,9 @@ class AutoCompleteLocation extends Component {
       		return (	<div id="locationField" className="form-group row">
 				      <input id="autocompleteUserLocation" value={this.state.locationArr["place"]} onChange={ (e)=>{ this.setState({locationArr:e.target.value}) } } ref="autoMode" placeholder="Enter your address" type="text">
 				      </input>
-              <input type="text" name="users.location" datatype={this.props.datatype} value="New city"/>
-              <input type="text" name="location" datatype={this.props.datatype} value="New city1"/>
-               <input type="text" name="telescope.location" datatype={this.props.datatype} value="New city2"/>
+              <input type="text" name="users.location" datatype={this.props.datatype} value={this.state.locationArr["city"]}/>
+              <input type="text" name="location" datatype={this.props.datatype} value={this.state.locationArr["state"]}/>
+               <input type="text" name="telescope.location" datatype={this.props.datatype} value={this.state.locationArr["country"]}/>
 				    </div>
 			    )
   		}
