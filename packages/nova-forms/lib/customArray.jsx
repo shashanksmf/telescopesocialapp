@@ -3,11 +3,14 @@ import DateTimePicker from 'react-datetime';
 import {debounce} from 'throttle-debounce';
 import moment from 'moment';
 import countries from 'meteor/nova:countries';
-
+import GoogleAutoComplete from './GoogleAutoComplete.jsx';
 //import currency from "./meteor/nova:countries/i18n/currency.json";
 //console.log("currency: ",currency);
 class CustomArray extends Component {
-  
+  constructor(props){
+    super(props);
+    console.log("props custom array",props)
+  }
   // when the datetime picker mounts, NovaForm will catch the date value (no formsy mixin in this component)
   componentWillMount() {
     
@@ -186,6 +189,8 @@ class CustomArray extends Component {
                     
                     </div>
               </div>
+
+              <GoogleAutoComplete  myCustomProps={this.props}/>
                                
            </div> 
 

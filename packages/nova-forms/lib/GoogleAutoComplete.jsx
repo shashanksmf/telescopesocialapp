@@ -1,15 +1,15 @@
+import Telescope from 'meteor/nova:lib';
 import React, { PropTypes, Component } from 'react';
 
 class GoogleAutoComplete extends Component {
 
     	constructor(props,context){
         super(props,context);
-        console.log("props",props);
-
-        this.state = { locationArr : props.value };	
+  console.log("props context",props,context)
+     
+        this.state = { location:"", locationArr : props.value || [] };	
 
         this.placeSearch;
-        var autocomplete;
 
         this.componentForm = {
           locality: 'long_name',
@@ -17,95 +17,83 @@ class GoogleAutoComplete extends Component {
           country: 'long_name'
         };  
 
-        this.placeDetail = {
-          locality:'city',
-          administrative_area_level_1:'state',
-          country:'country'
+        this.placeDetail = ['city','country'];
         }
 
 
+    
+
+      componentDidUpdate(){
+          var that = this;
+          document.onclick= function(event) {
+            console.log("onclick document");
+            that.setState({locationArr:[]}) 
+           }
       }
 
-    	componentWillMount(){
-        
-          const script = document.createElement("script");
-          script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyD19U3ToWPVJpnFk7AGRT8O68qfO2sUaJ0&libraries=places";
-          script.onload = (function () {
-            this.initAutocomplete();
-          }).bind(this)
-    	   document.getElementsByTagName('head')[0].appendChild(script);
-    	
-      }
-	
-      initAutocomplete() {
-        
-        autocomplete = new google.maps.places.Autocomplete(
-            /** @type {!HTMLInputElement} */
-            (document.getElementById('autocompleteUserLocation')),
-            {types: ['geocode']});
-
-
-        autocomplete.addListener('place_changed', this.fillInAddress.bind(this));
-      }
-
-        fillInAddress() {
-        // Get the place details from the autocomplete object.
-        //console.log("fill",this.state.locationArr);
-        this.state.locationArr = [];
-        this.state.locationArr.push({});
-        var tempArr = [];
-        var place = autocomplete.getPlace();
-        for (var i = 0; i < place.address_components.length; i++) {
-          var addressType = place.address_components[i].types[0];
-          if (this.componentForm[addressType]) {
-            var val = place.address_components[i][this.componentForm[addressType]];
-            this.state.locationArr[0][this.placeDetail[addressType]] = val;
-            tempArr.push(val)
-          }
+      searchPlace(event) {
+        var that = this;
+        that.setState({ location : event.target.value });
+        if(event.target.value.length > 1) {
+          Meteor.call('getGooglePlaces',event.target.value,function(err,result){
+            if(!err && result.statusCode == 200 && result.data.status == "OK") {
+              that.setState({ locationArr : result.data.predictions })
+            }
+          //  console.log("client call",err,result)
+          })
         }
 
-        this.state.locationArr[0]["place"] = tempArr.join(" ,");
-          
-     
-         console.log("props value",this.state.locationArr)
-        //  this.context.addToAutofilledValues({[this.props.name]: this.state.locationArr});
-        //console.log("place2",place);
-        this.setState({locationArr:this.state.locationArr});
+      }
 
-        this.props.myCustomProps.updateCurrentValue(this.props.name,this.state.locationArr);
+      selectLocality(locality) {
+        var placeArr = [];
+        
+        switch(locality.terms.length) {
+          case 1:
+            placeArr.push({ 'country': locality.terms[0].value });
+          break;
+
+          case 2:
+            placeArr.push({ 'city': locality.terms[0].value , 'country': locality.terms[1].value });
+          break;
+
+          case 3:
+            placeArr.push({ 'city': locality.terms[0].value , 'state': locality.terms[1].value , 'country': locality.terms[2].value });
+          break;
+
+        }
+
+        this.setState({ location : locality.description  })
+        
+        this.props.myCustomProps.updateCurrentValue(this.props.name,placeArr);
 
       }
+
+    
 
       render() {
-          var isArr = this.state.locationArr.constructor === Array ? true : false;
-          if(!isArr) {
-            this.state.locationArr = [];
-            this.state.locationArr.push({});
-            this.state.locationArr[0]["place"] = "";
-          } 
-
-          if(isArr && this.state.locationArr.length ==0) {
-            this.state.locationArr.push({});
-            this.state.locationArr[0]["place"] = "";
-          }
-        console.log("render",this.state.locationArr)
+          var that = this;     
       		return (	<div id="locationField" className="form-group row">
-				        <label className="control-label col-sm-3">{this.props.name}</label>
-                <div className="col-sm-9">
-                  <input id="autocompleteUserLocation" className="form-control"
+				        <label className="control-label col-sm-3">{that.props.name}</label>
+                <div className="col-sm-9 googleAutocompelte">
+                  <input ref={that.state.locationId} id={that.state.locationId} className="form-control"
 
-                  value={
-                    this.state.locationArr[0]["place"] || ""
-                  } 
+                  value={ that.state.location } 
 
-                  onChange={ (e)=>{ 
-                    this.state.locationArr[0]["place"] = e.target.value;
-                    this.setState({locationArr:this.state.locationArr}) } 
-                  } 
+                  onChange={  that.searchPlace.bind(that) } 
 
                   ref="autoMode" placeholder="Enter your address" type="text">
     				      
                   </input>
+                  <ul className={that.state.locationArr.length > 0 ? "list active" : "list"}>
+                    { that.state.locationArr.length > 1 ? 
+                      that.state.locationArr.map(function(item,index){
+                        return <li key={"autocompletelist-"+index} onClick={ that.selectLocality.bind(that,item) }>{ item.description }</li> 
+                      })
+                      : null
+                    }
+                    
+                  </ul>
                 </div>
               </div>
 			    )

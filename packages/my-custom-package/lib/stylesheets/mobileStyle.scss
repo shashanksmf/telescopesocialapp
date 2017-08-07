@@ -372,3 +372,32 @@ $information-phone: "only screen and (max-width : 600px)";
 .mb-10-px{
 	margin-bottom:10px;
 }
+
+
+.googleAutocompelte {
+	position:relative;
+	.list {
+		position:absolute;
+		top:34px;
+	    list-style: none;
+	    padding: 0;
+        z-index: 1;
+	    border: 1px solid #c3bfbf;
+	    display:none;
+	    width:100%;
+
+	    &.active {
+	    	display:block;
+	    }
+
+		li:hover {
+			background-color: gainsboro;
+		}
+
+		li {
+		  	padding: 2px 10px;
+    		cursor: pointer;
+		}
+
+	}
+}

@@ -46,6 +46,14 @@ const RelDateCountry = new Mongo.Collection("RelDateCountry");
     type: String,
     optional: true,
   },
+   location: {
+    type: [Object],
+    publish: true,
+    optional: true,
+    control: "googleAutoComplete",
+    blackbox: true,
+    editableIf: canEdit
+  }
 });
 RelDateCountry.attachSchema(RelDateCountry.schema);
 
