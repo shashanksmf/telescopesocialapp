@@ -349,6 +349,16 @@
 	 	     	flex: 0 15%;
 
 	 	     }
+
+	 	     #locationField{
+	 	     	margin:0;
+	 	     	label{ 
+	 	     		display:none;
+	 	     	}
+	 	     	.googleAutocompelte {
+	 	     	width:100%;
+	 	     	}
+	 	     }
 	 }
  }
  .AdditionalInfoContainer{

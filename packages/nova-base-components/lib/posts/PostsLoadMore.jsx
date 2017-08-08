@@ -2,8 +2,8 @@ import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
 const PostsLoadMore = ({loadMore, count, totalCount}) => {
-	console.log("loadMore",loadMore)
-	 var that = this;
+
+	var that = this;
 	if(Meteor.isClient) {
       $(".main").scroll(function() {
         console.log("main");
@@ -18,7 +18,7 @@ const PostsLoadMore = ({loadMore, count, totalCount}) => {
     }
 
   return (
-    <a ref="loadMoreRef" className="posts-load-more" onClick={loadMore}>
+    <a className="posts-load-more" onClick={loadMore}>
       <span><FormattedMessage id="posts.load_more"/></span>
       &nbsp;
       {totalCount ? <span className="load-more-count">{`(${count}/${totalCount})`}</span> : null}

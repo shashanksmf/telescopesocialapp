@@ -41,6 +41,7 @@ class CustomArray extends Component {
   }
 
   changeInputValue(country,inputIndex,event){
+    console.log("this state",this)
     console.log("change input value called",country,inputIndex,event);
     // var currencyIcon='';
     //  countries.find().fetch().map(function(country){
@@ -50,6 +51,9 @@ class CustomArray extends Component {
     //     }
     //  })
     // console.log("inputIndex  :  ",event,country,inputIndex);
+      if(!this.state.inputvalue[inputIndex].hasOwnProperty("country")) {
+        this.state.inputvalue[inputIndex].country =  country.name;
+      }
       this.state.inputvalue[inputIndex].country = country.name;
       this.state.inputvalue[inputIndex].currencyIcon = country.icon;
       if(this.state.inputvalue[inputIndex].price == undefined){
@@ -179,7 +183,7 @@ class CustomArray extends Component {
               </div>
               <div className=" ">
              
-               <div className={items.isExpanded ? "ui selection dropdown active visible countryContainer" : "ui selection dropdown countryContainer"} onClick={()=>{ items.isExpanded= !items.isExpanded; that.setState({inputvalue:that.state.inputvalue})  }}>
+               <div hidden className={items.isExpanded ? "ui selection dropdown active visible countryContainer" : "ui selection dropdown countryContainer"} onClick={()=>{ items.isExpanded= !items.isExpanded; that.setState({inputvalue:that.state.inputvalue})  }}>
                     <input type="hidden" name={items.country}/>
                     <i className="dropdown icon"></i>
                     <div className="default text">{items.country}</div>
@@ -191,7 +195,7 @@ class CustomArray extends Component {
                     </div>
               </div>
 
-              <GoogleAutoComplete  savecountry={that.changeInputValue.bind(this)} savecountryindex={inputIndex}/>
+              <GoogleAutoComplete value={items.country} savecountry={that.changeInputValue.bind(that)} savecountryindex={inputIndex}/>
                                
            </div> 
 

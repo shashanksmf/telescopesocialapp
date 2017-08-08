@@ -5,15 +5,17 @@ class GoogleAutoComplete extends Component {
 
     	constructor(props,context){
         super(props,context);
-  console.log("props context",props,context)
-        var place;
+        //console.log("props context",props,context)
+        var locationId;
         if(Array.isArray(props.value) && props.value.length > 0 && props.value[0].hasOwnProperty('place')) {
           place = props.value[0].place;
         }
         else {
-          place ="";
+          place = props.value || "";
         }
-        this.state = { location: place || "", locationArr : props.value || [] };	
+
+
+        this.state = { location: place || "", locationArr : [] };	
 
         this.placeSearch;
 
@@ -74,15 +76,16 @@ class GoogleAutoComplete extends Component {
             placeArr[0]["place"] +=  (index == locality.terms.length -1) ? items.value : items.value + ", ";
         })
 
-        this.setState({ location : locality.description ,locationArr: []  });
-        
         if(this.props.hasOwnProperty("savecountry")) {
-          this.props.savecountry(this,{'name':placeArr[0].place},this.props.savecountryindex)
+          this.props.savecountry({'name':placeArr[0]["country"]} , this.props.savecountryindex ,this)
         }
         else {
+          console.log("in else",this.props);
           this.props.myCustomProps.updateCurrentValue(this.props.name,placeArr);
         }
 
+         this.setState({ location : locality.description ,locationArr: []  });
+       
       }
 
     
@@ -91,14 +94,14 @@ class GoogleAutoComplete extends Component {
           var that = this;     
       		return (	<div id="locationField" className="form-group row">
 				        <label className="control-label col-sm-3">{that.props.name}</label>
-                <div className="col-sm-9 googleAutocompelte">
-                  <input ref={that.state.locationId} id={that.state.locationId} className="form-control"
+                <div className="col-sm-9 googleAutocompelte ui input">
+                  <input className="form-control"
 
                   value={ that.state.location } 
 
                   onChange={  that.searchPlace.bind(that) } 
 
-                  ref="autoMode" placeholder="Enter your address" type="text">
+                  placeholder="Enter your address" type="text">
     				      
                   </input>
                   <ul className={that.state.locationArr.length > 0 ? "list active" : "list"}>

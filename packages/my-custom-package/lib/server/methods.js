@@ -34,8 +34,10 @@ Meteor.methods({
     
     if (!err) {
       future.return(result);
+    } else {
+        //future.return(err);      
     }
-    future.return(err);
+
   });
 
 
