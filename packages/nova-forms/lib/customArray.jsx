@@ -41,6 +41,7 @@ class CustomArray extends Component {
   }
 
   changeInputValue(country,inputIndex,event){
+    console.log("change input value called",country,inputIndex,event);
     // var currencyIcon='';
     //  countries.find().fetch().map(function(country){
     //     if(country.name == event.target.value){
@@ -190,7 +191,7 @@ class CustomArray extends Component {
                     </div>
               </div>
 
-              <GoogleAutoComplete  myCustomProps={this.props}/>
+              <GoogleAutoComplete  savecountry={that.changeInputValue.bind(this)} savecountryindex={inputIndex}/>
                                
            </div> 
 

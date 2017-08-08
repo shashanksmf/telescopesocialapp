@@ -382,16 +382,21 @@ $information-phone: "only screen and (max-width : 600px)";
 	    list-style: none;
 	    padding: 0;
         z-index: 1;
-	    border: 1px solid #c3bfbf;
+	   
 	    display:none;
 	    width:100%;
+        background-color: #615252;
+    	color: white;
+    	border-radius: 10px;
 
 	    &.active {
 	    	display:block;
+	    	border: 1px solid #c3bfbf;
 	    }
 
 		li:hover {
 			background-color: gainsboro;
+		    color: black;
 		}
 
 		li {

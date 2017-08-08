@@ -6,8 +6,14 @@ class GoogleAutoComplete extends Component {
     	constructor(props,context){
         super(props,context);
   console.log("props context",props,context)
-     
-        this.state = { location:"", locationArr : props.value || [] };	
+        var place;
+        if(Array.isArray(props.value) && props.value.length > 0 && props.value[0].hasOwnProperty('place')) {
+          place = props.value[0].place;
+        }
+        else {
+          place ="";
+        }
+        this.state = { location: place || "", locationArr : props.value || [] };	
 
         this.placeSearch;
 
@@ -63,9 +69,19 @@ class GoogleAutoComplete extends Component {
 
         }
 
-        this.setState({ location : locality.description  })
+        placeArr[0]["place"] = "";
+        locality.terms.forEach(function(items,index){
+            placeArr[0]["place"] +=  (index == locality.terms.length -1) ? items.value : items.value + ", ";
+        })
+
+        this.setState({ location : locality.description ,locationArr: []  });
         
-        this.props.myCustomProps.updateCurrentValue(this.props.name,placeArr);
+        if(this.props.hasOwnProperty("savecountry")) {
+          this.props.savecountry(this,{'name':placeArr[0].place},this.props.savecountryindex)
+        }
+        else {
+          this.props.myCustomProps.updateCurrentValue(this.props.name,placeArr);
+        }
 
       }
 
