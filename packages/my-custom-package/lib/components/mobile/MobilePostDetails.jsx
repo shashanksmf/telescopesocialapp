@@ -13,48 +13,73 @@ import { withRouter } from 'react-router';
 import SocialShare from './../partials/SocialShare.jsx';
 
 class MobilePostDetails extends Component {
-	render () {
-	    const post = this.props.location.state.post;
-	    const htmlBody = {__html: post.htmlBody};
-	    console.log(this.props)
+  constructor(props){
+    super(props);
+    this.state = {  post: null ,htmlBody:null };
+  }
 
-//console.log("custom page ",post,currentUser);
+  componentWillMount(){
+    var postsId = this.props.router.params.id;
+    var that = this;
+    var post,htmlBody;
+      Meteor.call('getPostById',postsId, function(err,result) {
+        console.log(err,result)
+        if(!err) {
+          that.setState({post : result[0] , htmlBody :  result[0].htmlBody || null });
+        }
+        
+      })
+  }
+
+	render () {
+
+      
+     // return;
+     // var postArr = 
+     // console.log(this.props.router.params.id)
+      
+      //console.log("posts",)
+
+//console.log("custom page ",this.state.post);
+    if(!this.state.post) {
+      return null;
+    }
     return (
       
       <div className="posts-pages">
          <div className="mobile-post-page">
-            <Telescope.components.HeadTags url={Posts.getLink(post)} title={post.title} image={post.thumbnailUrl} />
+            <Telescope.components.HeadTags url={Posts.getLink(this.state.post)} title={this.state.post.title} image={this.state.post.thumbnailUrl} />
             <div className="customPostPageContainer mobile-view">
               {/* <Telescope.components.PostsItem post={post}/> */}
               <div className="posts-item row">
-                {(post.thumbnailUrl || post.image) ?
+                {(this.state.post.thumbnailUrl || this.state.post.image) ?
                   <div className="post-mobile-image">
                   
-                    { (post.image && post.image.length > 0) ? <img src={post.image[0].url} className="post-image"/> : <img src={Posts.getThumbnailUrl(post)} className="post-image" /> }
+                    { (this.state.post.image && this.state.post.image.length > 0) ? <img src={this.state.post.image[0].url} className="post-image"/> : <img src={Posts.getThumbnailUrl(this.state.post)} className="post-image" /> }
                   </div>
                 : null}
                 <div className="post-header">
                   <Link className="btn-back" to={'/'}><i className="fa fa-chevron-left"></i></Link>
-                  <SocialShare post={post} />
+                  <SocialShare post={this.state.post} />
                 </div>
               </div>
 
               <Tabs defaultActiveKey={1} id="postPageTabs">
                 <Tab eventKey={1} title="Summary">
-                    <h3 className="post-title text-center">{post.title}</h3>
-                    {post.product ? <HunterMaker  post={post}/> : null}
+                    <h3 className="post-title text-center">{this.state.post.title}</h3>
+                    {this.state.post.product ? <HunterMaker  post={this.state.post}/> : null}
                   {/*  
                     check if user country matches with the  post country
                       <Telescope.components.MobileDateLikeBtn  post={post} date={moment(itemPriceCountry.relDate).format('MM')+'/'+moment(itemPriceCountry.relDate).format('DD')+'/'+moment(itemPriceCountry.relDate).format('gg')} />
                     */}
                     
                     
-                    {post.htmlBody ? <div className="posts-page-body" dangerouslySetInnerHTML={htmlBody}></div> : null}
+                    {this.state.post.htmlBody ? <div className="posts-page-body" dangerouslySetInnerHTML={{__html:this.state.htmlBody}} ></div> : null}
                   {/* add show timings */}
 
                   {/*<SocialShare url={ Posts.getLink(post) } title={ post.title }/>*/}
                 </Tab>
-                <Tab eventKey={2} title="Comments"><Telescope.components.PostsCommentsThread document={post} /></Tab>
+                <Tab eventKey={2} title="Comments"><Telescope.components.PostsCommentsThread document={this.state.post} /></Tab>
                 <Tab eventKey={3} title="Other"></Tab>
               </Tabs>
 

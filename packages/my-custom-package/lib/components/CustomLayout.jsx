@@ -51,30 +51,34 @@ class CustomLayout extends Component {
       var logoName = "Releasery"
       //code for document title
       var urlLocation = this.props.router.location; 
-      console.log(urlLocation)
-      switch(urlLocation.pathname) {
-        case "/":
-          logoName = "All Releases";
-        break;
-
-        case "/SearchPage":
-          logoName = "Search";
-        break;
-
-        case "/categoriesMenu":
-          logoName = "Collection";
-        break;
-
-        case "/account":
-          logoName = "Profile"
-        break;
-
-        case "PostDetails":
-          logoName = "Releasery"
-        break;
-
+      console.log(this.props.router)
+      if(urlLocation && urlLocation.hasOwnProperty("query") && ("cat" in urlLocation.query) && urlLocation.hasOwnProperty("state") && urlLocation.state.length > 0) {
+        logoName = urlLocation.state;
       }
+        else {
+        switch(urlLocation.pathname) {
+          case "/":
+            logoName = "All Releases";
+          break;
 
+          case "/SearchPage":
+            logoName = "Search";
+          break;
+
+          case "/categoriesMenu":
+            logoName = "Collection";
+          break;
+
+          case "/account":
+            logoName = "Profile"
+          break;
+
+          case "PostDetails":
+            logoName = "Releasery"
+          break;
+
+        }
+      }
 
       //code for document title
 
@@ -125,7 +129,7 @@ class CustomLayout extends Component {
     } else {
       
       return (
-       <div className={"wrapper mobile-wrapper " + logoName + " " + urlLocation.pathname.replace(/\//g, "") } id="wrapper">
+       <div className={"wrapper mobile-wrapper " + logoName + " " + urlLocation.pathname.replace(/\//g, "") + " " + this.props.router.routes[1].name } id="wrapper">
 
           <Telescope.components.HeadTags />
 

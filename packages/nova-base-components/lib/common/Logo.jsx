@@ -1,5 +1,5 @@
 import React from 'react';
-import { IndexLink } from 'react-router';
+import { IndexLink , Link} from 'react-router';
 
 const Logo = ({logoUrl, siteTitle}) => {
   if (logoUrl) {
@@ -13,7 +13,7 @@ const Logo = ({logoUrl, siteTitle}) => {
   } else {
     return (
       <h1 className="logo-text">
-        <IndexLink to={{pathname: "/"}}>{siteTitle}</IndexLink>
+        <Link to={{pathname: "/"}}>{siteTitle}</Link>
       </h1>
     )
   }

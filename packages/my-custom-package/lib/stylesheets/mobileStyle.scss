@@ -326,7 +326,7 @@ $information-phone: "only screen and (max-width : 600px)";
 		}
 	}
 
-	&.Profile,&.Collection,&.Search,&.PostDetails,.Search {
+	&.Profile,&.Collection,&.Search,&.PostDetails,&.Search {
 		.header-wrapper {
 		height: 65px;
 			.header {
@@ -335,9 +335,19 @@ $information-phone: "only screen and (max-width : 600px)";
 				}
 			}
 
-			.main{
+						
+		}
+		.main{
 				top:65px;
-			}				
+			}	
+	}
+
+	&.MobilePostDetails {
+		.header-wrapper {
+			display:none;
+		}
+		.main{
+			top:0;
 		}
 	}
 }

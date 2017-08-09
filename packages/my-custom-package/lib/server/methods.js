@@ -1,4 +1,6 @@
+import Posts from "meteor/nova:posts";
 var Future = Npm.require( 'fibers/future' );
+
 
 Meteor.methods({
 
@@ -50,6 +52,11 @@ return future.wait();
 
   onNotificationClick () {
     // on notification click
+  },
+
+  'getPostById':function(id) {
+
+    return Posts.find({_id:id}).fetch();
   }
 });
 

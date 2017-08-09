@@ -96,7 +96,7 @@ class MobilePostsItem extends Component {
         {(post.thumbnailUrl || post.image) ? <Telescope.components.PostsThumbnail post={post}/> : null}
 
         <div className="posts-item-content">
-          <Link to={{pathname: 'PostDetails', state: { post:post}} } ><h3 className="posts-item-title "> {post.title}</h3></Link>
+          <Link to={{pathname: 'PostDetails/'+post._id, state: { post:post}} } ><h3 className="posts-item-title "> {post.title}</h3></Link>
 	
           <div className="posts-item-meta">
            {post.htmlBody ? <div className="posts-page-body" dangerouslySetInnerHTML={htmlBody}></div> : null}

@@ -6,9 +6,9 @@ const PostsLoadMore = ({loadMore, count, totalCount}) => {
 	var that = this;
 	if(Meteor.isClient) {
       $(".main").scroll(function() {
-        console.log("main");
+        //console.log("main");
       if($(".posts-load-more") && $(".posts-load-more").length > 0 && ($(window).height() > $(".posts-load-more").offset().top)) {
-      	console.log($(window).height(),$(".posts-load-more").offset().top)
+      	//console.log($(window).height(),$(".posts-load-more").offset().top)
    //   	console.log(that.re\fs);
        		//that.refs.loadMoreRef.click();
        		document.getElementsByClassName("posts-load-more")[0].click()

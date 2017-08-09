@@ -12,7 +12,7 @@ const PostsListHeader = (props) => {
  
    // console.log("is device");
   }
-console.log("props post list header",props);
+//console.log("props post list header",props);
 
   const query = _.clone(props.router.location.query);
 

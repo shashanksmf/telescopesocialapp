@@ -14,7 +14,7 @@ const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount
 	}
 
 	var isUserSearching;
-	console.log(location)
+	//console.log(location)
 	var queryUrl = location ? location.query : null;
 	if(queryUrl)
 	{

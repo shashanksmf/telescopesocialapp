@@ -12,7 +12,7 @@ class MobileSearchPage extends Component {
   
   
   render() {
-    console.log(this.props);
+   // console.log(this.props);
     //console.log("post home called",this.props,Posts.find().fetch(),Posts.getJoins())
     return (
       <div className="searchPageWrapper">
