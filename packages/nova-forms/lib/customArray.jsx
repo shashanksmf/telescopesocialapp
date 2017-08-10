@@ -41,8 +41,8 @@ class CustomArray extends Component {
   }
 
   changeInputValue(country,inputIndex,event){
-    console.log("this state",this)
-    console.log("change input value called",country,inputIndex,event);
+ //   console.log("this state",this)
+   // console.log("change input value called",country,inputIndex,event);
     // var currencyIcon='';
     //  countries.find().fetch().map(function(country){
     //     if(country.name == event.target.value){

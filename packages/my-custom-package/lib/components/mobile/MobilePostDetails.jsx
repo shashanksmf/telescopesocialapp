@@ -11,6 +11,7 @@ import Posts from "meteor/nova:posts";
 import { Link } from 'react-router';
 import { withRouter } from 'react-router';
 import SocialShare from './../partials/SocialShare.jsx';
+import moment from 'moment';
 
 class MobilePostDetails extends Component {
   constructor(props){
@@ -23,7 +24,7 @@ class MobilePostDetails extends Component {
     var that = this;
     var post,htmlBody;
       Meteor.call('getPostById',postsId, function(err,result) {
-        console.log(err,result)
+        //console.log(err,result)
         if(!err) {
           that.setState({post : result[0] , htmlBody :  result[0].htmlBody || null });
         }
@@ -72,6 +73,10 @@ class MobilePostDetails extends Component {
                     check if user country matches with the  post country
                       <Telescope.components.MobileDateLikeBtn  post={post} date={moment(itemPriceCountry.relDate).format('MM')+'/'+moment(itemPriceCountry.relDate).format('DD')+'/'+moment(itemPriceCountry.relDate).format('gg')} />
                     */}
+
+                    {this.state.post.hasOwnProperty("customArray11") && this.state.post.customArray11[0].hasOwnProperty("reldate") ? 
+                      <Telescope.components.MobileDateLikeBtn mobilepostdetails={true} post={this.state.post} date={moment(this.state.post.customArray11[0].relDate).format('MM')+'/'+moment(this.state.post.customArray11[0].relDate).format('DD')+'/'+moment(this.state.post.customArray11[0].relDate).format('gg')} />
+                    : null }
                     
                     
                     {this.state.post.htmlBody ? <div className="posts-page-body" dangerouslySetInnerHTML={{__html:this.state.htmlBody}} ></div> : null}

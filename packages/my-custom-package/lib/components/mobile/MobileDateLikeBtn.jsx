@@ -5,15 +5,16 @@ import Users from 'meteor/nova:users';
 
 class MobileDateLikeBtn extends Component { 
 	
-	constructor() {
-	    super();
+	constructor(props) {
+	    super(props);
 	    this.upvote = this.upvote.bind(this);
+      this.state = { post : props.post }
     }
 
 	upvote(e) {
     e.preventDefault();
 
-    const post = this.props.post;
+    const post = this.state.post;
     const user = this.context.currentUser;
 
     if(!user){
@@ -45,6 +46,7 @@ class MobileDateLikeBtn extends Component {
                 message: post.title + ' Will Relase on' + post.customArray11[0].reldate.toDateString(),
                 date: new Date()   
               };
+
               Meteor.call("notification.insert",insertObj,function(error,result){
                 if(error){
                   console.log("errro in insert nottification");
@@ -79,13 +81,25 @@ class MobileDateLikeBtn extends Component {
 
       return Math.floor((utc2 - utc1) / _MS_PER_DAY);
     }
+ 
+      var that = this;
+       Meteor.call('getPostById', that.props.post._id, function(err,result) {
+        console.log(err,result)
+        if(!err) {
+          that.setState({post : result[0]})
+       //   return post = result[0];
+        }
+     //   return null
+        
+      })
+  
 	}
 	  // a and b are javascript Date objects
    
 
 	render() { 
 
-	    const post = this.props.post;
+	    const post = this.state.post;
 	    const user = this.context.currentUser;
 
 	    const hasUpvoted = Users.hasUpvoted(user, post);
@@ -97,7 +111,7 @@ class MobileDateLikeBtn extends Component {
 	      {downvoted: hasDownvoted}
 	    );
 	    
-		//console.log("mobileDateLikeBtn ",this.props)
+	//	console.log("mobileDateLikeBtn ",hasUpvoted,hasDownvoted)
 		return (
 
 				<div className={hasUpvoted ? "upvote upvote-button mobileDateLikeBtn" : "downVote upvote-button mobileDateLikeBtn"} onClick={this.upvote}>	
