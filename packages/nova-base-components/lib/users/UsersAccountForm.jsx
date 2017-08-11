@@ -1,6 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import { Button, FormControl } from 'react-bootstrap';
 import { Accounts, STATES } from 'meteor/std:accounts-ui';
+// import { GoogleAutoComplete } from 'meteor/my-google-complete';
+import GoogleAutoComplete from "./GoogleAutoComplete.jsx";
 
 const UsersAccountForm = () => {
   return (
@@ -13,6 +15,8 @@ export default UsersAccountForm;
 
 // customize Accounts.ui
 // mt customize start
+var locationObj = {};
+
 class AccountsForm extends Accounts.ui.LoginForm {
   fields() {
     const { formState } = this.state;
@@ -25,11 +29,12 @@ class AccountsForm extends Accounts.ui.LoginForm {
           onChange: this.handleChange.bind(this, 'fullName')
         },
         ...super.fields(),
-        city: {
-          id: 'city',
-          hint: 'Enter city',
-          label: 'City',
-          onChange: this.handleChange.bind(this, 'city')
+        location: {
+          id: 'location',
+          label: 'Location',
+          type: [Object],
+          onChange: this.handleChange.bind(this, 'location'),
+          updateCurrentValue: this.updateCurrentValue.bind('location')
         }
       };
     }
@@ -38,18 +43,23 @@ class AccountsForm extends Accounts.ui.LoginForm {
 
   signUp(options = {}) {
     const { fullName = null } = this.state;
-    const { city = null } = this.state;
     if (fullName !== null) {
       options.profile = Object.assign(options.profile || {}, {
         fullName: fullName
       });
     }
-    if (city !== null) {
+    if (locationObj !== null) {
       options.profile = Object.assign(options.profile || {}, {
-        city: city
+        location: locationObj
       });
     }
     super.signUp(options);
+  }
+
+  updateCurrentValue (field, value) {
+    locationObj = value;
+    // super.setState({ location: value });
+    // super.setDefaultFieldValues({ location: value });
   }
 }
 // End
@@ -89,15 +99,23 @@ class AccountsField extends Accounts.ui.Field {
     if (Meteor && Meteor.Device) {
       var isPhone = Meteor.Device.isPhone();
     }
-    const { id, hint, label, type = 'text', onChange, className = "field", defaultValue = "" } = this.props;
-    const { mount = true } = this.state;
+    const { id, hint, label, type = 'text', onChange, className = "field", defaultValue = "", updateCurrentValue } = this.props;
+    const { mount = true } = this.state
+
+    const base = this.props;
+    const properties = {
+      ...base
+    };
     return mount ? (
       <div className={ className }>
         { isPhone ?
           <label className="input-name"><i className={"fa fa-" + id}></i></label>
           : ''
         }
-        <FormControl id={ id } type={ type } onChange={ onChange } placeholder={ hint } defaultValue={ defaultValue } />
+        { id === 'location' ? <GoogleAutoComplete {...properties} myCustomProps={this.props} />
+        :
+          <FormControl id={ id } type={ type } onChange={ onChange } placeholder={ hint } defaultValue={ defaultValue } />
+        }
       </div>
     ) : null;
   }

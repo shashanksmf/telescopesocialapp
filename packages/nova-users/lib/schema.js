@@ -225,15 +225,15 @@ Telescope.schemas.userData = new SimpleSchema({
     insertableIf: canInsert,
     editableIf: canEdit
   },
-  city: {
-    type: String,
-    publish: true,
-    optional: true,
-    control: "text",
-    insertableIf: canInsert,
-    editableIf: canEdit
-  },
-    location: {
+  // city: {
+  //   type: String,
+  //   publish: true,
+  //   optional: true,
+  //   control: "text",
+  //   insertableIf: canInsert,
+  //   editableIf: canEdit
+  // },
+  location: {
     type: [Object],
     publish: true,
     optional: true,

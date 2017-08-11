@@ -21,10 +21,11 @@ class GoogleAutoComplete extends Component {
             administrative_area_level_1: 'short_name',
             country: 'long_name'
         };
+
         this.placeDetail = ['city','country'];
     }
 
-    componentDidUpdate(){
+    componentDidUpdate() {
         var that = this;
         document.onclick= function(event) {
             console.log("onclick document");
@@ -47,6 +48,7 @@ class GoogleAutoComplete extends Component {
 
     selectLocality(locality) {
         var placeArr = [];
+
         switch(locality.terms.length) {
             case 1:
                 placeArr.push({ 'country': locality.terms[0].value });
@@ -58,7 +60,6 @@ class GoogleAutoComplete extends Component {
                 placeArr.push({ 'city': locality.terms[0].value , 'state': locality.terms[1].value , 'country': locality.terms[2].value });
                 break;
         }
-
         placeArr[0]["place"] = "";
         locality.terms.forEach(function(items,index) {
             placeArr[0]["place"] +=  (index == locality.terms.length -1) ? items.value : items.value + ", ";
@@ -68,27 +69,23 @@ class GoogleAutoComplete extends Component {
             this.props.savecountry({'name':placeArr[0]["country"]} , this.props.savecountryindex ,this)
         } else {
             console.log("in else",this.props);
-            this.props.myCustomProps.updateCurrentValue(this.props.name,placeArr);
+            this.props.myCustomProps.updateCurrentValue(this.props.name, placeArr);
         }
         this.setState({ location : locality.description ,locationArr: []  });
     }
-
     render() {
         var that = this;
-      	return (
-            <div id="locationField" className="form-group row">
-                <label className="control-label col-sm-3 fa fa-location">{that.props.name.replace('telescope.', '')}</label>
-                <div className="col-sm-9 googleAutocompelte ui input">
-                    <input className="form-control" value={ that.state.location } onChange={  that.searchPlace.bind(that) } placeholder="Enter your address" type="text"></input>
-                    <ul className={that.state.locationArr.length > 0 ? "list active" : "list"}>
-                      { that.state.locationArr.length > 1 ?
-                        that.state.locationArr.map(function(item,index){
-                          return <li key={"autocompletelist-"+index} onClick={ that.selectLocality.bind(that,item) }>{ item.description }</li>
+        return (
+            <div className="googleAutocompelte ui input">
+                <input className="form-control" value={ that.state.location } onChange={  that.searchPlace.bind(that) } placeholder="Enter your address" type="text"></input>
+                <ul className={that.state.locationArr.length > 0 ? "list active" : "list"}>
+                    { that.state.locationArr.length > 1 ?
+                        that.state.locationArr.map(function(item,index) {
+                            return <li key={"autocompletelist-"+index} onClick={ that.selectLocality.bind(that,item) }>{ item.description }</li>
                         })
                         : null
-                      }
-                    </ul>
-                </div>
+                    }
+                </ul>
             </div>
         )
     }

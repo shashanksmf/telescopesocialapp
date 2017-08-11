@@ -352,7 +352,7 @@
 
 	 	     #locationField{
 	 	     	margin:0;
-	 	     	label{ 
+	 	     	label{
 	 	     		display:none;
 	 	     	}
 	 	     	.googleAutocompelte {
@@ -741,11 +741,10 @@ body{
 		 	align-items:center;
       background-color: #d9deea;
 		 	i{
-      color: #7E8BAC;
-			font-size: 24px;
-			margin-right:10px;
-		}
-
+        color: #7E8BAC;
+  			font-size: 24px;
+  			margin-right:10px;
+  		}
 		}
 		img{
 			width:30px;
@@ -877,7 +876,7 @@ body{
     list-style: none;
     white-space: nowrap;
     padding: 0;
-    
+
     li {
       display: inline-block;
       padding: 6px 12px;
@@ -955,7 +954,7 @@ body{
         }
       }
       .col-sm-9 { width: 100%; }
-      .form-control {
+      .form-control, .ui.input input.form-control {
         border: none;
         border-radius: 0px;
         border-bottom: 1px solid #e0e0e0;
@@ -1010,7 +1009,7 @@ body{
       .post-mobile-image {
         background-color: #ffffff;
         //margin-top: -80px;
-       
+
         img { width: 100%; }
       }
     }
@@ -1046,7 +1045,7 @@ body{
 
   	    img{
   	    	height:25px;
-  	    } 
+  	    }
       }
     }
     .btn-showtimes {
@@ -1104,6 +1103,7 @@ body{
 .fa-email:before { content: "\f003"; }
 .fa-password:before { content: "\f023"; }
 .fa-city::before { content: "\f041";}
+.fa-location:before { content: "\f041"; }
 
 .loading {
   text-align: center;
@@ -1127,4 +1127,15 @@ body{
 .btn-primary {
 	background-color:#6051a9 !important;
 	border-color:#6051a9 !important;
+}
+
+
+.googleAutocompelte.ui.input { display: block; }
+.ui.input input.form-control {
+  color: #55595c;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+
+  &:focus { color: #55595c; }
 }
