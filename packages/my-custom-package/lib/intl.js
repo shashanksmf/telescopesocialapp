@@ -10,6 +10,10 @@ Telescope.strings.en = {
   "posts.image": "Image",
   "posts.userUpvotedPosts":"Favourite",
   "posts.body":"Description",
-  "posts.Categories":"Categories"
+  "posts.Categories":"Categories",
+  "posts.customArray11":"Additional Info",
+  "posts.video":"video",
+  "posts.Genre":"Genre",
+  "posts.Ratings":"Ratings"
   // add a new one (collection.field: "Label")
 };

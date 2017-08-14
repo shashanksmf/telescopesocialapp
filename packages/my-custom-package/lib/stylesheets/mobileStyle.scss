@@ -246,6 +246,17 @@ $information-phone: "only screen and (max-width : 600px)";
 								}
 							}
 						}	}
+					
+						.venue {
+							color:#9b9b9b;
+							font-size:16px;
+						    margin-bottom: 10px;
+							
+							i {
+								margin-right:10px;
+							}
+							
+						}
 					}
 				}	
 			}
@@ -446,4 +457,23 @@ $information-phone: "only screen and (max-width : 600px)";
 		    	color: #fff;
 		}
 
+}
+
+
+.MoviesDetails {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 16px;
+    align-items: center;
+    color: #6051a9;
+    font-weight: bold;
+
+	.genre {
+	    margin-right: 20px;
+	}    
+
+	.ratings {
+		margin-left:20px;
+	}
 }

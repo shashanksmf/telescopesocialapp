@@ -77,7 +77,7 @@ class GoogleAutoComplete extends Component {
         var that = this;
       	return (
             <div id="locationField" className="form-group row">
-                <label className="control-label col-sm-3 fa fa-location">{that.props.name.replace('telescope.', '')}</label>
+                <label className="control-label col-sm-3 fa fa-location">{that.props.name ? that.props.name.replace('telescope.', '') : "" }</label>
                 <div className="col-sm-9 googleAutocompelte ui input">
                     <input className="form-control" value={ that.state.location } onChange={  that.searchPlace.bind(that) } placeholder="Enter your address" type="text"></input>
                     <ul className={that.state.locationArr.length > 0 ? "list active" : "list"}>

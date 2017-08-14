@@ -82,7 +82,7 @@ onClick={()=>{
 		    	>New <Link
 
 
-		    	to={{pathname: 'PostDetails', state: { post:Posts.find().fetch({postId:item.postId})[0] }} } className="badge" >{item.message}</Link></li>
+		    	to={{pathname: 'PostDetails/'+item.postId, state: { post:Posts.find().fetch({postId:item.postId})[0] }} } className="badge" >{item.message}</Link></li>
 		    	}
 		    })}
 			 

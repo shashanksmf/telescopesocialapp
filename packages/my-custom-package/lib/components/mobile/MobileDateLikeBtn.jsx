@@ -2,6 +2,7 @@ import Telescope from 'meteor/nova:lib';
 import React, { PropTypes, Component } from 'react';
 import classNames from 'classnames';
 import Users from 'meteor/nova:users';
+import Notification from 'meteor/nova:notification';
 
 class MobileDateLikeBtn extends Component { 
 	
@@ -98,7 +99,7 @@ class MobileDateLikeBtn extends Component {
    
 
 	render() { 
-
+      //console.log("posts fetch ",)
 	    const post = this.state.post;
 	    const user = this.context.currentUser;
 

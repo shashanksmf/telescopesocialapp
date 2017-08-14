@@ -927,11 +927,20 @@ body{
       display: flex;
       margin-bottom: 20px;
       .input-name { min-width: 35px; margin: auto; padding-left: 5px; font-size: 18px; color: #757575; }
-      .form-control {
+      .form-control,.googleAutocompelte {
         border: none;
         border-radius: 0px;
         border-bottom: 1px solid #e0e0e0;
         padding-left: 5px;
+      }
+
+
+
+      .googleAutocompelte {
+ 		border-bottom:0;
+	    width: 100%;
+    	padding: 0.5rem 0.75rem;
+
       }
     }
   }
@@ -1063,7 +1072,7 @@ body{
 }
 #postPageTabs {
   .post-title {
-    margin: 15px 0px;
+    margin: 10px 0px;
   }
   .socialShare {
   	display:none;

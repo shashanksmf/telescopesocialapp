@@ -77,6 +77,10 @@ class CustomLayout extends Component {
             logoName = "Releasery"
           break;
 
+          case "/daily":
+            logoName = "All Releases"
+          break;
+
         }
       }
 

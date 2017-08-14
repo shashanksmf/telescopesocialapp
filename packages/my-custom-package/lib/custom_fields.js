@@ -167,6 +167,28 @@ Posts.addField(
       editableIf: canEdit,
       publish:true
     }
+  },
+  {
+    fieldName: "Genre",
+    fieldSchema: {
+      type: String ,
+      control: "input",
+      optional: true,
+      insertableIf: canInsert,
+      editableIf: canEdit,
+      publish:true
+    }
+  },
+  {
+    fieldName: "Ratings",
+    fieldSchema: {
+      type: String ,
+      control: "input",
+      optional: true,
+      insertableIf: canInsert,
+      editableIf: canEdit,
+      publish:true
+    }
   }
   
   
@@ -182,7 +204,7 @@ so we also add our new field to that object:
 
 import PublicationUtils from 'meteor/utilities:smart-publications';
 
-PublicationUtils.addToFields(Posts.publishedFields.list, ["color","product","image","customArray11","video"]);
+PublicationUtils.addToFields(Posts.publishedFields.list, ["color","product","image","customArray11","video","Genre"]);
 
 PublicationUtils.addToFields(Users.publishedFields.list, ["image"]);
 

@@ -37,13 +37,16 @@ class MobilePostsItem extends Component {
   render() {
     var itemPriceCountry = {};
     var countryName='';
-    if (typeof window === 'object') {
-       countryName = (this.props.userCountry != undefined && this.props.userCountry.length >0) ? this.props.userCountry : (window == undefined ? Meteor.settings.public.defaultCountry:window.localStorage.getItem("userCountry"));    
-    } 
+    var user = Meteor.user();
 
+    if(user && user.hasOwnProperty("telescope") && user.telescope.location[0].country && user.telescope.location[0].country.length > 0) {
+      var countryArr = user.location[0].country.split(",")
+      countryName = countryArr[countryArr.length-1].trim();
+    }
     else {
-           countryName = (this.props.userCountry != undefined && this.props.userCountry.length >0) ? this.props.userCountry : Meteor.settings.public.defaultCountry;    
-     }
+      countryName = Meteor.settings.public.defaultCountry;
+    }
+
     
     const post = this.props.post;
   	//console.log("post :ss",this.props,"countryName : ",countryName);
@@ -90,7 +93,7 @@ class MobilePostsItem extends Component {
   	 const htmlBody = {__html: post.htmlBody};
 
     // ⭐ custom code ends here ⭐
-
+    //console.log("itemPriceCountry",post.title,itemPriceCountry)
     return (
       <div className={postClass}>
         {(post.thumbnailUrl || post.image) ? <Telescope.components.PostsThumbnail post={post}/> : null}

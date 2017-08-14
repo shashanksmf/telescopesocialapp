@@ -33,7 +33,8 @@ class MobilePostDetails extends Component {
   }
 
 	render () {
-
+      var userTelObj = Meteor.user().telescope;
+      var userCountry = (userTelObj.hasOwnProperty("location") && userTelObj.location.length > 0 && userTelObj.location[0].hasOwnProperty("country")) ? userTelObj.location[0].country : Meteor.settings.public.defaultCountry;
       
      // return;
      // var postArr = 
@@ -73,6 +74,35 @@ class MobilePostDetails extends Component {
                     check if user country matches with the  post country
                       <Telescope.components.MobileDateLikeBtn  post={post} date={moment(itemPriceCountry.relDate).format('MM')+'/'+moment(itemPriceCountry.relDate).format('DD')+'/'+moment(itemPriceCountry.relDate).format('gg')} />
                     */}
+
+                  {/* code for venue */}
+
+                  {(this.state.post.hasOwnProperty("customArray11") && this.state.post.customArray11.length > 0) ? 
+                    this.state.post.customArray11.map(function(item,index){
+                      console.log("item",item,index,userCountry)
+                      if((item.hasOwnProperty("country")) && (item.country == userCountry)) {
+                        return <div className="venue text-center"><i className="fa fa-map-marker"></i><span>{userCountry}</span></div>
+                      }
+                    })
+
+                  : null }
+
+                  {/* code for venue */}
+
+
+                    {(this.state.post.hasOwnProperty("Genre") || this.state.post.hasOwnProperty("Action")) ?
+                      <div className="MoviesDetails">
+                        {this.state.post.hasOwnProperty("Genre") ? 
+                          <div className="genre"><label>Genre:</label> {this.state.post.Genre}</div>
+                         : null }
+
+                         {this.state.post.hasOwnProperty("Ratings") ? 
+                          <div className="ratings"><label>Ratings:</label> {this.state.post.Ratings}</div>
+                         : null }
+
+                      </div>
+
+                      : null }
 
                     {this.state.post.hasOwnProperty("customArray11") && this.state.post.customArray11[0].hasOwnProperty("reldate") ? 
                       <Telescope.components.MobileDateLikeBtn mobilepostdetails={true} post={this.state.post} date={moment(this.state.post.customArray11[0].relDate).format('MM')+'/'+moment(this.state.post.customArray11[0].relDate).format('DD')+'/'+moment(this.state.post.customArray11[0].relDate).format('gg')} />
