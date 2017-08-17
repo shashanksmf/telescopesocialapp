@@ -337,7 +337,7 @@ $information-phone: "only screen and (max-width : 600px)";
 		}
 	}
 
-	&.Profile,&.Collection,&.Search,&.PostDetails,&.Search {
+	&.Profile,&.Collection,&.PostDetails {
 		.header-wrapper {
 		height: 65px;
 			.header {
@@ -351,6 +351,52 @@ $information-phone: "only screen and (max-width : 600px)";
 		.main{
 				top:65px;
 			}	
+	}
+
+	&.Search {
+	.header-wrapper {
+		background-color:white;
+		height: 65px;
+			.header {
+				.mobile-top-menu {
+					display:none;
+				}
+			}
+
+						
+		}
+
+
+		.main{
+				top: 145px;
+				.searchPageWrapper {
+					.search-form {
+					    position: fixed;
+					    left: 0;
+					    right: 0;
+					    top: 64px;
+						form {
+						background-color:white;
+						}
+						input {
+							background-color:#f3f5f8;
+							border:#E9E5F0;
+						}
+					}
+
+					#postPageTabs {
+						ul {
+						    z-index: 2;
+						    position: fixed;
+						    top: 95px;
+						    background-color: white;
+						    left: 0;
+						    right: 0;
+						}
+					} 
+
+				}
+			}
 	}
 
 	&.MobilePostDetails {
