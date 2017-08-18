@@ -27,7 +27,7 @@ class MobileCategoriesMenu extends Component {
             }
             `}}/>
             {categoriesArr.map(function(category){
-             return <Link className="categoryBlock" key={category._id} to={{pathname: "/", query: {cat: category.slug}}}><span>{category.name}</span></Link>         
+             return <Link className="categoryBlock" key={category._id} to={{pathname: "/", query: {cat: category.slug} , state :category.name }}><span>{category.name}</span></Link>         
             })}           
         </div>
       )
