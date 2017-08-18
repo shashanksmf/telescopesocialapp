@@ -514,6 +514,7 @@ $information-phone: "only screen and (max-width : 600px)";
     align-items: center;
     color: #6051a9;
     font-weight: bold;
+    margin-bottom:5px;
 
 	.genre {
 	    margin-right: 20px;
@@ -523,3 +524,18 @@ $information-phone: "only screen and (max-width : 600px)";
 		margin-left:20px;
 	}
 }
+
+
+.ShowTimingBtn {
+	margin-top:10px;
+	text-align:center;	
+	a {
+		background-color:#38A399;
+		width:60%;
+		color:white;
+		border-radius:5px;
+	}
+	a:hover{
+		color:white;
+	}
+}	

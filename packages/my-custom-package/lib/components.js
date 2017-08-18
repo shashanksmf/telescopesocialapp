@@ -37,7 +37,7 @@ import MobilePostDetails from "./components/mobile/MobilePostDetails.jsx";
 import MobileSearchPage from "./components/mobile/MobileSearchPage.jsx";
 
 import MobileSearchComponent from "./components/mobile/MobileSearchComponent.jsx";
-
+import MobileShowTimingBtn  from "./components/mobile/MobileShowTimingBtn.jsx";
 
 import CustomHeader from "./components/CustomHeader.jsx";
 //import CustomSearchForm from "./components/CustomSearchForm.jsx";
@@ -62,7 +62,7 @@ Telescope.components.MobilePostDetails = MobilePostDetails;
 Telescope.components.MobileSearchPage = MobileSearchPage;
 Telescope.components.MobileSearchComponent = MobileSearchComponent;
 Telescope.components.Header = CustomHeader;
-
+Telescope.components.MobileShowTimingBtn = MobileShowTimingBtn;
 
 //Telescope.components.Cus = CustomHeader;
 //Telescope.components.SearchForm = CustomSearchForm;
