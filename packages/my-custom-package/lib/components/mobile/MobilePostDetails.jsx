@@ -26,6 +26,7 @@ class MobilePostDetails extends Component {
       Meteor.call('getPostById',postsId, function(err,result) {
         //console.log(err,result)
         if(!err) {
+          //that.state = { post : result[0] , htmlBody :  result[0].htmlBody || null }
           that.setState({post : result[0] , htmlBody :  result[0].htmlBody || null });
         }
         
@@ -33,8 +34,8 @@ class MobilePostDetails extends Component {
   }
 
 	render () {
-      var userTelObj = Meteor.user().telescope;
-      var userCountry = (userTelObj.hasOwnProperty("location") && userTelObj.location.length > 0 && userTelObj.location[0].hasOwnProperty("country")) ? userTelObj.location[0].country : Meteor.settings.public.defaultCountry;
+      var userTelObj = (Meteor.user() && Meteor.user().telescope) || null;
+      var userCountry = (userTelObj && userTelObj.hasOwnProperty("location") && userTelObj.location.length > 0 && userTelObj.location[0].hasOwnProperty("country")) ? userTelObj.location[0].country : Meteor.settings.public.defaultCountry;
       
      // return;
      // var postArr = 
@@ -79,7 +80,7 @@ class MobilePostDetails extends Component {
 
                   {(this.state.post.hasOwnProperty("customArray11") && this.state.post.customArray11.length > 0) ? 
                     this.state.post.customArray11.map(function(item,index){
-                      console.log("item",item,index,userCountry)
+                      //console.log("item",item,index,userCountry)
                       if((item.hasOwnProperty("country")) && (item.country == userCountry)) {
                         return <div className="venue text-center"><i className="fa fa-map-marker"></i><span>{userCountry}</span></div>
                       }

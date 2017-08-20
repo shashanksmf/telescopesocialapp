@@ -14,7 +14,7 @@ class MobileShowTimingBtn extends Component {
  
 
 	  return(
-         <div className="btn ShowTimingBtn container">
+         <div className="ShowTimingBtn container">
             <a href="http://yahoo.in" target="_blank">Show Timing</a> 
         </div>
       )
