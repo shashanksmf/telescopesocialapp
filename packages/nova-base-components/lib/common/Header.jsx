@@ -42,7 +42,7 @@ const Header = (props, {currentUser}) => {
             <li className={ (props.router.location.pathname == "/" && (!props.router.location.query.view)) ? "active"  : "" }><Link to="/"><span>New</span></Link></li>
             <li className={ props.router.location.pathname == "/daily" ? "active" : "" }><Link to="/daily"><span>By Date</span></Link></li>
             <li className={ props.router.location.query.view == "userUpvotedPosts" ? "active" : "" }><Link to={{pathname:"/" , query:{...query,view:'userUpvotedPosts'}}} ><span>Popular</span></Link></li>
-            <li className=""><span>Random</span></li>
+            <li className={ props.router.location.query.view == "Random" ? "active" : "" }><Link to={{pathname:"/" , query:{...query,view:'Random'}}} ><span>Random</span></Link></li>
           </ul>
         </div>
         : null }

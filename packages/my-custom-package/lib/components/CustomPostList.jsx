@@ -7,7 +7,7 @@ import React from 'react';
 
 const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount, loadMore, showHeader = true,userCountry,location}) => {
 	
-	//console.log("custom post list",results)
+	//console.log("custom post list",results,location)
 	var isPhone;
 	if (Meteor && Meteor.Device) {
 	  isPhone = Meteor.Device.isPhone();
@@ -19,6 +19,13 @@ const CustomPostList = ({results, currentUser, hasMore, ready, count, totalCount
 	if(queryUrl)
 	{
 		isUserSearching = (queryUrl && queryUrl.query && queryUrl.query.length > 0) ? true : false;
+	}
+
+	// code for if view == random then shuffle records
+	if(queryUrl && ("view" in queryUrl) && queryUrl.view == 'Random' ) {
+	//	console.log("randomise");
+		var RandomiseResult =  shuffle(results)
+		results = shuffle(RandomiseResult);
 	}      
 
 	var categoriesArr=[];
@@ -120,3 +127,23 @@ export default CustomPostList;
           />
             {showHeader ? <Telescope.components.PostsListHeader /> : null}
 	*/
+
+function shuffle(array) {
+	//console.log("shuffle called")
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}

@@ -129,6 +129,31 @@ Posts.addField(
     insertableIf: canInsert,
     editableIf: canEdit,
     
+  },
+      custom:function(){
+        alert(this.field("showmovies").value);
+      }
+},
+  {
+  fieldName: 'showmovies',
+  fieldSchema: {
+    type: String,
+    optional: true,
+     insertableIf: canInsert,
+    editableIf: canEdit,
+    publish: true,
+    control:"select",
+    form: {
+        options: [
+        {label: "Movies", value: "Movies"},
+        {label: "Sports", value: "Sports"},
+        {label: "Blue", value: "blue"}
+      ]
+    },
+
+    optional: function(){
+      console.log("autoValue",this,this.field('categories'))
+    }
   }
 },
   {
@@ -204,7 +229,7 @@ so we also add our new field to that object:
 
 import PublicationUtils from 'meteor/utilities:smart-publications';
 
-PublicationUtils.addToFields(Posts.publishedFields.list, ["color","product","image","customArray11","video","Genre"]);
+PublicationUtils.addToFields(Posts.publishedFields.list, ["color","product","image","customArray11","video","Genre","showmovies"]);
 
 PublicationUtils.addToFields(Users.publishedFields.list, ["image"]);
 
