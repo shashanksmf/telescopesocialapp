@@ -104,11 +104,15 @@ class MobilePostDetails extends Component {
                       </div>
 
                       : null }
-
-                    {this.state.post.hasOwnProperty("customArray11") && this.state.post.customArray11[0].hasOwnProperty("reldate") ? 
+                    {/* if country matches and release date exists */}
+                    {this.state.post.hasOwnProperty("customArray11") && this.state.post.customArray11.constructor === Array && this.state.post.customArray11.length > 0 && this.state.post.customArray11[0].hasOwnProperty("reldate") &&
+                      userCountry && this.state.post.customArray11[0].hasOwnProperty("country") &&
+                      userCountry == this.state.post.customArray11[0].country
+                     ? 
                       <Telescope.components.MobileDateLikeBtn mobilepostdetails={true} post={this.state.post} date={moment(this.state.post.customArray11[0].relDate).format('MM')+'/'+moment(this.state.post.customArray11[0].relDate).format('DD')+'/'+moment(this.state.post.customArray11[0].relDate).format('gg')} />
                     : null }
                     
+                    {/* if country matches and release date exists */}
                     
                     {this.state.post.htmlBody ? <div className="posts-page-body" dangerouslySetInnerHTML={{__html:this.state.htmlBody}} ></div> : null}
                   {/* add show timings */}
