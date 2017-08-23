@@ -9,15 +9,22 @@ import { withRouter } from 'react-router';
 class CustomLayout extends Component {
 
   componentDidMount(){
-    
-    if (Meteor && Meteor.Device && Meteor.Device.isPhone()) {
+    this.adjustScroll()
+  }
+
+  componentDidUpdate(){
+    this.adjustScroll()
+  }
+
+  adjustScroll(){
+        if (Meteor && Meteor.Device && Meteor.Device.isPhone()) {
         var headerHt = document.getElementsByClassName("header-wrapper")[0].clientHeight;
         var windowHt = window.innerHeight;
         var footerHt = document.getElementsByClassName("footer-links")[0].clientHeight;
         document.getElementsByClassName("main")[0].style.height = windowHt - headerHt - footerHt + 'px';
         console.log("phone", headerHt,windowHt,footerHt);
         document.getElementsByTagName("body")[0].style.overflowY = "hidden"
-      }
+      }    
   }
 
   componentWillMount() {
