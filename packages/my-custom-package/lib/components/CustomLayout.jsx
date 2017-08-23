@@ -51,7 +51,7 @@ class CustomLayout extends Component {
       var logoName = "Releasery"
       //code for document title
       var urlLocation = this.props.router.location; 
-      console.log(this.props.router)
+      //console.log(this.props.router)
       if(urlLocation && urlLocation.hasOwnProperty("query") && ("cat" in urlLocation.query) && urlLocation.hasOwnProperty("state") && urlLocation.state && urlLocation.state.length > 0) {
         logoName = urlLocation.state;
       }

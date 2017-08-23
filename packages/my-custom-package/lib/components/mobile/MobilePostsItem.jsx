@@ -39,8 +39,8 @@ class MobilePostsItem extends Component {
     var countryName='';
     var user = Meteor.user();
 
-    if(user && user.hasOwnProperty("telescope") && user.telescope.location[0].country && user.telescope.location[0].country.length > 0) {
-      var countryArr = user.location[0].country.split(",")
+    if(user && user.hasOwnProperty("telescope") && user.telescope.hasOwnProperty("location") && user.telescope.location.constructor === Array &&  user.telescope.location.length > 0 && user.telescope.location[0].country && user.telescope.location[0].country.length > 0) {
+      var countryArr = user.telescope.location[0].country.split(",")
       countryName = countryArr[countryArr.length-1].trim();
     }
     else {

@@ -129,16 +129,14 @@ Posts.addField(
     insertableIf: canInsert,
     editableIf: canEdit,
     
-  },
-      custom:function(){
-        alert(this.field("showmovies").value);
-      }
+  }
 },
   {
   fieldName: 'showmovies',
   fieldSchema: {
     type: String,
-    optional: true,
+      optional: true,
+
      insertableIf: canInsert,
     editableIf: canEdit,
     publish: true,
@@ -149,10 +147,6 @@ Posts.addField(
         {label: "Sports", value: "Sports"},
         {label: "Blue", value: "blue"}
       ]
-    },
-
-    optional: function(){
-      console.log("autoValue",this,this.field('categories'))
     }
   }
 },
