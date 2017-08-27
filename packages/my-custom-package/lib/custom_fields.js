@@ -131,6 +131,17 @@ Posts.addField(
     
   }
 },
+ {
+  fieldName: 'producturl',
+  fieldSchema: {
+    type: String,
+    optional: true,
+    publish: true,
+    insertableIf: canInsert,
+    editableIf: canEdit,
+    
+  }
+},
   {
   fieldName: 'showmovies',
   fieldSchema: {
@@ -141,7 +152,7 @@ Posts.addField(
     editableIf: canEdit,
     publish: true,
     control:"select",
-    form: {
+    form:  {
         options: [
         {label: "Movies", value: "Movies"},
         {label: "Sports", value: "Sports"},
@@ -223,7 +234,7 @@ so we also add our new field to that object:
 
 import PublicationUtils from 'meteor/utilities:smart-publications';
 
-PublicationUtils.addToFields(Posts.publishedFields.list, ["color","product","image","customArray11","video","Genre","showmovies"]);
+PublicationUtils.addToFields(Posts.publishedFields.list, ["color","product","image","customArray11","video","Genre","showmovies","producturl"]);
 
 PublicationUtils.addToFields(Users.publishedFields.list, ["image"]);
 

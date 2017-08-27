@@ -117,7 +117,7 @@ class MobilePostDetails extends Component {
                     {this.state.post.htmlBody ? <div className="posts-page-body" dangerouslySetInnerHTML={{__html:this.state.htmlBody}} ></div> : null}
                   {/* add show timings */}
 
-                    <Telescope.components.MobileShowTimingBtn />
+                    <Telescope.components.MobileShowTimingBtn post={this.state.post} />
                   {/*<SocialShare url={ Posts.getLink(post) } title={ post.title }/>*/}
                 </Tab>
                 <Tab eventKey={2} title="Comments"><Telescope.components.PostsCommentsThread document={this.state.post} /></Tab>

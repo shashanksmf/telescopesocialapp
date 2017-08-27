@@ -30,7 +30,7 @@ const Header = (props, {currentUser},logoName) => {
           <Telescope.components.Logo logoUrl={logoUrl} siteTitle={siteTitle} />
           {tagline ? <h2 className="tagline">{tagline}</h2> : "" }
         </div>
-           <CustomNotificationList/>
+         
         <div className="nav">
           
           <div className="nav-user">
@@ -53,7 +53,7 @@ const Header = (props, {currentUser},logoName) => {
           </ul>
         </div>
         : null }
-
+          <CustomNotificationList/>
       </header>
     </div>
   )

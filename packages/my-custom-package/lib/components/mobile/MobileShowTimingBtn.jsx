@@ -3,19 +3,12 @@ import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 
 class MobileShowTimingBtn extends Component { 
-	
-	constructor() {
-	    super();
-  }
-	
+		
 
 	render() { 
-
- 
-
 	  return(
          <div className="ShowTimingBtn container">
-            <a href="http://yahoo.in" target="_blank">Show Timing</a> 
+            <a href={this.props.post.producturl} target="_blank">Show Timing</a> 
         </div>
       )
   }
