@@ -33,10 +33,10 @@ class CustomVote extends Component {
       // 1st check if already the posts exists in database
       var nowDate = new Date();
       nowDate.setDate(nowDate.getDate());
-       var dataDate = new Date(post.customArray11[0].reldate);
+       var dataDate = new Date(post.productReleaseDate[0].reldate);
         var dayDiff = dateDiffInDays(nowDate,dataDate);
         if(dayDiff < 3 ){
-        if(post.customArray11 && post.customArray11[0].reldate) {
+        if(post.productReleaseDate && post.productReleaseDate[0].reldate) {
 
             var checkIfPostExist = Notification.find({to:user._id,postId:post._id}).fetch();
             if(checkIfPostExist.length == 0) {
@@ -45,7 +45,7 @@ class CustomVote extends Component {
                 to: user._id,
                 postId: post._id,
                 read: false,
-                message: post.title + ' Will Relase on' + post.customArray11[0].reldate.toDateString(),
+                message: post.title + ' Will Relase on' + post.productReleaseDate[0].reldate.toDateString(),
                 date: new Date()   
               };
               Meteor.call("notification.insert",insertObj,function(error,result){

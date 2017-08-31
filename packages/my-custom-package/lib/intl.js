@@ -11,7 +11,7 @@ Telescope.strings.en = {
   "posts.userUpvotedPosts":"Favourite",
   "posts.body":"Description",
   "posts.Categories":"Categories",
-  "posts.customArray11":"Additional Info",
+  "posts.productReleaseDate":"Additional Info",
   "posts.video":"video",
   "posts.Genre":"Genre",
   "posts.Ratings":"Ratings",

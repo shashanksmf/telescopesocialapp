@@ -33,9 +33,9 @@ class CustomPostsPageItem extends Telescope.components.PostsItem {
     
     const post = this.props.post;
   	//console.log("post :ss",this.props,"countryName : ",countryName);
-    if(this.props.post.hasOwnProperty("customArray11")){
-      if(this.props.post.customArray11.constructor === Array){
-        this.props.post.customArray11.forEach(function(items){
+    if(this.props.post.hasOwnProperty("productReleaseDate")){
+      if(this.props.post.productReleaseDate.constructor === Array){
+        this.props.post.productReleaseDate.forEach(function(items){
           if(items){
             if(items.hasOwnProperty("country") && countryName != null && countryName.length > 1 ){
 

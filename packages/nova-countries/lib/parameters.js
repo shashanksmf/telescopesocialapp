@@ -31,9 +31,9 @@ function addCountryParameter (parameters, terms) {
     });
 
     //parameters.selector.countries = {$in: countriesIds};
-  //  parameters.selector.customArray11 = {'$elemMatch':{ 'country' : country }};
+  //  parameters.selector.productReleaseDate = {'$elemMatch':{ 'country' : country }};
 //  } else {
-    //parameters.selector.customArray11 = {'$elemMatch':{ 'country' : 'uk' }};
+    //parameters.selector.productReleaseDate = {'$elemMatch':{ 'country' : 'uk' }};
   }
   return parameters;
 }

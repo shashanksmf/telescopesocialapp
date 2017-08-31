@@ -48,8 +48,8 @@ class MobilePostsItem extends Component {
     }
 
     if(selectedCoutry){
-      if(post.hasOwnProperty("customArray11")) {
-        countryArr = post.customArray11.filter(function(item){
+      if(post.hasOwnProperty("productReleaseDate")) {
+        countryArr = post.productReleaseDate.filter(function(item){
           //console.log("item",item,selectedCoutry);
           if(item && item.country){
             return item.country.toLowerCase() == selectedCoutry.toLowerCase();
@@ -128,9 +128,9 @@ class MobilePostsItem extends Component {
     
     const post = this.props.post;
   	//console.log("post :ss",this.props,"countryName : ",countryName);
-    if(this.props.post.hasOwnProperty("customArray11")){
-      if(this.props.post.customArray11.constructor === Array){
-        this.props.post.customArray11.forEach(function(items){
+    if(this.props.post.hasOwnProperty("productReleaseDate")){
+      if(this.props.post.productReleaseDate.constructor === Array){
+        this.props.post.productReleaseDate.forEach(function(items){
           if(items){
             if(items.hasOwnProperty("country") && countryName != null && countryName.length > 1 ){
             // console.log("items",items,"countryName",countryName)

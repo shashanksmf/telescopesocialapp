@@ -63,8 +63,8 @@ class CustomPostDetails extends React.Component{
 		}
 
 		if(selectedCoutry){
-			if(post.hasOwnProperty("customArray11")) {
-				countryArr = post.customArray11.filter(function(item){
+			if(post.hasOwnProperty("productReleaseDate")) {
+				countryArr = post.productReleaseDate.filter(function(item){
 					if(item && item.country) {
 						return item.country.toLowerCase() == selectedCoutry.toLowerCase();
 					}
@@ -150,7 +150,7 @@ export default withRouter(CustomPostDetails);
 
 // <div className="ui menu priceDropDown">
 // 					  <div className="ui simple dropdown item">
-// 					    Price : <i className={post.customArray11[0].currencyIcon}></i> {post.customArray11[0].price}
+// 					    Price : <i className={post.productReleaseDate[0].currencyIcon}></i> {post.productReleaseDate[0].price}
 // 					    <i className="dropdown icon"></i>
 // 					    <div className="menu prices">
 // 						    {countryArr.map(function(country){

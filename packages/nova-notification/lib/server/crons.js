@@ -12,14 +12,14 @@ cron.SyncedCron.add({
 
     var date = new Date();
     date.setDate(date.getDate()+2);
-  	var posts = Posts.find({ 'customArray11.reldate' : { $lte : date } }).fetch();
+  	var posts = Posts.find({ 'productReleaseDate.reldate' : { $lte : date } }).fetch();
   	posts.forEach(function(post, index, posts){
      // console.log('Post Find', post.title);
       if(post.upvoters){
        // console.log('Upvoters find');
         post.upvoters.forEach(function(upvoter, index, upvoters){
          console.log(upvoter);
-          post.customArray11.forEach(function(data, index, array){
+          post.productReleaseDate.forEach(function(data, index, array){
             var dataDate = new Date(data.reldate);
             if(date <= dataDate){
                 var insertData = {

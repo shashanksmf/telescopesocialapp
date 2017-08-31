@@ -78,8 +78,8 @@ class MobilePostDetails extends Component {
 
                   {/* code for venue */}
 
-                  {(this.state.post.hasOwnProperty("customArray11") && this.state.post.customArray11.length > 0) ? 
-                    this.state.post.customArray11.map(function(item,index){
+                  {(this.state.post.hasOwnProperty("productReleaseDate") && this.state.post.productReleaseDate.length > 0) ? 
+                    this.state.post.productReleaseDate.map(function(item,index){
                       //console.log("item",item,index,userCountry)
                       if((item.hasOwnProperty("country")) && (item.country == userCountry)) {
                         return <div className="venue text-center"><i className="fa fa-map-marker"></i><span>{userCountry}</span></div>
@@ -105,11 +105,11 @@ class MobilePostDetails extends Component {
 
                       : null }
                     {/* if country matches and release date exists */}
-                    {this.state.post.hasOwnProperty("customArray11") && this.state.post.customArray11.constructor === Array && this.state.post.customArray11.length > 0 && this.state.post.customArray11[0].hasOwnProperty("reldate") &&
-                      userCountry && this.state.post.customArray11[0].hasOwnProperty("country") &&
-                      userCountry == this.state.post.customArray11[0].country
+                    {this.state.post.hasOwnProperty("productReleaseDate") && this.state.post.productReleaseDate.constructor === Array && this.state.post.productReleaseDate.length > 0 && this.state.post.productReleaseDate[0].hasOwnProperty("reldate") &&
+                      userCountry && this.state.post.productReleaseDate[0].hasOwnProperty("country") &&
+                      userCountry == this.state.post.productReleaseDate[0].country
                      ? 
-                      <Telescope.components.MobileDateLikeBtn mobilepostdetails={true} post={this.state.post} date={moment(this.state.post.customArray11[0].relDate).format('MM')+'/'+moment(this.state.post.customArray11[0].relDate).format('DD')+'/'+moment(this.state.post.customArray11[0].relDate).format('gg')} />
+                      <Telescope.components.MobileDateLikeBtn mobilepostdetails={true} post={this.state.post} date={moment(this.state.post.productReleaseDate[0].relDate).format('MM')+'/'+moment(this.state.post.productReleaseDate[0].relDate).format('DD')+'/'+moment(this.state.post.productReleaseDate[0].relDate).format('gg')} />
                     : null }
                     
                     {/* if country matches and release date exists */}

@@ -188,11 +188,11 @@ Posts.addField(
     }
   },
 	 {
-    fieldName: "customArray11",
+    fieldName: "productReleaseDate",
     fieldSchema: {
       type: [RelDateCountry.schema],
       control: "customArray",
-      optional: true,
+      optional: false,
       insertableIf: canInsert,
       editableIf: canEdit,
       publish:true
@@ -234,7 +234,7 @@ so we also add our new field to that object:
 
 import PublicationUtils from 'meteor/utilities:smart-publications';
 
-PublicationUtils.addToFields(Posts.publishedFields.list, ["color","product","image","customArray11","video","Genre","showmovies","producturl"]);
+PublicationUtils.addToFields(Posts.publishedFields.list, ["color","product","image","productReleaseDate","video","Genre","showmovies","producturl"]);
 
 PublicationUtils.addToFields(Users.publishedFields.list, ["image"]);
 
