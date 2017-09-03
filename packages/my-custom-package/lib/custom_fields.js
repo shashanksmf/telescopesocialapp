@@ -18,6 +18,12 @@ const canInsert = user => Users.canDo(user, "posts.new");
 const canEdit = Users.canEdit;
 const RelDateCountry = new Mongo.Collection("RelDateCountry");
  RelDateCountry.schema = new SimpleSchema({
+  _id:{
+    type:String,
+    autoValue : function(){
+      return Meteor.uuid();
+    }
+  },
   country:{
     type: String,
     optional: true
@@ -28,7 +34,6 @@ const RelDateCountry = new Mongo.Collection("RelDateCountry");
   },
    reldate:{
     type: Date,
-    optional: true,
   },
   reldate_local:{
     type: String,

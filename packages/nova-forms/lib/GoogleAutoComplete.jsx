@@ -4,7 +4,7 @@ import React, { PropTypes, Component } from 'react';
 class GoogleAutoComplete extends Component {
     constructor(props,context) {
         super(props,context);
-        //console.log("props context",props,context)
+        console.log("props context",props,context)
         var locationId;
         if(Array.isArray(props.value) && props.value.length > 0 && props.value[0].hasOwnProperty('place')) {
             place = props.value[0].place;
@@ -65,7 +65,8 @@ class GoogleAutoComplete extends Component {
         })
 
         if(this.props.hasOwnProperty("savecountry")) {
-            this.props.savecountry({'name':placeArr[0]["country"]} , this.props.savecountryindex ,this)
+            console.log("google autocomplete savecountry block")
+            this.props.savecountry({'name':placeArr[0]["place"]} , this.props.savecountryindex ,this)
         } else {
             console.log("in else",this.props);
             this.props.myCustomProps.updateCurrentValue(this.props.name,placeArr);

@@ -36,17 +36,29 @@ class MobilePostDetails extends Component {
 	render () {
       var userTelObj = (Meteor.user() && Meteor.user().telescope) || null;
       var userCountry = (userTelObj && userTelObj.hasOwnProperty("location") && userTelObj.location.length > 0 && userTelObj.location[0].hasOwnProperty("country")) ? userTelObj.location[0].country : Meteor.settings.public.defaultCountry;
-      
-     // return;
-     // var postArr = 
-     // console.log(this.props.router.params.id)
-      
-      //console.log("posts",)
+      var proRelDateMatchArr = [];
 
-//console.log("custom page ",this.state.post);
     if(!this.state.post) {
       return null;
     }
+
+    if(this.state.post.hasOwnProperty("productReleaseDate") && this.state.post.productReleaseDate.constructor === Array && this.state.post.productReleaseDate.length > 0 ) {
+      
+      this.state.post.productReleaseDate.forEach(function(item,index){
+        if(item.country) {
+          var countryLen = item.country.split(",").length;
+          if(userCountry == item.country.split(",")[countryLen-1].trim()) {
+            proRelDateMatchArr.push(item)
+          }
+        }
+      })
+
+    }
+
+    console.log("proRelDateMatchArr : ",proRelDateMatchArr,userCountry);
+
+
+
     return (
       
       <div className="posts-pages">
@@ -104,15 +116,22 @@ class MobilePostDetails extends Component {
                       </div>
 
                       : null }
-                    {/* if country matches and release date exists */}
-                    {this.state.post.hasOwnProperty("productReleaseDate") && this.state.post.productReleaseDate.constructor === Array && this.state.post.productReleaseDate.length > 0 && this.state.post.productReleaseDate[0].hasOwnProperty("reldate") &&
-                      userCountry && this.state.post.productReleaseDate[0].hasOwnProperty("country") &&
-                      userCountry == this.state.post.productReleaseDate[0].country
-                     ? 
-                      <Telescope.components.MobileDateLikeBtn mobilepostdetails={true} post={this.state.post} date={moment(this.state.post.productReleaseDate[0].relDate).format('MM')+'/'+moment(this.state.post.productReleaseDate[0].relDate).format('DD')+'/'+moment(this.state.post.productReleaseDate[0].relDate).format('gg')} />
-                    : null }
+
+
+                    {/* if country matches and release date exists 
+                        Now write code if there is multiple same country name is productReleaseDate then
+                        show "+ various date" button 
+
+                    */}
+                    { proRelDateMatchArr.length == 0  ?
+                      <Telescope.components.MobileDateLikeBtn mobilepostdetails={true} post={this.state.post} date={moment(proRelDateMatchArr[0].relDate).format('MM')+'/'+moment(proRelDateMatchArr[0].relDate).format('DD')+'/'+moment(proRelDateMatchArr[0].relDate).format('gg')} />
+                    : (proRelDateMatchArr.length > 1 ? 
+                      <Telescope.components.MobileVariousDatesBtn post={this.state.post}  dateCountryMatch={proRelDateMatchArr} />
+                      : null )  }
                     
                     {/* if country matches and release date exists */}
+
+
                     
                     {this.state.post.htmlBody ? <div className="posts-page-body" dangerouslySetInnerHTML={{__html:this.state.htmlBody}} ></div> : null}
                   {/* add show timings */}

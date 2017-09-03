@@ -130,6 +130,41 @@ Meteor.methods({
 
     Users.methods.setSetting(userId, settingName, value);
 
+  },
+
+  'users.insertPostIdAndReleaseDateId'(userId,postId,releaseDateId) {
+    //console.log("userId,postId,releaseDateId",userId,postId,releaseDateId);
+    
+    var docFound = Users.find( 
+      { _id : userId ,
+        "telescope.productReleaseDate.postId" : postId 
+      }).fetch();
+
+    console.log("document Found",docFound);
+    if(docFound.length == 0) {
+      var insertDoc = Users.update({_id : userId }, 
+        { $push : { "telescope.productReleaseDate":
+        { postId : postId ,releaseDateId : releaseDateId }
+      }})
+
+      console.log("insertDoc -> ",insertDoc)
+    }
+
+    if(docFound.length > 0) {
+      var updateDoc = Users.update({
+        _id: userId,
+        "telescope.productReleaseDate.postId":postId },
+        {"$set": { "telescope.productReleaseDate.$.releaseDateId":releaseDateId } }
+         );
+
+      console.log("updateDoc",updateDoc);
+    }
+
+  
+     // db.getCollection('users').update({_id:"YMqsKqeuDJyw8tRAk"}, {$push: {"telescope.productReleaseDate": {postId:"demoPostID"} }});
+//db.getCollection('users').find({_id:"YMqsKqeuDJyw8tRAk", "telescope.productReleaseDate": {postId:"demoPostID"} } );
+ //db.getCollection('users').update({_id:"YMqsKqeuDJyw8tRAk","telescope.productReleaseDate.postId":"demoPostID"} ,{"$set":{"telescope.productReleaseDate.$.postId":"helloPostId"  }} );
+
   }
 
 });

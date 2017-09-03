@@ -41,16 +41,7 @@ class CustomArray extends Component {
   }
 
   changeInputValue(country,inputIndex,event){
- //   console.log("this state",this)
-   // console.log("change input value called",country,inputIndex,event);
-    // var currencyIcon='';
-    //  countries.find().fetch().map(function(country){
-    //     if(country.name == event.target.value){
-    //       //console.log(country);
-    //       currencyIcon = country.icon;
-    //     }
-    //  })
-    // console.log("inputIndex  :  ",event,country,inputIndex);
+
       if(!this.state.inputvalue[inputIndex].hasOwnProperty("country")) {
         this.state.inputvalue[inputIndex].country =  country.name;
       }
@@ -175,7 +166,7 @@ class CustomArray extends Component {
                   http://
                 </div>
                 <input type="text" placeholder="mysite.com" onChange={that.onChangeSourceName.bind(that,inputIndex)} value={items.sourceUrl}/>
-                <i class="plus icon"></i>
+                <i className="plus icon"></i>
               </div>
 
               <div className="ui input ">
@@ -253,63 +244,3 @@ CustomArray.contextTypes = {
 };
 
 export default CustomArray;
-// <DateTimePicker
-//             name={that.state.name[inputIndex]['price']} 
-//             key={"CustomArray_relDate_"+inputIndex}
-//             value={items.reldate || new Date()}
-//             // newDate argument is a Moment object given by react-datetime
-//             onChange={that.onChangeDate.bind(that,inputIndex)}
-//             format={"x"} 
-//           />
-// <input
-//               key={"CustomArray_Price_"+inputIndex}
-//            type="text"  
-//             value={items.price}
-//             name={that.state.name[inputIndex]['price']}
-//             // newDate argument is a Moment object given by react-datetime
-//             onChange={that.changePriceValue.bind(that,inputIndex)}
-              
-//           />
- // <select onChange={ (e)=>{ console.log("state : ",that.state.currencySelected,e.target.value); that.setState({currencySelected:e.target.value}) }   }  value={that.state.currencySelected} className={that.state.currencySelected}>
- //                    {currencyIcons.map(function(icons){
- //                      return <option  className={icons} value={icons}><i className={icons}/></option>
- //                    })}
-                   
- //                </select>
-
- // <input className="form-control"
- //                  key={"CustomArray_"+inputIndex}
- //               type="text"  
- //                placeholder="Country"
- //                value={items.country}
- //                name={that.state.name}
- //                // newDate argument is a Moment object given by re|act-datetime
- //                onChange={e=> that.changeInputValue(e.persist()||e,inputIndex)}
-                  
- //              />
-
-// <div className={items.isExpanded ? "dropdown open currencyDropDown" : "dropdown currencyDropDown"}>
-//                   <button className="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" onClick={()=>{ items.isExpanded= !items.isExpanded; that.setState({inputvalue:that.state.inputvalue})  }}><i className={items.currencyIcon}></i>
-//                   <span className="caret"></span></button>
-                 
-//                   <ul className="dropdown-menu">
-//                         {currencyIcons.map(function(icons,iconsIndex){
-//                            return <li onClick={(e,icons)=>{ items.isExpanded=!items.isExpanded;  that.setState({currencySelected:e.target.className,inputvalue:that.state.inputvalue});  that.setCurrency(inputIndex,e.target.className); }   }  className={icons} value={icons}></li>
-//                          })}
-//                   </ul>  
-//             </div>
-
-     
-              //  <select name="dropdown" className="ui dropdown " value={that.country}   onChange={e=> that.changeInputValue(e.persist()||e,inputIndex)} >
-              //   {countries.find().fetch().map(function(country){
-              //     return <option value={country.name}>{country.name}</option>
-              //   })}
-
-
-               
-              // </select>
-
-
-      //         if(that.state.inputvalue.length ==0){
-      //   return <div className="AdditionalInfoContainer"> <button type="button" className="btn btn-info AdditionalInfoBtn" name="newinput" onClick={that.addMore.bind(that)}>Aditional Information</button></div>
-      // }

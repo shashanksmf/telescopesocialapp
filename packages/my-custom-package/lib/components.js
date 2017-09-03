@@ -38,6 +38,9 @@ import MobileSearchPage from "./components/mobile/MobileSearchPage.jsx";
 
 import MobileSearchComponent from "./components/mobile/MobileSearchComponent.jsx";
 import MobileShowTimingBtn  from "./components/mobile/MobileShowTimingBtn.jsx";
+import MobileVariousDatesBtn  from "./components/mobile/MobileVariousDatesBtn.jsx";
+import MobileDateVenueList from "./components/mobile/MobileDateVenueList.jsx"; 
+
 
 import CustomHeader from "./components/CustomHeader.jsx";
 //import CustomSearchForm from "./components/CustomSearchForm.jsx";
@@ -63,6 +66,8 @@ Telescope.components.MobileSearchPage = MobileSearchPage;
 Telescope.components.MobileSearchComponent = MobileSearchComponent;
 Telescope.components.Header = CustomHeader;
 Telescope.components.MobileShowTimingBtn = MobileShowTimingBtn;
+Telescope.components.MobileVariousDatesBtn = MobileVariousDatesBtn;
+Telescope.components.MobileDateVenueList = MobileDateVenueList;
 
 //Telescope.components.Cus = CustomHeader;
 //Telescope.components.SearchForm = CustomSearchForm;

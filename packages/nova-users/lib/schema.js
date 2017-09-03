@@ -30,9 +30,21 @@ Telescope.schemas.votes = new SimpleSchema({
   },
   votedAt: {
     type: Date,
-    optional: true
+   
+
   }
 });
+
+Telescope.schemas.productReleaseDateAndId = new SimpleSchema({
+  postId : {
+    type :String,
+    optional: true
+  },
+  releaseDateId : {
+    type:String,
+    optional: true
+  }
+})
 
 /**
  * @summary User Data schema
@@ -240,6 +252,12 @@ Telescope.schemas.userData = new SimpleSchema({
     control: "googleAutoComplete",
     blackbox: true,
     editableIf: canEdit
+  },
+
+  productReleaseDate : {
+    type:[Telescope.schemas.productReleaseDateAndId],
+    publish: true,
+    optional: true
   }
 
 });

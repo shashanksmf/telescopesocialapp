@@ -480,6 +480,12 @@ $information-phone: "only screen and (max-width : 600px)";
 			    background-color:white;
    				border: 1px solid #6051a9;
 			}
+
+			&.downVote {
+			 	color: #6051a9;
+			    background-color:white;
+   				border: 1px solid #6051a9;
+			}
 			
 
 			max-width: 140px;
@@ -541,4 +547,54 @@ $information-phone: "only screen and (max-width : 600px)";
 	a:hover{
 		color:white;
 	}
+}
+
+.mobileVariosuDatesBtn {
+	&.downVote:hover {
+	    color: #6051a9;
+	    background-color:white;
+			border: 1px solid #6051a9;
+	}
+
+	&.downVote {
+	 	color: #6051a9;
+	    background-color:white;
+		border: 1px solid #6051a9;
+	}
+
+	max-width: 140px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    border-radius: 5px;
+	padding: 5px 15px;
+
+	
+	   
+
+	a {
+		display: flex;
+    	flex-direction: row;
+    	align-items:center;
+	}
+
+	&.upvote {
+		background: #6051a9;
+    	color: #fff;
+		}
+
+
 }	
+
+.dateVenueListPopUp {
+	background-color:white;
+	position:fixed;
+	top:30%;
+	left:10%;
+	right:10%;
+}
+
+.flex-center {
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
