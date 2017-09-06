@@ -163,7 +163,7 @@ Posts.addField(
   fieldName: 'showmovies',
   fieldSchema: {
     type: String,
-      optional: true,
+      optional: false,
 
      insertableIf: canInsert,
     editableIf: canEdit,
@@ -173,8 +173,9 @@ Posts.addField(
         options: [
         {label: "Movies", value: "Movies"},
         {label: "Sports", value: "Sports"},
-        {label: "Blue", value: "blue"}
-      ]
+        {label: "Event", value: "Event"},
+         {label: "Product", value: "Product"}
+      ],
     }
   }
 },

@@ -118,6 +118,8 @@ class MobileVariousDatesBtn extends Component {
 
       }
     })
+
+   this.setState({showDateVenueList : false}); 
     //this.upvote();
 
 
@@ -184,7 +186,6 @@ class MobileVariousDatesBtn extends Component {
                                             closePopUp={this.closeVenueDatePopUp.bind(this)}
                                             countryDate={this.props.dateCountryMatch} /> 
             : null }
-        
           </div>)
       }
       else {
@@ -200,9 +201,7 @@ class MobileVariousDatesBtn extends Component {
                                               updateSelectedDate={this.selectDateFromList.bind(this)} 
                                               closePopUp={this.closeVenueDatePopUp.bind(this)} 
                                               countryDate={this.props.dateCountryMatch} /> 
-            : null }
-              
-            
+            : null }     
           </div>
         
           )

@@ -422,8 +422,14 @@ $information-phone: "only screen and (max-width : 600px)";
 			}
 		}
 	}
-}
 
+
+}
+.mobile-wrapper{
+		.CustomNotificationListContainer {
+   	display:none;
+   }
+}
 .CustomNotificationListContainer {
 	li a {
 	color:black;
