@@ -160,6 +160,8 @@ Meteor.methods({
       console.log("updateDoc",updateDoc);
     }
 
+    return true;
+
   
      // db.getCollection('users').update({_id:"YMqsKqeuDJyw8tRAk"}, {$push: {"telescope.productReleaseDate": {postId:"demoPostID"} }});
 //db.getCollection('users').find({_id:"YMqsKqeuDJyw8tRAk", "telescope.productReleaseDate": {postId:"demoPostID"} } );

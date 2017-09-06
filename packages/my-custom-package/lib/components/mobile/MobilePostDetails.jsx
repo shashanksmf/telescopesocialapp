@@ -123,7 +123,7 @@ class MobilePostDetails extends Component {
                         show "+ various date" button 
 
                     */}
-                    { proRelDateMatchArr.length == 0  ?
+                    { proRelDateMatchArr.length == 1  ?
                       <Telescope.components.MobileDateLikeBtn mobilepostdetails={true} post={this.state.post} date={moment(proRelDateMatchArr[0].relDate).format('MM')+'/'+moment(proRelDateMatchArr[0].relDate).format('DD')+'/'+moment(proRelDateMatchArr[0].relDate).format('gg')} />
                     : (proRelDateMatchArr.length > 1 ? 
                       <Telescope.components.MobileVariousDatesBtn post={this.state.post}  dateCountryMatch={proRelDateMatchArr} />

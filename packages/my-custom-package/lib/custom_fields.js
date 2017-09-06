@@ -20,8 +20,13 @@ const RelDateCountry = new Mongo.Collection("RelDateCountry");
  RelDateCountry.schema = new SimpleSchema({
   _id:{
     type:String,
+    optional:true,
     autoValue : function(){
-      return Meteor.uuid();
+     // console.log("autovalue",this);
+      if(!this.value) {
+        return Meteor.uuid();
+      }
+      //return Meteor.uuid();
     }
   },
   country:{
@@ -34,10 +39,11 @@ const RelDateCountry = new Mongo.Collection("RelDateCountry");
   },
    reldate:{
     type: Date,
+    optional:true
   },
   reldate_local:{
     type: String,
-    optional: true,
+    optional: true
   },
   currencyIcon:{
     type: String,
@@ -83,6 +89,12 @@ VideoSlider.schema = new SimpleSchema({
   }
 });
 VideoSlider.attachSchema(VideoSlider.schema);
+
+SimpleSchema.messages({
+  "productReleaseDateMinCountError": "Please Select ReleaseDate of the Post",
+  "minCount":"[label] You must specify atleast one value"
+});
+
 
 Users.addField([{
  
@@ -195,11 +207,17 @@ Posts.addField(
 	 {
     fieldName: "productReleaseDate",
     fieldSchema: {
+      label:"ReleaseDate",
       type: [RelDateCountry.schema],
       control: "customArray",
-      optional: false,
       insertableIf: canInsert,
       editableIf: canEdit,
+      custom:function(){
+        console.log("custom",this)
+      },
+      optional:function(){
+        console.log("optional",this)
+      },
       publish:true
     }
   },

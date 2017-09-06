@@ -586,11 +586,61 @@ $information-phone: "only screen and (max-width : 600px)";
 }	
 
 .dateVenueListPopUp {
+	padding-bottom:50px;
+	border-radius:5px;
 	background-color:white;
 	position:fixed;
-	top:30%;
+	top:10%;
 	left:10%;
 	right:10%;
+	color:black;
+	flex-direction:column;
+	 box-shadow: 10px 10px 5px #888888;
+	
+	.header {
+		width:100%;
+		text-align:center;
+		margin-bottom:0;
+		
+		label{
+			font-size:20px;
+			font-weight: bold;
+		}
+		
+		.closeBtn {
+			font-size: 18px;
+		    float: right;
+		    margin-right: 15px;
+		    color: grey;
+		}
+
+	}
+	.tablewrapper{
+	    flex: 1;
+    	width: 100%;
+		padding:10px;
+
+		table {
+			width:100%;
+			font-size:16px;
+			tr {
+
+    			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+				
+				td {
+					padding-right:9%;
+				    padding-bottom: 5%;
+				    padding-top: 5%;
+				}
+
+				td:first-child{
+					white-space:nowrap;
+				}
+			}
+
+		}
+	}
+	
 }
 
 .flex-center {
