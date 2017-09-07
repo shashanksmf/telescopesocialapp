@@ -39,11 +39,22 @@ const RelDateCountry = new Mongo.Collection("RelDateCountry");
   },
    reldate:{
     type: Date,
-    optional:true
+    optional:true 
   },
   reldate_local:{
     type: String,
-    optional: true
+     optional:function(){
+      console.log("local custom",this);
+      if(!this.value) {
+     //  return false;
+      }else {
+       // return true;
+      }
+    },
+    custom:function(){
+      console.log("local",this)
+    }
+   
   },
   currencyIcon:{
     type: String,
@@ -171,6 +182,7 @@ Posts.addField(
     control:"select",
     form:  {
         options: [
+        {label: "", value: ""},
         {label: "Movies", value: "Movies"},
         {label: "Sports", value: "Sports"},
         {label: "Event", value: "Event"},
@@ -213,11 +225,16 @@ Posts.addField(
       control: "customArray",
       insertableIf: canInsert,
       editableIf: canEdit,
-      custom:function(){
-        console.log("custom",this)
-      },
       optional:function(){
-        console.log("optional",this)
+        console.log("custom",this)
+        if(this.value && Array.isArray(this.value) && this.value.length > 0) {
+          console.log("if")
+          return true;
+        }
+        else {
+          console.log("else")
+          return false;
+        }
       },
       publish:true
     }

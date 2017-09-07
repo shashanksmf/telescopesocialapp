@@ -2,7 +2,7 @@ import Telescope from 'meteor/nova:lib';
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import Currency from './../currency/currency.js';
-console.log("currencyIcon",Currency.countryCurrency)
+//console.log("currencyIcon",Currency.countryCurrency)
 
 class MobileShowTimingBtn extends Component { 
 	constructor(props){
@@ -28,15 +28,19 @@ class MobileShowTimingBtn extends Component {
 			var countryName =  that.priceArr[0].country.split(",")[countryLenIndex-1].trim().toLowerCase();
 
 			for(var i=0;i<countryCurrency.length;i++) {
-				console.log("for loop",countryCurrency[i],countryName);
+				//console.log("for loop",countryCurrency[i],countryName);
 				if(countryName == countryCurrency[i].countryName.trim().toLowerCase()) {
 					currencyIcon = countryCurrency[i].currencyIcon;
 				}
 			}
 		
 		}
-		that.priceArr.sort((a,b) => a.price - b.price);
-		console.log("props dateMatchArr",props.dateMatchArr,that.priceArr,currencyIcon);
+		that.priceArr && that.priceArr.length > 1 && that.priceArr.sort(function(a,b){
+			if(a.hasOwnProperty("price") && b.hasOwnProperty("price")) {
+				return a.price - b.price;
+			}	
+		});
+	//	console.log("props dateMatchArr",props.dateMatchArr,that.priceArr,currencyIcon);
 
 
 
@@ -48,7 +52,8 @@ class MobileShowTimingBtn extends Component {
 
 	render() { 
 		var showTimeTxt = "ShowTimes";
-		if(this.props.post.hasOwnProperty("showmovies") && this.props.post.showmovies == "Product") {
+		if(this.props.post.hasOwnProperty("showmovies") && this.props.post.showmovies == "Product" &&
+			(this.priceArr[0].hasOwnProperty("price") || this.priceArr[1].hasOwnProperty("price"))) {
 			if(this.priceArr.length > 1) {
 			    showTimeTxt = currencyIcon + " " + this.priceArr[0].price + "-" + this.priceArr[1].price;
 			}
