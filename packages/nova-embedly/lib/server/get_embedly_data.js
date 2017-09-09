@@ -17,7 +17,7 @@ getEmbedlyData = function (url) {
   }
 
   try {
-	console.log("url",url)
+//	console.log("url",url)
     var result = Meteor.http.get(extractBase, {
       params: {
         key: embedlyKey,
@@ -28,7 +28,7 @@ getEmbedlyData = function (url) {
       }
     });
 
-     console.log("result",result)
+  //   console.log("result",result)
 
     if (!!result.data.images && !!result.data.images.length) // there may not always be an image
       result.data.thumbnailUrl = result.data.images[0].url.replace("http:", ""); // add thumbnailUrl as its own property and remove "http"

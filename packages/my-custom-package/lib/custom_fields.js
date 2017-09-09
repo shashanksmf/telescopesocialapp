@@ -39,22 +39,17 @@ const RelDateCountry = new Mongo.Collection("RelDateCountry");
   },
    reldate:{
     type: Date,
-    optional:true 
+    optional:true ,
   },
   reldate_local:{
     type: String,
-     optional:function(){
-      console.log("local custom",this);
+    optional:false,
+     custom:function(){
+   //   console.log("local custom",this);
       if(!this.value) {
-     //  return false;
-      }else {
-       // return true;
+        return "required";
       }
-    },
-    custom:function(){
-      console.log("local",this)
     }
-   
   },
   currencyIcon:{
     type: String,
@@ -225,15 +220,14 @@ Posts.addField(
       control: "customArray",
       insertableIf: canInsert,
       editableIf: canEdit,
-      optional:function(){
+      optional:true,
+      custom:function(){
         console.log("custom",this)
         if(this.value && Array.isArray(this.value) && this.value.length > 0) {
-          console.log("if")
-          return true;
+          
         }
         else {
-          console.log("else")
-          return false;
+          return "required" ;
         }
       },
       publish:true
