@@ -37,6 +37,7 @@ class MobilePostsItem extends Component {
   render() {
     var itemPriceCountry = {};
     var countryName='';
+    var proRelDateMatchArr = [];
     var user = Meteor.user();
 
     if(user && user.hasOwnProperty("telescope") && user.telescope.hasOwnProperty("location") && user.telescope.location.constructor === Array &&  user.telescope.location.length > 0 && user.telescope.location[0].country && user.telescope.location[0].country.length > 0) {
@@ -50,36 +51,17 @@ class MobilePostsItem extends Component {
     
     const post = this.props.post;
   	//console.log("post :ss",this.props,"countryName : ",countryName);
-    if(this.props.post.hasOwnProperty("productReleaseDate")){
-      if(this.props.post.productReleaseDate.constructor === Array){
-        this.props.post.productReleaseDate.forEach(function(items){
-          if(items){
-            if(items.hasOwnProperty("country") && countryName != null && countryName.length > 1 ){
-            // console.log("items",items,"countryName",countryName)
-              if(items.country.trim().toLowerCase() == countryName.trim().toLowerCase()){
-                itemPriceCountry.countryName = countryName; 
-              
-                if(items.hasOwnProperty("price")){
-                  itemPriceCountry.price =  items.price;  
-                }
-
-                if(items.hasOwnProperty("currencyIcon")){
-                  itemPriceCountry.currencyIcon =  items.currencyIcon;  
-                }
-
-                if(items.hasOwnProperty("reldate")){
-                  itemPriceCountry.relDate = items.reldate == undefined ? '' : (items.reldate); 
-                }
-
-               
-              }
-              
-            }
-
+      if(post.hasOwnProperty("productReleaseDate") &&post.productReleaseDate.constructor === Array && post.productReleaseDate.length > 0 ) {
+      
+      post.productReleaseDate.forEach(function(item,index){
+        if(item.country) {
+          var countryLen = item.country.split(",").length;
+          if(countryName.toLocaleLowerCase() == item.country.split(",")[countryLen-1].trim().toLocaleLowerCase()) {
+            proRelDateMatchArr.push(item)
           }
+        }
+      })
 
-        })
-      }
     }
 
   //  console.log("itemPriceCountry : ",itemPriceCountry);
@@ -106,10 +88,11 @@ class MobilePostsItem extends Component {
             
           </div>
           <div className="commnetorsCategoriesContainer">
-
-          {(itemPriceCountry.relDate != undefined && itemPriceCountry.relDate != null) ? 
-             <Telescope.components.MobileDateLikeBtn  post={post} date={moment(itemPriceCountry.relDate).format('MM')+'/'+moment(itemPriceCountry.relDate).format('DD')+'/'+moment(itemPriceCountry.relDate).format('gg')} />:''
-           }
+          { proRelDateMatchArr.length == 1  ?
+             <Telescope.components.MobileDateLikeBtn  post={post} date={moment(itemPriceCountry.relDate).format('MM')+'-'+moment(itemPriceCountry.relDate).format('DD')+'-'+moment(itemPriceCountry.relDate).format('gg')} />
+             :  (proRelDateMatchArr.length > 1 ? 
+              <Telescope.components.MobileVariousDatesBtn post={post}  dateCountryMatch={proRelDateMatchArr} />
+              : null )  }
 
     				{this.renderCategories()}
          </div>
