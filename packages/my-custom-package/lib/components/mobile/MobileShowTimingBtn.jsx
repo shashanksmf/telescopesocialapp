@@ -52,7 +52,7 @@ class MobileShowTimingBtn extends Component {
 
 	render() { 
 		var showTimeTxt = "ShowTimes";
-		if(this.props.post.hasOwnProperty("showmovies") && this.props.post.showmovies == "Product" &&
+		if(this.props.post.hasOwnProperty("postType") && this.props.post.postType == "Product" &&
 			(this.priceArr[0].hasOwnProperty("price") || this.priceArr[1].hasOwnProperty("price"))) {
 			if(this.priceArr.length > 1) {
 			    showTimeTxt = currencyIcon + " " + this.priceArr[0].price + "-" + this.priceArr[1].price;

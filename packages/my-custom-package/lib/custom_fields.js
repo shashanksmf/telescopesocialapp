@@ -166,7 +166,7 @@ Posts.addField(
   }
 },
   {
-  fieldName: 'showmovies',
+  fieldName: 'postType',
   fieldSchema: {
     type: String,
       optional: false,
@@ -269,7 +269,7 @@ so we also add our new field to that object:
 
 import PublicationUtils from 'meteor/utilities:smart-publications';
 
-PublicationUtils.addToFields(Posts.publishedFields.list, ["color","product","image","productReleaseDate","video","Genre","showmovies","producturl"]);
+PublicationUtils.addToFields(Posts.publishedFields.list, ["color","product","image","productReleaseDate","video","Genre","postType","producturl"]);
 
 PublicationUtils.addToFields(Users.publishedFields.list, ["image"]);
 

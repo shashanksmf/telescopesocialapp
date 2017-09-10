@@ -15,6 +15,6 @@ Telescope.strings.en = {
   "posts.video":"video",
   "posts.Genre":"Genre",
   "posts.Ratings":"Ratings",
-  "posts.showmovies":"Post Type"
+  "posts.postType":"Post Type"
   // add a new one (collection.field: "Label")
 };
