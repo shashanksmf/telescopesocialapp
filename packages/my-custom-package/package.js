@@ -26,7 +26,8 @@ Package.onUse( function(api) {
   ], ['client', 'server']);
 
  api.addAssets([
-    'public/share.png'
+    'public/share.png',
+    'public/collection-image.png'
   ], ['client','server']);
 
   api.addFiles([
