@@ -104,6 +104,7 @@ class MobilePostsItem extends Component {
 };
   
 MobilePostsItem.propTypes = {
+  
   post: React.PropTypes.object.isRequired
 }
 

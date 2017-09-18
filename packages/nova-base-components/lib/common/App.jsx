@@ -26,6 +26,7 @@ class App extends Component {
   }
 
   render() {
+   
     return (
       <IntlProvider locale={this.getLocale()} messages={Telescope.strings[this.getLocale()]}>
         {

@@ -159,9 +159,9 @@ class MobileVariousDatesBtn extends Component {
       var countryMatchArr = this.props.dateCountryMatch;
 	    var userProReleaseDate =  Users.find({_id : Meteor.userId() ,"telescope.productReleaseDate.postId": this.state.post._id }).fetch();
       //console.log("isRecordFound",userProReleaseDate);
-      userProReleaseDate = userProReleaseDate[0];
+      userProReleaseDate = Array.isArray(userProReleaseDate) && userProReleaseDate.length > 0 ? userProReleaseDate[0] : null;
       var isRelDateFound;
-      if(userProReleaseDate.telescope.hasOwnProperty("productReleaseDate") && userProReleaseDate.telescope.productReleaseDate.length > 0) {
+      if(userProReleaseDate && userProReleaseDate.telescope.hasOwnProperty("productReleaseDate") && userProReleaseDate.telescope.productReleaseDate.length > 0) {
         userProReleaseDate.telescope.productReleaseDate.forEach(function(userDates) {
           countryMatchArr.forEach(function(relDates){
             if(relDates._id == userDates.releaseDateId) {

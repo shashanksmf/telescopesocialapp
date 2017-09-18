@@ -654,3 +654,11 @@ $information-phone: "only screen and (max-width : 600px)";
     align-items: center;
     justify-content: center;
 }
+
+.appLoadingComp .posts-load-more-loading .spinner div {
+	height: 50px;
+    width: 50px;
+}
+.appLoadingComp .posts-load-more-loading .spinner {
+	margin-top:50px;	
+}
