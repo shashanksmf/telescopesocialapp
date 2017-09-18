@@ -859,8 +859,13 @@ body{
       span { display: block; font-size: 12px; font-weight: bold; }
     }
     .collection-icon{
-        width: 26px;
-    	height: 17px;
+       background-size: contain;
+	    background-repeat: no-repeat;
+	    width: 24px;
+	    height: 26px;
+	    margin: 0 auto;
+	    position: relative;
+	    top: 5px;
     }
   }
 }

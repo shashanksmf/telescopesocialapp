@@ -19,14 +19,19 @@ const Footer = props => {
 
 const router = props.router;
 const query = _.clone(props.router.location.query);
-const collectionIconCSS = { width:"25px",   position: "relative",  top: "6px"};
+const collectionIconCSS = { "background-image":"/packages/my-custom-package/public/collection-image.png" };
 
   return (
     <div className="footer">
       {isPhone ? <div className="footer-links clearfix">
         <div className="footer-item"><Link to="/"><i className="fa fa-home"></i><span>Home</span></Link></div>
         <div className="footer-item"><Link to="/SearchPage"><i className="fa fa-search"></i><span>Search</span></Link></div>
-        <div className="footer-item"><Link  to="/categoriesMenu"><img className="collection-icon" src="/packages/my-custom-package/public/collection-image.png" classNamesds="fa fa-cubes"/><span>Collections</span></Link></div>
+        <div className="footer-item">
+          <Link  to="/categoriesMenu">
+            <div className="collection-icon" style={collectionIconCSS} classNamesds="fa fa-cubes"/>
+            <span>Collections</span>
+          </Link>
+        </div>
         <div className="footer-item"><Link to={{pathname:"/" , query:{...query,view:'userUpvotedPosts'}}} ><i className="fa fa-list-ul"></i><span>Watchlist</span></Link></div>
         <div className="footer-item"><Link  to={`/account`}><i className="fa fa-user"></i><span>Profile</span></Link></div>
       </div> :

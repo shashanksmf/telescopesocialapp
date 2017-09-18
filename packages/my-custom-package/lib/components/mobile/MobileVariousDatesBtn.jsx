@@ -146,7 +146,7 @@ class MobileVariousDatesBtn extends Component {
       //console.log("posts fetch ",)
 	    const post = this.state.post;
 	    const user = this.context.currentUser;
-      console.log("showDateVenueList",this.state.showDateVenueList)
+   //   console.log("showDateVenueList",this.state.showDateVenueList)
       const hasUpvoted = Users.hasUpvoted(user, post);
 	    const hasDownvoted = Users.hasDownvoted(user, post);
 	    const actionsClass = classNames(
